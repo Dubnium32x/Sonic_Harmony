@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Configuration;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,8 @@ public class CharacterCTRL : MonoBehaviour {
     [SerializeField] private int maxCharge = 7; // Maximum speed for Spindash
     [SerializeField] private float peelHoldtime = 0.8f;
     [SerializeField] private float maxSpeed = 25f;
-    [SerializeField] private float spinSpeed = 30f;
+    [SerializeField] private float startSpinSpeed = 11f;
+    [SerializeField] private float maxSpinSpeed = 30f;
     [SerializeField] private float peelSpeed = 40f;
     private float IdleTime = 5.0f;
     private float IdleTimer;
@@ -27,6 +29,7 @@ public class CharacterCTRL : MonoBehaviour {
     public float decelerationTime = 5; 
     public float turnAroundTime = 0.25f;
     private float minSpeed = 0.05f;
+    private float spinSpeed = 0;
     private float time;
     public Transform groundCheck;
     public float gravity = 12f;
@@ -53,7 +56,7 @@ public class CharacterCTRL : MonoBehaviour {
     public float speedvar;
 
     public float verticalValue;
-
+    public float horizontalValue;
     private bool InLoop;
 
     private float ChargeNumber;
@@ -70,7 +73,10 @@ public class CharacterCTRL : MonoBehaviour {
     private bool turnAround;
     public bool Death;
     public bool RingGotB;
+    public enum MonitorSpecial { None, Rings10}
     public enum SonicState { Normal, ChargingSpin, Spindash, ChargingPeel, Peel, SpinningAir, Damaged, Dead };
+    
+    private (float IntitalValue,float FinalValue,bool IsLooping) LoopExitZ;
     // Start is called before the first frame update
     void Start()
     {
@@ -110,6 +116,7 @@ public class CharacterCTRL : MonoBehaviour {
         moveDirection = rb3D.velocity;
         speedvar = Mathf.Abs(moveDirection.x);
         verticalValue = Input.GetAxisRaw("Vertical");
+        horizontalValue = Input.GetAxisRaw("Horizontal");
         grounded = Physics.Linecast(transform.position, groundCheck.position);
         HandleZ();
         Accell2();
@@ -118,7 +125,7 @@ public class CharacterCTRL : MonoBehaviour {
         ChargeSpinAndPeel();
         StateChange();
         JumpHandling();
-
+        Looping();
         rb3D.velocity = moveDirection;
         time += Time.deltaTime;
         spriteRend.flipX = flipX;
@@ -139,7 +146,7 @@ public class CharacterCTRL : MonoBehaviour {
         switch (sonicState)
         {
             case SonicState.Normal:
-                if(grounded)
+                if(grounded && !jumped)
                 {
                     if (Mathf.Abs(moveDirection.magnitude) > maxSpeed + minSpeed)
                         sonicState = SonicState.Peel;
@@ -173,9 +180,9 @@ public class CharacterCTRL : MonoBehaviour {
     private void Accell2()
     {
         turnAround = false;
-        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.01 && sonicState != SonicState.Spindash && !lookingDown && !lookingUp)
+        if (Mathf.Abs(horizontalValue) > 0.01 && sonicState != SonicState.Spindash && !lookingDown && !lookingUp)
         {
-            var speed = Input.GetAxisRaw("Horizontal");
+            var speed = horizontalValue;
             if (!Mathf.Sign(moveDirection.x).Equals(Mathf.Sign(speed)))
             {
                 turnAround = true;
@@ -347,16 +354,17 @@ public class CharacterCTRL : MonoBehaviour {
             {
                 sonicState = SonicState.ChargingSpin;
 
+                // Don't exceed max speed
                 if (ChargeNumber < maxCharge)
                 {
                     ChargeNumber++;
-                    // Default spindash speed is 13
+                    // Default spindash speed on first press
                     if (ChargeNumber == 1)
-                        spinSpeed = 13;
-                    // Increase speed by 2 for each press
+                        spinSpeed = startSpinSpeed;
+                    // Increase speed each press
                     else
                     {
-                        spinSpeed += 2;
+                        spinSpeed += (maxSpinSpeed - startSpinSpeed) / maxCharge;
                     }
                 }
             }
@@ -399,5 +407,39 @@ public class CharacterCTRL : MonoBehaviour {
     public void ResetZvalue()
     {
         Zvalue = OrginalZ;
+    }
+
+    public void Looping()
+    {
+        var value = transform.position.z;
+        var positiontmp = transform.position;
+        if(!LoopExitZ.IsLooping) return;
+        if (horizontalValue < 0)
+        {
+            value = Mathf.Lerp(transform.position.z, LoopExitZ.IntitalValue, speedvar);
+            if (Math.Abs(value - LoopExitZ.IntitalValue) < 0.5)
+            {
+                LoopExitZ.IsLooping = false;
+            }
+        }
+        else if (horizontalValue > 0)
+        {
+            value = Mathf.Lerp(LoopExitZ.IntitalValue, LoopExitZ.FinalValue, speedvar);
+            if (Math.Abs(value - LoopExitZ.FinalValue) < 0.5)
+            {
+                LoopExitZ.IsLooping = false;
+            }
+        }
+        positiontmp.z = value;
+        transform.position = positiontmp;
+    }
+
+    public void SetLoopExitZ(float FinalValue)
+    {
+        LoopExitZ = (IntitalValue:transform.position.z,FinalValue,IsLooping:true);
+    }
+    public void ActivateSpecial(MonitorSpecial myEnum)
+    {
+        throw new NotImplementedException();
     }
 }

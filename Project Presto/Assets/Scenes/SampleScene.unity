@@ -1887,15 +1887,16 @@ MonoBehaviour:
   maxCharge: 7
   peelHoldtime: 0.6
   maxSpeed: 25
-  spinSpeed: 0
-  peelSpeed: 30
+  startSpinSpeed: 15
+  maxSpinSpeed: 45
+  peelSpeed: 50
   CanIdle: 1
   moveDirection: {x: 0, y: 0, z: 0}
   accelerationTime: 3
   decelerationTime: 3
   turnAroundTime: 0.25
   groundCheck: {fileID: 1989235202}
-  gravity: 40
+  gravity: 35
   deceleration: 30
   acceleration: 7
   turnAroundSpeed: 50

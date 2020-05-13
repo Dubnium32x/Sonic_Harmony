@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LoopEnter : MonoBehaviour
+public class MonitorCode : MonoBehaviour
 {
-    public LoopEnter exitPoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +15,14 @@ public class LoopEnter : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other == null) return;
         if (other.attachedRigidbody?.gameObject?.name == null) return;
         if (other.attachedRigidbody.gameObject.name != "Player_sonic") return;
         var setup = other.GetComponent<CharacterCTRL>();
-        setup.SetLoopExitZ(exitPoint.transform.position.z);
+        System.Enum.TryParse<CharacterCTRL.MonitorSpecial>(this.name, true, out var myEnum);
+
+        setup.ActivateSpecial(myEnum);
     }
 }
