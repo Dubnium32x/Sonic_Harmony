@@ -12,7 +12,7 @@ public class CharacterCTRL : MonoBehaviour {
 
     public float AddForce = 20;
     public float jumpForce = 30;
-    [SerializeField] private int maxCharge = 7;
+    [SerializeField] private int maxCharge = 7; // Maximum speed for Spindash
     [SerializeField] private float peelHoldtime = 0.8f;
     [SerializeField] private float maxSpeed = 25f;
     [SerializeField] private float spinSpeed = 30f;
@@ -88,7 +88,6 @@ public class CharacterCTRL : MonoBehaviour {
         anim.SetBool("Jump", jumped);
         anim.SetBool("Impatient", Impatient);
         audioSources = transform.Find("Audio");
-        jumpSource = audioSources.Find("Jump").GetComponent<AudioSource>();
         anim.SetBool("Gothurt",GotHurtCheck);
         anim.SetBool("Death",Death);
 
@@ -176,14 +175,17 @@ public class CharacterCTRL : MonoBehaviour {
         turnAround = false;
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.01 && sonicState != SonicState.Spindash && !lookingDown && !lookingUp)
         {
-            float speed = Input.GetAxisRaw("Horizontal");
+            var speed = Input.GetAxisRaw("Horizontal");
             if (!Mathf.Sign(moveDirection.x).Equals(Mathf.Sign(speed)))
             {
                 turnAround = true;
                 speed *= turnAroundSpeed * Time.deltaTime;
             }
             else
+            {
                 speed *= acceleration * Time.deltaTime;
+            }
+
             moveDirection += InternalMovementHandler(speed);
             moveDirection.x = Mathf.Clamp(moveDirection.x, -maxSpeed, maxSpeed);
             moveDirection.y = Mathf.Clamp(moveDirection.y, -maxSpeed, maxSpeed);
@@ -230,11 +232,11 @@ public class CharacterCTRL : MonoBehaviour {
 
             //moveDirection.y = 0;
 
-            if (!Input.GetButton("Jump")) return;
+            if (!Input.GetButtonDown("Jump")) return;
             if (!CanIdle) return;
             jumped = true;
             moveDirection.y = jumpForce;
-            jumpSource.Play();
+            //jumpSource.Play();
             jumpFramesPassed = 0;
             sonicState = SonicState.SpinningAir;
         }
@@ -323,6 +325,8 @@ public class CharacterCTRL : MonoBehaviour {
         if (!fatal)
         {
             GotHurtCheck = true;
+            var mydirection = (moveDirection * -1);
+            rb3D.AddForce( mydirection,ForceMode.VelocityChange);
         }
         else
         {
@@ -342,7 +346,19 @@ public class CharacterCTRL : MonoBehaviour {
             if (Input.GetButtonDown("Jump"))
             {
                 sonicState = SonicState.ChargingSpin;
-                ChargeNumber += 1;
+
+                if (ChargeNumber < maxCharge)
+                {
+                    ChargeNumber++;
+                    // Default spindash speed is 13
+                    if (ChargeNumber == 1)
+                        spinSpeed = 13;
+                    // Increase speed by 2 for each press
+                    else
+                    {
+                        spinSpeed += 2;
+                    }
+                }
             }
         }
         else if(lookingUp)
@@ -350,19 +366,27 @@ public class CharacterCTRL : MonoBehaviour {
             if (Input.GetButton("Jump"))
             {
                 sonicState = SonicState.ChargingPeel;
-                ChargeNumber += (maxCharge / peelHoldtime) * Time.deltaTime;
+                
+                // Cap the speed
+                if (ChargeNumber > maxCharge)
+                    ChargeNumber = maxCharge;
+                else if (ChargeNumber < maxCharge)
+                    ChargeNumber += (maxCharge / peelHoldtime) * Time.deltaTime;
             }
         }
         else if (sonicState == SonicState.ChargingSpin && !lookingDown)
         {
             sonicState = SonicState.Spindash;
-            moveDirection.x = spinSpeed * (flipX ? -1 : 1) * (ChargeNumber / maxCharge);
+            moveDirection.x = transform.right.x * (spinSpeed * (flipX ? -1 : 1));
+            moveDirection.y = transform.right.y * (spinSpeed * (flipX ? -1 : 1));
+            spinSpeed = 0;
             ChargeNumber = 0;
         }
         else if (sonicState == SonicState.ChargingPeel && (!Input.GetButton("Jump") || !lookingUp))
         {
             sonicState = SonicState.Normal;
-            moveDirection.x = peelSpeed * (flipX ? -1 : 1) * (ChargeNumber / maxCharge);
+            moveDirection.x = transform.right.x * (peelSpeed * (flipX ? -1 : 1) * (ChargeNumber / maxCharge));
+            moveDirection.y = transform.right.y * (peelSpeed * (flipX ? -1 : 1) * (ChargeNumber / maxCharge));
             ChargeNumber = 0;
         }
     }

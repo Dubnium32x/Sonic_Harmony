@@ -8,6 +8,14 @@ public class GroundModifications : MonoBehaviour
     public Quaternion SpriteReal;
     public CharacterCTRL CharScript;
     private Rigidbody rb3d;
+
+    // Constants/Variables for raycasting
+    private const float DISTANCE_CHECK = 0.9f;
+
+    // Constants/Variables for rotation in air
+    private const float ROTATE_SPEED = 85.0f;
+    private float prevAngle;
+
     void Start()
     {
         SpriteReal = spriteTransform.rotation;
@@ -20,9 +28,9 @@ public class GroundModifications : MonoBehaviour
     {
         //LoopZChecks();
         OrientToGround();
-        FallToGroundOrJustFall();
+        // FallToGroundOrJustFall(); - Not sure why this always sets the rotation to Sonic standing when not fast enough
         IdleCheck();
-        ResetSprite();
+        //ResetSprite(); - Also not sure why reset to Sonic standing after all other calculations regardless
     }
 
     void ResetSprite()
@@ -52,13 +60,21 @@ public class GroundModifications : MonoBehaviour
     {
         var layerMask = 1 << 8;
         RaycastHit hit;
-        if (!Physics.Raycast(transform.position, -transform.up, out hit, 10.0f,
-            layerMask))
+        if (!Physics.Raycast(transform.position, -transform.up, out hit, DISTANCE_CHECK))
         {
-            transform.rotation = SpriteReal;
+            // Doesn't hit anything. Set to default rotation
+            //transform.rotation = SpriteReal;
+
+            // Slowly rotate back to origin if Sonic is in the air at a rotated angle
+            if (transform.rotation.z < 0)
+                transform.Rotate(transform.forward, ROTATE_SPEED * Time.deltaTime);
+            else if (transform.rotation.z > 0)
+                transform.Rotate(transform.forward, -ROTATE_SPEED * Time.deltaTime);
+
+            return;
         }
 
-        var AngleToGround = Vector3.SignedAngle(-transform.up, -hit.normal,transform.forward);
+        var AngleToGround = Vector3.SignedAngle(-transform.up, -hit.normal, transform.forward);
         var Distance = Vector3.Distance(hit.point, transform.position);
         //Prevent Player From Being Stuck
         if ( Distance >= 1.0f)
@@ -67,7 +83,11 @@ public class GroundModifications : MonoBehaviour
         }
         if (!AngleToGround.Equals(0.0f))
         {
+            // Rotate Sonic onto the ground
             transform.Rotate(transform.forward, AngleToGround);
+
+            // Save the last calculated angle
+            prevAngle = AngleToGround;
         }
     }
 }

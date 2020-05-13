@@ -52,8 +52,8 @@ public class LevelSettings : MonoBehaviour
 
     void KeepDataInSync()
     {
-        UICanvas.BroadcastMessage("ScoreUpdate",Score);
-        UICanvas.BroadcastMessage("RingUpdate",Rings);
+        UICanvas.BroadcastMessage("ScoreUpdate", Score);
+        UICanvas.BroadcastMessage("RingUpdate", Rings);
         UICanvas.BroadcastMessage("LivesUpdate", Lives);
     }
 
@@ -64,14 +64,51 @@ public class LevelSettings : MonoBehaviour
 
     void DropRings()
     {
-        var innerRings = Rings;
-        Rings = 0;
+        var circleRadius = 1;
+        var angle = 101.25f; //assuming 0 = right, 90 = up, 180 = left, 270 = down
+        int innerRings;
+        if (Rings > 32)
+        {
+            innerRings = 32;
+        }
+        else
+        {
+            innerRings = Rings;
+        }
+        var OpositeValue = false;
+        var speed = 4;
+        Rings -= innerRings;
         for (var i = 0; i < innerRings; i++)
         {
-            //Instantiate(RingPrefab, Player.transform);
+            var ringpos = Player.transform.position;
+            var xCalc = Mathf.Cos(angle * Mathf.Deg2Rad);
+            var yCalc = -Mathf.Sin(angle * Mathf.Deg2Rad);
+            ringpos.x += speed * xCalc;
+            ringpos.y += speed * yCalc;
+            if(Physics.Linecast(Player.transform.position, ringpos,out var outHit))
+            {
+                ringpos = outHit.point;
+            }
+            var myVeloc = new Vector3(xCalc, yCalc) * speed;
+
+            if (OpositeValue)
+            {
+                myVeloc.x *= -1;
+                ringpos.x *= -1;
+                angle += 22.5f;
+            }
+            OpositeValue = !OpositeValue;
+            if (i == 16)
+            {
+                speed = 2; //we're on the second circle now, so decrease the speed
+                angle = 101.25f; //and reset the angle
+            }
+            var TheRing = Instantiate(RingPrefab, ringpos, Quaternion.identity);
+            Debug.Break();
+            var yourObject = TheRing.GetComponent<RingCode>();
+            yourObject.RingHurtSpawn(myVeloc);
         }
     }
-
     public void GotHurtL(bool fatal)
     {
         if (fatal)
@@ -92,23 +129,23 @@ public class LevelSettings : MonoBehaviour
         }
     }
 
-     void Infiniframes()
+    void Infiniframes()
     {
         //Putinvinble frames here
     }
 
-     void NoRings()
-     {
-         if (Lives > 0)
-         {
-             Lives -= 1;
-             Infiniframes();
-         }
-         else
-         {
-             GameOver();
-         }
-     }
+    void NoRings()
+    {
+        if (Lives > 0)
+        {
+            Lives -= 1;
+            Infiniframes();
+        }
+        else
+        {
+            GameOver();
+        }
+    }
     void GameOver()
     {
         SceneManager.LoadScene("GameOver");
