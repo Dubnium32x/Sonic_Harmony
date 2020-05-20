@@ -20,9 +20,7 @@ public class MonitorCode : MonoBehaviour
         if (other == null) return;
         if (other.attachedRigidbody?.gameObject?.name == null) return;
         if (other.attachedRigidbody.gameObject.name != "Player_sonic") return;
-        var setup = other.GetComponent<CharacterCTRL>();
-        System.Enum.TryParse<CharacterCTRL.MonitorSpecial>(this.name, true, out var myEnum);
-
-        setup.ActivateSpecial(myEnum);
+        var setup = other.GetComponent<CharControlMotor>();
+        System.Enum.TryParse<CharControlMotor.MonitorSpecial>(this.name, true, out var myEnum);
     }
 }

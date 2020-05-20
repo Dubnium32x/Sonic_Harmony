@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -33,7 +33,7 @@ public class RingCode : MonoBehaviour
         if(other == null) return;
         if(other.attachedRigidbody?.gameObject?.name == null) return;
         if(other.attachedRigidbody.gameObject.name != "Player_sonic") return;
-        var setup = other.GetComponent<CharacterCTRL>();
+        var setup = other.GetComponent<CharControlMotor>();
         setup.RingGot();
         gameObject.SetActive(false);
         Destroy(gameObject,5);

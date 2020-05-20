@@ -16,12 +16,12 @@ public class LoopEnter : MonoBehaviour
     {
         
     }
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerExit(Collider other)
     {
         if (other == null) return;
         if (other.attachedRigidbody?.gameObject?.name == null) return;
         if (other.attachedRigidbody.gameObject.name != "Player_sonic") return;
-        var setup = other.GetComponent<CharacterCTRL>();
-        setup.SetLoopExitZ(exitPoint.transform.position.z);
+        var setup = other.GetComponent<CharControlMotor>();
+        //setup.SetLoopExitZ(exitPoint.transform.position);
     }
 }

@@ -18,7 +18,7 @@ public class SpringCode : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.attachedRigidbody.gameObject.name != "Player_sonic") return;
-        var moveDirection = other.gameObject.GetComponent<CharacterCTRL>().moveDirection;
+        var moveDirection = other.gameObject.GetComponent<CharControlMotor>().moveDirection;
         var mydirection = (moveDirection * -1);
         other.attachedRigidbody.AddForce(mydirection, ForceMode.VelocityChange);
     }

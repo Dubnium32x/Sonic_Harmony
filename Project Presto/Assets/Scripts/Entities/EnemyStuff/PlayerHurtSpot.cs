@@ -19,8 +19,8 @@ public class PlayerHurtSpot : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.attachedRigidbody.gameObject.name != "Player_sonic") return;
-        var mycontrol = other.GetComponent<CharacterCTRL>();
-        mycontrol.GotHurt(false);
+        var mycontrol = other.GetComponent<CharControlMotor>();
+        //mycontrol.GotHurt(false);
         myBaseEnemy.TauntPlayer();
     }
 }

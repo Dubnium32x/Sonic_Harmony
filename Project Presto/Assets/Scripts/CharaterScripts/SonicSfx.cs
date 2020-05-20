@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -7,75 +7,91 @@ public class SonicSfx : MonoBehaviour
 {
 
     public AudioSource SonicJumpSound;
-    public CharacterCTRL properties;
+    public CharControlMotor properties;
     List<AudioClip> chosenSounds = new List<AudioClip>();
     private bool CurrentlyActive = false;
 
     // Save previous state to check state changes
-    CharacterCTRL.SonicState prevState;
-
+    CharControlMotor.SonicState prevState;
+    public AudioClip jump;
+    public AudioClip death;
+    public AudioClip ring_loss;
+    public AudioClip ring_ding;
+    public AudioClip peel;
+    public AudioClip spindash;
+    public AudioClip spindash_charge;
+    public AudioClip peel_launch;
     void Start()
     {
         var mysounds = Resources.LoadAll<AudioClip>("");
 
-        var jump = mysounds.First(Result => Result.name.ToLower().Contains("jump"));
+        
+        jump = mysounds.First(Result => Result.name.ToLower().Contains("jump"));
 
-        var ring_ding = mysounds.First(Result => Result.name.ToLower().Contains("ring_ding"));
+        ring_ding = mysounds.First(Result => Result.name.ToLower().Contains("ring_ding"));
 
-        var ring_loss = mysounds.First(Result => Result.name.ToLower().Contains("ring_loss"));
-        var death = mysounds.First(Result => Result.name.ToLower().Contains("death"));
-        var peel = mysounds.First(Result => Result.name.ToLower().Contains("peelout_charge_remake"));
-        var peel_launch = mysounds.First(Result => Result.name.ToLower().Contains("peelout_launch_remake"));
-        var spindash = mysounds.First(Result => Result.name.ToLower().Contains("spindash"));
+
+        ring_loss = mysounds.First(Result => Result.name.ToLower().Contains("ring_loss"));
+
+        death = mysounds.First(Result => Result.name.ToLower().Contains("death"));
+        
+        peel = mysounds.First(Result => Result.name.ToLower().Contains("peelout_charge_remake"));
+
+        peel_launch = mysounds.First(Result => Result.name.ToLower().Contains("peelout_launch_remake"));
+
+        spindash_charge = mysounds.First(Result => Result.name.ToLower().Contains("spindash"));
+
+        spindash = mysounds.First(Result => Result.name.ToLower().Contains("spin_remake"));
         chosenSounds.Add(jump);
         chosenSounds.Add(ring_ding);
         chosenSounds.Add(ring_loss);
         chosenSounds.Add(death);
         chosenSounds.Add(peel);
         chosenSounds.Add(peel_launch);
+        chosenSounds.Add(spindash_charge);
         chosenSounds.Add(spindash);
     }
     // Update is called once per frame
-    void Update()
+    void Update2()
     {
         var mystate = properties.sonicState;
         switch (mystate)
         {
-            case CharacterCTRL.SonicState.Normal:
+            case CharControlMotor.SonicState.Normal:
                 // Released peel charge
-                if (prevState == CharacterCTRL.SonicState.ChargingPeel)
+                if (prevState == CharControlMotor.SonicState.ChargingPeel)
                     PlayOnce(chosenSounds[5], mystate);
                 break;
-            case CharacterCTRL.SonicState.ChargingPeel:
+            case CharControlMotor.SonicState.ChargingPeel:
                 PlayOnce(chosenSounds[4], mystate);
                 break;
-            case CharacterCTRL.SonicState.Peel:
+            case CharControlMotor.SonicState.Peel:
                 // Released peel charge
-                if (prevState == CharacterCTRL.SonicState.ChargingPeel)
+                if (prevState == CharControlMotor.SonicState.ChargingPeel)
                     PlayOnce(chosenSounds[5], mystate);
                 break;
-            case CharacterCTRL.SonicState.ChargingSpin:
+            case CharControlMotor.SonicState.ChargingSpin:
                 if (Input.GetButtonDown("Jump"))
                 {
                     PlaySound(chosenSounds[6]);
                 }
                 break;
-            case CharacterCTRL.SonicState.Spindash:
+            case CharControlMotor.SonicState.Spindash:
                 if (!CurrentlyActive)
                 {
                     CurrentlyActive = true;
-                    PlaySound(chosenSounds[6]);
+                    PlaySound(chosenSounds[7]);
                 }
                 break;
-            case CharacterCTRL.SonicState.SpinningAir:
+            case CharControlMotor.SonicState.SpinningAir:
                 break;
         }
 
         // Reset the state for one-time SFX
-        if (mystate == CharacterCTRL.SonicState.Normal)
+        if (mystate == CharControlMotor.SonicState.Normal)
             prevState = mystate;
 
-        if (!properties.jumped && mystate == CharacterCTRL.SonicState.Normal && CurrentlyActive)
+        if (!properties.jumped && mystate == CharControlMotor.SonicState.Normal && CurrentlyActive)
         {
             CurrentlyActive = false;
         }
@@ -109,7 +125,7 @@ public class SonicSfx : MonoBehaviour
     }
 
     // Plays the sound only once per state Sonic is in
-    void PlayOnce(AudioClip SoundFile, CharacterCTRL.SonicState currentState)
+    void PlayOnce(AudioClip SoundFile, CharControlMotor.SonicState currentState)
     {
         if (prevState != currentState)
         {

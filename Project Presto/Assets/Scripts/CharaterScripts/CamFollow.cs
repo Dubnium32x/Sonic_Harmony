@@ -1,11 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CamFollow : MonoBehaviour
 {
     Transform thisTrans;
-    CharacterCTRL charCtrl;
+    CharControlMotor charCtrl;
 
     public Transform followTarget;
     public float smoothTime = 0.25f, maxSpeed = Mathf.Infinity, vertHoldtime = 0.5f;
@@ -27,7 +27,7 @@ public class CamFollow : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        if(charCtrl.sonicState == CharacterCTRL.SonicState.ChargingPeel || charCtrl.sonicState == CharacterCTRL.SonicState.ChargingSpin)
+        if(charCtrl.sonicState == CharControlMotor.SonicState.ChargingPeel || charCtrl.sonicState == CharControlMotor.SonicState.ChargingSpin)
         {
             vertHeld = 0;
             return;
@@ -70,6 +70,6 @@ public class CamFollow : MonoBehaviour
     {
         followTarget = newTarget;
         if (followTarget != null)
-            charCtrl = followTarget.GetComponent<CharacterCTRL>();
+            charCtrl = followTarget.GetComponent<CharControlMotor>();
     }
 }
