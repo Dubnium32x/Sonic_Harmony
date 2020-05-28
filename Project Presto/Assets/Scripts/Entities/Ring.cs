@@ -17,6 +17,7 @@ public class Ring : FreedomObject
 
 	[Header("Components")]
     public ParticleSystem collectParticle;
+	public AudioSource collectSFX;
 
 	private new SphereCollider collider;
 
@@ -103,7 +104,12 @@ public class Ring : FreedomObject
 	public void Disable()
 	{
 		collectable = false;
-		gameObject.SetActive(false);
+
+		// Disable specified components so that audio still plays
+		gameObject.GetComponent<SpriteRenderer>().enabled = false; // Disable sprite to no longer be shown
+		gameObject.GetComponent<SphereCollider>().enabled = false; // Disable collider to no longer have collision checks
+		enabled = false; // Disable script to no longer run code
+		//gameObject.SetActive(false);
 	}
 
 	public void Enable()
@@ -112,6 +118,8 @@ public class Ring : FreedomObject
 		lifeTimer = 0;
 		uncollectibleTimer = 0;
 		gameObject.SetActive(true);
+		enabled = true;
+		gameObject.GetComponent<SpriteRenderer>().enabled = true; // Disable sprite to no longer be shown
 	}
 
 	private void OnTriggerEnter(Collider other)
@@ -120,6 +128,7 @@ public class Ring : FreedomObject
 		{
             other.gameObject.GetComponent<CharControlMotor>().RingGot();
             collectParticle.Play();
+			collectSFX.Play();
 			Disable();
 		}
 	}
