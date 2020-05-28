@@ -22,7 +22,7 @@ public class PeelPlayerState : PlayerState
         player.HandleGravity(deltaTime);
         player.HandleFall();
 
-        power -= ((power / player.stats.powerLoss) / 256f) * deltaTime;
+        power -= ((power / player.stats.PeelpowerLoss) / 256f) * deltaTime;
 
         if (player.grounded)
         {
@@ -31,8 +31,8 @@ public class PeelPlayerState : PlayerState
                 if (player.input.actionDown)
                 {
                     player.sonicState = CharControlMotor.SonicState.ChargingPeel;
-                    power += player.stats.chargePower;
-                    power = Mathf.Min(power, player.stats.maxChargePower);
+                    power += player.stats.PeelchargePower;
+                    power = Mathf.Min(power, player.stats.PeelmaxChargePower);
                     player.PlayAudio(player.audios.peel, 0.5f);
                 }
             }
@@ -46,7 +46,7 @@ public class PeelPlayerState : PlayerState
     public override void Exit(CharControlMotor player)
     {
         //player.skin.ActiveBall(false);
-        player.velocity.x = (player.stats.minReleasePower + (Mathf.Floor(power) / 2)) * player.direction;
+        player.velocity.x = (player.stats.PeelminReleasePower + (Mathf.Floor(power) / 2)) * player.direction;
         player.PlayAudio(player.audios.peel_launch, 0.5f);
         //player.particles.spindashSmoke.Stop();
     }

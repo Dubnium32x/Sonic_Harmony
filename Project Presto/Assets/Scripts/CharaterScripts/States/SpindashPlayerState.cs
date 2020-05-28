@@ -20,7 +20,7 @@ public class SpindashPlayerState : PlayerState
         player.HandleGravity(deltaTime);
         player.HandleFall();
 
-        power -= ((power / player.stats.powerLoss) / 256f) * deltaTime;
+        power -= ((power / player.stats.SpinpowerLoss) / 256f) * deltaTime;
 
         if (player.grounded)
         {
@@ -29,8 +29,8 @@ public class SpindashPlayerState : PlayerState
                 if (player.input.actionDown)
                 {
                     player.sonicState = CharControlMotor.SonicState.ChargingSpin;
-                    power += player.stats.chargePower;
-                    power = Mathf.Min(power, player.stats.maxChargePower);
+                    power += player.stats.SpinchargePower;
+                    power = Mathf.Min(power, player.stats.SpinmaxChargePower);
                     player.PlayAudio(player.audios.spindash_charge, 0.5f);
                 }
             }
@@ -44,7 +44,7 @@ public class SpindashPlayerState : PlayerState
     public override void Exit(CharControlMotor player)
     {
         //player.skin.ActiveBall(false);
-        player.velocity.x = (player.stats.minReleasePower + (Mathf.Floor(power) / 2)) * player.direction;
+        player.velocity.x = (player.stats.SpinminReleasePower + (Mathf.Floor(power) / 2)) * player.direction;
         player.PlayAudio(player.audios.spindash, 0.5f);
         player.particles.spindashSmoke.Stop();
     }

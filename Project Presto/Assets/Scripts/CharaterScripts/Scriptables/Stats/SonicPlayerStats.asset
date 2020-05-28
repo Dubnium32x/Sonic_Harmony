@@ -41,7 +41,11 @@ MonoBehaviour:
   slopeRollUp: 9.375
   slopeRollDown: 37.5
   AutoActivateRollSpeed: 13
-  chargePower: 4
-  maxChargePower: 16
-  minReleasePower: 16
-  powerLoss: 15
+  SpinchargePower: 4
+  SpinmaxChargePower: 16
+  SpinminReleasePower: 16
+  SpinpowerLoss: 15
+  PeelchargePower: 4
+  PeelmaxChargePower: 16
+  PeelminReleasePower: 16
+  PeelpowerLoss: 15

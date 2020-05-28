@@ -44,8 +44,14 @@ public class PlayerStats : ScriptableObject
 	public float slopeRollDown;
 	public float AutoActivateRollSpeed;
 	[Header("Spindash")]
-	public float chargePower;
-	public float maxChargePower;
-	public float minReleasePower;
-	public float powerLoss;
+	public float SpinchargePower;
+	public float SpinmaxChargePower;
+	public float SpinminReleasePower;
+	public float SpinpowerLoss;
+	
+	[Header("Peel")]
+	public float PeelchargePower;
+	public float PeelmaxChargePower;
+	public float PeelminReleasePower;
+	public float PeelpowerLoss;
 }
