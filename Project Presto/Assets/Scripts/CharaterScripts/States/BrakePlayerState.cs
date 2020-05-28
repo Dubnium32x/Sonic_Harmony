@@ -10,7 +10,7 @@ public class BrakePlayerState : PlayerState
         player.PlayAudio(player.audios.brake);
         player.UpdateDirection(player.velocity.x);
         //player.skin.SetEulerY(90 - player.direction * 90);
-        //player.particles.brakeSmoke.Play();
+        player.particles.brakeSmoke.Play();
     }
 
     public override void Step(CharControlMotor player, float deltaTime)
@@ -37,6 +37,6 @@ public class BrakePlayerState : PlayerState
     }
     public override void Exit(CharControlMotor player)
     {
-        //player.particles.brakeSmoke.Stop();
+        player.particles.brakeSmoke.Stop();
     }
 }

@@ -244,10 +244,10 @@ public class CharControlMotor : PlayerMotor
         switch (shield)
         {
             case PlayerShields.None:
-                //particles.normalShield.Stop();
+                particles.normalShield.Stop();
                 break;
             case PlayerShields.Normal:
-                //particles.normalShield.Play();
+                particles.normalShield.Play();
                 break;
         }
     }
@@ -490,5 +490,9 @@ public class CharControlMotor : PlayerMotor
             flipX = false;
             spriteRend.flipX = flipX;
         }
+    }
+    protected override void OnGroundEnter()
+    {
+        particles.landSmoke.Play();
     }
 }

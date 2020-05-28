@@ -42,7 +42,7 @@ public class PlayerStats : ScriptableObject
 	public float rollFriction;
 	public float slopeRollUp;
 	public float slopeRollDown;
-
+	public float AutoActivateRollSpeed;
 	[Header("Spindash")]
 	public float chargePower;
 	public float maxChargePower;

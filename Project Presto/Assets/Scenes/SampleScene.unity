@@ -6992,6 +6992,12 @@ Transform:
   m_Father: {fileID: 967309305}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 15}
+--- !u!198 &444778064 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8799511117175735419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &486311874
 Mesh:
   m_ObjectHideFlags: 0
@@ -8905,6 +8911,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &866636567 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5706391189848994595, guid: c3d26187051fc9747a4a40f48264f7e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8799511117175735419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &893889575
 GameObject:
   m_ObjectHideFlags: 0
@@ -10371,6 +10383,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1125925393 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 6437150160602135271, guid: c3d26187051fc9747a4a40f48264f7e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8799511117175735419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1402902770
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12783,6 +12801,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &1731652969 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1389545481918020275, guid: c3d26187051fc9747a4a40f48264f7e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8799511117175735419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1782255120
 GameObject:
   m_ObjectHideFlags: 0
@@ -20373,5 +20397,25 @@ PrefabInstance:
       propertyPath: disableInput
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: particles.brakeSmoke
+      value: 
+      objectReference: {fileID: 866636567}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: particles.landSmoke
+      value: 
+      objectReference: {fileID: 1731652969}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: particles.spindashSmoke
+      value: 
+      objectReference: {fileID: 1125925393}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: particles.normalShield
+      value: 
+      objectReference: {fileID: 444778064}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3d26187051fc9747a4a40f48264f7e2, type: 3}

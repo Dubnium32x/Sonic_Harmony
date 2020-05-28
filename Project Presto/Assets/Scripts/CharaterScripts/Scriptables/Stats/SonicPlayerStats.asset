@@ -40,6 +40,7 @@ MonoBehaviour:
   rollFriction: 2.8125
   slopeRollUp: 9.375
   slopeRollDown: 37.5
+  AutoActivateRollSpeed: 13
   chargePower: 4
   maxChargePower: 16
   minReleasePower: 16

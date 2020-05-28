@@ -14,7 +14,7 @@ public class PeelPlayerState : PlayerState
         //player.skin.ActiveBall(true);
         player.ChangeBounds(1);
         player.PlayAudio(player.audios.spindash_charge, 0.5f);
-        //player.particles.spindashSmoke.Play();
+        player.particles.spindashSmoke.Play();
     }
 
     public override void Step(CharControlMotor player, float deltaTime)
@@ -38,7 +38,6 @@ public class PeelPlayerState : PlayerState
             }
             else
             {
-                player.sonicState = CharControlMotor.SonicState.Rolling;
                 player.state.ChangeState<RollPlayerState>();
             }
         }
