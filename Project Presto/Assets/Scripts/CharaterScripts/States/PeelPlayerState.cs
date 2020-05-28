@@ -31,8 +31,8 @@ public class PeelPlayerState : PlayerState
                 if (player.input.actionDown)
                 {
                     player.sonicState = CharControlMotor.SonicState.ChargingPeel;
-                    power += player.stats.chargePower*2;
-                    power = Mathf.Min(power, player.stats.maxChargePower*2);
+                    power += player.stats.chargePower;
+                    power = Mathf.Min(power, player.stats.maxChargePower);
                     player.PlayAudio(player.audios.peel, 0.5f);
                 }
             }
