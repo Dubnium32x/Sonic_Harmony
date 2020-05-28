@@ -7,6 +7,7 @@ public class SonicSfx : MonoBehaviour
 {
 
     public AudioSource SonicJumpSound;
+    public AudioSource SonicRingLossSound;
     public CharControlMotor properties;
     List<AudioClip> chosenSounds = new List<AudioClip>();
     private bool CurrentlyActive = false;
@@ -21,6 +22,7 @@ public class SonicSfx : MonoBehaviour
     public AudioClip spindash;
     public AudioClip spindash_charge;
     public AudioClip peel_launch;
+    public AudioClip brake;
     void Start()
     {
         var mysounds = Resources.LoadAll<AudioClip>("");
@@ -50,6 +52,7 @@ public class SonicSfx : MonoBehaviour
         chosenSounds.Add(peel_launch);
         chosenSounds.Add(spindash_charge);
         chosenSounds.Add(spindash);
+        chosenSounds.Add(brake);
     }
     // Update is called once per frame
     void Update2()
@@ -85,6 +88,9 @@ public class SonicSfx : MonoBehaviour
                 break;
             case CharControlMotor.SonicState.SpinningAir:
                 break;
+            case CharControlMotor.SonicState.Brake:
+                PlayOnce(chosenSounds[8], mystate);
+                break;
         }
 
         // Reset the state for one-time SFX
@@ -110,7 +116,9 @@ public class SonicSfx : MonoBehaviour
 
         if (properties.GotHurtCheck && !properties.Death)
         {
-            PlaySound(chosenSounds[2]);
+            // Ring Loss sound is separate from Sonic's sounds
+            SonicRingLossSound.Play();
+            //PlaySound(chosenSounds[2]);
         }
 
         if (properties.GotHurtCheck && properties.Death)

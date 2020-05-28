@@ -7,7 +7,7 @@ public class BrakePlayerState : PlayerState
 
         player.attacking = false;
         player.ChangeBounds(0);
-        //player.PlayAudio(player.audios.brake);
+        player.PlayAudio(player.audios.brake);
         player.UpdateDirection(player.velocity.x);
         //player.skin.SetEulerY(90 - player.direction * 90);
         //player.particles.brakeSmoke.Play();

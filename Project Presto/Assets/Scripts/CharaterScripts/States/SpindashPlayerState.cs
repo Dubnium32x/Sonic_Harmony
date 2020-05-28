@@ -12,7 +12,7 @@ public class SpindashPlayerState : PlayerState
         //player.skin.ActiveBall(true);
         player.ChangeBounds(1);
         player.PlayAudio(player.audios.spindash_charge, 0.5f);
-        player.particles.spindashSmoke.Play();
+        //player.particles.spindashSmoke.Play();
     }
 
     public override void Step(CharControlMotor player, float deltaTime)
@@ -47,6 +47,6 @@ public class SpindashPlayerState : PlayerState
         //player.skin.ActiveBall(false);
         player.velocity.x = (player.stats.minReleasePower + (Mathf.Floor(power) / 2)) * player.direction;
         player.PlayAudio(player.audios.spindash, 0.5f);
-        player.particles.spindashSmoke.Stop();
+        //player.particles.spindashSmoke.Stop();
     }
 }

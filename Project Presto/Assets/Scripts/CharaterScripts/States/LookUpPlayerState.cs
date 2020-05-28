@@ -16,13 +16,13 @@ public class LookUpPlayerState : PlayerState
 
         if (player.grounded)
         {
-            if (player.input.actionDown)
-            {
-                player.HandleJump();
-            }
-            else if (!player.input.up)
+            if (!player.input.up)
             {
                 player.state.ChangeState<WalkPlayerState>();
+            }
+            if (player.input.actionDown && player.input.up)
+            {
+                player.state.ChangeState<PeelPlayerState>();
             }
         }
         else

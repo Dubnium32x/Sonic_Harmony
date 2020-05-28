@@ -26,10 +26,23 @@ public class CamFollow : MonoBehaviour
 
     // Update is called once per frame
     void LateUpdate()
-    {
-        if(charCtrl.sonicState == CharControlMotor.SonicState.ChargingPeel || charCtrl.sonicState == CharControlMotor.SonicState.ChargingSpin)
+    {      
+        CharControlMotor.SonicState state = charCtrl.state.stateId;
+        // Stop following Sonic when he dies
+        if (state == CharControlMotor.SonicState.Dead)
         {
-            vertHeld = 0;
+            return;
+        }
+        // Set the camera to Sonic's location when charging spin or peel
+        else if (state == CharControlMotor.SonicState.ChargingPeel ||
+                 state == CharControlMotor.SonicState.ChargingSpin ||
+                 state == CharControlMotor.SonicState.Peel ||
+                 state == CharControlMotor.SonicState.Spindash)
+        {
+            // Reset the offset so it's focused back on Sonic
+            currentOffset = Vector2.zero;
+            // Fix the camera on Sonic's position
+            thisTrans.position = new Vector3(followTarget.position.x, followTarget.position.y, thisTrans.position.z);
             return;
         }
 

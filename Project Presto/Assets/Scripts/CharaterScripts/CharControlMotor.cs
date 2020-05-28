@@ -10,21 +10,10 @@ public class CharControlMotor : PlayerMotor
     private bool jump = false;
     public SonicState sonicState = CharControlMotor.SonicState.Normal;
 
-    [SerializeField] private int maxCharge = 7; // Maximum speed for Spindash
-    [SerializeField] private float peelHoldtime = 0.8f;
-    [SerializeField] private float maxSpeed = 25f;
-    [SerializeField] private float startSpinSpeed = 11f;
-    [SerializeField] private float maxSpinSpeed = 30f;
-    [SerializeField] private float peelSpeed = 40f;
-    private float IdleTime = 5.0f;
-    private float IdleTimer;
-    private bool Impatient = false;
+
     public bool CanIdle = true;
-    public Vector3 moveDirection = Vector3.zero;
     //new variables :
-    public float accelerationTime = 2.25f;
-    public float decelerationTime = 5;
-    public float turnAroundTime = 0.25f;
+
     private float minSpeed = 0.05f;
     private float spinSpeed = 0;
     private float time;
@@ -48,13 +37,9 @@ public class CharControlMotor : PlayerMotor
 
     public float speedvar;
 
-    public float verticalValue;
-    public float horizontalValue;
     private bool InLoop;
 
     private float ChargeNumber;
-    private float Zvalue;
-    private float OrginalZ;
     private Vector3 ScaleValue = new Vector3(10, 10, 0);
 
     private AudioSource musicSource;
@@ -137,24 +122,17 @@ public class CharControlMotor : PlayerMotor
     {
         mysettings = transform.root.gameObject.GetComponent<LevelSettings>();
         musicSource = GetComponent<AudioSource>();
-        OrginalZ = transform.position.z;
-        Zvalue = OrginalZ;
         characterController = GetComponent<CharControlMotor>();
         time = 0;
         anim = GetComponentInChildren<Animator>();
         //spriteRend = anim.GetComponent<SpriteRenderer>();
         spriteRend = gameObject.GetComponentInChildren<SpriteRenderer>();
-        anim.SetFloat("Speed", Mathf.Abs(moveDirection.x));
         anim.SetBool("OnGround", grounded);
         anim.SetBool("Jump", jumped);
-        anim.SetBool("Impatient", Impatient);
         audioSources = transform.Find("Audio");
         anim.SetBool("Gothurt", GotHurtCheck);
         anim.SetBool("Death", Death);
 
-        acceleration = maxSpeed / accelerationTime;
-        deceleration = maxSpeed / decelerationTime;
-        turnAroundSpeed = maxSpeed / turnAroundTime;
         Debug.Log(acceleration + "," + deceleration + "," + turnAroundSpeed);
         Debug.Log(acceleration * Time.deltaTime + "," + deceleration * Time.deltaTime + "," + turnAroundSpeed * Time.deltaTime);
 
@@ -221,8 +199,8 @@ public class CharControlMotor : PlayerMotor
         {
             if (shield != PlayerShields.None || mysettings.Rings > 0)
             {
-                moveDirection.y = stats.pushBack;
-                moveDirection.x = stats.pushBack * 0.5f * Mathf.Sign(transform.position.x - hurtPoint.x);
+                velocity.y = stats.pushBack;
+                velocity.x = stats.pushBack * 0.5f * Mathf.Sign(transform.position.x - hurtPoint.x);
                 state.ChangeState<HurtPlayerState>();
 
                 if (shield == PlayerShields.None)
@@ -447,11 +425,7 @@ public class CharControlMotor : PlayerMotor
     private void UpdateSkinAnimaiton()
     {
         // Flip sonic's sprite depending on which way he is going
-        if (input.left || input.right)
-        {
-            flipX = input.left;
-            spriteRend.flipX = flipX;
-        }
+        ChangeDirection();
 
         //animator.SetFloat(animationSpeedHash, Mathf.Lerp(0.8f, 3, velocity.magnitude / stats.maxSpeed));
 
@@ -471,7 +445,16 @@ public class CharControlMotor : PlayerMotor
     private void UpdateSkinTransform()
     {
         var yRotation = 90f - direction * 90f;
-        var zRotation = (grounded && (angle > stats.minAngleToRotate)) ? transform.eulerAngles.z : 0;
+        float zRotation;
+        if (grounded && (angle > stats.minAngleToRotate))
+        {
+            zRotation = transform.eulerAngles.z;
+        }
+        else
+        {
+            zRotation = 0;
+        }
+
         var newRotation = Quaternion.Euler(0, 0, zRotation) * Quaternion.Euler(0, yRotation, 0);
 
        if (!disableSkinRotation)
@@ -490,5 +473,22 @@ public class CharControlMotor : PlayerMotor
     public void RingGot()
     {
         mysettings.RingAdd();
+    }
+
+    // Flips Sonic's sprite direction based on the direction he's traveling
+    private void ChangeDirection()
+    {
+        // Change Sonic's sprite to the left
+        if (velocity.x < 0 && !flipX)
+        {
+            flipX = true;
+            spriteRend.flipX = flipX;
+        }
+        // Change Sonic's sprite to the right
+        else if (velocity.x > 0 && flipX)
+        {
+            flipX = false;
+            spriteRend.flipX = flipX;
+        }
     }
 }

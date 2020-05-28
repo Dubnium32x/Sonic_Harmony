@@ -18,6 +18,8 @@ public class OnEnterPause : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        #if UNITY_EDITOR
         EditorApplication.Step();
+        #endif
     }
 }

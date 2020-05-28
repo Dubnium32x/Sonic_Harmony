@@ -27,12 +27,16 @@ public class LoadCard : MonoBehaviour
         var cardSprite = Cardbox.GetComponent<SpriteRenderer>();
         var InnerImage = Resources.Load("LevelLoads/" + scene.name) as Texture2D;
         var LevelImage = Sprite.Create(InnerImage, new Rect(0, 0, InnerImage.width, InnerImage.height), new Vector2(0.5f, 0.5f), 100);
+        var Player = SceneManager.GetActiveScene()
+            .GetRootGameObjects().First(result => result.name.ToLower() == "gamecontroller")
+            .GetComponentInChildren<CharControlMotor>();
         cardSprite.sprite = LevelImage;
         Cardbox.SetActive(true);
         yield return new WaitForSeconds(5);
         levelSettings.LevelHasLoaded = true;
         mycanvas.SetActive(true);
         Cardbox.SetActive(false);
+        Player.disableInput = false;
         Resources.UnloadAsset(InnerImage);
     }
     // called first
