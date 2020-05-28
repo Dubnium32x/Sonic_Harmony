@@ -6,7 +6,7 @@ using UnityEditor;
 
 public class MenuItems
 {
-
+#if UNITY_EDITOR
     [MenuItem("Tools/NoahHelperTools/InstallGit")]
     private static void InstallGit()
     {
@@ -20,4 +20,5 @@ public class MenuItems
         };
         Process.Start(startInfo);
     }
+    #endif
 }
