@@ -30,7 +30,7 @@ Material:
     m_Floats:
     - _Brightness: 1
     - _DetailTex: 1
-    - _Outline: 0.02
+    - _Outline: 0
     - _TintColor: 0
     - _VertexColor: 0
     m_Colors:

@@ -36,6 +36,19 @@ public class PeelPlayerState : PlayerState
                     player.PlayAudio(player.audios.peel, 0.5f);
                 }
             }
+            else if (player.input.down)
+            {
+                if (Mathf.Abs(player.velocity.x) > player.stats.minSpeedToRoll)
+                {
+                    player.sonicState = CharControlMotor.SonicState.Rolling;
+                    player.state.ChangeState<RollPlayerState>();
+                    //player.PlayAudio(player.audios.spin, 0.5f);
+                }
+                else if (player.angle < player.stats.minAngleToSlide)
+                {
+                    player.state.ChangeState<CrouchPlayerState>();
+                }
+            }
             else
             {
                 player.state.ChangeState<RollPlayerState>();
@@ -48,6 +61,7 @@ public class PeelPlayerState : PlayerState
         //player.skin.ActiveBall(false);
         player.velocity.x = (player.stats.PeelminReleasePower + (Mathf.Floor(power) / 2)) * player.direction;
         player.PlayAudio(player.audios.peel_launch, 0.5f);
+        player.sonicState = CharControlMotor.SonicState.Peel;
         //player.particles.spindashSmoke.Stop();
     }
 }

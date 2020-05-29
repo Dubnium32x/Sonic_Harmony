@@ -47,5 +47,6 @@ public class SpindashPlayerState : PlayerState
         player.velocity.x = (player.stats.SpinminReleasePower + (Mathf.Floor(power) / 2)) * player.direction;
         player.PlayAudio(player.audios.spindash, 0.5f);
         player.particles.spindashSmoke.Stop();
+        player.sonicState = CharControlMotor.SonicState.Spindash;
     }
 }

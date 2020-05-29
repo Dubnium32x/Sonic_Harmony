@@ -23,12 +23,6 @@ public class WalkPlayerState : PlayerState
             {
                 player.HandleJump();
             }
-            else if (Mathf.Abs(player.velocity.x) > player.stats.AutoActivateRollSpeed)
-            {
-                player.sonicState = CharControlMotor.SonicState.Rolling;
-                player.state.ChangeState<RollPlayerState>();
-                //player.PlayAudio(player.audios.spin, 0.5f);
-            }
             else if (player.input.down)
             {
                 if (Mathf.Abs(player.velocity.x) > player.stats.minSpeedToRoll)
