@@ -61,6 +61,10 @@ public class WalkPlayerState : PlayerState
                     }
                 }
             }
+            else if (player.HandleLedgeCheck())
+            {
+                player.state.ChangeState<LedgeGrabState>();
+            }
         }
     }
 }

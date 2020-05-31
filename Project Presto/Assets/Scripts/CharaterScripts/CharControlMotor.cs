@@ -23,7 +23,6 @@ public class CharControlMotor : PlayerMotor
     //other conditions
     private bool lifeCheck = true;
     private Animator anim;
-    private SpriteRenderer spriteRend;
     private bool flipX;
     public bool jumped;
     private Transform audioSources;
@@ -51,7 +50,7 @@ public class CharControlMotor : PlayerMotor
     public bool Death;
     public bool RingGotB;
     public enum MonitorSpecial { None, Rings10 }
-    public enum SonicState { Normal=0, ChargingSpin=13, Spindash=7, ChargingPeel=12, Peel=11, SpinningAir=10, Damaged=3, Dead=2,Crouch=1,Jump=4, LookUp=5,Rolling=6, Spring=8,Brake=9 };
+    public enum SonicState { Normal=0,Crouch=1,Dead=2, Damaged=3,Jump=4, LookUp=5,Rolling=6,Spindash=7,Spring=8,Brake=9,SpinningAir=10,Peel=11, ChargingPeel=12,ChargingSpin=13,LedgeGrab=14 };
     //public enum SonicState { ChargingSpin, Damaged, Dead, Brake, Jump, Rolling, LookUp, Crouch, Spring, Walk };
 
     public (float IntitalValue, Vector3 FinalValue, float TotalDistance, bool IsLooping) LoopExitZ;
@@ -69,7 +68,7 @@ public class CharControlMotor : PlayerMotor
     public PlayerParticles particles;
     public GameObject lostRing;
     public new CamFollow camera;
-    public GameObject skin;
+    public PlayerSkin skin;
 
     private PlayerShields shield;
     public CharStateMachine state;
@@ -126,7 +125,6 @@ public class CharControlMotor : PlayerMotor
         time = 0;
         anim = GetComponentInChildren<Animator>();
         //spriteRend = anim.GetComponent<SpriteRenderer>();
-        spriteRend = gameObject.GetComponentInChildren<SpriteRenderer>();
         anim.SetBool("OnGround", grounded);
         anim.SetBool("Jump", jumped);
         audioSources = transform.Find("Audio");
@@ -311,6 +309,12 @@ public class CharControlMotor : PlayerMotor
         }
     }
 
+    public bool HandleLedgeCheck()
+    {
+        var DownAngle = Quaternion.Euler(0,0,47f);
+        var LandFound = Physics.Raycast(position, DownAngle * skin.transform.right, 5);
+        return !LandFound;
+    }
     public void HandleFriction(float deltaTime)
     {
         if (grounded && (attacking || (input.horizontal == 0)))
@@ -425,21 +429,21 @@ public class CharControlMotor : PlayerMotor
     private void UpdateSkinAnimaiton()
     {
         // Flip sonic's sprite depending on which way he is going
-        ChangeDirection();
+        //ChangeDirection();
 
         //animator.SetFloat(animationSpeedHash, Mathf.Lerp(0.8f, 3, velocity.magnitude / stats.maxSpeed));
 
         // Update animation states
         Debug.Log(state.stateId);
-        anim.SetInteger("SonicState", (int)state.stateId);
-        anim.SetFloat("Speed", Mathf.Abs(velocity.x));
-        anim.SetBool("OnGround", grounded);
-        anim.SetBool("Jump", jumped);
+        skin.animator.SetInteger("SonicState", (int)state.stateId);
+        skin.animator.SetFloat("Speed", Mathf.Abs(velocity.x));
+        skin.animator.SetBool("OnGround", grounded);
+        skin.animator.SetBool("Jump", jumped);
         //anim.SetBool("Impatient", Impatient); - State not set up yet
-        anim.SetBool("Gothurt", GotHurtCheck);
-        anim.SetBool("Death", Death);
-        anim.SetBool("LookUp", lookingUp);
-        anim.SetBool("LookDown", lookingDown);
+        skin.animator.SetBool("Gothurt", GotHurtCheck);
+        skin.animator.SetBool("Death", Death);
+        skin.animator.SetBool("LookUp", lookingUp);
+        skin.animator.SetBool("LookDown", lookingDown);
     }
 
     private void UpdateSkinTransform()
@@ -457,13 +461,13 @@ public class CharControlMotor : PlayerMotor
 
         var newRotation = Quaternion.Euler(0, 0, zRotation) * Quaternion.Euler(0, yRotation, 0);
 
-       if (!disableSkinRotation)
+        if (!disableSkinRotation)
         {
             var maxDegree = 850f * Time.deltaTime;
-           skin.transform.rotation = Quaternion.RotateTowards(transform.rotation, newRotation, maxDegree);
+            skin.root.rotation = Quaternion.RotateTowards(skin.root.rotation, newRotation, 10000000f);
         }
 
-        transform.position = position;
+        skin.root.position = position;
     }
     private void InitializeSkin()
     {
@@ -475,22 +479,6 @@ public class CharControlMotor : PlayerMotor
         mysettings.RingAdd();
     }
 
-    // Flips Sonic's sprite direction based on the direction he's traveling
-    private void ChangeDirection()
-    {
-        // Change Sonic's sprite to the left
-        if (velocity.x < 0 && !flipX)
-        {
-            flipX = true;
-            spriteRend.flipX = flipX;
-        }
-        // Change Sonic's sprite to the right
-        else if (velocity.x > 0 && flipX)
-        {
-            flipX = false;
-            spriteRend.flipX = flipX;
-        }
-    }
     protected override void OnGroundEnter()
     {
         particles.landSmoke.Play();
