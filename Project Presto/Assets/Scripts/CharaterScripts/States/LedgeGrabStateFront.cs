@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LedgeGrabState : PlayerState
+public class LedgeGrabStateFront : PlayerState
 {
     public override void Step(CharControlMotor player, float deltaTime)
     {
-        if (player.HandleLedgeCheck())
+        if (player.HandleLedgeCheck().Item1)
         {
             player.state.ChangeState<WalkPlayerState>();
+        }
+        if (player.input.actionDown)
+        {
+            player.HandleJump();
         }
     }
 

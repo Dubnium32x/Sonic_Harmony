@@ -28,12 +28,12 @@ MonoBehaviour:
   deceleration: 60
   friction: 5.625
   slope: 15
-  minSpeedToBrake: 8
+  minSpeedToBrake: 12
   turnSpeed: 1
   airAcceleration: 14
   gravity: 26.25
-  minJumpHeight: 8
-  maxJumpHeight: 13
+  minJumpHeight: 11
+  maxJumpHeight: 17
   minSpeedToRoll: 2
   minSpeedToUnroll: 1
   rollDeceleration: 15
@@ -47,5 +47,5 @@ MonoBehaviour:
   SpinpowerLoss: 15
   PeelchargePower: 4
   PeelmaxChargePower: 16
-  PeelminReleasePower: 16
+  PeelminReleasePower: 30
   PeelpowerLoss: 15

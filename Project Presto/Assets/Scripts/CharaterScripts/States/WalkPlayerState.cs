@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class WalkPlayerState : PlayerState
@@ -61,9 +62,13 @@ public class WalkPlayerState : PlayerState
                     }
                 }
             }
-            else if (player.HandleLedgeCheck())
+            else if (player.HandleLedgeCheck().Item1)
             {
-                player.state.ChangeState<LedgeGrabState>();
+                player.state.ChangeState<LedgeGrabStateFront>();
+            }
+            else if (player.HandleLedgeCheck().Item2)
+            {
+                player.state.ChangeState<LedgeGrabStateBack>();
             }
         }
     }

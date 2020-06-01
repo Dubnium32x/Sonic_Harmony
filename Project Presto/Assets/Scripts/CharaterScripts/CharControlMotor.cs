@@ -50,7 +50,7 @@ public class CharControlMotor : PlayerMotor
     public bool Death;
     public bool RingGotB;
     public enum MonitorSpecial { None, Rings10 }
-    public enum SonicState { Normal=0,Crouch=1,Dead=2, Damaged=3,Jump=4, LookUp=5,Rolling=6,Spindash=7,Spring=8,Brake=9,SpinningAir=10,Peel=11, ChargingPeel=12,ChargingSpin=13,LedgeGrab=14 };
+    public enum SonicState { Normal=0,Crouch=1,Dead=2, Damaged=3,Jump=4, LookUp=5,Rolling=6,Spindash=7,Spring=8,Brake=9,SpinningAir=10,Peel=11, ChargingPeel=12,ChargingSpin=13,LedgeGrabFront=14, LedgeGrabBack=15 };
     //public enum SonicState { ChargingSpin, Damaged, Dead, Brake, Jump, Rolling, LookUp, Crouch, Spring, Walk };
 
     public (float IntitalValue, Vector3 FinalValue, float TotalDistance, bool IsLooping) LoopExitZ;
@@ -309,11 +309,14 @@ public class CharControlMotor : PlayerMotor
         }
     }
 
-    public bool HandleLedgeCheck()
+    public (bool, bool, bool) HandleLedgeCheck()
     {
         var DownAngle = Quaternion.Euler(0,0,47f);
-        var LandFound = Physics.Raycast(position, DownAngle * skin.transform.right, 5);
-        return !LandFound;
+        var DownAngle2 = Quaternion.Euler(0,0,-47f);
+        var LandFoundFront = Physics.Raycast(position, DownAngle * transform.right, 3.0f);
+        var LandFoundBack = Physics.Raycast(position, DownAngle * -transform.right, 3.0f);
+        
+        return (!LandFoundFront,!LandFoundBack,!LandFoundFront||!LandFoundBack);
     }
     public void HandleFriction(float deltaTime)
     {

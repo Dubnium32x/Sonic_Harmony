@@ -1,0 +1,27 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class LedgeGrabStateBack : PlayerState
+{
+    public override void Step(CharControlMotor player, float deltaTime)
+    {
+        if (player.HandleLedgeCheck().Item2)
+        {
+            player.state.ChangeState<WalkPlayerState>();
+        }
+        if (player.input.actionDown)
+        {
+            player.HandleJump();
+        }
+    }
+
+    public override void Enter(CharControlMotor player)
+    {
+        
+    }
+    public override void Exit(CharControlMotor player)
+    {
+        
+    }
+}
