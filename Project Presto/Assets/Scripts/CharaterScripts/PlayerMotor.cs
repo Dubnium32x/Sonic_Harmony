@@ -355,9 +355,9 @@ public abstract class PlayerMotor : MonoBehaviour
                 {
                     var offset = transform.position + b.center;
 
-                    Gizmos.color = new Color(0, 0, 1, 0.7f);
+                    Gizmos.color = new Color(0f, 0f, 1f, 0.7f);
                     Gizmos.DrawWireCube(offset, b.size);
-                    Gizmos.color = new Color(0, 0, 1, 0.35f);
+                    Gizmos.color = new Color(0f, 0f, 1f, 0.35f);
                     Gizmos.DrawCube(offset, b.size);
                 }
             }

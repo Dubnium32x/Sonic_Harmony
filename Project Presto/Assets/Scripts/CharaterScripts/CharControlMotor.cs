@@ -74,6 +74,7 @@ public class CharControlMotor : PlayerMotor
     public CharStateMachine state;
 
     public bool attacking { get; set; }
+    public bool downPressed { get; set; }
     public bool halfGravity { get; set; }
     public bool invincible { get; set; }
 
@@ -104,6 +105,9 @@ public class CharControlMotor : PlayerMotor
         {
             input.InputUpdate();
             input.UnlockHorizontalControl(deltaTime);
+
+            // Down press bool needed for animation states - Arcy
+            downPressed = input.down;
         }
 
         UpdateInvincibility(deltaTime);
@@ -311,10 +315,21 @@ public class CharControlMotor : PlayerMotor
 
     public (bool, bool, bool) HandleLedgeCheck()
     {
-        var DownAngle = Quaternion.Euler(0,0,47f);
-        var DownAngle2 = Quaternion.Euler(0,0,-47f);
-        var LandFoundFront = Physics.Raycast(position, DownAngle * transform.right, 3.0f);
-        var LandFoundBack = Physics.Raycast(position, DownAngle * -transform.right, 3.0f);
+        if (!grounded) return (false, false, false);
+        if (Mathf.Abs(velocity.x) >= 1.0f) return (false, false, false);
+        var thecollider = skin.skin.GetComponent<BoxCollider>();
+        var pt1 =  thecollider.bounds.center;
+        var pt2 =  thecollider.bounds.center;
+        pt1.x -= thecollider.bounds.extents.x;
+        pt2.x += thecollider.bounds.extents.x;
+         if (skin.skin.transform.rotation.y == 0)
+         {
+             var tmp = pt1;
+             pt1 = pt2;
+             pt2 = tmp;
+         }
+        var LandFoundFront = Physics.Raycast(pt1, -skin.transform.up, 10.0f);
+        var LandFoundBack = Physics.Raycast(pt2, -skin.transform.up, 10.0f);
         
         return (!LandFoundFront,!LandFoundBack,!LandFoundFront||!LandFoundBack);
     }
@@ -447,6 +462,7 @@ public class CharControlMotor : PlayerMotor
         skin.animator.SetBool("Death", Death);
         skin.animator.SetBool("LookUp", lookingUp);
         skin.animator.SetBool("LookDown", lookingDown);
+        skin.animator.SetBool("DownPressed", downPressed);
     }
 
     private void UpdateSkinTransform()

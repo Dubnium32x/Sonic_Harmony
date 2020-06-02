@@ -47,7 +47,11 @@ public class LevelSettings : MonoBehaviour
         var minutes = LevelTimeSeconds / 60;
         var seconds = LevelTimeSeconds % 60;
         var TimeText = $"{minutes:00}:{seconds:00}";
-        TimerText.text = TimeText;
+        TimerText.text = string.Join("",TimeText.ToCharArray().Select(Char =>
+        {
+            var finalstring = "<sprite name=\"" + Char + "\">";
+            return finalstring;
+        }));
     }
 
     void KeepDataInSync()

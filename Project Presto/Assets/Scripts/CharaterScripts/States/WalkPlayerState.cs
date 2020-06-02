@@ -39,7 +39,9 @@ public class WalkPlayerState : PlayerState
             }
             else if (player.input.up)
             {
-                if (Mathf.Abs(player.velocity.x) < player.stats.minSpeedToRoll)
+                // Changing this condition because it causes animation bugs - Arcy
+                //if (Mathf.Abs(player.velocity.x) < player.stats.minSpeedToRoll)
+                if (player.velocity.x == 0)
                 {
                     player.state.ChangeState<LookUpPlayerState>();
                 }
