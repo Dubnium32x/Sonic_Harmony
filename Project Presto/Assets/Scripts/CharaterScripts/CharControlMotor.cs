@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -50,7 +51,26 @@ public class CharControlMotor : PlayerMotor
     public bool Death;
     public bool RingGotB;
     public enum MonitorSpecial { None, Rings10 }
-    public enum SonicState { Normal=0,Crouch=1,Dead=2, Damaged=3,Jump=4, LookUp=5,Rolling=6,Spindash=7,Spring=8,Brake=9,SpinningAir=10,Peel=11, ChargingPeel=12,ChargingSpin=13,LedgeGrabFront=14, LedgeGrabBack=15 };
+    public enum SonicState
+    {
+        Normal = 0,
+        Crouch = 1,
+        Dead = 2,
+        Damaged = 3,
+        Jump = 4,
+        LookUp = 5,
+        Rolling = 6,
+        Spindash = 7,
+        Spring = 8,
+        Brake = 9,
+        SpinningAir = 10,
+        Peel = 11,
+        ChargingPeel = 12,
+        ChargingSpin = 13,
+        LedgeGrabFront = 14,
+        LedgeGrabBack = 15,
+        Push = 16
+    };
     //public enum SonicState { ChargingSpin, Damaged, Dead, Brake, Jump, Rolling, LookUp, Crouch, Spring, Walk };
 
     public (float IntitalValue, Vector3 FinalValue, float TotalDistance, bool IsLooping) LoopExitZ;
@@ -332,6 +352,16 @@ public class CharControlMotor : PlayerMotor
         var LandFoundBack = Physics.Raycast(pt2, -skin.transform.up, 10.0f);
         
         return (!LandFoundFront,!LandFoundBack,!LandFoundFront||!LandFoundBack);
+    }
+
+    public (bool, GameObject gameObject) HandlePushCheck()
+    {
+        if (Mathf.Abs(velocity.x) >= 2.0f) return (false,null);
+        if (!Physics.Raycast(position, skin.skin.transform.right, out var myhit, 1.0f)) return (false,null);
+        
+        var myangle = Vector3.Angle(myhit.normal, skin.skin.transform.right);
+
+        return (myangle > 170.0f,myhit.collider.gameObject);
     }
     public void HandleFriction(float deltaTime)
     {

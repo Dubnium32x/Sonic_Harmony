@@ -71,6 +71,9 @@ public class WalkPlayerState : PlayerState
             else if (player.HandleLedgeCheck().Item2)
             {
                 player.state.ChangeState<LedgeGrabStateBack>();
+            } else if (player.HandlePushCheck().Item1 && Mathf.Abs(player.input.horizontal) > 0)
+            {
+                player.state.ChangeState<PushPlayerState>();
             }
         }
     }

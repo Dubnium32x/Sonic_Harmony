@@ -13,7 +13,14 @@ public class PeelPlayerState : PlayerState
         player.attacking = true;
         //player.skin.ActiveBall(true);
         player.ChangeBounds(1);
-        player.PlayAudio(player.audios.spindash_charge, 0.5f);
+        player.PlayAudio(player.audios.peel, 0.5f);
+
+        // Move particle emission right
+        if (player.direction == -1)
+            player.particles.spindashSmoke.transform.localScale = new Vector3(-1, 1, 0);
+        // Move particle emission left
+        else
+            player.particles.spindashSmoke.transform.localScale = new Vector3(1, 1, 0);
         player.particles.spindashSmoke.Play();
     }
 
@@ -33,7 +40,7 @@ public class PeelPlayerState : PlayerState
                     player.sonicState = CharControlMotor.SonicState.ChargingPeel;
                     power += player.stats.PeelchargePower;
                     power = Mathf.Min(power, player.stats.PeelmaxChargePower);
-                    player.PlayAudio(player.audios.peel, 0.5f);
+                    //player.PlayAudio(player.audios.peel, 0.5f);
                 }
             }
             else if (player.input.down)
@@ -62,6 +69,6 @@ public class PeelPlayerState : PlayerState
         player.velocity.x = (player.stats.PeelminReleasePower + (Mathf.Floor(power) / 2)) * player.direction;
         player.PlayAudio(player.audios.peel_launch, 0.5f);
         player.sonicState = CharControlMotor.SonicState.Peel;
-        //player.particles.spindashSmoke.Stop();
+        player.particles.spindashSmoke.Stop();
     }
 }

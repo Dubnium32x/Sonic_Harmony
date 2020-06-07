@@ -12,6 +12,13 @@ public class SpindashPlayerState : PlayerState
         //player.skin.ActiveBall(true);
         player.ChangeBounds(1);
         player.PlayAudio(player.audios.spindash_charge, 0.5f);
+
+        // Move particle emission right
+        if (player.direction == -1)
+            player.particles.spindashSmoke.transform.localScale = new Vector3(-1, 1, 0);
+        // Move particle emission left
+        else
+            player.particles.spindashSmoke.transform.localScale = new Vector3(1, 1, 0);
         player.particles.spindashSmoke.Play();
     }
 
