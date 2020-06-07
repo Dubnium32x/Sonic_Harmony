@@ -107,4 +107,9 @@ public class LevelSettings : MonoBehaviour
     {
         SceneManager.LoadScene("GameOver");
     }
+
+    public void AddLife()
+    {
+        Lives += 1;
+    }
 }

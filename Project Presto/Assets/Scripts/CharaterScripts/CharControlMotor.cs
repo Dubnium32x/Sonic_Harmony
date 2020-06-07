@@ -528,6 +528,11 @@ public class CharControlMotor : PlayerMotor
         mysettings.RingAdd();
     }
 
+    public void AddLife()
+    {
+        mysettings.AddLife();
+    }
+
     protected override void OnGroundEnter()
     {
         particles.landSmoke.Play();
