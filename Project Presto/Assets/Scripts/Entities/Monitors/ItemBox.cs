@@ -5,7 +5,8 @@ using System.Collections;
 public abstract class ItemBox : FreedomObject
 {
 	[Header("Monitor Components")]
-	public GameObject body;
+	public GameObject NonBrokebody;
+	public GameObject BrokenBody;
 	public GameObject item;
 	public ParticleSystem explosionParticle;
 
@@ -40,7 +41,8 @@ public abstract class ItemBox : FreedomObject
 	public override void OnRespawn()
 	{
 		StopAllCoroutines();
-		body.SetActive(true);
+		BrokenBody.SetActive(false);
+		NonBrokebody.SetActive(true);
 		item.SetActive(true);
 		item.transform.position = itemStartPosition;
 		collider.enabled = true;
@@ -48,10 +50,11 @@ public abstract class ItemBox : FreedomObject
 
 	private void DestroyMonitor(CharControlMotor player)
 	{
-		body.SetActive(false);
+		NonBrokebody.SetActive(false);
 		collider.enabled = false;
 		audio.PlayOneShot(explosionSound);
 		explosionParticle.Play();
+		BrokenBody.SetActive(true);
 		StartCoroutine(ReleaseItem(player));
 	}
 
