@@ -84,6 +84,7 @@ public abstract class ItemBox : FreedomObject
 	{
 		if (motor.TryGetComponent(out player))
 		{
+			Debug.Log(player.attacking);
 			if (player.attacking)
 			{
 				if (player.grounded)
