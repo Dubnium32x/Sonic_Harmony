@@ -53,8 +53,8 @@ public abstract class ItemBox : FreedomObject
 		NonBrokebody.SetActive(false);
 		collider.enabled = false;
 		audio.PlayOneShot(explosionSound);
-		explosionParticle.Play();
 		BrokenBody.SetActive(true);
+		explosionParticle.Play();
 		StartCoroutine(ReleaseItem(player));
 	}
 
