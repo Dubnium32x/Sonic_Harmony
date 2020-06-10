@@ -493,6 +493,14 @@ public class CharControlMotor : PlayerMotor
         skin.animator.SetBool("LookUp", lookingUp);
         skin.animator.SetBool("LookDown", lookingDown);
         skin.animator.SetBool("DownPressed", downPressed);
+
+        /// - Arcy
+        float animSpeed = Mathf.Abs(velocity.x); // Check Sonic's speed and convert to anim speed
+        if (animSpeed <= 5.0f) animSpeed = 1.0f; // Speed 1
+        else if (animSpeed <= 8.0f) animSpeed = 1.5f; // Speed 2
+        else animSpeed = 2.0f;// Speed 3
+
+        skin.animator.SetFloat("AnimSpeedMultiplier", animSpeed);
     }
 
     private void UpdateSkinTransform()
