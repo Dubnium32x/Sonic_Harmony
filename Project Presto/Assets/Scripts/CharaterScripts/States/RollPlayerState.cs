@@ -8,6 +8,7 @@ public class RollPlayerState : PlayerState
         player.attacking = true;
         player.ChangeBounds(1);
         player.particles.brakeSmoke.Play();
+        player.disableSkinRotation = true;
     }
 
     public override void Step(CharControlMotor player, float deltaTime)
@@ -38,5 +39,6 @@ public class RollPlayerState : PlayerState
     public override void Exit(CharControlMotor player)
     {
         player.particles.brakeSmoke.Stop();
+        player.disableSkinRotation = false;
     }
 }

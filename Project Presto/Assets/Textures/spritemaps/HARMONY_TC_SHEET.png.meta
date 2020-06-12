@@ -1,0 +1,1159 @@
+fileFormatVersion: 2
+guid: ee9fd64deeddf3f4793d3528830ce4c3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7864032351052675550
+    second: HARMONY_TC_SHEET_0
+  - first:
+      213: -8588102609407685015
+    second: HARMONY_TC_SHEET_1
+  - first:
+      213: -9206099579630954535
+    second: HARMONY_TC_SHEET_2
+  - first:
+      213: 703603983636405879
+    second: HARMONY_TC_SHEET_3
+  - first:
+      213: -3066424705817928681
+    second: HARMONY_TC_SHEET_4
+  - first:
+      213: -1823246357924020985
+    second: HARMONY_TC_SHEET_5
+  - first:
+      213: -4779150318282621803
+    second: HARMONY_TC_SHEET_6
+  - first:
+      213: 4907640881458615311
+    second: HARMONY_TC_SHEET_7
+  - first:
+      213: -2078240412197591975
+    second: HARMONY_TC_SHEET_8
+  - first:
+      213: 7635422712916001634
+    second: HARMONY_TC_SHEET_9
+  - first:
+      213: 4333421391422290785
+    second: HARMONY_TC_SHEET_10
+  - first:
+      213: 6865734299643732461
+    second: HARMONY_TC_SHEET_11
+  - first:
+      213: -3593936404105334615
+    second: HARMONY_TC_SHEET_12
+  - first:
+      213: 7934717564707166437
+    second: HARMONY_TC_SHEET_13
+  - first:
+      213: -179047488621172172
+    second: HARMONY_TC_SHEET_14
+  - first:
+      213: 7532703487714503007
+    second: HARMONY_TC_SHEET_15
+  - first:
+      213: 3806787865982677966
+    second: HARMONY_TC_SHEET_16
+  - first:
+      213: 5590360493443193480
+    second: HARMONY_TC_SHEET_17
+  - first:
+      213: -4551787509859767554
+    second: HARMONY_TC_SHEET_18
+  - first:
+      213: -1378669444483285662
+    second: HARMONY_TC_SHEET_19
+  - first:
+      213: -2109383924718373248
+    second: HARMONY_TC_SHEET_20
+  - first:
+      213: -4172373775239184632
+    second: HARMONY_TC_SHEET_21
+  - first:
+      213: -892061897779151881
+    second: HARMONY_TC_SHEET_22
+  - first:
+      213: 1394287702882338419
+    second: HARMONY_TC_SHEET_23
+  - first:
+      213: -4049805475203279958
+    second: HARMONY_TC_SHEET_24
+  - first:
+      213: -69200847870217738
+    second: HARMONY_TC_SHEET_25
+  - first:
+      213: -1595849219108885252
+    second: HARMONY_TC_SHEET_26
+  - first:
+      213: 3684343104702548736
+    second: HARMONY_TC_SHEET_27
+  - first:
+      213: -4254972405629328865
+    second: HARMONY_TC_SHEET_28
+  - first:
+      213: -1260972346545608899
+    second: HARMONY_TC_SHEET_29
+  - first:
+      213: -2322186236421982651
+    second: HARMONY_TC_SHEET_30
+  - first:
+      213: -3997627830402146885
+    second: HARMONY_TC_SHEET_31
+  - first:
+      213: 2976471992771616225
+    second: HARMONY_TC_SHEET_32
+  - first:
+      213: -7776976356581382519
+    second: HARMONY_TC_SHEET_33
+  - first:
+      213: 3678572879103708986
+    second: HARMONY_TC_SHEET_34
+  - first:
+      213: 2350017185669917728
+    second: HARMONY_TC_SHEET_35
+  - first:
+      213: -8995803259999150320
+    second: HARMONY_TC_SHEET_36
+  - first:
+      213: -5772653832957228693
+    second: HARMONY_TC_SHEET_37
+  - first:
+      213: -1048222403836825658
+    second: HARMONY_TC_SHEET_38
+  - first:
+      213: -4374697729763912647
+    second: HARMONY_TC_SHEET_39
+  - first:
+      213: -4686777657742636206
+    second: HARMONY_TC_SHEET_40
+  - first:
+      213: -3917997650777611636
+    second: HARMONY_TC_SHEET_41
+  - first:
+      213: -6842394848253062291
+    second: HARMONY_TC_SHEET_42
+  - first:
+      213: 7260180906512136484
+    second: HARMONY_TC_SHEET_43
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 648
+        width: 307
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26e0227829296b04ba6a2dcae619954e
+      internalID: 7864032351052675550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_1
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 721
+        width: 40
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05d416c6ed1e26545948de5b947b974a
+      internalID: -8588102609407685015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_2
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 648
+        width: 40
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9944aa72e8711864a8a086ad4351acea
+      internalID: -9206099579630954535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_3
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 372
+        width: 480
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0fc83a5dc36469649b42d08f66a16fc4
+      internalID: 703603983636405879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_4
+      rect:
+        serializedVersion: 2
+        x: 493
+        y: 442
+        width: 479
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ceb15cd435da67479593981656e2d26
+      internalID: -3066424705817928681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_5
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 181
+        width: 44
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e62af438f3d42814899f05c6202e8c67
+      internalID: -1823246357924020985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_6
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 209
+        width: 48
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06fe18b037a8b4f4fa195c42273389b7
+      internalID: -4779150318282621803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_7
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 96
+        width: 480
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99ee65e90bfb5a744827adf1b4a9e9fb
+      internalID: 4907640881458615311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_8
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 74
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a59ee65d3e3991b4187d5f192da47477
+      internalID: -2078240412197591975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_9
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 74
+        width: 64
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd5b97773a2b23408bebdae79d9cdbd
+      internalID: 7635422712916001634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_10
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 44
+        width: 16
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49061a1254545af4f94546b08cb3ffc7
+      internalID: 4333421391422290785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_11
+      rect:
+        serializedVersion: 2
+        x: 120
+        y: 44
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3863fadf33d775a4d935bb614e49c1f7
+      internalID: 6865734299643732461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_12
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 44
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: becdfaa74105348438ca1cbea17a5661
+      internalID: -3593936404105334615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_13
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 75
+        width: 22
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81196f0c22d568e4b89b3e70d928be00
+      internalID: 7934717564707166437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_14
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 78
+        width: 52
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b528b956972a06419e7098a808dc7cd
+      internalID: -179047488621172172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_15
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 78
+        width: 59
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64d3e4d392f23504795e00b218cde9f7
+      internalID: 7532703487714503007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_16
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 6
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea501097635729741a9f9ebc9a79ef4a
+      internalID: 3806787865982677966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_17
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d7ae95c0ecd4e74ea6db449d486d0fb
+      internalID: 5590360493443193480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_18
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf88a468c2611a4ebfe90362c3084e5
+      internalID: -4551787509859767554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_19
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 158198231f0741e4bbd990fa594a3daf
+      internalID: -1378669444483285662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_20
+      rect:
+        serializedVersion: 2
+        x: 77
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3b282378655ef4d9c1832e9ad543a1
+      internalID: -2109383924718373248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_21
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9707644d97649647b484576d70594e2
+      internalID: -4172373775239184632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_22
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01994274044397b4db5e8fd2e13b5335
+      internalID: -892061897779151881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_23
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7cb17598fccdf040b73a51dfc906052
+      internalID: 1394287702882338419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_24
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 6
+        width: 6
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57ae052c7e7a034bb27fb5be9f0e8d2
+      internalID: -4049805475203279958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_25
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0357e0e19e9625f429e372ce5c03c4f4
+      internalID: -69200847870217738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_26
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78ca10baeef6f2247a8dcc9e147140f7
+      internalID: -1595849219108885252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_27
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3156d57dbbcaec74389e1b0b8e94a2e1
+      internalID: 3684343104702548736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_28
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 6
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc76283fce63122408a05d0e5034a48a
+      internalID: -4254972405629328865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_29
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 6
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b808b4c368786ab4fb35c734725595ba
+      internalID: -1260972346545608899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_30
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8643567acb81d5d45bdc55bebc8d1511
+      internalID: -2322186236421982651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_31
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f325bad7c68dfcb49930f6c890fc1455
+      internalID: -3997627830402146885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_32
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 6
+        width: 13
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ce26b24195067841b704eca448ce053
+      internalID: 2976471992771616225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_33
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c628542961865114a847a7e4678830bc
+      internalID: -7776976356581382519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_34
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ead3cd72e76e28f4f900a377018e9fa3
+      internalID: 3678572879103708986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_35
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 6
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a74a0e3dc82fd0c4e8a60b663f02ad65
+      internalID: 2350017185669917728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_36
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37cb313b612ea0549b3ad329c0dba804
+      internalID: -8995803259999150320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_37
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 428ed5b718fb70c42878d7159b1732f9
+      internalID: -5772653832957228693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_38
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 6
+        width: 11
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37e3be776ca67aa4694d425d4acfda9f
+      internalID: -1048222403836825658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_39
+      rect:
+        serializedVersion: 2
+        x: 408
+        y: 6
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f28af861dc9272d41af991647dd01c54
+      internalID: -4374697729763912647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_40
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 6
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53e4212960817474896d887d2f7ffb08
+      internalID: -4686777657742636206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_41
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 6
+        width: 12
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec444bb131442344795ba01687514cf5
+      internalID: -3917997650777611636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_42
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 6
+        width: 8
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53713fc43cfb9ac44ac624dcdeccd926
+      internalID: -6842394848253062291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_TC_SHEET_43
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 6
+        width: 16
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f603c9aa4862dc145abccd70b2a802bc
+      internalID: 7260180906512136484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 7ab41e186ba60c541ad6b7058397ba95
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

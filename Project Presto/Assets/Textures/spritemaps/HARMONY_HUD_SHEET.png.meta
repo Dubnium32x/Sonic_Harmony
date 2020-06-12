@@ -1,0 +1,3958 @@
+fileFormatVersion: 2
+guid: f49bb4964082ea54486f1a9ab5a6c063
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3132470329016906903
+    second: 0
+  - first:
+      213: -4136968463449835720
+    second: 1
+  - first:
+      213: 4262144782981745954
+    second: 2
+  - first:
+      213: 8580759659150471165
+    second: 3
+  - first:
+      213: -8286493700844387027
+    second: 4
+  - first:
+      213: 2196732916049888229
+    second: 5
+  - first:
+      213: 5537755661087644914
+    second: 6
+  - first:
+      213: -7684552283352424267
+    second: 7
+  - first:
+      213: 8315185198724144980
+    second: 8
+  - first:
+      213: -640568042625136631
+    second: 9
+  - first:
+      213: -8210457264174823824
+    second: Colon
+  - first:
+      213: -6511236392051207304
+    second: Star
+  - first:
+      213: 9057657114271962469
+    second: Z
+  - first:
+      213: 5078056106505362990
+    second: Y
+  - first:
+      213: -2216351359717042396
+    second: X
+  - first:
+      213: 9009482836251583543
+    second: W
+  - first:
+      213: 6676161005518459655
+    second: V
+  - first:
+      213: -6778198041649275495
+    second: U
+  - first:
+      213: -5221334264670400332
+    second: T
+  - first:
+      213: 2962128243016790642
+    second: S
+  - first:
+      213: -5170109285753866261
+    second: R
+  - first:
+      213: -6473247746981759049
+    second: Q
+  - first:
+      213: 2397695241288453336
+    second: P
+  - first:
+      213: 3354634955544766604
+    second: O
+  - first:
+      213: -7518180631949140946
+    second: N
+  - first:
+      213: -8768554088360436729
+    second: M
+  - first:
+      213: -4777894346210022005
+    second: L
+  - first:
+      213: -3934635827416324077
+    second: K
+  - first:
+      213: -5154860908528156830
+    second: J
+  - first:
+      213: -4896286163002904400
+    second: I
+  - first:
+      213: -3366247895675216196
+    second: H
+  - first:
+      213: 5163510425604885554
+    second: G
+  - first:
+      213: -1369264834629997271
+    second: F
+  - first:
+      213: 2678629178853362540
+    second: E
+  - first:
+      213: 4175430551172365778
+    second: D
+  - first:
+      213: -1140298092897110013
+    second: C
+  - first:
+      213: 7474507357741805438
+    second: B
+  - first:
+      213: -6670329611945324398
+    second: A
+  - first:
+      213: -8222043698357172292
+    second: O0
+  - first:
+      213: 2962109430130412166
+    second: O1
+  - first:
+      213: 2468021605084324476
+    second: O2
+  - first:
+      213: 8228123372197842338
+    second: O3
+  - first:
+      213: 4742942261147127181
+    second: O4
+  - first:
+      213: 1804704799094265624
+    second: O5
+  - first:
+      213: 5855926883720333924
+    second: O6
+  - first:
+      213: 2521557604620616729
+    second: O7
+  - first:
+      213: -1439147616913054581
+    second: O8
+  - first:
+      213: -6207750891046815274
+    second: O9
+  - first:
+      213: -7885058041294279814
+    second: OColon
+  - first:
+      213: -4660238865889571795
+    second: OStar
+  - first:
+      213: 7445838016556105847
+    second: OA
+  - first:
+      213: 76084318816731767
+    second: OB
+  - first:
+      213: 5273565258723781584
+    second: OC
+  - first:
+      213: 6872493526483807692
+    second: OD
+  - first:
+      213: -8373928492623190991
+    second: OE
+  - first:
+      213: 4165913473921683075
+    second: OF
+  - first:
+      213: 8403273714664530112
+    second: OG
+  - first:
+      213: 4336076259934285516
+    second: OH
+  - first:
+      213: 3444259557079129693
+    second: OI
+  - first:
+      213: 7610157237384185966
+    second: OJ
+  - first:
+      213: -6388054296631770160
+    second: OK
+  - first:
+      213: 1768463128656732382
+    second: OL
+  - first:
+      213: 7739048912650303234
+    second: OM
+  - first:
+      213: -7774490237732090067
+    second: ON
+  - first:
+      213: 9052174037397044372
+    second: OO
+  - first:
+      213: -7858614223660769901
+    second: OP
+  - first:
+      213: -4151547131524618105
+    second: OQ
+  - first:
+      213: -3527506333707515701
+    second: OR
+  - first:
+      213: 4856334641076231129
+    second: OS
+  - first:
+      213: 4283025210764208332
+    second: OT
+  - first:
+      213: -6868852886869283846
+    second: OU
+  - first:
+      213: 671005863854982297
+    second: OV
+  - first:
+      213: -2796800071474534243
+    second: OW
+  - first:
+      213: -5495282159946301338
+    second: OX
+  - first:
+      213: 8798832625715832540
+    second: OY
+  - first:
+      213: -7307230284099080598
+    second: OZ
+  - first:
+      213: 2111654892405933854
+    second: HARMONY_HUD_SHEET_HUD
+  - first:
+      213: 3132470329016906903
+    second: HARMONY_HUD_SHEET_0
+  - first:
+      213: -4136968463449835720
+    second: HARMONY_HUD_SHEET_1
+  - first:
+      213: 4262144782981745954
+    second: HARMONY_HUD_SHEET_2
+  - first:
+      213: 8580759659150471165
+    second: HARMONY_HUD_SHEET_3
+  - first:
+      213: -8286493700844387027
+    second: HARMONY_HUD_SHEET_4
+  - first:
+      213: 2196732916049888229
+    second: HARMONY_HUD_SHEET_5
+  - first:
+      213: 5537755661087644914
+    second: HARMONY_HUD_SHEET_6
+  - first:
+      213: -7684552283352424267
+    second: HARMONY_HUD_SHEET_7
+  - first:
+      213: 8315185198724144980
+    second: HARMONY_HUD_SHEET_8
+  - first:
+      213: -640568042625136631
+    second: HARMONY_HUD_SHEET_9
+  - first:
+      213: -8210457264174823824
+    second: HARMONY_HUD_SHEET_10
+  - first:
+      213: -6511236392051207304
+    second: HARMONY_HUD_SHEET_11
+  - first:
+      213: 9057657114271962469
+    second: HARMONY_HUD_SHEET_12
+  - first:
+      213: 5078056106505362990
+    second: HARMONY_HUD_SHEET_13
+  - first:
+      213: -2216351359717042396
+    second: HARMONY_HUD_SHEET_14
+  - first:
+      213: 9009482836251583543
+    second: HARMONY_HUD_SHEET_15
+  - first:
+      213: 6676161005518459655
+    second: HARMONY_HUD_SHEET_16
+  - first:
+      213: -6778198041649275495
+    second: HARMONY_HUD_SHEET_17
+  - first:
+      213: -5221334264670400332
+    second: HARMONY_HUD_SHEET_18
+  - first:
+      213: 2962128243016790642
+    second: HARMONY_HUD_SHEET_19
+  - first:
+      213: -5170109285753866261
+    second: HARMONY_HUD_SHEET_20
+  - first:
+      213: -6473247746981759049
+    second: HARMONY_HUD_SHEET_21
+  - first:
+      213: 2397695241288453336
+    second: HARMONY_HUD_SHEET_22
+  - first:
+      213: 3354634955544766604
+    second: HARMONY_HUD_SHEET_23
+  - first:
+      213: -7518180631949140946
+    second: HARMONY_HUD_SHEET_24
+  - first:
+      213: -8768554088360436729
+    second: HARMONY_HUD_SHEET_25
+  - first:
+      213: -4777894346210022005
+    second: HARMONY_HUD_SHEET_26
+  - first:
+      213: -3934635827416324077
+    second: HARMONY_HUD_SHEET_27
+  - first:
+      213: -5154860908528156830
+    second: HARMONY_HUD_SHEET_28
+  - first:
+      213: -4896286163002904400
+    second: HARMONY_HUD_SHEET_29
+  - first:
+      213: -3366247895675216196
+    second: HARMONY_HUD_SHEET_30
+  - first:
+      213: 5163510425604885554
+    second: HARMONY_HUD_SHEET_31
+  - first:
+      213: -1369264834629997271
+    second: HARMONY_HUD_SHEET_32
+  - first:
+      213: 2678629178853362540
+    second: HARMONY_HUD_SHEET_33
+  - first:
+      213: 4175430551172365778
+    second: HARMONY_HUD_SHEET_34
+  - first:
+      213: -1140298092897110013
+    second: HARMONY_HUD_SHEET_35
+  - first:
+      213: 7474507357741805438
+    second: HARMONY_HUD_SHEET_36
+  - first:
+      213: -6670329611945324398
+    second: HARMONY_HUD_SHEET_37
+  - first:
+      213: -8222043698357172292
+    second: HARMONY_HUD_SHEET_38
+  - first:
+      213: 2962109430130412166
+    second: HARMONY_HUD_SHEET_39
+  - first:
+      213: 2468021605084324476
+    second: HARMONY_HUD_SHEET_40
+  - first:
+      213: 8228123372197842338
+    second: HARMONY_HUD_SHEET_41
+  - first:
+      213: 4742942261147127181
+    second: HARMONY_HUD_SHEET_42
+  - first:
+      213: 1804704799094265624
+    second: HARMONY_HUD_SHEET_43
+  - first:
+      213: 5855926883720333924
+    second: HARMONY_HUD_SHEET_44
+  - first:
+      213: 2521557604620616729
+    second: HARMONY_HUD_SHEET_45
+  - first:
+      213: -1439147616913054581
+    second: HARMONY_HUD_SHEET_46
+  - first:
+      213: -6207750891046815274
+    second: HARMONY_HUD_SHEET_47
+  - first:
+      213: -7885058041294279814
+    second: HARMONY_HUD_SHEET_48
+  - first:
+      213: -4660238865889571795
+    second: HARMONY_HUD_SHEET_49
+  - first:
+      213: 7445838016556105847
+    second: HARMONY_HUD_SHEET_50
+  - first:
+      213: 76084318816731767
+    second: HARMONY_HUD_SHEET_51
+  - first:
+      213: 5273565258723781584
+    second: HARMONY_HUD_SHEET_52
+  - first:
+      213: 6872493526483807692
+    second: HARMONY_HUD_SHEET_53
+  - first:
+      213: -8373928492623190991
+    second: HARMONY_HUD_SHEET_54
+  - first:
+      213: 4165913473921683075
+    second: HARMONY_HUD_SHEET_55
+  - first:
+      213: 8403273714664530112
+    second: HARMONY_HUD_SHEET_56
+  - first:
+      213: 4336076259934285516
+    second: HARMONY_HUD_SHEET_57
+  - first:
+      213: 3444259557079129693
+    second: HARMONY_HUD_SHEET_58
+  - first:
+      213: 7610157237384185966
+    second: HARMONY_HUD_SHEET_59
+  - first:
+      213: -6388054296631770160
+    second: HARMONY_HUD_SHEET_60
+  - first:
+      213: 1768463128656732382
+    second: HARMONY_HUD_SHEET_61
+  - first:
+      213: 7739048912650303234
+    second: HARMONY_HUD_SHEET_62
+  - first:
+      213: -7774490237732090067
+    second: HARMONY_HUD_SHEET_63
+  - first:
+      213: 9052174037397044372
+    second: HARMONY_HUD_SHEET_64
+  - first:
+      213: -7858614223660769901
+    second: HARMONY_HUD_SHEET_65
+  - first:
+      213: -4151547131524618105
+    second: HARMONY_HUD_SHEET_66
+  - first:
+      213: -3527506333707515701
+    second: HARMONY_HUD_SHEET_67
+  - first:
+      213: 4856334641076231129
+    second: HARMONY_HUD_SHEET_68
+  - first:
+      213: 4283025210764208332
+    second: HARMONY_HUD_SHEET_69
+  - first:
+      213: -6868852886869283846
+    second: HARMONY_HUD_SHEET_70
+  - first:
+      213: 671005863854982297
+    second: HARMONY_HUD_SHEET_71
+  - first:
+      213: -2796800071474534243
+    second: HARMONY_HUD_SHEET_72
+  - first:
+      213: -5495282159946301338
+    second: HARMONY_HUD_SHEET_73
+  - first:
+      213: 8798832625715832540
+    second: HARMONY_HUD_SHEET_74
+  - first:
+      213: -7307230284099080598
+    second: HARMONY_HUD_SHEET_75
+  - first:
+      213: 2111654892405933854
+    second: HARMONY_HUD_SHEET_76
+  - first:
+      213: -4706834387644622762
+    second: HARMONY_HUD_SHEET_77
+  - first:
+      213: -6609320464098061565
+    second: HARMONY_HUD_SHEET_78
+  - first:
+      213: 1625826656304774447
+    second: HARMONY_HUD_SHEET_79
+  - first:
+      213: 8130976576220037098
+    second: HARMONY_HUD_SHEET_80
+  - first:
+      213: -5818981130747461542
+    second: HARMONY_HUD_SHEET_81
+  - first:
+      213: 8120109914044232628
+    second: HARMONY_HUD_SHEET_82
+  - first:
+      213: -2414757350666836014
+    second: HARMONY_HUD_SHEET_83
+  - first:
+      213: -9210115281374035210
+    second: HARMONY_HUD_SHEET_84
+  - first:
+      213: -3426398102257413974
+    second: HARMONY_HUD_SHEET_85
+  - first:
+      213: -1853948602677128470
+    second: HARMONY_HUD_SHEET_86
+  - first:
+      213: 5024584758452356755
+    second: HARMONY_HUD_SHEET_87
+  - first:
+      213: 5707493088522305607
+    second: HARMONY_HUD_SHEET_88
+  - first:
+      213: 3914523061997219247
+    second: HARMONY_HUD_SHEET_89
+  - first:
+      213: 3438189838569307889
+    second: HARMONY_HUD_SHEET_90
+  - first:
+      213: 2627695883108573092
+    second: HARMONY_HUD_SHEET_91
+  - first:
+      213: -6449934868461748888
+    second: HARMONY_HUD_SHEET_92
+  - first:
+      213: -6578204321059999408
+    second: HARMONY_HUD_SHEET_93
+  - first:
+      213: -5321695988146088903
+    second: HARMONY_HUD_SHEET_94
+  - first:
+      213: 7835158728206224697
+    second: HARMONY_HUD_SHEET_95
+  - first:
+      213: 9070325341472008483
+    second: HARMONY_HUD_SHEET_96
+  - first:
+      213: 1412824171079653285
+    second: HARMONY_HUD_SHEET_97
+  - first:
+      213: 144757566602410158
+    second: HARMONY_HUD_SHEET_98
+  - first:
+      213: 290104495634549393
+    second: HARMONY_HUD_SHEET_99
+  - first:
+      213: -8267348994839750468
+    second: HARMONY_HUD_SHEET_100
+  - first:
+      213: 8524572138233554147
+    second: HARMONY_HUD_SHEET_101
+  - first:
+      213: 5317626924616487507
+    second: HARMONY_HUD_SHEET_102
+  - first:
+      213: -2603876629829996128
+    second: HARMONY_HUD_SHEET_103
+  - first:
+      213: -2483607223768321765
+    second: HARMONY_HUD_SHEET_104
+  - first:
+      213: 7256144965892870336
+    second: HARMONY_HUD_SHEET_105
+  - first:
+      213: -6427277027902668686
+    second: HARMONY_HUD_SHEET_106
+  - first:
+      213: 2973943237762377483
+    second: HARMONY_HUD_SHEET_107
+  - first:
+      213: 1011087135894318584
+    second: HARMONY_HUD_SHEET_108
+  - first:
+      213: 3467987249645933605
+    second: HARMONY_HUD_SHEET_109
+  - first:
+      213: -5012432117628440810
+    second: HARMONY_HUD_SHEET_110
+  - first:
+      213: -1934189682313153280
+    second: HARMONY_HUD_SHEET_111
+  - first:
+      213: -6831973478832741781
+    second: HARMONY_HUD_SHEET_112
+  - first:
+      213: -5496077864045504431
+    second: HARMONY_HUD_SHEET_113
+  - first:
+      213: -3415826491776531170
+    second: HARMONY_HUD_SHEET_114
+  - first:
+      213: -2529816375028424802
+    second: HARMONY_HUD_SHEET_115
+  - first:
+      213: -8665551320791636956
+    second: HARMONY_HUD_SHEET_116
+  - first:
+      213: 583494203606821398
+    second: HARMONY_HUD_SHEET_117
+  - first:
+      213: -5831659243050463047
+    second: HARMONY_HUD_SHEET_118
+  - first:
+      213: -7549975970824409808
+    second: HARMONY_HUD_SHEET_119
+  - first:
+      213: 7929107992305833046
+    second: HARMONY_HUD_SHEET_120
+  - first:
+      213: 1289863389929758760
+    second: HARMONY_HUD_SHEET_121
+  - first:
+      213: -4712804101565082874
+    second: HARMONY_HUD_SHEET_122
+  - first:
+      213: -4782793206983276634
+    second: HARMONY_HUD_SHEET_123
+  - first:
+      213: 1537434808529159105
+    second: HARMONY_HUD_SHEET_124
+  - first:
+      213: 4061865200136109855
+    second: HARMONY_HUD_SHEET_125
+  - first:
+      213: 3861004549053094222
+    second: HARMONY_HUD_SHEET_126
+  - first:
+      213: 8455473465132564589
+    second: HARMONY_HUD_SHEET_127
+  - first:
+      213: -3061967810424706145
+    second: HARMONY_HUD_SHEET_128
+  - first:
+      213: -1630780755705777609
+    second: HARMONY_HUD_SHEET_129
+  - first:
+      213: 3778746347769942054
+    second: HARMONY_HUD_SHEET_130
+  - first:
+      213: 6420209575520846229
+    second: HARMONY_HUD_SHEET_131
+  - first:
+      213: -6467190866569728403
+    second: HARMONY_HUD_SHEET_132
+  - first:
+      213: 1202432533129506686
+    second: HARMONY_HUD_SHEET_133
+  - first:
+      213: -2162520569545109547
+    second: HARMONY_HUD_SHEET_134
+  - first:
+      213: 8807262839956165676
+    second: HARMONY_HUD_SHEET_135
+  - first:
+      213: 926638165750600482
+    second: HARMONY_HUD_SHEET_136
+  - first:
+      213: -2218263839024406189
+    second: HARMONY_HUD_SHEET_137
+  - first:
+      213: -2550198406960785033
+    second: HARMONY_HUD_SHEET_138
+  - first:
+      213: -8529711753955690192
+    second: HARMONY_HUD_SHEET_139
+  - first:
+      213: 1478292271608281888
+    second: HARMONY_HUD_SHEET_140
+  - first:
+      213: -5724176696900701502
+    second: HARMONY_HUD_SHEET_141
+  - first:
+      213: -6568421524528838193
+    second: HARMONY_HUD_SHEET_142
+  - first:
+      213: -2259575490683317753
+    second: HARMONY_HUD_SHEET_143
+  - first:
+      213: 7181908016582174944
+    second: HARMONY_HUD_SHEET_144
+  - first:
+      213: 9035511785185031598
+    second: HARMONY_HUD_SHEET_145
+  - first:
+      213: -2207066336811217137
+    second: HARMONY_HUD_SHEET_146
+  - first:
+      213: 586069532645686690
+    second: HARMONY_HUD_SHEET_147
+  - first:
+      213: -7435426648625522560
+    second: HARMONY_HUD_SHEET_148
+  - first:
+      213: 7404670799992336023
+    second: HARMONY_HUD_SHEET_149
+  - first:
+      213: 6080462271544375342
+    second: HARMONY_HUD_SHEET_150
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 1
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_0
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 498
+        width: 146
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e3687c1e089b216498a3c4588670a536
+      internalID: 3132470329016906903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_1
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 541
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05b8792e71eaac04db76dac1ca3b5b47
+      internalID: -4136968463449835720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_2
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 541
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e63bf857e58ec145a7f07aab5b212e1
+      internalID: 4262144782981745954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_3
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 541
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e79f77aaca648545b8177a981d9c6b6
+      internalID: 8580759659150471165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_4
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 541
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa56bbfbe6137c04586a7a29a58bd19b
+      internalID: -8286493700844387027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_5
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 541
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0279e27f3f74ab4488e269282cdcbf7a
+      internalID: 2196732916049888229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_6
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 541
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf49ad18efc1d348a10ca375fe593af
+      internalID: 5537755661087644914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_7
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 541
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d645392ae02c604f96c7724951c0218
+      internalID: -7684552283352424267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_8
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 541
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99d332506975ede4f89941c6119c599c
+      internalID: 8315185198724144980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_9
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 541
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 181fdd7c4215a9142aa8f0d8ab5b2892
+      internalID: -640568042625136631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_10
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 541
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d6418785bc64642b1f492e8f96e8e7
+      internalID: -8210457264174823824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_11
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 542
+        width: 23
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7eef9f10167f06d40bd7a1fef1256ce9
+      internalID: -6511236392051207304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_12
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 514
+        width: 88
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65d8e1d292e508a4c9bfe4240a31668e
+      internalID: 9057657114271962469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_13
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42bc26685f3dbe44a92b67257f24a875
+      internalID: 5078056106505362990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_14
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b380e09f45ba4b4f81cd52c1f1888f3
+      internalID: -2216351359717042396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_15
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10fd09cc2e04ae64ea32a86df0570aa7
+      internalID: 9009482836251583543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_16
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b789d905345e1f244ad98830adeaa600
+      internalID: 6676161005518459655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_17
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ea68700b4a07954d9d0e885d69181e0
+      internalID: -6778198041649275495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_18
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f6a59315d066843bfce516fcebf2cc
+      internalID: -5221334264670400332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_19
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aae6b8a2591de514788e1be89ba2eedd
+      internalID: 2962128243016790642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_20
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a82ccb838fc82bb40afc854a48ad4ad1
+      internalID: -5170109285753866261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_21
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 524
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a337ad25c88e1d489bb70a6bb6af3fd
+      internalID: -6473247746981759049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_22
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1cf0a894687cc747833b58bdd92c87d
+      internalID: 2397695241288453336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_23
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bedeb29088a640c4ba3b4947c2c35049
+      internalID: 3354634955544766604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_24
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00c5a9a3a0ceb4843b7d542fea267d9c
+      internalID: -7518180631949140946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_25
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 390908ddbd5abcc4b938c5d662387aab
+      internalID: -8768554088360436729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_26
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 64e71c885df941c45808ca9214d306c2
+      internalID: -4777894346210022005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_27
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceaddcc8a06488b45a1ea57fa99efd1a
+      internalID: -3934635827416324077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_28
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c406e629558dc724e855c143659eb171
+      internalID: -5154860908528156830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_29
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be59b37fa0d8e9146af8eff51265793a
+      internalID: -4896286163002904400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_30
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 228db97a7c1b4844c852435a10fec5dd
+      internalID: -3366247895675216196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_31
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbfa1ccf523a3254d9a9f5dd9b3b15af
+      internalID: 5163510425604885554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_32
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 652696422b8ab6b4ea58f61145974c56
+      internalID: -1369264834629997271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_33
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 905165d08cb19f541927f85d5850f176
+      internalID: 2678629178853362540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_34
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3efcfb3b2e2b72345a97746d9e98e986
+      internalID: 4175430551172365778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_35
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f33d9cd87f2aff4bb1e9bfb6ff3fbd1
+      internalID: -1140298092897110013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_36
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d36f360659459f4d9ea8cafc22f9ce5
+      internalID: 7474507357741805438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_37
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8905b29fd70fea047b0820cbec1e09d6
+      internalID: -6670329611945324398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_38
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 524
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b9188263fc9d3c4192f8a3e79ca0013
+      internalID: -8222043698357172292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_39
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 498
+        width: 88
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44bf4be45557f6d4d92e45e67ff9fc4d
+      internalID: 2962109430130412166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_40
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 507
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93de620bb0c66cc47b2b7f23d97936db
+      internalID: 2468021605084324476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_41
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 507
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7baccdd056a4df74a94e24728a55ac36
+      internalID: 8228123372197842338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_42
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 507
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb6b54af3b2d24b44933e8b0c1b39d6c
+      internalID: 4742942261147127181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_43
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 507
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a161bc3ca30c25459b32827132507d9
+      internalID: 1804704799094265624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_44
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 507
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fd380f9c1fb56f488aa10b46ec278e2
+      internalID: 5855926883720333924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_45
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 507
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41d25e3f8ddee944d92176723e342f0d
+      internalID: 2521557604620616729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_46
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 507
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79bd2b6fec8e74447a6e4954f0a704d8
+      internalID: -1439147616913054581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_47
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 507
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4e9df2a770bc944d9118fdeb849d086
+      internalID: -6207750891046815274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_48
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 507
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f1e8991f685b10499529d7099661910
+      internalID: -7885058041294279814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_49
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 507
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9767a8f2d71ba714da6f6d729f35e012
+      internalID: -4660238865889571795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_50
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 508
+        width: 23
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9201601219a0db6468b47d59aa921883
+      internalID: 7445838016556105847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_51
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9914a572b65eb354a95ac45f01328821
+      internalID: 76084318816731767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_52
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 309ac847627963446a32cf4d0f04609b
+      internalID: 5273565258723781584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_53
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e242a4db2ff26eb4e9b64898970af6de
+      internalID: 6872493526483807692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_54
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c2a0ff2cccf05547b05ec65c59d9ae8
+      internalID: -8373928492623190991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_55
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2737d9b31ce6aa64290ae21b70d74eed
+      internalID: 4165913473921683075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_56
+      rect:
+        serializedVersion: 2
+        x: 572
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d68479a84fe320498d79af32fc18eca
+      internalID: 8403273714664530112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_57
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f22e4e2b6368a0448be88490875beb2
+      internalID: 4336076259934285516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_58
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2bc32955d058ec42b4468365dca41d7
+      internalID: 3444259557079129693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_59
+      rect:
+        serializedVersion: 2
+        x: 623
+        y: 490
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09a1af03c1e416146b0ac4797e9e7e4a
+      internalID: 7610157237384185966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_60
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fce88279fd910d46a10845a8e003259
+      internalID: -6388054296631770160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_61
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 136294ce0c75d484f95f780a8827fc7f
+      internalID: 1768463128656732382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_62
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 786ae7eafc08435429b8423b6088e733
+      internalID: 7739048912650303234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_63
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99373419e86f60a4995dabf9884ba8d6
+      internalID: -7774490237732090067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_64
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2d93d0ff8e2d244495788474f623ef7
+      internalID: 9052174037397044372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_65
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f94085e9e54dfa946b80824f4dd45abc
+      internalID: -7858614223660769901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_66
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3e774b912a065c4cb2d031d6ed1dd81
+      internalID: -4151547131524618105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_67
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ad52385595511848956b821c4357c16
+      internalID: -3527506333707515701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_68
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b736c4f4cffba914696e4c941e01d3cd
+      internalID: 4856334641076231129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_69
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ed7cd24fd53f614fb98075c7c549491
+      internalID: 4283025210764208332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_70
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49f221b608cd4f44f8b32f18a592a67c
+      internalID: -6868852886869283846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_71
+      rect:
+        serializedVersion: 2
+        x: 812
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0f14575e4e73cf46b1f7a79e9b636b0
+      internalID: 671005863854982297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_72
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd5398d3a4522543a14ad4e3cfb5ee1
+      internalID: -2796800071474534243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_73
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1238d560dbbbe1246ae271c9d56f109e
+      internalID: -5495282159946301338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_74
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d7f7680923556942bbd7cec08fa5168
+      internalID: 8798832625715832540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_75
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40c5b1073c0e0cb40999c527a0471d62
+      internalID: -7307230284099080598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_76
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 490
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46d6826bafa35864f9cf135de50da675
+      internalID: 2111654892405933854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_77
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e05b9f122c14c7843a08f805f2e5d47c
+      internalID: -4706834387644622762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_78
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a6a9eb273253ae4ba4f63dffff55a1f
+      internalID: -6609320464098061565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_79
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d917189cbb81e114f8b4b5c08e0eb5d9
+      internalID: 1625826656304774447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_80
+      rect:
+        serializedVersion: 2
+        x: 546
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d178650fa140e1046b52493712bcda53
+      internalID: 8130976576220037098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_81
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22b15aa3631a06f48851578feed45795
+      internalID: -5818981130747461542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_82
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f1feaa2203d90c4ca326daaae750d49
+      internalID: 8120109914044232628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_83
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3171932984d4e80469bd175520d99b2f
+      internalID: -2414757350666836014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_84
+      rect:
+        serializedVersion: 2
+        x: 618
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4064831013ee9da4c83e894e194fde6e
+      internalID: -9210115281374035210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_85
+      rect:
+        serializedVersion: 2
+        x: 636
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b842de36839da724b839a6a91804f8e8
+      internalID: -3426398102257413974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_86
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e44e2bb3d1003c4ca6bb673f1a5767e
+      internalID: -1853948602677128470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_87
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a84d4be3c25ef4ea344893d07744bd
+      internalID: 5024584758452356755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_88
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d18bd839b587eb64b833053c1b18f3be
+      internalID: 5707493088522305607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_89
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0351db2b4b419747992f22265df81f5
+      internalID: 3914523061997219247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_90
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 650a3e563de0b114ca00945e4ce96275
+      internalID: 3438189838569307889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_91
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a73601a83a4ff343b7c74446b2421c7
+      internalID: 2627695883108573092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_92
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1e4fa3d5d2d61a499d43881c53d7015
+      internalID: -6449934868461748888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_93
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ce5b5eeda1ae943b86d803263d5b92
+      internalID: -6578204321059999408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_94
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 456
+        width: 13
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b384af4bb6ac1fd44bf6bb01d115eccd
+      internalID: -5321695988146088903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_95
+      rect:
+        serializedVersion: 2
+        x: 817
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d8a1fe026d0bf641a4b380e5c29dc67
+      internalID: 7835158728206224697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_96
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa4c306fae0c37e42bc2b74589241c14
+      internalID: 9070325341472008483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_97
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79bc58a206433644b9ab0ff7fe75312b
+      internalID: 1412824171079653285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_98
+      rect:
+        serializedVersion: 2
+        x: 871
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2606122705222e540bb36ac3ed6566d5
+      internalID: 144757566602410158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_99
+      rect:
+        serializedVersion: 2
+        x: 889
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2762dc0d4adbbff459ff3a252217e125
+      internalID: 290104495634549393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_100
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 580e53a03ce7e874ea1a596590c2aa40
+      internalID: -8267348994839750468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_101
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 588953c93228e2247851b391f80e66bf
+      internalID: 8524572138233554147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_102
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e19c4dd51a1c92b44bbda08044b0a440
+      internalID: 5317626924616487507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_103
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 244291c08d4509445a4a5834a55c3e13
+      internalID: -2603876629829996128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_104
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 456
+        width: 12
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1c1b8bdac8bbd14a8dd09f4fcd5437a
+      internalID: -2483607223768321765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_105
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 439
+        width: 31
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a209dd758157f4689d1e71f09d0206
+      internalID: 7256144965892870336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_106
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 441
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85346698ab3a5e143956f33930f276c2
+      internalID: -6427277027902668686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_107
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 441
+        width: 25
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72bc80303b5a87647be871f13f7ce6f8
+      internalID: 2973943237762377483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_108
+      rect:
+        serializedVersion: 2
+        x: 568
+        y: 439
+        width: 29
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec7162c894f4974083cbe8f38398c86
+      internalID: 1011087135894318584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_109
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 441
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14d11c949e236d8489663bf05c09c99e
+      internalID: 3467987249645933605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_110
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 439
+        width: 26
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de25c1e6b4444494498e1880fc5c1bc6
+      internalID: -5012432117628440810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_111
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 441
+        width: 59
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee1e17f0d20d55842acc78c188daf46e
+      internalID: -1934189682313153280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_112
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 441
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 277c70a71117ff4458491596a0687ff9
+      internalID: -6831973478832741781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_113
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 441
+        width: 27
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a60443a1b47197842a95624695811a90
+      internalID: -5496077864045504431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_114
+      rect:
+        serializedVersion: 2
+        x: 761
+        y: 441
+        width: 23
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5250ce48d32ed8b42bcd6d0a70b77518
+      internalID: -3415826491776531170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_115
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 441
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 594efa299c4df9346a06a719110ad8a0
+      internalID: -2529816375028424802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_116
+      rect:
+        serializedVersion: 2
+        x: 801
+        y: 441
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a2da01ee2d94334dbe2eebe7fbc6e9e
+      internalID: -8665551320791636956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_117
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 439
+        width: 31
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08bd4c4eac8faad40ba0c369fb0c053a
+      internalID: 583494203606821398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_118
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 441
+        width: 24
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea671ffadf1118a4eab998e07473d279
+      internalID: -5831659243050463047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_119
+      rect:
+        serializedVersion: 2
+        x: 880
+        y: 441
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 881d8b7efb8800147928466fae7e707e
+      internalID: -7549975970824409808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_120
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 439
+        width: 27
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bfa34c0d31f9c11418adf9dde9b458ee
+      internalID: 7929107992305833046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_121
+      rect:
+        serializedVersion: 2
+        x: 928
+        y: 441
+        width: 25
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23fc7b2b06d9c0d42877992a40998f4b
+      internalID: 1289863389929758760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_122
+      rect:
+        serializedVersion: 2
+        x: 490
+        y: 425
+        width: 40
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b942f3c994a02d64bb655bcf698918c7
+      internalID: -4712804101565082874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_123
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 282
+        width: 106
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8e9cf68d781164fb9386dee37f0b45
+      internalID: -4782793206983276634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_124
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 277
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22173cd7e1f7e5b458d5072a8b691a46
+      internalID: 1537434808529159105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_125
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 279
+        width: 40
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ec7dac19e0cac42acec8b7068e3663
+      internalID: 4061865200136109855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_126
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 277
+        width: 44
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e53c56aa3919a5f4c832783275626c88
+      internalID: 3861004549053094222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_127
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 254
+        width: 88
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efdae30d5d037ab409c788909d574792
+      internalID: 8455473465132564589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_128
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 254
+        width: 49
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22fcdab2417e7334a8dd51dbd7345b88
+      internalID: -3061967810424706145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_129
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 254
+        width: 88
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb45d5ca3bbb57e4e9f5c1e338b00465
+      internalID: -1630780755705777609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_130
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 254
+        width: 49
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5e1b25597178ea41b185b9b82637442
+      internalID: 3778746347769942054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_131
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 222
+        width: 88
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9afdad86b462c48489db7f5f1ea86d5b
+      internalID: 6420209575520846229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_132
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 238
+        width: 88
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b27377160bbfb34418278eea2bb13ad2
+      internalID: -6467190866569728403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_133
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 222
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c1ecedede8546445ba1c2b648a6632a
+      internalID: 1202432533129506686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_134
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 238
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67b553f8f8ca5e44bafced4826157369
+      internalID: -2162520569545109547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_135
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 238
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9889dcf6f308634bbb2b783b1638191
+      internalID: 8807262839956165676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_136
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 222
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f4843809b9b34347ad315f26ec90aed
+      internalID: 926638165750600482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_137
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 222
+        width: 88
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 361cdc3d4ea76b64582eebf2de341149
+      internalID: -2218263839024406189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_138
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 238
+        width: 88
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0766f9a0d9de63b42b30010edc592f43
+      internalID: -2550198406960785033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_139
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 222
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e15a1f02d51ef9241aecfbdfdf31be28
+      internalID: -8529711753955690192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_140
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 238
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05a080ebe3d96eb48a69f68a55149d36
+      internalID: 1478292271608281888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_141
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 238
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00fd33639a3dd85479f1349bad0100fd
+      internalID: -5724176696900701502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_142
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 222
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: baaf74809139bf94cb89afd3cbf3cd8e
+      internalID: -6568421524528838193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_143
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 6
+        width: 106
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 304a4df63f5ef6448a2e8e6e61faf389
+      internalID: -2259575490683317753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_144
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 16
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f616ab1abb2628458f3f63f717e1a63
+      internalID: 7181908016582174944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_145
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 15
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2103ddffc4d8e749a43ef98a58834c6
+      internalID: 9035511785185031598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_146
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 15
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf4ebbb3ac10d0448aa72afc029359f5
+      internalID: -2207066336811217137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_147
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 6
+        width: 106
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78eaa4fc22279414eb66b46fc9b82089
+      internalID: 586069532645686690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_148
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 16
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2417f28bfafb8644a9b21dfdfebcd105
+      internalID: -7435426648625522560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_149
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 15
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 297610a5b9a0e184491d84137bd8dfda
+      internalID: 7404670799992336023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HARMONY_HUD_SHEET_150
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 15
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c71d2905ebc3ba418e76a7e41d9b040
+      internalID: 6080462271544375342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

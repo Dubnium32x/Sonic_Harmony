@@ -7,4 +7,5 @@ public class PlayerParticles
 	public ParticleSystem landSmoke;
 	public ParticleSystem spindashSmoke;
 	public ParticleSystem normalShield;
+	public ParticleSystem Invinciblity;
 }

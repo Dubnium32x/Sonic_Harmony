@@ -28,7 +28,7 @@ MonoBehaviour:
   deceleration: 60
   friction: 5.625
   slope: 15
-  minSpeedToBrake: 12
+  minSpeedToBrake: 10
   turnSpeed: 1
   airAcceleration: 14
   gravity: 26.25

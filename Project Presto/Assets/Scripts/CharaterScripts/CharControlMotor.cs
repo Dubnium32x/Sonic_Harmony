@@ -97,7 +97,8 @@ public class CharControlMotor : PlayerMotor
     public bool downPressed { get; set; }
     public bool halfGravity { get; set; }
     public bool invincible { get; set; }
-
+    
+    public bool SpeedShoe { get; set; }
     public float invincibleTimer { get; set; }
     public int direction { get; private set; }
 
@@ -131,6 +132,7 @@ public class CharControlMotor : PlayerMotor
         }
 
         UpdateInvincibility(deltaTime);
+        UpdateSpeedShoe(deltaTime);
         state.UpdateState(deltaTime);
         ClampVelocity();
     }
@@ -292,17 +294,18 @@ public class CharControlMotor : PlayerMotor
 
     public void HandleAcceleration(float deltaTime)
     {
+        var realtopspeed = SpeedShoe ? stats.topSpeed * 2 : stats.topSpeed;
         var acceleration = grounded ? stats.acceleration : stats.airAcceleration;
 
-        if (input.right && (velocity.x < stats.topSpeed))
+        if (input.right && (velocity.x < realtopspeed))
         {
             velocity.x += acceleration * deltaTime;
-            velocity.x = Mathf.Min(velocity.x, stats.topSpeed);
+            velocity.x = Mathf.Min(velocity.x, realtopspeed);
         }
-        else if (input.left && (velocity.x > -stats.topSpeed))
+        else if (input.left && (velocity.x > -realtopspeed))
         {
             velocity.x -= acceleration * deltaTime;
-            velocity.x = Mathf.Max(velocity.x, -stats.topSpeed);
+            velocity.x = Mathf.Max(velocity.x, -realtopspeed);
         }
     }
 
@@ -428,10 +431,24 @@ public class CharControlMotor : PlayerMotor
         if (invincible && (invincibleTimer > 0))
         {
             invincibleTimer -= deltaTime;
-
+            if(!particles.Invinciblity.isEmitting) particles.Invinciblity.Play();
             if (invincibleTimer <= 0)
             {
                 invincible = false;
+                invincibleTimer = 0;
+                particles.Invinciblity.Stop();
+            }
+        }
+    }
+    public void UpdateSpeedShoe(float deltaTime)
+    {
+        if (SpeedShoe && (invincibleTimer > 0))
+        {
+            invincibleTimer -= deltaTime;
+
+            if (invincibleTimer <= 0)
+            {
+                SpeedShoe = false;
                 invincibleTimer = 0;
             }
         }
@@ -518,7 +535,11 @@ public class CharControlMotor : PlayerMotor
 
         var newRotation = Quaternion.Euler(0, 0, zRotation) * Quaternion.Euler(0, yRotation, 0);
 
-        if (!disableSkinRotation)
+        if (disableSkinRotation)
+        {
+            skin.root.rotation = Quaternion.identity * Quaternion.Euler(0, yRotation, 0);
+        }
+        else
         {
             var maxDegree = 850f * Time.deltaTime;
             skin.root.rotation = Quaternion.RotateTowards(skin.root.rotation, newRotation, 10000000f);
@@ -529,7 +550,7 @@ public class CharControlMotor : PlayerMotor
     private void InitializeSkin()
     {
         direction = 1;
-        skin.transform.root.parent = null;
+        skin.root.parent = null;
     }
     public void RingGot()
     {

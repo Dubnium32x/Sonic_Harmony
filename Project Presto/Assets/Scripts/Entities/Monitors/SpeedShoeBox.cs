@@ -7,6 +7,7 @@ public class SpeedShoeBox : ItemBox
 
     protected override void OnCollect(CharControlMotor player)
     {
-        player.SetShield(shield);
+        player.SpeedShoe = true;
+        player.invincibleTimer = 15;
     }
 }
