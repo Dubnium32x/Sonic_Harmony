@@ -351,9 +351,9 @@ public class CharControlMotor : PlayerMotor
              pt1 = pt2;
              pt2 = tmp;
          }
-        var LandFoundFront = Physics.Raycast(pt1, -skin.transform.up, 10.0f);
-        var LandFoundBack = Physics.Raycast(pt2, -skin.transform.up, 10.0f);
-        
+        var LandFoundFront = Physics.Raycast(pt1, -skin.transform.up, thecollider.bounds.extents.y);
+        var LandFoundBack = Physics.Raycast(pt2, -skin.transform.up, thecollider.bounds.extents.y);
+
         return (!LandFoundFront,!LandFoundBack,!LandFoundFront||!LandFoundBack);
     }
 
