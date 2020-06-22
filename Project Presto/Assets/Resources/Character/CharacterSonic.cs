@@ -18,7 +18,7 @@ public class CharacterSonic : Character {
         if (GlobalOptions.GetBool("homingAttack"))
             capabilities.Add(new CharacterCapabilityHomingAttack(this));
     
-    if (GlobalOptions.GetBool("lightDash"))
+        if (GlobalOptions.GetBool("lightDash"))
             capabilities.Add(new CharacterCapabilityLightDash(this));
             
         capabilities.Add(new CharacterCapabilityJump(this));

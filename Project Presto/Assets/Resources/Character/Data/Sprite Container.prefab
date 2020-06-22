@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 8830505278744459021}
   - component: {fileID: 8830505278744459020}
   - component: {fileID: 8830505278744459027}
-  - component: {fileID: 1007569017219588482}
+  - component: {fileID: 5157953867467113616}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -103,13 +103,13 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -9085156922857477136, guid: ae68ae774cb20b94aa999bc4d2e305c8,
+  m_Sprite: {fileID: -5671301031795106046, guid: 74ff6f43d72342d499bc1f6a89025ef5,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.48, y: 0.48}
+  m_Size: {x: 2, y: 2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -134,7 +134,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1007569017219588482
+--- !u!114 &5157953867467113616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,13 +143,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8830505278744459022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cafae8e7a91caea4896c3a37383e10fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 69ca9c7fb53a4c74bb26a821597c2b11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   colorClosest: {r: 1, g: 1, b: 1, a: 0.5}
-  colorFarthest: {r: 1, g: 1, b: 1, a: 0.23921569}
-  enableOnAwake: 0
-  singleColorShader: 0
+  colorFarthest: {r: 1, g: 1, b: 1, a: 0.2509804}
+  enableOnAwake: 1
+  singleColorShader: 1
   shareSprite: 1
   fauxTransparency: 1
   updateInterval: 0.016
