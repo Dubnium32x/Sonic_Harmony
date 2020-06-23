@@ -28,12 +28,12 @@ public class FallingPlatform : FreedomObject
     {
         if (falling)
         {
-            transform.position += Vector3.down * (gravity * Time.deltaTime);
+            transform.position += Vector3.down * gravity * Time.deltaTime;
 
-            //if (transform.position.y <= StageManager.Instance.bounds.yMin)
-            //{
-            //    falling = false;
-            //}
+            if (transform.position.y <= StageManager.Instance.bounds.yMin)
+            {
+                falling = false;
+            }
         }
     }
 
@@ -60,8 +60,10 @@ public class FallingPlatform : FreedomObject
 
     public override void OnPlayerMotorContact(PlayerMotor motor)
     {
-        if (!motor.grounded || fallCoroutine != null) return;
-        fallCoroutine = Fall();
-        StartCoroutine(fallCoroutine);
+        if (motor.grounded && fallCoroutine == null)
+        {
+            fallCoroutine = Fall();
+            StartCoroutine(fallCoroutine);
+        }
     }
 }

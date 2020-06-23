@@ -16,12 +16,13 @@ public class Ring : FreedomObject
 	public float uncollectibleTime;
 
 	[Header("Components")]
-    public ParticleSystem collectParticle;
-	public AudioSource collectSFX;
+	public AudioClip collectSound;
+	public ParticleSystem collectParticle;
 
 	private new SphereCollider collider;
+	private new AudioSource audio;
 
-    private RaycastHit hit;
+	private RaycastHit hit;
 	private float uncollectibleTimer;
 	private float lifeTimer;
 
@@ -34,15 +35,18 @@ public class Ring : FreedomObject
 		{
 			collider = gameObject.AddComponent<SphereCollider>();
 		}
-        collider.isTrigger = true;
-        var myPhys = gameObject.AddComponent<SphereCollider>();
-        myPhys.isTrigger = false;
-        myPhys.radius = 0.2f;
-    }
+
+		if (!TryGetComponent(out audio))
+		{
+			audio = gameObject.AddComponent<AudioSource>();
+		}
+
+		collider.isTrigger = true;
+	}
 
 	private void Update()
 	{
-		if (gameObject.activeSelf)
+		if (this.gameObject.activeSelf)
 		{
 			var deltaTime = Time.smoothDeltaTime;
 
@@ -64,42 +68,47 @@ public class Ring : FreedomObject
 		{
 			uncollectibleTimer += deltaTime;
 
-			if (!(uncollectibleTimer >= uncollectibleTime)) return;
-			collectable = true;
-			uncollectibleTimer = 0;
+			if (uncollectibleTimer >= uncollectibleTime)
+			{
+				collectable = true;
+				uncollectibleTimer = 0;
+			}
 		}
 	}
 
 	private void HandleLifeTime(float deltaTime)
 	{
-		if (!lost) return;
-		lifeTimer += deltaTime;
+		if (lost)
+		{
+			lifeTimer += deltaTime;
 
-		if (!(lifeTimer >= lifeTime)) return;
-		Disable();
-		lifeTimer = 0;
+			if (lifeTimer >= lifeTime)
+			{
+				Disable();
+				lifeTimer = 0;
+			}
+		}
 	}
 
 	private void HandleCollision(float deltaTime)
 	{
-		if (!lost) return;
-		velocity.y -= gravity * deltaTime;
-		transform.position += velocity * deltaTime;
+		if (lost)
+		{
+			velocity.y -= gravity * deltaTime;
+			transform.position += velocity * deltaTime;
 
-		if (!Physics.Raycast(transform.position, velocity.normalized, out hit, collider.radius, solidLayer)) return;
-		velocity = Vector3.Reflect(velocity, hit.normal) * bounceFactor;
-		transform.position = hit.point + hit.normal * collider.radius;
+			if (Physics.Raycast(transform.position, velocity.normalized, out hit, collider.radius, solidLayer))
+			{
+				velocity = Vector3.Reflect(velocity, hit.normal) * bounceFactor;
+				transform.position = hit.point + hit.normal * collider.radius;
+			}
+		}
 	}
 
 	public void Disable()
 	{
 		collectable = false;
-
-		// Disable specified components so that audio still plays
-		gameObject.GetComponent<SpriteRenderer>().enabled = false; // Disable sprite to no longer be shown
-		gameObject.GetComponent<SphereCollider>().enabled = false; // Disable collider to no longer have collision checks
-		enabled = false; // Disable script to no longer run code
-		//gameObject.SetActive(false);
+		this.gameObject.SetActive(false);
 	}
 
 	public void Enable()
@@ -107,17 +116,17 @@ public class Ring : FreedomObject
 		collectable = !lost;
 		lifeTimer = 0;
 		uncollectibleTimer = 0;
-		gameObject.SetActive(true);
-		enabled = true;
-		gameObject.GetComponent<SpriteRenderer>().enabled = true; // Disable sprite to no longer be shown
+		this.gameObject.SetActive(true);
 	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (!collectable || !other.CompareTag("Player")) return;
-		other.gameObject.GetComponent<CharControlMotor>().RingGot();
-		collectParticle.Play();
-		collectSFX.Play();
-		Disable();
+		if (collectable && other.CompareTag("Player"))
+		{
+			ScoreManager.Instance.Rings++;
+			audio.PlayOneShot(collectSound, 0.25f);
+			collectParticle.Play();
+			Disable();
+		}
 	}
 }

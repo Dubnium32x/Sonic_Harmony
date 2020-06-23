@@ -23,7 +23,7 @@ public class HurtPlayerState : PlayerState
     public override void Exit(CharControlMotor player)
     {
         player.halfGravity = false;
+        player.skin.StartBlinking(player.stats.invincibleTime);
         player.invincibleTimer = player.stats.invincibleTime;
-        player.GotHurtCheck = false;
     }
 }

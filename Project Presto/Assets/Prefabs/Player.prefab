@@ -319,7 +319,7 @@ MonoBehaviour:
     spindashSmoke: {fileID: 6437150160602135271}
     normalShield: {fileID: 2330280113997202832}
     Invinciblity: {fileID: 120710815119150686}
-  lostRing: {fileID: 7385415545018822992, guid: 287e41cc1b253b341a9d3caeea8c36fb,
+  lostRing: {fileID: 7118938233733720358, guid: b9b3b4cce9cae62478217bfa82677cf2,
     type: 3}
   camera: {fileID: 0}
   skin: {fileID: 7484859397679364067}

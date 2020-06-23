@@ -7,9 +7,6 @@ public class RingBox : ItemBox
 
 	protected override void OnCollect(CharControlMotor player)
 	{
-		for (var i = 0; i < ringAmount; i++)
-		{
-			player.RingGot();
-		}
+		ScoreManager.Instance.Rings += ringAmount;
 	}
 }

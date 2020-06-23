@@ -50,7 +50,6 @@ public class CharControlMotor : PlayerMotor
     private bool turnAround;
     public bool Death;
     public bool RingGotB;
-    public enum MonitorSpecial { None, Rings10 }
     public enum SonicState
     {
         Normal = 0,
@@ -73,15 +72,12 @@ public class CharControlMotor : PlayerMotor
     };
     //public enum SonicState { ChargingSpin, Damaged, Dead, Brake, Jump, Rolling, LookUp, Crouch, Spring, Walk };
 
-    public (float IntitalValue, Vector3 FinalValue, float TotalDistance, bool IsLooping) LoopExitZ;
-
     private bool JumpButtonState;
     private readonly Queue<Ring> lostRingsPool = new Queue<Ring>();
 
     [Header("Scriptables")]
     public PlayerStats stats;
     public SonicSfx audios;
-    public LevelSettings mysettings;
 
     [Header("Components")]
     public PlayerInput input;
@@ -135,6 +131,7 @@ public class CharControlMotor : PlayerMotor
         UpdateSpeedShoe(deltaTime);
         state.UpdateState(deltaTime);
         ClampVelocity();
+        ClampToStageBounds();
     }
 
     protected override void OnMotorLateUpdate()
@@ -145,7 +142,6 @@ public class CharControlMotor : PlayerMotor
 
     protected override void OnMotorStart()
     {
-        mysettings = transform.root.gameObject.GetComponent<LevelSettings>();
         musicSource = GetComponent<AudioSource>();
         characterController = GetComponent<CharControlMotor>();
         time = 0;
@@ -216,7 +212,7 @@ public class CharControlMotor : PlayerMotor
     public void ApplyHurt(Vector3 hurtPoint)
     {
         if (invincible) return;
-        if (shield != PlayerShields.None || mysettings.Rings > 0)
+        if (shield != PlayerShields.None || ScoreManager.Instance.Rings > 0)
         {
             velocity.y = stats.pushBack;
             velocity.x = stats.pushBack * 0.5f * Mathf.Sign(transform.position.x - hurtPoint.x);
@@ -225,16 +221,8 @@ public class CharControlMotor : PlayerMotor
             if (shield == PlayerShields.None)
             {
                 jumpSource.PlayOneShot(audios.ring_loss, 0.4f);
-                if (mysettings.Rings > 32)
-                {
-                    ScatterRings(32);
-                    mysettings.Rings -= 32;
-                }
-                else
-                {
-                    ScatterRings(mysettings.Rings);
-                    mysettings.Rings = 0;
-                }
+                ScatterRings(ScoreManager.Instance.Rings);
+                ScoreManager.Instance.Rings = 0;
             }
             else
             {
@@ -250,10 +238,15 @@ public class CharControlMotor : PlayerMotor
 
     public void ApplyDeath()
     {
+        var scoreManager = ScoreManager.Instance;
+
+        if (scoreManager)
+        {
+            scoreManager.Die();
+        }
+
         SetShield(PlayerShields.None);
         state.ChangeState<DiePlayerState>();
-        //transform.root.rotation = Quaternion.Euler(0, 90, 0);
-        mysettings.NoRings();
     }
     public void SetShield(PlayerShields shield)
     {
@@ -524,18 +517,38 @@ public class CharControlMotor : PlayerMotor
         direction = 1;
         skin.root.parent = null;
     }
-    public void RingGot()
-    {
-        mysettings.RingAdd();
-    }
-
-    public void AddLife()
-    {
-        mysettings.AddLife();
-    }
 
     protected override void OnGroundEnter()
     {
         particles.landSmoke.Play();
+    }
+    private void ClampToStageBounds()
+    {
+        var stageManager = StageManager.Instance;
+
+        if (!stageManager || disableCollision) return;
+        var nextPosition = position;
+			
+        if ((nextPosition.x - currentBounds.extents.x - wallExtents) < stageManager.bounds.xMin)
+        {
+            var safeDistance = stageManager.bounds.xMin + currentBounds.extents.x;
+            nextPosition.x = Mathf.Max(nextPosition.x, safeDistance);
+            velocity.x = Mathf.Max(velocity.x, 0);
+        }
+        else if ((nextPosition.x + currentBounds.extents.x + wallExtents) > stageManager.bounds.xMax)
+        {
+            var safeDistance = stageManager.bounds.xMax - currentBounds.extents.x;
+            nextPosition.x = Mathf.Min(nextPosition.x, safeDistance);
+            velocity.x = Mathf.Min(velocity.x, 0);
+        }
+
+        if ((nextPosition.y - height * 0.5f) < stageManager.bounds.yMin)
+        {
+            var safeDistance = stageManager.bounds.yMin - height * 0.5f;
+            nextPosition.y = Mathf.Max(nextPosition.y, safeDistance);
+            ApplyDeath();
+        }
+
+        position = nextPosition;
     }
 }

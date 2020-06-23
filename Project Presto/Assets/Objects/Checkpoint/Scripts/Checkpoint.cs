@@ -26,7 +26,7 @@ public class Checkpoint : MonoBehaviour
         triggered = true;
         animator.SetBool("Activated", true);
         audio.PlayOneShot(activateClip, 0.5f);
-        LevelSettings.Instance.SetRespawnPoint(startPoint.position,other.transform.rotation);
-        //StageManager.Instance.SetStartState(startPoint.position, Quaternion.identity, ScoreManager.Instance.time);
+        //LevelSettings.Instance.SetRespawnPoint(startPoint.position,other.transform.rotation);
+        StageManager.Instance.SetStartState(startPoint.position, Quaternion.identity, ScoreManager.Instance.time);
     }
 }

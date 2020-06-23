@@ -30,7 +30,33 @@ public class PlayerSkin : MonoBehaviour
 	private void LateUpdate()
 	{
 	}
+	public void StartBlinking(float duration)
+	{
+		blinkCoroutine = Blink(duration);
+		StartCoroutine(blinkCoroutine);
+	}
 
+	public void StopBlinking()
+	{
+		if (blinkCoroutine != null)
+		{
+			StopCoroutine(blinkCoroutine);
+			currentActivatedBody.localScale = Vector3.one;
+		}
+	}
+
+	private IEnumerator Blink(float duration)
+	{
+		duration += Time.time;
+
+		while (Time.time < duration)
+		{
+			yield return new WaitForSeconds(0.1f);
+			currentActivatedBody.localScale = Vector3.zero;
+			yield return new WaitForSeconds(0.1f);
+			currentActivatedBody.localScale = Vector3.one;
+		}
+	}
 	private void InitializeBody()
 	{
 		skin.transform.localScale = Vector3.one;
