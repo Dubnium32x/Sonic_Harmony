@@ -116,21 +116,19 @@ public abstract class EnemyMotor : FreedomObject
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && other.TryGetComponent(out CharControlMotor player))
+        if (!other.CompareTag("Player") || !other.TryGetComponent(out CharControlMotor player)) return;
+        if (!player.attacking && hurtPlayer)
         {
-            if (!player.attacking && hurtPlayer)
+            player.ApplyHurt(transform.position);
+        }
+        else
+        {
+            if (player.position.y > transform.position.y)
             {
-                player.ApplyHurt(transform.position);
+                player.velocity.y *= -1;
             }
-            else
-            {
-                if (player.position.y > transform.position.y)
-                {
-                    player.velocity.y *= -1;
-                }
 
-                Explode();
-            }
+            Explode();
         }
     }
 

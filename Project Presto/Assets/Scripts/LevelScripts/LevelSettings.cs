@@ -21,6 +21,31 @@ public class LevelSettings : MonoBehaviour
     public Scene PreviousScene;
     public Vector3 PreviousEscapePoint;
     public bool LevelHasLoaded = false;
+
+    public Vector3 startPoint;
+    public Quaternion startRotation;
+    public float startTime;
+    private static LevelSettings instance;
+
+    public static LevelSettings Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<LevelSettings>();
+                instance.StartSingleton();
+            }
+
+            return instance;
+        }
+        
+    }
+    private void StartSingleton()
+    {
+        startPoint = Player.transform.position;
+        startRotation = Player.transform.rotation;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -63,37 +88,13 @@ public class LevelSettings : MonoBehaviour
         Rings += 1;
     }
 
-    public void GotHurtL(bool fatal)
-    {
-        if (fatal)
-        {
-            NoRings();
-        }
-        else
-        {
-            if (Rings == 0)
-            {
-                NoRings();
-            }
-            else
-            {
-                //DropRings();
-                Infiniframes();
-            }
-        }
-    }
-
-    void Infiniframes()
-    {
-        //Putinvinble frames here
-    }
-
     public void NoRings()
     {
         if (Lives > 0)
         {
             Lives -= 1;
-            Infiniframes();
+            Player.GetComponent<CharControlMotor>().Respawn(startPoint,startRotation);
+            LevelTimeSeconds = startTime;
         }
         else
         {
@@ -108,5 +109,12 @@ public class LevelSettings : MonoBehaviour
     public void AddLife()
     {
         Lives += 1;
+    }
+
+    public void SetRespawnPoint(Vector3 spawnpoint, Quaternion mrotation)
+    {
+        startPoint = spawnpoint;
+        startRotation = mrotation;
+        startTime = LevelTimeSeconds;
     }
 }

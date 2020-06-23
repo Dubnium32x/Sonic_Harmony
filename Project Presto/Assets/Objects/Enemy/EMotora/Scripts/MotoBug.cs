@@ -26,28 +26,26 @@ public class MotoBug : EnemyMotor
 
     protected override void OnMotorUpdate(float deltaTime)
     {
-        if (!turning)
+        if (turning) return;
+        var position = transform.position;
+        position += Vector3.right * (direction * speed * deltaTime);
+
+        if (Physics.Raycast(position, Vector3.right * direction, wallRayDistance, solidLayer))
         {
-            var position = transform.position;
-            position += Vector3.right * direction * speed * deltaTime;
-
-            if (Physics.Raycast(position, Vector3.right * direction, wallRayDistance, solidLayer))
-            {
-                StartCoroutine(Turn());
-            }
-
-            if (Physics.Raycast(position, Vector3.down, out var ground, groundRayDistance, solidLayer))
-            {
-                position.y = ground.point.y + groundDistance;
-            }
-            else
-            {
-                StartCoroutine(Turn());
-            }
-
-            //wheel.transform.Rotate(wheelRotationAngle * deltaTime, 0, 0);
-            transform.position = position;
+            StartCoroutine(Turn());
         }
+
+        if (Physics.Raycast(position, Vector3.down, out var ground, groundRayDistance, solidLayer))
+        {
+            position.y = ground.point.y + groundDistance;
+        }
+        else
+        {
+            StartCoroutine(Turn());
+        }
+
+        //wheel.transform.Rotate(wheelRotationAngle * deltaTime, 0, 0);
+        transform.position = position;
     }
 
     protected override void OnMotorRespawned()
