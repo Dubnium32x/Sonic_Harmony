@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using System.Collections.Generic;
 using System;
+using System.Linq;
 
 public class Character : GameBehaviour {  
     public CharacterStats stats = new CharacterStats();
@@ -10,14 +11,13 @@ public class Character : GameBehaviour {
 
     public List<CharacterCapability> capabilities = new List<CharacterCapability>();
 
-    public CharacterCapability GetCapability(string capabilityName) {
-        foreach (CharacterCapability capability in capabilities)
-            if (capability.name == capabilityName) return capability;
-        return null;
+    public CharacterCapability GetCapability(string capabilityName)
+    {
+        return capabilities.FirstOrDefault(capability => capability.name == capabilityName);
     }
 
     public CharacterCapability TryGetCapability(string capabilityName, Action<CharacterCapability> callback) {
-        CharacterCapability capability = GetCapability(capabilityName);
+        var capability = GetCapability(capabilityName);
         if (capability != null) callback(capability);
         return capability;
     }
@@ -42,7 +42,7 @@ public class Character : GameBehaviour {
 
         statePrev = _stateCurrent;
         _stateCurrent = newState;
-        foreach (CharacterCapability capability in capabilities)
+        foreach (var capability in capabilities)
             capability.StateInit(_stateCurrent, statePrev);
     }
 
@@ -70,18 +70,16 @@ public class Character : GameBehaviour {
     public void UpdateEffects(float deltaTime) {
         // iterate backwards to prevent index from shifting
         // (effects remove themselves once complete)
-        for (int i = effects.Count - 1; i >= 0; i--) {
-            CharacterEffect effect = effects[i];
+        for (var i = effects.Count - 1; i >= 0; i--) {
+            var effect = effects[i];
             effect.UpdateBase(deltaTime);
 
         }
     }
 
-    public CharacterEffect GetEffect(string effectName) {
-        foreach (CharacterEffect effect in effects) {
-            if (effectName == effect.name) return effect;
-        }
-        return null;
+    public CharacterEffect GetEffect(string effectName)
+    {
+        return effects.FirstOrDefault(effect => effectName == effect.name);
     }
 
     public bool HasEffect(string effectName) {
@@ -90,8 +88,8 @@ public class Character : GameBehaviour {
 
     public void ClearEffects() {
         // iterate backwards to prevent index from shifting
-        for (int i = effects.Count - 1; i >= 0; i--) {
-            CharacterEffect effect = effects[i];
+        for (var i = effects.Count - 1; i >= 0; i--) {
+            var effect = effects[i];
             effect.DestroyBase();
         }
     }
@@ -217,24 +215,23 @@ public class Character : GameBehaviour {
     bool GetIsGrounded(RaycastHit hit) { // Potentially avoid recomputing raycast
         if (hit.collider == null) return false;
 
-        float hitAngle = Quaternion.FromToRotation(Vector3.up, hit.normal).eulerAngles.z;
-        float angleDiff = Mathf.DeltaAngle(
+        var hitAngle = Quaternion.FromToRotation(Vector3.up, hit.normal).eulerAngles.z;
+        var angleDiff = Mathf.DeltaAngle(
             hitAngle,
             forwardAngle
         );
 
-        CharacterCollisionModifier collisionModifier = hit.transform.GetComponentInParent<CharacterCollisionModifier>();
-        if (collisionModifier != null) {
-            switch (collisionModifier.type) {
-                case CharacterCollisionModifier.CollisionModifierType.NoGrounding:
-                    return false;
-                case CharacterCollisionModifier.CollisionModifierType.NoGroundingLRB:
-                    if (hitAngle > 90 && hitAngle < 270) return false;
-                    break;
-                case CharacterCollisionModifier.CollisionModifierType.NoGroundingLRBHigher:
-                    if (hitAngle > 45 && hitAngle < 315) return false;
-                    break;
-            }
+        var collisionModifier = hit.transform.GetComponentInParent<CharacterCollisionModifier>();
+        if (collisionModifier == null) return angleDiff < 67.5F;
+        switch (collisionModifier.type) {
+            case CharacterCollisionModifier.CollisionModifierType.NoGrounding:
+                return false;
+            case CharacterCollisionModifier.CollisionModifierType.NoGroundingLRB:
+                if (hitAngle > 90 && hitAngle < 270) return false;
+                break;
+            case CharacterCollisionModifier.CollisionModifierType.NoGroundingLRBHigher:
+                if (hitAngle > 45 && hitAngle < 315) return false;
+                break;
         }
 
         return angleDiff < 67.5F;
@@ -266,7 +263,7 @@ public class Character : GameBehaviour {
     // Keeps character locked to ground while in ground state
     // 3D-Ready: No, but pretty close, actually.
     public bool GroundSnap() {
-        RaycastHit hit = GetGroundRaycast();
+        var hit = GetGroundRaycast();
         balanceState = BalanceState.None;
 
         if (GetIsGrounded(hit)) {
@@ -286,7 +283,7 @@ public class Character : GameBehaviour {
         // Didn't find the ground from the player center?
         // We might be on a ledge. Better check to the left and right of
         // the character to be sure.
-        for (int dir = -1; dir <= 1; dir += 2) {
+        for (var dir = -1; dir <= 1; dir += 2) {
             RaycastHit hitLedge;
             Physics.Raycast(
                 position + (dir * transform.right * 0.375F * sizeScale * sizeScale), // origin
@@ -299,7 +296,7 @@ public class Character : GameBehaviour {
                 balanceState = dir < 0 ? BalanceState.Left : BalanceState.Right;
                 groundedDetectorCurrent = hitLedge.transform.GetComponentInChildren<CharacterGroundedDetector>();
 
-                Vector3 newPos = (
+                var newPos = (
                     hitLedge.point -
                     (dir * transform.right * 0.375F * sizeScale) +
                     (transform.up * 0.5F * sizeScale)
@@ -367,8 +364,8 @@ public class Character : GameBehaviour {
         if (!GlobalOptions.GetBool("smoothRotation"))
             return (transform.eulerAngles / 45F).Round(0) * 45F;
     
-        Vector3 currentRotation = sprite.transform.eulerAngles;
-        bool shouldRotate = Mathf.Abs(Mathf.DeltaAngle(0, forwardAngle)) > 45;
+        var currentRotation = sprite.transform.eulerAngles;
+        var shouldRotate = Mathf.Abs(Mathf.DeltaAngle(0, forwardAngle)) > 45;
         
         Vector3 targetAngle;
         if (shouldRotate) {
@@ -468,10 +465,9 @@ public class Character : GameBehaviour {
                 currentLevel.cameraZoneStart.Set(this);
         }
 
-        if (characterCamera != null) {
-            characterCamera.MinMaxPositionSnap();
-            characterCamera.position = transform.position;
-        }
+        if (characterCamera == null) return;
+        characterCamera.MinMaxPositionSnap();
+        characterCamera.position = transform.position;
     }
 
     public void SoftRespawn() { // Should only be used in multiplayer; for full respawns reload scene
@@ -504,7 +500,7 @@ public class Character : GameBehaviour {
     );
 
     public void LimitPosition() {
-        Vector2 positionNew = Vector2.Min(
+        var positionNew = Vector2.Min(
             Vector2.Max(
                 position,
                 positionMin
@@ -512,10 +508,9 @@ public class Character : GameBehaviour {
             positionMax
         );
 
-        if ((Vector2)position != positionNew) {
-            position = positionNew;
-            _groundSpeed = 0;
-        }
+        if ((Vector2) position == positionNew) return;
+        position = positionNew;
+        _groundSpeed = 0;
     }
 
     // ========================================================================
@@ -661,7 +656,7 @@ public class Character : GameBehaviour {
             if (!timerPause) timer += deltaTime * Time.timeScale;
             if (!isHarmful) destroyEnemyChain = 0;
 
-            foreach (CharacterCapability capability in capabilities) {
+            foreach (var capability in capabilities) {
                 capability.Update(deltaTime);
                 input.enabled = !controlLock;
             }
@@ -676,7 +671,7 @@ public class Character : GameBehaviour {
             sizeScale * Mathf.Sign(spriteContainer.localScale.y),
             sizeScale * Mathf.Sign(spriteContainer.localScale.z)
         );
-        Color colorTemp = sprite.color;
+        var colorTemp = sprite.color;
         colorTemp.a = opacity * (isGhost ? 0.5F : 1);
         sprite.color = colorTemp;
 
@@ -693,32 +688,32 @@ public class Character : GameBehaviour {
     // ========================================================================
 
     public void OnCollisionEnter(Collision collision) {
-        foreach (CharacterCapability capability in capabilities)
+        foreach (var capability in capabilities)
             capability.OnCollisionEnter(collision);
     }
 
     public void OnCollisionStay(Collision collision) {
-        foreach (CharacterCapability capability in capabilities)
+        foreach (var capability in capabilities)
             capability.OnCollisionStay(collision);
     }
 
     public void OnCollisionExit(Collision collision) {
-        foreach (CharacterCapability capability in capabilities)
+        foreach (var capability in capabilities)
             capability.OnCollisionExit(collision);
     }
 
     public void OnTriggerEnter(Collider other) {
-        foreach (CharacterCapability capability in capabilities)
+        foreach (var capability in capabilities)
             capability.OnTriggerEnter(other);
     }
 
     public void OnTriggerStay(Collider other) {
-        foreach (CharacterCapability capability in capabilities)
+        foreach (var capability in capabilities)
             capability.OnTriggerStay(other);
     }
 
     public void OnTriggerExit(Collider other) {
-        foreach (CharacterCapability capability in capabilities)
+        foreach (var capability in capabilities)
             capability.OnTriggerExit(other);
     }
 
@@ -734,9 +729,9 @@ public class Character : GameBehaviour {
 
         // Keep player IDs sequential
         if (playerId < 0) return;
-        foreach (Character character in LevelManager.current.characters) {
-            if (character.playerId > playerId)        
-                character.playerId--;
+        foreach (var character in LevelManager.current.characters.Where(character => character.playerId > playerId))
+        {
+            character.playerId--;
         }
     }
 
@@ -780,7 +775,7 @@ public class Character : GameBehaviour {
 
         InitReferences();
 
-        Level levelDefault = FindObjectOfType<Level>();
+        var levelDefault = FindObjectOfType<Level>();
 
         if (currentLevel == null) {
             currentLevel = levelDefault;

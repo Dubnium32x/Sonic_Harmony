@@ -21,16 +21,16 @@ TagManager:
   - OneWayGround
   - ForwardSolidGround
   - BackwardSolidGround
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player - Ignore Top Solid and Raycast
+  - Player - Ignore Top Solid
+  - Player - Rolling
+  - Player - Rolling and Ignore Top Solid
+  - Object - Player Only and Ignore Raycast
+  - Object - Ring
+  - Object - Ignore Other Objects
+  - Object - Top Solid Only and Ignore Other Objects
+  - Object - Monitor Solidity
+  - Object - Monitor Trigger
   - 
   - 
   - 

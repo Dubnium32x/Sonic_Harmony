@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,7 +10,7 @@ public class Level : MonoBehaviour {
     public CameraZone cameraZoneStart;
 
     public Vector3 spawnPosition { get {
-        Transform spawnLocation = transform.Find("Spawn Position");
+        var spawnLocation = transform.Find("Spawn Position");
         if (spawnLocation == null) return Vector3.zero;
         return spawnLocation.position;
     }}
@@ -18,21 +19,23 @@ public class Level : MonoBehaviour {
     public string zone = "Unknown";
 
     void Awake() {
-        Scene levelScene = SceneManager.GetSceneByName("Level");
+        var levelScene = SceneManager.GetSceneByName("Level");
         if (!levelScene.isLoaded)
             SceneManager.LoadScene("Scenes/Level", LoadSceneMode.Additive);
     }
 
-    void Update() {
-        foreach(Character character in LevelManager.current.characters) {
-            if (character.currentLevel != this) continue;
+    void Update()
+    {
+        foreach (var character in LevelManager.current.characters.Where(character => character.currentLevel == this))
+        {
             DLEUpdateCharacter(character);
         }
     }
 
     public void Unload() {
-        foreach(Character character in LevelManager.current.characters) {
-            if (character.currentLevel == this) return;
+        if (LevelManager.current.characters.Any(character => character.currentLevel == this))
+        {
+            return;
         }
         SceneManager.UnloadSceneAsync(gameObject.scene);
         Resources.UnloadUnusedAssets();
@@ -41,7 +44,7 @@ public class Level : MonoBehaviour {
     public void ReloadFadeOut(Character character = null) {
         if (LevelManager.current.characters.Count == 1) Time.timeScale = 0;
 
-        ScreenFade screenFade = Instantiate(
+        var screenFade = Instantiate(
             Constants.Get<GameObject>("prefabScreenFadeOut"),
             Vector3.zero,
             Quaternion.identity
@@ -52,7 +55,10 @@ public class Level : MonoBehaviour {
 
         MusicManager.current.FadeOut();
         screenFade.onComplete = () => {
-            if (LevelManager.current.characters.Count == 1) Reload();
+            if (LevelManager.current.characters.Count == 1)
+            {
+                Reload();
+            }
             else {
                 if (character == null) return;
                 ObjTitleCard.Make(character);
@@ -67,8 +73,8 @@ public class Level : MonoBehaviour {
             (Level nextLevel) => {
                 MusicManager.current.Clear();
                 LevelManager.current.ReloadDisposablesScene();
-                foreach(Character character in LevelManager.current.characters) {
-                    if (character.currentLevel != this) continue;
+                foreach (var character in LevelManager.current.characters.Where(character => character.currentLevel == this))
+                {
                     character.currentLevel = nextLevel;
                     ObjTitleCard.Make(character);
                     character.Respawn();

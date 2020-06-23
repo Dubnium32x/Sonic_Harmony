@@ -9,7 +9,7 @@ using UnityEngine.Events;
 
 public static class Utils {
     public static float deltaTimeScale => 60F * Utils.cappedDeltaTime;
-    public static float physicsScale = 1.875F; // 60 (framerate) / 32 (pixels per unit)
+    public const float physicsScale = 1.875F; // 60 (framerate) / 32 (pixels per unit)
 
     // ========================================================================
 
@@ -35,7 +35,7 @@ public static class Utils {
         DistanceType distanceType,
         HashSet<Character> characters
     ) {
-        foreach(Character character in characters) {
+        foreach(var character in characters) {
             Vector2 cameraPos;
             if (character.characterCamera != null)
                 cameraPos = character.characterCamera.position;
@@ -44,8 +44,8 @@ public static class Utils {
             
             Vector2 charPos = character.position;
 
-            float cameraDist = Mathf.Infinity;
-            float charDist = Mathf.Infinity;
+            var cameraDist = Mathf.Infinity;
+            var charDist = Mathf.Infinity;
 
             switch(axisType) {
                 case AxisType.XY:
@@ -62,7 +62,7 @@ public static class Utils {
                     break;
             }
 
-            float otherDist = Mathf.Infinity;
+            var otherDist = Mathf.Infinity;
 
             switch(distanceType) {
                 case DistanceType.Character:
@@ -169,8 +169,8 @@ public static class Utils {
         if (alpha == 0) return Tuple.Create(Int32.MaxValue, 0);
         if (alpha == 1) return Tuple.Create(0, Int32.MaxValue);
 
-        float onFramesDivisor = alpha * 2;
-        float offFramesDivisor = 1 - onFramesDivisor;
+        var onFramesDivisor = alpha * 2;
+        var offFramesDivisor = 1 - onFramesDivisor;
 
         return Tuple.Create(
            (int)(1 / onFramesDivisor),
@@ -181,7 +181,7 @@ public static class Utils {
     // ========================================================================
 
     // Store all case variants since str.ToLower() causes GC
-    static HashSet<string> stringsPositive = new HashSet<string> {
+    static readonly HashSet<string> stringsPositive = new HashSet<string> {
         "true", "True", "TRUE",
         "on",   "On",   "ON",
         "yes",  "Yes",  "YES",
@@ -193,7 +193,7 @@ public static class Utils {
 
     // ========================================================================
 
-    static Dictionary<int, string> intStrCache = new Dictionary<int, string>();
+    static readonly Dictionary<int, string> intStrCache = new Dictionary<int, string>();
     public static string IntToStrCached(int val) {
         if (!intStrCache.ContainsKey(val))
             intStrCache[val] = val.ToString();
@@ -207,7 +207,7 @@ public static class Utils {
         SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
 
     public static void SetScene(Transform transform, Scene scene) {
-        Scene sceneCurrent = SceneManager.GetActiveScene();
+        var sceneCurrent = SceneManager.GetActiveScene();
         SceneManager.SetActiveScene(scene);
         transform.SetParent(null);
         SceneManager.SetActiveScene(sceneCurrent);

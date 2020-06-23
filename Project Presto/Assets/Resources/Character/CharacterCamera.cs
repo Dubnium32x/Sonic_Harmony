@@ -27,7 +27,7 @@ public class CharacterCamera : MonoBehaviour {
 
             _minPositionTarget = value;
 
-            if (Mathf.Abs(_minPositionReal.magnitude) == Mathf.Infinity)
+            if (float.IsPositiveInfinity(Mathf.Abs(_minPositionReal.magnitude)))
                 _minPositionReal = _minPositionTarget;
 
             if (_minPositionTarget.x != minPositionTargetPrev.x) {
@@ -74,7 +74,7 @@ public class CharacterCamera : MonoBehaviour {
             _maxPositionTarget = value;
 
 
-            if (Mathf.Abs(_maxPositionReal.magnitude) == Mathf.Infinity)
+            if (float.IsPositiveInfinity(Mathf.Abs(_maxPositionReal.magnitude)))
                 _maxPositionReal = _maxPositionTarget;
 
             if (_maxPositionTarget.x != maxPositionTargetPrev.x) {
@@ -150,8 +150,8 @@ public class CharacterCamera : MonoBehaviour {
     }
 
     public void SetCharacterBoundsFromCamera() {
-        float screenHeightWorld = 224 / 32F;
-        float screenWidthWorld = 398 / 32F;
+        var screenHeightWorld = 224 / 32F;
+        var screenWidthWorld = 398 / 32F;
 
         character.positionMin = new Vector2(
             _minPositionTarget.x - (screenWidthWorld / 2F) + 0.5F,
@@ -167,25 +167,25 @@ public class CharacterCamera : MonoBehaviour {
     float minMaxMoveAmtMax = 0;
 
     void MoveMinMaxTowardsTarget() {
-        float minXDist = _minPositionTarget.x - _minPositionReal.x;
+        var minXDist = _minPositionTarget.x - _minPositionReal.x;
         _minPositionReal.x += Mathf.Min(
             Mathf.Abs(minXDist),
             minMaxMoveAmtMax * Utils.cappedUnscaledDeltaTime
         ) * Mathf.Sign(minXDist);
 
-        float maxXDist = _maxPositionTarget.x - _maxPositionReal.x;
+        var maxXDist = _maxPositionTarget.x - _maxPositionReal.x;
         _maxPositionReal.x += Mathf.Min(
             Mathf.Abs(maxXDist),
             minMaxMoveAmtMax * Utils.cappedUnscaledDeltaTime
         ) * Mathf.Sign(maxXDist);
 
-        float minYDist = _minPositionTarget.y - _minPositionReal.y; 
+        var minYDist = _minPositionTarget.y - _minPositionReal.y; 
         _minPositionReal.y += Mathf.Min(
             Mathf.Abs(minYDist),
             minMaxMoveAmtMax * Utils.cappedUnscaledDeltaTime
         ) * Mathf.Sign(minYDist);
 
-        float maxYDist = _maxPositionTarget.y - _maxPositionReal.y; 
+        var maxYDist = _maxPositionTarget.y - _maxPositionReal.y; 
         _maxPositionReal.y += Mathf.Min(
             Mathf.Abs(maxYDist),
             minMaxMoveAmtMax * Utils.cappedUnscaledDeltaTime
@@ -220,14 +220,14 @@ public class CharacterCamera : MonoBehaviour {
 
         // Move camera horizontally towards character but not past them,
         // only move a max of hMoveMax, and restrict self to boundaries
-        float hDist = characterPosition.x - transform.position.x;
+        var hDist = characterPosition.x - transform.position.x;
         if (Mathf.Abs(hDist) > hBorderDistance * valScale) {
             moveAmt.x = Mathf.Abs(hDist) - (hBorderDistance * valScale);
             moveAmt.x = Mathf.Min(moveAmt.x, hMoveMax * valScale);
             moveAmt.x = Mathf.Sign(hDist) * moveAmt.x;
         }
         
-        float vDist = characterPosition.y - transform.position.y;
+        var vDist = characterPosition.y - transform.position.y;
         if (character.InStateGroup("ground")) {
             if (Mathf.Abs(vDist) > 0) {
                 moveAmt.y = Mathf.Abs(vDist);

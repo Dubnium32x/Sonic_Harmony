@@ -137,15 +137,17 @@ public class SceneReference : ISerializationCallbackReceiver
             return;
 
         // Asset is invalid but have path to try and recover from
-        if (string.IsNullOrEmpty(scenePath) == false)
+        if (string.IsNullOrEmpty(scenePath)) return;
+        sceneAsset = GetSceneAssetFromPath();
+        // No asset found, path was invalid. Make sure we don't carry over the old invalid path
+        if (sceneAsset == null)
         {
-            sceneAsset = GetSceneAssetFromPath();
-            // No asset found, path was invalid. Make sure we don't carry over the old invalid path
-            if (sceneAsset == null)
-                scenePath = string.Empty;
+            scenePath = string.Empty;
+        }
 
-            if (Application.isPlaying == false)
-                UnityEditor.SceneManagement.EditorSceneManager.MarkAllScenesDirty();
+        if (Application.isPlaying == false)
+        {
+            UnityEditor.SceneManagement.EditorSceneManager.MarkAllScenesDirty();
         }
     }
 #endif
@@ -166,10 +168,10 @@ public class SceneReferencePropertyDrawer : PropertyDrawer
     const string scenePathPropertyString = "scenePath";
 
     static readonly RectOffset boxPadding = EditorStyles.helpBox.padding;
-    static readonly float padSize = 2f;
+    private const float padSize = 2f;
     static readonly float lineHeight = EditorGUIUtility.singleLineHeight;
     static readonly float paddedLine = lineHeight + padSize;
-    static readonly float footerHeight = 10f;
+    private const float footerHeight = 10f;
 
     /// <summary>
     /// Drawing the 'SceneReference' property
@@ -189,9 +191,9 @@ public class SceneReferencePropertyDrawer : PropertyDrawer
 
         EditorGUI.BeginProperty(position, GUIContent.none, property);
         EditorGUI.BeginChangeCheck();
-        int sceneControlID = GUIUtility.GetControlID(FocusType.Passive);
+        var sceneControlID = GUIUtility.GetControlID(FocusType.Passive);
         var selectedObject = EditorGUI.ObjectField(position, label, sceneAssetProperty.objectReferenceValue, typeof(SceneAsset), false);
-        BuildUtils.BuildScene buildScene = BuildUtils.GetBuildScene(selectedObject);
+        var buildScene = BuildUtils.GetBuildScene(selectedObject);
 
         if (EditorGUI.EndChangeCheck())
         {
@@ -217,8 +219,8 @@ public class SceneReferencePropertyDrawer : PropertyDrawer
     /// </summary>
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        int lines = 2;
-        SerializedProperty sceneAssetProperty = GetSceneAssetProperty(property);
+        var lines = 2;
+        var sceneAssetProperty = GetSceneAssetProperty(property);
         if (sceneAssetProperty.objectReferenceValue == null)
             lines = 1;
 
@@ -230,12 +232,20 @@ public class SceneReferencePropertyDrawer : PropertyDrawer
     /// </summary>
     private void DrawSceneInfoGUI(Rect position, BuildUtils.BuildScene buildScene, int sceneControlID)
     {
-        bool readOnly = BuildUtils.IsReadOnly();
-        string readOnlyWarning = readOnly ? "\n\nWARNING: Build Settings is not checked out and so cannot be modified." : "";
+        var readOnly = BuildUtils.IsReadOnly();
+        string readOnlyWarning;
+        if (readOnly)
+        {
+            readOnlyWarning = "\n\nWARNING: Build Settings is not checked out and so cannot be modified.";
+        }
+        else
+        {
+            readOnlyWarning = "";
+        }
 
         // Label Prefix
-        GUIContent iconContent = new GUIContent();
-        GUIContent labelContent = new GUIContent();
+        var iconContent = new GUIContent();
+        var labelContent = new GUIContent();
 
         // Missing from build scenes
         if (buildScene.buildIndex == -1)

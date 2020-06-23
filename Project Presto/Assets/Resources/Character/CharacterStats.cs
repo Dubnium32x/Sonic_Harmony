@@ -9,21 +9,21 @@ public class CharacterStats {
     public bool ContainsKey(string key) => stats.ContainsKey(key);
     public float Get(string key) => GetRaw(key) * physicsScale;
     public float GetRaw(string key) {
-        object val = stats[key];
-        if (val is float)
-            return (float)val;
-        if (val is string) 
-            return GetRaw((string)val);
-        if (val is Func<float>) 
-            return ((Func<float>)val).Invoke();
-        if (val is Func<string>) 
-            return GetRaw(((Func<string>)val).Invoke());
+        var val = stats[key];
+        if (val is float f)
+            return f;
+        if (val is string s) 
+            return GetRaw(s);
+        if (val is Func<float> func) 
+            return func.Invoke();
+        if (val is Func<string> func1) 
+            return GetRaw(func1.Invoke());
 
         return -Mathf.Infinity; // Should have a better fail case
     }
     public void Add(string key, object val) => stats[key] = val;
     public void Add(Dictionary<string, object> data) {
-        foreach (string key in data.Keys)
+        foreach (var key in data.Keys)
             stats[key] = data[key];
     }
 }
