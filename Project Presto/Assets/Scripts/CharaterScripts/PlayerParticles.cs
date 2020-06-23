@@ -8,4 +8,5 @@ public class PlayerParticles
 	public ParticleSystem spindashSmoke;
 	public ParticleSystem normalShield;
 	public ParticleSystem Invinciblity;
+	public ParticleSystem RingCollect;
 }

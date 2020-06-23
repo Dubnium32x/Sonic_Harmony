@@ -17,7 +17,6 @@ public class Ring : FreedomObject
 
 	[Header("Components")]
 	public AudioClip collectSound;
-	public ParticleSystem collectParticle;
 
 	private new SphereCollider collider;
 	private new AudioSource audio;
@@ -121,12 +120,10 @@ public class Ring : FreedomObject
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (collectable && other.CompareTag("Player"))
-		{
-			ScoreManager.Instance.Rings++;
-			audio.PlayOneShot(collectSound, 0.25f);
-			collectParticle.Play();
-			Disable();
-		}
+		if (!collectable || !other.CompareTag("Player")) return;
+		var player = other.gameObject.GetComponent<CharControlMotor>();
+		ScoreManager.Instance.Rings++;
+		player.jumpSource.PlayOneShot(player.audios.ring_ding);
+		Disable();
 	}
 }

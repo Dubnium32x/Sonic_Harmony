@@ -403,11 +403,9 @@ public class CharControlMotor : PlayerMotor
     {
         if (!invincible || (!(invincibleTimer > 0))) return;
         invincibleTimer -= deltaTime;
-        if(!particles.Invinciblity.isEmitting) particles.Invinciblity.Play();
         if (!(invincibleTimer <= 0)) return;
         invincible = false;
         invincibleTimer = 0;
-        particles.Invinciblity.Stop();
     }
     public void UpdateSpeedShoe(float deltaTime)
     {
