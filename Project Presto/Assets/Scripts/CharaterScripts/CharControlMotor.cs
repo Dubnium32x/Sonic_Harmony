@@ -167,15 +167,13 @@ public class CharControlMotor : PlayerMotor
 
     private void InitializeLostRingPool()
     {
-        for (int i = 0; i < stats.maxLostRingCount; i++)
+        for (var i = 0; i < stats.maxLostRingCount; i++)
         {
-            var gameObject = Instantiate(lostRing);
+            var mgameObject = Instantiate(lostRing);
 
-            if (gameObject.TryGetComponent(out Ring ring))
-            {
-                ring.Disable();
-                lostRingsPool.Enqueue(ring);
-            }
+            if (!mgameObject.TryGetComponent(out Ring ring)) continue;
+            ring.Disable();
+            lostRingsPool.Enqueue(ring);
         }
     }
 
@@ -190,67 +188,63 @@ public class CharControlMotor : PlayerMotor
 
     private void ScatterRings(float amount)
     {
-        var angle = 101.25f;
+        var mangle = 101.25f;
         var flipDirection = false;
         var force = stats.ringScatterForce;
 
         amount = Mathf.Min(amount, stats.maxLostRingCount);
 
-        for (int i = 0; i < amount; i++)
+        for (var i = 0; i < amount; i++)
         {
             var ring = InstantiateLostRing(transform.position, Quaternion.identity);
-            ring.velocity.y = Mathf.Sin(angle) * force;
-            ring.velocity.x = Mathf.Cos(angle) * force;
+            ring.velocity.y = Mathf.Sin(mangle) * force;
+            ring.velocity.x = Mathf.Cos(mangle) * force;
 
             if (flipDirection)
             {
                 ring.velocity.x *= -1;
-                angle += 22.5f;
+                mangle += 22.5f;
             }
 
             flipDirection = !flipDirection;
 
-            if (i == 16)
-            {
-                force *= 0.5f;
-                angle = 101.25f;
-            }
+            if (i != 16) continue;
+            force *= 0.5f;
+            mangle = 101.25f;
         }
     }
     public void ApplyHurt(Vector3 hurtPoint)
     {
-        if (!invincible)
+        if (invincible) return;
+        if (shield != PlayerShields.None || mysettings.Rings > 0)
         {
-            if (shield != PlayerShields.None || mysettings.Rings > 0)
-            {
-                velocity.y = stats.pushBack;
-                velocity.x = stats.pushBack * 0.5f * Mathf.Sign(transform.position.x - hurtPoint.x);
-                state.ChangeState<HurtPlayerState>();
+            velocity.y = stats.pushBack;
+            velocity.x = stats.pushBack * 0.5f * Mathf.Sign(transform.position.x - hurtPoint.x);
+            state.ChangeState<HurtPlayerState>();
 
-                if (shield == PlayerShields.None)
+            if (shield == PlayerShields.None)
+            {
+                jumpSource.PlayOneShot(audios.ring_loss, 0.4f);
+                if (mysettings.Rings > 32)
                 {
-                    jumpSource.PlayOneShot(audios.ring_loss, 0.4f);
-                    if (mysettings.Rings > 32)
-                    {
-                        ScatterRings(32);
-                        mysettings.Rings -= 32;
-                    }
-                    else
-                    {
-                        ScatterRings(mysettings.Rings);
-                        mysettings.Rings = 0;
-                    }
+                    ScatterRings(32);
+                    mysettings.Rings -= 32;
                 }
                 else
                 {
-                    SetShield(PlayerShields.None);
-                    jumpSource.PlayOneShot(audios.death);
+                    ScatterRings(mysettings.Rings);
+                    mysettings.Rings = 0;
                 }
             }
             else
             {
-                ApplyDeath();
+                SetShield(PlayerShields.None);
+                jumpSource.PlayOneShot(audios.death);
             }
+        }
+        else
+        {
+            ApplyDeath();
         }
     }
 
@@ -277,18 +271,16 @@ public class CharControlMotor : PlayerMotor
     }
     public void HandleSlopeFactor(float deltaTime)
     {
-        if (grounded)
+        if (!grounded) return;
+        if (!attacking)
         {
-            if (!attacking)
-            {
-                velocity.x += up.x * stats.slope * deltaTime;
-            }
-            else
-            {
-                var downHill = (Mathf.Sign(velocity.x) == Mathf.Sign(up.x));
-                var slope = downHill ? stats.slopeRollDown : stats.slopeRollUp;
-                velocity.x += up.x * slope * deltaTime;
-            }
+            velocity.x += up.x * stats.slope * deltaTime;
+        }
+        else
+        {
+            var downHill = (Mathf.Sign(velocity.x) == Mathf.Sign(up.x));
+            var slope = downHill ? stats.slopeRollDown : stats.slopeRollUp;
+            velocity.x += up.x * slope * deltaTime;
         }
     }
 
@@ -311,27 +303,25 @@ public class CharControlMotor : PlayerMotor
 
     public void HandleDeceleration(float deltaTime)
     {
-        if (grounded)
+        if (!grounded) return;
+        var deceleration = attacking ? stats.rollDeceleration : stats.deceleration;
+
+        if (input.right && (velocity.x < 0))
         {
-            var deceleration = attacking ? stats.rollDeceleration : stats.deceleration;
+            velocity.x += deceleration * deltaTime;
 
-            if (input.right && (velocity.x < 0))
+            if (velocity.x >= 0)
             {
-                velocity.x += deceleration * deltaTime;
-
-                if (velocity.x >= 0)
-                {
-                    velocity.x = stats.turnSpeed;
-                }
+                velocity.x = stats.turnSpeed;
             }
-            else if (input.left && (velocity.x > 0))
-            {
-                velocity.x -= deceleration * deltaTime;
+        }
+        else if (input.left && (velocity.x > 0))
+        {
+            velocity.x -= deceleration * deltaTime;
 
-                if (velocity.x <= 0)
-                {
-                    velocity.x = -stats.turnSpeed;
-                }
+            if (velocity.x <= 0)
+            {
+                velocity.x = -stats.turnSpeed;
             }
         }
     }
@@ -368,46 +358,36 @@ public class CharControlMotor : PlayerMotor
     }
     public void HandleFriction(float deltaTime)
     {
-        if (grounded && (attacking || (input.horizontal == 0)))
-        {
-            var friction = attacking ? stats.rollFriction : stats.friction;
-            velocity = Vector3.MoveTowards(velocity, Vector3.zero, friction * deltaTime);
-        }
+        if (!grounded || (!attacking && (input.horizontal != 0))) return;
+        var friction = attacking ? stats.rollFriction : stats.friction;
+        velocity = Vector3.MoveTowards(velocity, Vector3.zero, friction * deltaTime);
     }
 
     public void HandleGravity(float deltaTime)
     {
-        if (!grounded)
-        {
-            var gravity = halfGravity ? (stats.gravity * 0.5f) : stats.gravity;
-            velocity.y -= gravity * deltaTime;
-        }
+        if (grounded) return;
+        var gravity = halfGravity ? (stats.gravity * 0.5f) : stats.gravity;
+        velocity.y -= gravity * deltaTime;
     }
 
     public void HandleJump()
     {
-        if (grounded)
-        {
-            PlayAudio(audios.jump, 0.4f);
-            velocity.y = stats.maxJumpHeight;
-            state.ChangeState<JumpPlayerState>();
-        }
+        if (!grounded) return;
+        PlayAudio(audios.jump, 0.4f);
+        velocity.y = stats.maxJumpHeight;
+        state.ChangeState<JumpPlayerState>();
     }
 
     public void HandleFall()
     {
-        if (grounded)
+        if (!grounded) return;
+        if ((!(Mathf.Abs(velocity.x) < stats.minSpeedToSlide)) || (!(angle >= stats.minAngleToSlide))) return;
+        if (angle >= stats.minAngleToFall)
         {
-            if ((Mathf.Abs(velocity.x) < stats.minSpeedToSlide) && (angle >= stats.minAngleToSlide))
-            {
-                if (angle >= stats.minAngleToFall)
-                {
-                    GroundExit();
-                }
-
-                input.LockHorizontalControl(stats.controlLockTime);
-            }
+            GroundExit();
         }
+
+        input.LockHorizontalControl(stats.controlLockTime);
     }
     public void PlayAudio(AudioClip clip, float volume = 1f)
     {
@@ -428,30 +408,22 @@ public class CharControlMotor : PlayerMotor
 
     public void UpdateInvincibility(float deltaTime)
     {
-        if (invincible && (invincibleTimer > 0))
-        {
-            invincibleTimer -= deltaTime;
-            if(!particles.Invinciblity.isEmitting) particles.Invinciblity.Play();
-            if (invincibleTimer <= 0)
-            {
-                invincible = false;
-                invincibleTimer = 0;
-                particles.Invinciblity.Stop();
-            }
-        }
+        if (!invincible || (!(invincibleTimer > 0))) return;
+        invincibleTimer -= deltaTime;
+        if(!particles.Invinciblity.isEmitting) particles.Invinciblity.Play();
+        if (!(invincibleTimer <= 0)) return;
+        invincible = false;
+        invincibleTimer = 0;
+        particles.Invinciblity.Stop();
     }
     public void UpdateSpeedShoe(float deltaTime)
     {
-        if (SpeedShoe && (invincibleTimer > 0))
-        {
-            invincibleTimer -= deltaTime;
+        if (!SpeedShoe || (!(invincibleTimer > 0))) return;
+        invincibleTimer -= deltaTime;
 
-            if (invincibleTimer <= 0)
-            {
-                SpeedShoe = false;
-                invincibleTimer = 0;
-            }
-        }
+        if (!(invincibleTimer <= 0)) return;
+        SpeedShoe = false;
+        invincibleTimer = 0;
     }
     public void Respawn(Vector3 position, Quaternion rotation)
     {
@@ -484,9 +456,9 @@ public class CharControlMotor : PlayerMotor
     {
         state = new CharStateMachine(this);
 
-        foreach (PlayerState state in GetComponents<PlayerState>())
+        foreach (var mstate in GetComponents<PlayerState>())
         {
-            this.state.AddState(state);
+            this.state.AddState(mstate);
         }
 
         state.ChangeState<WalkPlayerState>();
@@ -512,7 +484,7 @@ public class CharControlMotor : PlayerMotor
         skin.animator.SetBool("DownPressed", downPressed);
 
         /// - Arcy
-        float animSpeed = Mathf.Abs(velocity.x); // Check Sonic's speed and convert to anim speed
+        var animSpeed = Mathf.Abs(velocity.x); // Check Sonic's speed and convert to anim speed
         if (animSpeed <= 5.0f) animSpeed = 1.0f; // Speed 1
         else if (animSpeed <= 8.0f) animSpeed = 1.5f; // Speed 2
         else animSpeed = 2.0f;// Speed 3

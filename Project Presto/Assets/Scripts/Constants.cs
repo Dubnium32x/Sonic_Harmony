@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public static class Constants {
-    static Dictionary<string, string> defaults = new Dictionary<string, string> {
+    static readonly Dictionary<string, string> defaults = new Dictionary<string, string> {
         ["sfxDie"] = "SFX/Sonic 1/S1_A3",
         ["sfxDrown"] = "SFX/Sonic 1/S1_B2",
         ["sfxDropDashCharge"] = "SFX/Sonic 2/S2_60",
@@ -50,19 +50,23 @@ public static class Constants {
     static Dictionary<string, GameObject> prefabCache = new Dictionary<string, GameObject>();
 
     public static T Get<T>(string key) {
-        string data = Get(key);
+        var data = Get(key);
 
         if (typeof(T) == typeof(bool))
+        {
             return (T)(object)Utils.StringBool(data);
-
-        if (typeof(T) == typeof(GameObject)) {
-            if (!prefabCache.ContainsKey(data)) {
-                prefabCache[data] = (GameObject)Resources.Load(data);
-            }
-            
-            return (T)(object)prefabCache[data];
         }
 
-        return (T)(object)data;
+        if (typeof(T) != typeof(GameObject))
+        {
+            return (T) (object) data;
+        }
+
+        if (!prefabCache.ContainsKey(data)) {
+            prefabCache[data] = (GameObject)Resources.Load(data);
+        }
+            
+        return (T)(object)prefabCache[data];
+
     }
 }

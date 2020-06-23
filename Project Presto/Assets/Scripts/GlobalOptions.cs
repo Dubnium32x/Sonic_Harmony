@@ -41,24 +41,23 @@ public class GlobalOptions : MonoBehaviour {
     }
 
     // Start is called before the first frame update
-    void Start() {
-        if (dropdown != null) {
-            for (int i = 0; i < dropdown.options.Count; i++) {
-                if (dropdown.options[i].text == Get(key)) {
-                    dropdown.value = i;
-                    break;
-                }
-            }
-            dropdown.GetComponent<AudioSource>().Stop();
+    void Start()
+    {
+        if (dropdown == null) return;
+        for (var i = 0; i < dropdown.options.Count; i++)
+        {
+            if (dropdown.options[i].text != Get(key)) continue;
+            dropdown.value = i;
+            break;
         }
+        dropdown.GetComponent<AudioSource>().Stop();
     }
 
     public string key;
     public Dropdown dropdown;
-    public void Set() {
-        if (dropdown != null) {
-            Set(key, dropdown.options[dropdown.value].text);
-            return;
-        }
+    public void Set()
+    {
+        if (dropdown == null) return;
+        Set(key, dropdown.options[dropdown.value].text);
     }
 }

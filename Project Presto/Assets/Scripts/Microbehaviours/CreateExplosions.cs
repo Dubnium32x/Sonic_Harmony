@@ -7,17 +7,16 @@ public class CreateExplosions : MonoBehaviour {
     
     void Update() {
         timer -= Utils.cappedDeltaTime;
-        if (timer <= 0) {
-            Instantiate(
-                Constants.Get<GameObject>("prefabExplosionBoss"),
-                transform.position + new Vector3(
-                    maxVariance.x * ((Random.value * 2) - 1),
-                    maxVariance.y * ((Random.value * 2) - 1),
-                    -0.2F
-                ),
-                Quaternion.identity
-            );
-            timer = timePerExplosion;
-        }
+        if (!(timer <= 0)) return;
+        Instantiate(
+            Constants.Get<GameObject>("prefabExplosionBoss"),
+            transform.position + new Vector3(
+                maxVariance.x * ((Random.value * 2) - 1),
+                maxVariance.y * ((Random.value * 2) - 1),
+                -0.2F
+            ),
+            Quaternion.identity
+        );
+        timer = timePerExplosion;
     }
 }

@@ -62,32 +62,30 @@ public class SpringCode : MonoBehaviour
 
 	private void InitializeSpring()
 	{
-		if (hidden)
-		{
-			meshStartPosition = mesh.position;
-			hidePoint = mesh.position - transform.up * hideDistance;
-			mesh.position = hidePoint;
-		}
+		if (!hidden) return;
+		var position = mesh.position;
+		meshStartPosition = position;
+		hidePoint = position - transform.up * hideDistance;
+		position = hidePoint;
+		mesh.position = position;
 	}
 
 	private void HandlePlayerSnaping(CharControlMotor player)
 	{
-		if (snapPositionX || snapPositionY)
+		if (!snapPositionX && !snapPositionY) return;
+		var playerPosition = player.transform.position;
+
+		if (snapPositionX)
 		{
-			var playerPosition = player.transform.position;
-
-			if (snapPositionX)
-			{
-				playerPosition.x = transform.position.x;
-			}
-
-			if (snapPositionY)
-			{
-				playerPosition.y = transform.position.y;
-			}
-
-			player.transform.position = playerPosition;
+			playerPosition.x = transform.position.x;
 		}
+
+		if (snapPositionY)
+		{
+			playerPosition.y = transform.position.y;
+		}
+
+		player.transform.position = playerPosition;
 	}
 
 	private IEnumerator ShowSpring()
@@ -111,35 +109,33 @@ public class SpringCode : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (other.TryGetComponent<CharControlMotor>(out var player))
-		{
-			//check if player is landing on spring
-			var direction = (player.transform.position - transform.position).normalized;
-			if (!(Vector3.Dot(transform.up, direction) > 0.7f) ) return;
+		if (!other.TryGetComponent<CharControlMotor>(out var player)) return;
+		//check if player is landing on spring
+		var direction = (player.transform.position - transform.position).normalized;
+		if (!(Vector3.Dot(transform.up, direction) > 0.7f) ) return;
 			
-			player.velocity = transform.up.normalized * force;
-			player.UpdateDirection(player.velocity.x);
+		player.velocity = transform.up.normalized * force;
+		player.UpdateDirection(player.velocity.x);
 
-			if (lockControl)
-			{
-				player.input.LockHorizontalControl(lockTime);
-			}
-
-			HandlePlayerSnaping(player);
-
-			if (transform.up.y > 0)
-			{
-				player.state.ChangeState<SpringState>();
-			}
-
-			if (hidden)
-			{
-				StopAllCoroutines();
-				StartCoroutine(ShowSpring());
-			}
-
-			audio.PlayOneShot(springSound, 0.5f);
+		if (lockControl)
+		{
+			player.input.LockHorizontalControl(lockTime);
 		}
+
+		HandlePlayerSnaping(player);
+
+		if (transform.up.y > 0)
+		{
+			player.state.ChangeState<SpringState>();
+		}
+
+		if (hidden)
+		{
+			StopAllCoroutines();
+			StartCoroutine(ShowSpring());
+		}
+
+		audio.PlayOneShot(springSound, 0.5f);
 	}
 
 #if UNITY_EDITOR

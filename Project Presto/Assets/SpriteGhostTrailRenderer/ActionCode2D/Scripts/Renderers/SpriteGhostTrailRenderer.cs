@@ -33,22 +33,21 @@ namespace ActionCode2D.Renderers
         }
         private void Update() {
             _currentTime += Utils.cappedDeltaTime;
-            if (_currentTime > updateInterval) {
-                _currentTime = 0f;
+            if (!(_currentTime > updateInterval)) return;
+            _currentTime = 0f;
 
-                _ghostIndex = (_ghostIndex + 1) % _ghostRenderers.Length;
-                _ghostRenderers[_ghostIndex].gameObject.SetActive(true);
-                PlaceGhost(_ghostRenderers[_ghostIndex]);
-                UpdateGhostSprite(_ghostRenderers[_ghostIndex]);
+            _ghostIndex = (_ghostIndex + 1) % _ghostRenderers.Length;
+            _ghostRenderers[_ghostIndex].gameObject.SetActive(true);
+            PlaceGhost(_ghostRenderers[_ghostIndex]);
+            UpdateGhostSprite(_ghostRenderers[_ghostIndex]);
 
-                for (int i = 0; i < _ghostRenderers.Length; i++) {
-                    SpriteRenderer ghost = _ghostRenderers[(i  + _ghostIndex + 1) % _ghostRenderers.Length];
-                    UpdateGhostColor(
-                        ghost,
-                        i / (float)(_ghostRenderers.Length - 1)
-                    );
-                    if (shareSprite) UpdateGhostSprite(ghost);
-                }
+            for (var i = 0; i < _ghostRenderers.Length; i++) {
+                var ghost = _ghostRenderers[(i  + _ghostIndex + 1) % _ghostRenderers.Length];
+                UpdateGhostColor(
+                    ghost,
+                    i / (float)(_ghostRenderers.Length - 1)
+                );
+                if (shareSprite) UpdateGhostSprite(ghost);
             }
 
             // for (int i = 0; i < _ghostRenderers.Length; i++) {
@@ -67,7 +66,7 @@ namespace ActionCode2D.Renderers
         private void OnEnable()
         {
             _ghostContainer.parent = null;
-            foreach (SpriteRenderer ghost in _ghostRenderers)
+            foreach (var ghost in _ghostRenderers)
             {
                 ghost.gameObject.SetActive(true);
             }
@@ -79,7 +78,7 @@ namespace ActionCode2D.Renderers
             _ghostIndex = 0;
 
             _ghostContainer.parent = transform;
-            foreach (SpriteRenderer ghost in _ghostRenderers) {
+            foreach (var ghost in _ghostRenderers) {
                 ghost.gameObject.SetActive(false);
                 PlaceGhost(ghost);
             }
@@ -93,11 +92,14 @@ namespace ActionCode2D.Renderers
             Material material = null;
             if (singleColorShader)
             {
-                Shader textShader = Shader.Find("GUI/Text Shader");
+                var textShader = Shader.Find("GUI/Text Shader");
                 if (textShader == null) Debug.LogError("GUI/Text Shader not found.");
                 else material = new Material(textShader);
             }
-            else material = _spriteRenderer.material;
+            else
+            {
+                material = _spriteRenderer.material;
+            }
 
             _ghostContainer = new GameObject(gameObject.name + "-Ghosts").transform;
             _ghostContainer.parent = transform;
@@ -116,21 +118,25 @@ namespace ActionCode2D.Renderers
             _ghostRenderers[0].sortingLayerID = _spriteRenderer.sortingLayerID;
             // _ghostRenderers[0].sortingOrder = _spriteRenderer.sortingOrder - 1;
 
-            for (int i = 1; i < _ghostRenderers.Length; i++) {
-                GameObject ghost = Instantiate<GameObject>(baseGhost, _ghostContainer);
+            for (var i = 1; i < _ghostRenderers.Length; i++) {
+                var ghost = Instantiate<GameObject>(baseGhost, _ghostContainer);
                 ghost.name = "Ghost-" + i;
                 _ghostRenderers[i] = ghost.GetComponent<SpriteRenderer>();
             }
         }
         private void PlaceGhost(SpriteRenderer ghost)
         {
-            Transform parentTemp = ghost.transform.parent;
-            ghost.transform.parent = null;
-            ghost.transform.localScale = transform.lossyScale;
-            ghost.transform.parent = parentTemp;
+            var transform1 = ghost.transform;
+            var parent = transform1.parent;
+            var parentTemp = parent;
+            parent = null;
+            var transform2 = transform;
+            transform1.localScale = transform2.lossyScale;
+            parent = parentTemp;
+            transform1.parent = parent;
 
-            ghost.transform.position = transform.position + (Vector3.forward * 0.01F);
-            ghost.transform.rotation = transform.rotation;
+            transform1.position = transform2.position + (Vector3.forward * 0.01F);
+            transform1.rotation = transform2.rotation;
         }
 
         private void UpdateGhostSprite(SpriteRenderer ghost) {

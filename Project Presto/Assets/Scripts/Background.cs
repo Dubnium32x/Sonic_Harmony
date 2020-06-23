@@ -29,11 +29,9 @@ public class Background : MonoBehaviour {
             textures.Length,
             UnityEngine.Experimental.Rendering.DefaultFormat.LDR,
             UnityEngine.Experimental.Rendering.TextureCreationFlags.None
-        );
-        texture2DArray.filterMode = filterMode;
-        texture2DArray.wrapMode = wrapMode;
+        ) {filterMode = filterMode, wrapMode = wrapMode};
 
-        for (int i = 0; i < textures.Length; i++)
+        for (var i = 0; i < textures.Length; i++)
             texture2DArray.SetPixels(textures[i].GetPixels(0), i);
 
         texture2DArray.Apply();

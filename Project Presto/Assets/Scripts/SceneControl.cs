@@ -3,14 +3,14 @@ using UnityEngine.SceneManagement;
 
 public class SceneControl : MonoBehaviour {
     public void StartScene(string scenePath) {
-        ScreenFade screenFade = Instantiate(
+        var screenFade = Instantiate(
             Constants.Get<GameObject>("prefabScreenFadeOut"),
             Vector3.zero,
             Quaternion.identity
         ).GetComponent<ScreenFade>();
         screenFade.stopTime = true;
         screenFade.onComplete = () => {
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(
+            var asyncLoad = SceneManager.LoadSceneAsync(
                 scenePath,
                 LoadSceneMode.Single
             );

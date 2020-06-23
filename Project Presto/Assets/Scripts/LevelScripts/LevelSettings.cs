@@ -5,13 +5,14 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelSettings : MonoBehaviour
 {
     public GameObject UICanvas;
 
     public GameObject Player;
-    public TextMeshProUGUI TimerText;
+    public Text TimerText;
     public float LevelTimeSeconds;
     public int Rings = 0;
     public int Score = 0;
@@ -29,7 +30,7 @@ public class LevelSettings : MonoBehaviour
         //globalvariable ForPlayerObject
         Player = gameObject.GetComponentsInChildren<Transform>(true).First(myplayer => myplayer.gameObject.name == "Player").gameObject;
         //globalvariable For Timer
-        TimerText = UICanvas.GetComponentsInChildren<TextMeshProUGUI>(true)
+        TimerText = UICanvas.GetComponentsInChildren<Text>(true)
             .First(Timerbits => Timerbits.gameObject.name == "time_count");
     }
 
@@ -47,11 +48,7 @@ public class LevelSettings : MonoBehaviour
         var minutes = LevelTimeSeconds / 60;
         var seconds = LevelTimeSeconds % 60;
         var TimeText = $"{minutes:00}:{seconds:00}";
-        TimerText.text = string.Join("",TimeText.ToCharArray().Select(Char =>
-        {
-            var finalstring = "<sprite name=\"" + Char + "\">";
-            return finalstring;
-        }));
+        TimerText.text = TimeText;
     }
 
     void KeepDataInSync()

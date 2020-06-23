@@ -58,7 +58,7 @@ public class ObjectCuller : MonoBehaviour
 
     void DisableChildren(bool force = false) {
         foreach(Transform child in transform) {
-            GameObject childObj = child.gameObject;
+            var childObj = child.gameObject;
             if ((childObj.GetComponent<IgnoreObjectCuller>() != null) && !force) continue;
             if (childrenActiveInitial.ContainsKey(childObj)) continue;
             childrenActiveInitial.Add(childObj, childObj.activeSelf);
@@ -68,7 +68,7 @@ public class ObjectCuller : MonoBehaviour
 
     void EnableChildren() {
         foreach(Transform child in transform) {
-            GameObject childObj = child.gameObject;
+            var childObj = child.gameObject;
             if (!childrenActiveInitial.ContainsKey(childObj)) continue;
             childObj.SetActive(childrenActiveInitial[childObj]);
             childrenActiveInitial.Remove(childObj);
@@ -189,20 +189,19 @@ public class ObjectCuller : MonoBehaviour
             everyOtherFrameCheck = Random.value > 0.5;
 
         if (enableType == EnableType.Reset) {
-            clone = Instantiate(gameObject);
+            clone = Instantiate(gameObject, transform.parent, true);
             clone.GetComponent<ObjectCuller>().enableWait = true;
             clone.SetActive(false);
-            clone.transform.parent = transform.parent;
         }
 
-        bool inRange = GetInRange();
+        var inRange = GetInRange();
         inRangePrev = inRange;
 
         if (!inRange || (enableType == EnableType.Reset)) DisableSelf();
     }
 
     bool GetInRange() {
-        Vector3 position = Vector3.zero;
+        var position = Vector3.zero;
 
         switch (positionType) {
             case PositionType.Current:
@@ -233,7 +232,7 @@ public class ObjectCuller : MonoBehaviour
             if (everyOtherFrameCheck) return;
         }
 
-        bool inRange = GetInRange();
+        var inRange = GetInRange();
 
         switch(enableType) {
             case EnableType.Normal:
@@ -250,7 +249,7 @@ public class ObjectCuller : MonoBehaviour
                 break;
             case EnableType.Reset:
                 if (readyForDestroy) {
-                    bool inRangeInitial = Utils.CheckIfCharacterInRange(
+                    var inRangeInitial = Utils.CheckIfCharacterInRange(
                         initialPosition,
                         triggerDistance,
                         axisType,
@@ -260,11 +259,18 @@ public class ObjectCuller : MonoBehaviour
                     if (inRangeInitial) break;
                     clone.SetActive(true);
                     DestroySelf();
-                }else if (inRange && (!inRangePrev || !enableWait)) EnableSelf(); // Coming into range
+                }else if (inRange && (!inRangePrev || !enableWait))
+                {
+                    EnableSelf(); // Coming into range
+                }
                 else if (!inRange && inRangePrev) { // Going out of range
                     readyForDestroy = true;
                     DisableSelf(true);
-                } else if (!inRange) DisableSelf();
+                } else if (!inRange)
+                {
+                    DisableSelf();
+                }
+
                 break;
             default:
             case EnableType.Ignore:

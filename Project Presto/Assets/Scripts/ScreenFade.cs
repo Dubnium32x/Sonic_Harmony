@@ -49,7 +49,7 @@ public class ScreenFade : MonoBehaviour {
             stopTime = false;
 
         if (canvas.worldCamera == null) {
-            CharacterCamera characterCamera = FindObjectOfType<CharacterCamera>();
+            var characterCamera = FindObjectOfType<CharacterCamera>();
             if (characterCamera != null) canvas.worldCamera = characterCamera.camera;
             else canvas.worldCamera = FindObjectOfType<Camera>();
         }

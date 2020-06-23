@@ -135,10 +135,8 @@ public class SonicSfx : MonoBehaviour
     // Plays the sound only once per state Sonic is in
     void PlayOnce(AudioClip SoundFile, CharControlMotor.SonicState currentState)
     {
-        if (prevState != currentState)
-        {
-            prevState = currentState;
-            SonicJumpSound.PlayOneShot(SoundFile);
-        }
+        if (prevState == currentState) return;
+        prevState = currentState;
+        SonicJumpSound.PlayOneShot(SoundFile);
     }
 }

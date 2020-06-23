@@ -22,7 +22,7 @@ public class CameraZone : MonoBehaviour {
     HashSet<Character> charactersHit = new HashSet<Character>();
 
     void OnTriggerEnter(Collider other) {
-        Character[] characters = other.gameObject.GetComponentsInParent<Character>();
+        var characters = other.gameObject.GetComponentsInParent<Character>();
         if (characters.Length == 0) return;
 
         Set(characters[0]);
@@ -37,7 +37,7 @@ public class CameraZone : MonoBehaviour {
     public void Set(Character character) {
         if (character.currentLevel != level) return;
         if (character.characterCamera == null) return;
-        CharacterCamera characterCamera = character.characterCamera;
+        var characterCamera = character.characterCamera;
         characterCamera.minPosition = cameraMin;
         characterCamera.maxPosition = cameraMax;
         if (positionMin != Vector2.zero) character.positionMin = positionMin;

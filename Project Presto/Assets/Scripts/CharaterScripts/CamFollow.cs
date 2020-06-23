@@ -27,7 +27,7 @@ public class CamFollow : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {      
-        CharControlMotor.SonicState state = charCtrl.state.stateId;
+        var state = charCtrl.state.stateId;
         // Stop following Sonic when he dies
         if (state == CharControlMotor.SonicState.Dead)
         {
@@ -46,7 +46,7 @@ public class CamFollow : MonoBehaviour
             return;
         }
 
-        Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        var input = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         if (input.y != 0 && (charCtrl == null || charCtrl.speedvar.CompareTo(0f) == 0))
         {
             if (Mathf.Sign(input.y) != Mathf.Sign(vertHeld))
@@ -57,8 +57,11 @@ public class CamFollow : MonoBehaviour
                 vertHeld -= Time.deltaTime;
         }
         else
+        {
             vertHeld = 0;
-        Vector2 targetPos = new Vector2(sideDistance * input.x, 0);
+        }
+
+        var targetPos = new Vector2(sideDistance * input.x, 0);
         if (Mathf.Abs(vertHeld).CompareTo(vertHoldtime) >= 0)
             targetPos.y = (vertHeld > 0 ? vertDistance.y : vertDistance.x) * input.y;
         else
@@ -67,7 +70,7 @@ public class CamFollow : MonoBehaviour
         currentOffset = Vector2.SmoothDamp(currentOffset, targetPos,
             ref followSmooth, smoothTime, maxSpeed, Time.deltaTime * ((affectedByPause) ? Time.timeScale : 1));
 
-        Vector3 newPos = followTarget.position;
+        var newPos = followTarget.position;
         newPos.x += currentOffset.x;
         newPos.y += currentOffset.y;
 

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : GameMode {
@@ -26,7 +27,7 @@ public class LevelManager : GameMode {
 
     void InitCharacter() {
         if (characters.Count == 0) {
-            Character character = Instantiate(
+            var character = Instantiate(
                 Resources.Load<GameObject>("Character/Character")
             ).GetComponent<Character>();
             Utils.SetScene(character.transform, "Level");
@@ -39,7 +40,7 @@ public class LevelManager : GameMode {
         // Must be run on Start rather than Awake to give any Levels time to spawn
         Utils.SetActiveScene("Level");
 
-        Level levelDefault = FindObjectOfType<Level>();
+        var levelDefault = FindObjectOfType<Level>();
         if (levelDefault == null) {
             StartCoroutine(Utils.LoadLevelAsync(
                 sceneDefault.ScenePath,
@@ -52,7 +53,7 @@ public class LevelManager : GameMode {
         base.Update();
 
         // Ensure all temporary objects are loaded into "disposables"
-        Scene disposablesCurrent = SceneManager.GetSceneByName("Disposables");
+        var disposablesCurrent = SceneManager.GetSceneByName("Disposables");
 
         if (disposablesCurrent.isLoaded)
             SceneManager.SetActiveScene(disposablesCurrent);
@@ -61,9 +62,9 @@ public class LevelManager : GameMode {
     }
 
     public void ReloadDisposablesScene() {
-        Scene disposablesCurrent = SceneManager.GetSceneByName("Disposables");
+        var disposablesCurrent = SceneManager.GetSceneByName("Disposables");
         if (disposablesCurrent.isLoaded) {
-            foreach(GameObject obj in disposablesCurrent.GetRootGameObjects())
+            foreach(var obj in disposablesCurrent.GetRootGameObjects())
                 Destroy(obj);
         } else SceneManager.LoadScene("Scenes/Disposables", LoadSceneMode.Additive);
 
@@ -73,35 +74,25 @@ public class LevelManager : GameMode {
     // (Player IDs should always be kept in a sequence, even if a player leaves)
     // (See Character.OnDestroy)
     public int GetFreePlayerId() {
-        int id = -1;
-        foreach (Character character in characters)
-            id = Mathf.Max(id, character.playerId);
+        var id = characters.Aggregate(-1, (current1, character) => Mathf.Max(current1, character.playerId));
         return id + 1;
     }
 
     // Allows players to press Start to join the game.
     public int maxPlayers = 4;
     public void UpdateStartJoin() {
-        for(int controllerId = 1; controllerId <= maxPlayers; controllerId++) {
-            if (InputCustom.GetButtonDown(controllerId, "Pause")) {
-                bool alreadySpawned = false;
-                foreach (Character character in characters) {
-                    if (character.input.controllerId == controllerId) {
-                        if (!debugMutliplayer) {
-                            alreadySpawned = true;
-                            break;
-                        }
-                    }
-                }
-                if (alreadySpawned) continue;
+        for(var controllerId = 1; controllerId <= maxPlayers; controllerId++)
+        {
+            if (!InputCustom.GetButtonDown(controllerId, "Pause")) continue;
+            var alreadySpawned = characters.Where(character => character.input.controllerId == controllerId).Any(character => !debugMutliplayer);
+            if (alreadySpawned) continue;
 
-                Character characterNew = Instantiate(
-                    Resources.Load<GameObject>("Character/Character"),
-                    transform
-                ).GetComponent<Character>();
-                Utils.SetScene(characterNew.transform, "Level");
-                characterNew.input.controllerId = controllerId;
-            }
+            var characterNew = Instantiate(
+                Resources.Load<GameObject>("Character/Character"),
+                transform
+            ).GetComponent<Character>();
+            Utils.SetScene(characterNew.transform, "Level");
+            characterNew.input.controllerId = controllerId;
         }
     }
 }

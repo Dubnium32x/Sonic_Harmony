@@ -4,17 +4,18 @@ using System.Linq;
 using ProBuilder2.Common;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIScriptBase : MonoBehaviour
 {
     // Start is called before the first frame update
-    public TextMeshProUGUI scorTextInstance;
-    public TextMeshProUGUI ringTextInstance;
-    public TextMeshProUGUI timeTextInstance;
-    public TextMeshProUGUI livesTextInstance;
+    public Text scorTextInstance;
+    public Text ringTextInstance;
+    public Text timeTextInstance;
+    public Text livesTextInstance;
     void Start()
     {
-        var uis = gameObject.GetComponentsInChildren<TextMeshProUGUI>();
+        var uis = gameObject.GetComponentsInChildren<Text>();
         scorTextInstance = uis.First(UI => UI.gameObject.name == "score_count");
         ringTextInstance = uis.First(UI => UI.gameObject.name == "ring_count");
         timeTextInstance = uis.First(UI => UI.gameObject.name == "time_count");
@@ -22,36 +23,20 @@ public class UIScriptBase : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void ScoreUpdate(int score)
     {
-        scorTextInstance.text = score.ToString().ToCharArray().Select(Char =>
-        {
-            var finalstring = "<sprite name=\"" + Char + "\">";
-            return finalstring;
-        }).ToString("");
+        scorTextInstance.text = score.ToString();
     }
 
     public void RingUpdate(int rings)
     {
-        ringTextInstance.text = rings.ToString().ToCharArray().Select(Char =>
-        {
-            var finalstring = "<sprite name=\"" + Char + "\">";
-            return finalstring;
-        }).ToString("");
+        ringTextInstance.text = rings.ToString();
     }
 
     public void LivesUpdate(int lives)
     {
-        livesTextInstance.text = lives.ToString().ToString().ToCharArray().Select(Char =>
-        {
-            var finalstring = "<sprite name=\"" + Char + "\">";
-            return finalstring;
-        }).ToString("");;
+        livesTextInstance.text = lives.ToString();
     }
 
 }

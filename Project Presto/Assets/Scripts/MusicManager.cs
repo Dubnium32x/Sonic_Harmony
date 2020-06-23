@@ -99,10 +99,10 @@ public class MusicManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        MusicStackEntry entry = musicStackEntryCurrent;
-        MusicStackEntry entryPrev = musicStackEntryPrev;
+        var entry = musicStackEntryCurrent;
+        var entryPrev = musicStackEntryPrev;
 
-        bool entryDone = (
+        var entryDone = (
             (audioSourceIntro.clip != null) &&
             (audioSourceLoop.clip == null) &&
             !audioSourceIntro.isPlaying
@@ -147,25 +147,25 @@ public class MusicManager : MonoBehaviour {
         audioSourceIntro.outputAudioMixerGroup = mixerGroup;
         audioSourceLoop.outputAudioMixerGroup = mixerGroup;
 
-        if (entry != null) {
-            double dspTime = AudioSettings.dspTime;
-            if (entry.introClip != null) {
-                audioSourceIntro.clip = entry.introClip;
-                audioSourceIntro.PlayScheduled(dspTime + 0.1);
-            }
+        var dspTime = AudioSettings.dspTime;
+        if (entry.introClip != null) {
+            audioSourceIntro.clip = entry.introClip;
+            audioSourceIntro.PlayScheduled(dspTime + 0.1);
+        }
 
-            if (entry.loopClip != null) {
-                audioSourceLoop.clip = entry.loopClip;
-                if (entry.introClip != null) {
-                    double clipDuration = (double)audioSourceIntro.clip.samples / audioSourceIntro.clip.frequency;
-                    audioSourceLoop.PlayScheduled(dspTime + 0.1 + clipDuration);
-                } else audioSourceLoop.Play();
-            }
+        if (entry.loopClip == null) return;
+        audioSourceLoop.clip = entry.loopClip;
+        if (entry.introClip != null) {
+            var clipDuration = (double)audioSourceIntro.clip.samples / audioSourceIntro.clip.frequency;
+            audioSourceLoop.PlayScheduled(dspTime + 0.1 + clipDuration);
+        } else
+        {
+            audioSourceLoop.Play();
         }
     }
 
     public void Clear() {
-        for (int i = musicStack.Count - 1; i >= 0; i--) {
+        for (var i = musicStack.Count - 1; i >= 0; i--) {
             if (musicStack[i].ignoreClear) continue;
             musicStack.RemoveAt(i);
         }

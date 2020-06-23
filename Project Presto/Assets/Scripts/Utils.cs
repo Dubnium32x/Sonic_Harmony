@@ -6,6 +6,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
+using Object = UnityEngine.Object;
 
 public static class Utils {
     public static float deltaTimeScale => 60F * Utils.cappedDeltaTime;
@@ -87,7 +88,7 @@ public static class Utils {
     static bool _LoadLevelAsyncEverUsed = false;
     static Level _LoadLevelAsyncLevel;
     static void _LoadLevelAsyncOnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) {
-        foreach (Level level in GameObject.FindObjectsOfType<Level>()) {
+        foreach (var level in Object.FindObjectsOfType<Level>()) {
             if (level.gameObject.scene != scene) continue;
             _LoadLevelAsyncLevel = level;
             return;
@@ -104,20 +105,19 @@ public static class Utils {
         Scene nextLevelScene = SceneManager.GetSceneByPath(scenePath);
 
         if (ignoreDuplicates || !nextLevelScene.IsValid()) { // If scene isn't already loaded
-            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(
+            var asyncLoad = SceneManager.LoadSceneAsync(
                 scenePath,
                 LoadSceneMode.Additive
             );
             asyncLoad.allowSceneActivation = true;
 
             while (!asyncLoad.isDone) yield return null;
-            if (callback != null) {
-                callback(_LoadLevelAsyncLevel);
-                _LoadLevelAsyncLevel = null;
-            }
+            if (callback == null) yield break;
+            callback(_LoadLevelAsyncLevel);
+            _LoadLevelAsyncLevel = null;
         } else {
             if (callback == null) yield break;
-            foreach (Level level in GameObject.FindObjectsOfType<Level>()) {
+            foreach (var level in Object.FindObjectsOfType<Level>()) {
                 if (level.gameObject.scene != nextLevelScene) continue;
                 callback(level);
                 break;
@@ -151,14 +151,14 @@ public static class Utils {
     }
 
     public static float cappedUnscaledDeltaTime { get {
-        float deltaTime = Time.unscaledDeltaTime;
+        var deltaTime = Time.unscaledDeltaTime;
         if (deltaTime > Time.maximumDeltaTime)
             return 1F / Application.targetFrameRate;
         return deltaTime;
     }}
 
     public static float cappedDeltaTime { get {
-        float deltaTime = Time.deltaTime;
+        var deltaTime = Time.deltaTime;
         if (Time.deltaTime > Time.maximumDeltaTime)
             return 1F / Application.targetFrameRate;
         return deltaTime;
@@ -166,8 +166,8 @@ public static class Utils {
 
     public static Tuple<int, int> CalculateFauxTransparencyFrameCount(float alpha) {
         // Tuple format is (off frames, on frames)
-        if (alpha == 0) return Tuple.Create(Int32.MaxValue, 0);
-        if (alpha == 1) return Tuple.Create(0, Int32.MaxValue);
+        if (alpha == 0) return Tuple.Create(int.MaxValue, 0);
+        if (alpha == 1) return Tuple.Create(0, int.MaxValue);
 
         var onFramesDivisor = alpha * 2;
         var offFramesDivisor = 1 - onFramesDivisor;

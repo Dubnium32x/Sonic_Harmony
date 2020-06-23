@@ -13,7 +13,7 @@ public class ButtonSelectionController : MonoBehaviour {
     }
     
     public void Update() {
-        GameObject selection = EventSystem.current.currentSelectedGameObject;
+        var selection = EventSystem.current.currentSelectedGameObject;
 
         if (Mathf.Abs(selection.transform.position.y) > 0.25) {
             scrollRect.verticalNormalizedPosition += (

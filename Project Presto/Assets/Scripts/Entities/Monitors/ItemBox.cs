@@ -82,24 +82,18 @@ public abstract class ItemBox : FreedomObject
 
 	public override void OnPlayerMotorContact(PlayerMotor motor)
 	{
-		if (motor.TryGetComponent(out player))
+		if (!motor.TryGetComponent(out player)) return;
+		Debug.Log(player.attacking);
+		if (!player.attacking) return;
+		if (player.grounded)
 		{
-			Debug.Log(player.attacking);
-			if (player.attacking)
-			{
-				if (player.grounded)
-				{
-					DestroyMonitor(player);
-				}
-				else
-				{
-					if (player.velocity.y < 0)
-					{
-						DestroyMonitor(player);
-						motor.velocity.y = -motor.velocity.y;
-					}
-				}
-			}
+			DestroyMonitor(player);
+		}
+		else
+		{
+			if (!(player.velocity.y < 0)) return;
+			DestroyMonitor(player);
+			motor.velocity.y = -motor.velocity.y;
 		}
 	}
 

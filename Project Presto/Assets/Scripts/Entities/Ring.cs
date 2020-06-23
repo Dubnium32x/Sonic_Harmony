@@ -64,41 +64,31 @@ public class Ring : FreedomObject
 		{
 			uncollectibleTimer += deltaTime;
 
-			if (uncollectibleTimer >= uncollectibleTime)
-			{
-				collectable = true;
-				uncollectibleTimer = 0;
-			}
+			if (!(uncollectibleTimer >= uncollectibleTime)) return;
+			collectable = true;
+			uncollectibleTimer = 0;
 		}
 	}
 
 	private void HandleLifeTime(float deltaTime)
 	{
-		if (lost)
-		{
-			lifeTimer += deltaTime;
+		if (!lost) return;
+		lifeTimer += deltaTime;
 
-			if (lifeTimer >= lifeTime)
-			{
-				Disable();
-				lifeTimer = 0;
-			}
-		}
+		if (!(lifeTimer >= lifeTime)) return;
+		Disable();
+		lifeTimer = 0;
 	}
 
 	private void HandleCollision(float deltaTime)
 	{
-		if (lost)
-		{
-			velocity.y -= gravity * deltaTime;
-			transform.position += velocity * deltaTime;
+		if (!lost) return;
+		velocity.y -= gravity * deltaTime;
+		transform.position += velocity * deltaTime;
 
-			if (Physics.Raycast(transform.position, velocity.normalized, out hit, collider.radius, solidLayer))
-			{
-				velocity = Vector3.Reflect(velocity, hit.normal) * bounceFactor;
-				transform.position = hit.point + hit.normal * collider.radius;
-			}
-		}
+		if (!Physics.Raycast(transform.position, velocity.normalized, out hit, collider.radius, solidLayer)) return;
+		velocity = Vector3.Reflect(velocity, hit.normal) * bounceFactor;
+		transform.position = hit.point + hit.normal * collider.radius;
 	}
 
 	public void Disable()
@@ -124,12 +114,10 @@ public class Ring : FreedomObject
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if (collectable && other.CompareTag("Player"))
-		{
-            other.gameObject.GetComponent<CharControlMotor>().RingGot();
-            collectParticle.Play();
-			collectSFX.Play();
-			Disable();
-		}
+		if (!collectable || !other.CompareTag("Player")) return;
+		other.gameObject.GetComponent<CharControlMotor>().RingGot();
+		collectParticle.Play();
+		collectSFX.Play();
+		Disable();
 	}
 }

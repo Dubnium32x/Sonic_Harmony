@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DeathZone : MonoBehaviour {
     void OnTriggerStay(Collider other) {
-        Character[] characters = other.gameObject.GetComponentsInParent<Character>();
+        var characters = other.gameObject.GetComponentsInParent<Character>();
         if (characters.Length == 0) return;
-        Character character = characters[0];
+        var character = characters[0];
         if (character.InStateGroup("death")) return;
         character.stateCurrent = "dying";
     }

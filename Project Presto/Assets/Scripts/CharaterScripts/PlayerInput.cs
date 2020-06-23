@@ -43,19 +43,15 @@ public class PlayerInput
 	{
 		if (Input.GetButton(actionName))
 		{
-			if (!action)
-			{
-				action = true;
-				actionDown = true;
-			}
+			if (action) return;
+			action = true;
+			actionDown = true;
 		}
 		else
 		{
-			if (action)
-			{
-				action = false;
-				actionUp = true;
-			}
+			if (!action) return;
+			action = false;
+			actionUp = true;
 		}
 	}
 
@@ -67,15 +63,11 @@ public class PlayerInput
 
 	public void UnlockHorizontalControl(float deltaTime)
 	{
-		if (unlockTimer > 0)
-		{
-			unlockTimer -= deltaTime;
+		if (!(unlockTimer > 0)) return;
+		unlockTimer -= deltaTime;
 
-			if (unlockTimer <= 0)
-			{
-				unlockTimer = 0;
-				controlLocked = false;
-			}
-		}
+		if (!(unlockTimer <= 0)) return;
+		unlockTimer = 0;
+		controlLocked = false;
 	}
 }

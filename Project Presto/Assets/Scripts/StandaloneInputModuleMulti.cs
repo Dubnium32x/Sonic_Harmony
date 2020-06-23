@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -232,13 +233,9 @@ namespace UnityEngine.EventSystems
             if (!base.ShouldActivateModule())
                 return false;
 
-            var shouldActivate = m_ForceModuleActive;
+            var shouldActivate = m_SubmitButtons.Aggregate(m_ForceModuleActive, (current, button) => current | input.GetButtonDown(button));
 
-            foreach(string button in m_SubmitButtons)
-                shouldActivate |= input.GetButtonDown(button);
-  
-            foreach(string button in m_CancelButtons)
-                shouldActivate |= input.GetButtonDown(button);
+            shouldActivate = m_CancelButtons.Aggregate(shouldActivate, (current, button) => current | input.GetButtonDown(button));
 
             shouldActivate |= !Mathf.Approximately(input.GetAxisRaw(m_HorizontalAxis), 0.0f);
             shouldActivate |= !Mathf.Approximately(input.GetAxisRaw(m_VerticalAxis), 0.0f);
@@ -260,8 +257,9 @@ namespace UnityEngine.EventSystems
                 return;
 
             base.ActivateModule();
-            m_MousePosition = input.mousePosition;
-            m_LastMousePosition = input.mousePosition;
+            var mousePosition = input.mousePosition;
+            m_MousePosition = mousePosition;
+            m_LastMousePosition = mousePosition;
 
             var toSelect = eventSystem.currentSelectedGameObject;
             if (toSelect == null)
@@ -284,7 +282,7 @@ namespace UnityEngine.EventSystems
             if (!eventSystem.isFocused && ShouldIgnoreEventsOnNoFocus())
                 return;
 
-            bool usedEvent = SendUpdateEventToSelectedObject();
+            var usedEvent = SendUpdateEventToSelectedObject();
 
             // case 1004066 - touch / mouse events should be processed before navigation events in case
             // they change the current selected gameobject and the submit button is a touch / mouse button.
@@ -293,28 +291,24 @@ namespace UnityEngine.EventSystems
             if (!ProcessTouchEvents() && input.mousePresent)
                 ProcessMouseEvent();
 
-            if (eventSystem.sendNavigationEvents)
-            {
-                if (!usedEvent)
-                    usedEvent |= SendMoveEventToSelectedObject();
+            if (!eventSystem.sendNavigationEvents) return;
+            if (!usedEvent)
+                usedEvent |= SendMoveEventToSelectedObject();
 
-                if (!usedEvent)
-                    SendSubmitEventToSelectedObject();
-            }
+            if (!usedEvent)
+                SendSubmitEventToSelectedObject();
         }
 
         private bool ProcessTouchEvents()
         {
-            for (int i = 0; i < input.touchCount; ++i)
+            for (var i = 0; i < input.touchCount; ++i)
             {
-                Touch touch = input.GetTouch(i);
+                var touch = input.GetTouch(i);
 
                 if (touch.type == TouchType.Indirect)
                     continue;
 
-                bool released;
-                bool pressed;
-                var pointer = GetTouchPointerEventData(touch, out pressed, out released);
+                var pointer = GetTouchPointerEventData(touch, out var pressed, out var released);
 
                 ProcessTouchPress(pointer, pressed, released);
 
@@ -324,7 +318,9 @@ namespace UnityEngine.EventSystems
                     ProcessDrag(pointer);
                 }
                 else
+                {
                     RemovePointerData(pointer);
+                }
             }
             return input.touchCount > 0;
         }
@@ -372,7 +368,7 @@ namespace UnityEngine.EventSystems
 
                 // Debug.Log("Pressed: " + newPressed);
 
-                float time = Time.unscaledTime;
+                var time = Time.unscaledTime;
 
                 if (newPressed == pointerEvent.lastPress)
                 {
@@ -404,42 +400,42 @@ namespace UnityEngine.EventSystems
             }
 
             // PointerUp notification
-            if (released)
+            if (!released) return;
+            // Debug.Log("Executing pressup on: " + pointer.pointerPress);
+            ExecuteEvents.Execute(pointerEvent.pointerPress, pointerEvent, ExecuteEvents.pointerUpHandler);
+
+            // Debug.Log("KeyCode: " + pointer.eventData.keyCode);
+
+            // see if we mouse up on the same element that we clicked on...
+            var pointerUpHandler = ExecuteEvents.GetEventHandler<IPointerClickHandler>(currentOverGo);
+
+            // PointerClick and Drop events
+            if (pointerEvent.pointerPress == pointerUpHandler && pointerEvent.eligibleForClick)
             {
-                // Debug.Log("Executing pressup on: " + pointer.pointerPress);
-                ExecuteEvents.Execute(pointerEvent.pointerPress, pointerEvent, ExecuteEvents.pointerUpHandler);
-
-                // Debug.Log("KeyCode: " + pointer.eventData.keyCode);
-
-                // see if we mouse up on the same element that we clicked on...
-                var pointerUpHandler = ExecuteEvents.GetEventHandler<IPointerClickHandler>(currentOverGo);
-
-                // PointerClick and Drop events
-                if (pointerEvent.pointerPress == pointerUpHandler && pointerEvent.eligibleForClick)
-                {
-                    ExecuteEvents.Execute(pointerEvent.pointerPress, pointerEvent, ExecuteEvents.pointerClickHandler);
-                }
-                else if (pointerEvent.pointerDrag != null && pointerEvent.dragging)
-                {
-                    ExecuteEvents.ExecuteHierarchy(currentOverGo, pointerEvent, ExecuteEvents.dropHandler);
-                }
-
-                pointerEvent.eligibleForClick = false;
-                pointerEvent.pointerPress = null;
-                pointerEvent.rawPointerPress = null;
-
-                if (pointerEvent.pointerDrag != null && pointerEvent.dragging)
-                    ExecuteEvents.Execute(pointerEvent.pointerDrag, pointerEvent, ExecuteEvents.endDragHandler);
-
-                pointerEvent.dragging = false;
-                pointerEvent.pointerDrag = null;
-
-                // send exit events as we need to simulate this on touch up on touch device
-                ExecuteEvents.ExecuteHierarchy(pointerEvent.pointerEnter, pointerEvent, ExecuteEvents.pointerExitHandler);
-                pointerEvent.pointerEnter = null;
-
-                m_InputPointerEvent = pointerEvent;
+                ExecuteEvents.Execute(pointerEvent.pointerPress, pointerEvent, ExecuteEvents.pointerClickHandler);
             }
+            else if (pointerEvent.pointerDrag != null && pointerEvent.dragging)
+            {
+                ExecuteEvents.ExecuteHierarchy(currentOverGo, pointerEvent, ExecuteEvents.dropHandler);
+            }
+
+            pointerEvent.eligibleForClick = false;
+            pointerEvent.pointerPress = null;
+            pointerEvent.rawPointerPress = null;
+
+            if (pointerEvent.pointerDrag != null && pointerEvent.dragging)
+            {
+                ExecuteEvents.Execute(pointerEvent.pointerDrag, pointerEvent, ExecuteEvents.endDragHandler);
+            }
+
+            pointerEvent.dragging = false;
+            pointerEvent.pointerDrag = null;
+
+            // send exit events as we need to simulate this on touch up on touch device
+            ExecuteEvents.ExecuteHierarchy(pointerEvent.pointerEnter, pointerEvent, ExecuteEvents.pointerExitHandler);
+            pointerEvent.pointerEnter = null;
+
+            m_InputPointerEvent = pointerEvent;
         }
 
         /// <summary>
@@ -453,16 +449,14 @@ namespace UnityEngine.EventSystems
 
             var data = GetBaseEventData();
 
-            foreach(string button in m_SubmitButtons) {
-                if (!input.GetButtonDown(button)) continue;
+            if (m_SubmitButtons.Any(button => input.GetButtonDown(button)))
+            {
                 ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, data, ExecuteEvents.submitHandler);
-                break;
             }
 
-            foreach(string button in m_CancelButtons) {
-                if (!input.GetButtonDown(button)) continue;
+            if (m_CancelButtons.Any(button => input.GetButtonDown(button)))
+            {
                 ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, data, ExecuteEvents.cancelHandler);
-                break;
             }
 
             return data.used;
@@ -470,7 +464,7 @@ namespace UnityEngine.EventSystems
 
         private Vector2 GetRawMoveVector()
         {
-            Vector2 move = Vector2.zero;
+            var move = Vector2.zero;
             move.x = input.GetAxisRaw(m_HorizontalAxis);
             move.y = input.GetAxisRaw(m_VerticalAxis);
 
@@ -481,13 +475,12 @@ namespace UnityEngine.EventSystems
                 if (move.x > 0)
                     move.x = 1f;
             }
-            if (input.GetButtonDown(m_VerticalAxis))
-            {
-                if (move.y < 0)
-                    move.y = -1f;
-                if (move.y > 0)
-                    move.y = 1f;
-            }
+
+            if (!input.GetButtonDown(m_VerticalAxis)) return move;
+            if (move.y < 0)
+                move.y = -1f;
+            if (move.y > 0)
+                move.y = 1f;
             return move;
         }
 
@@ -497,16 +490,16 @@ namespace UnityEngine.EventSystems
         /// <returns>If the move event was used by the selected object.</returns>
         protected bool SendMoveEventToSelectedObject()
         {
-            float time = Time.unscaledTime;
+            var time = Time.unscaledTime;
 
-            Vector2 movement = GetRawMoveVector();
+            var movement = GetRawMoveVector();
             if (Mathf.Approximately(movement.x, 0f) && Mathf.Approximately(movement.y, 0f))
             {
                 m_ConsecutiveMoveCount = 0;
                 return false;
             }
 
-            bool similarDir = (Vector2.Dot(movement, m_LastMoveVector) > 0);
+            var similarDir = (Vector2.Dot(movement, m_LastMoveVector) > 0);
 
             // If direction didn't change at least 90 degrees, wait for delay before allowing consequtive event.
             if (similarDir && m_ConsecutiveMoveCount == 1)
@@ -572,11 +565,9 @@ namespace UnityEngine.EventSystems
             ProcessMousePress(mouseData.GetButtonState(PointerEventData.InputButton.Middle).eventData);
             ProcessDrag(mouseData.GetButtonState(PointerEventData.InputButton.Middle).eventData.buttonData);
 
-            if (!Mathf.Approximately(leftButtonData.buttonData.scrollDelta.sqrMagnitude, 0.0f))
-            {
-                var scrollHandler = ExecuteEvents.GetEventHandler<IScrollHandler>(leftButtonData.buttonData.pointerCurrentRaycast.gameObject);
-                ExecuteEvents.ExecuteHierarchy(scrollHandler, leftButtonData.buttonData, ExecuteEvents.scrollHandler);
-            }
+            if (Mathf.Approximately(leftButtonData.buttonData.scrollDelta.sqrMagnitude, 0.0f)) return;
+            var scrollHandler = ExecuteEvents.GetEventHandler<IScrollHandler>(leftButtonData.buttonData.pointerCurrentRaycast.gameObject);
+            ExecuteEvents.ExecuteHierarchy(scrollHandler, leftButtonData.buttonData, ExecuteEvents.scrollHandler);
         }
 
         protected bool SendUpdateEventToSelectedObject()
@@ -620,7 +611,7 @@ namespace UnityEngine.EventSystems
 
                 // Debug.Log("Pressed: " + newPressed);
 
-                float time = Time.unscaledTime;
+                var time = Time.unscaledTime;
 
                 if (newPressed == pointerEvent.lastPress)
                 {

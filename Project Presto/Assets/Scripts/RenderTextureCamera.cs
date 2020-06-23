@@ -8,34 +8,33 @@ public class RenderTextureCamera : MonoBehaviour {
     bool integerScaling;
 
     public Rect GetScreenRect() {
-        if (integerScaling) {
-            float ratio = (
-                (screenRectRelative.width * Screen.width) /
-                (screenRectRelative.height * Screen.height)
-            );
-            int intScaleFac = (int)((screenRectRelative.height * Screen.height) / camera.targetTexture.height);
-
-            int height = camera.targetTexture.height * intScaleFac;
-            int width = (int)(height * ratio);
-            int xOffset = (Screen.width - width) / 2;
-            int yOffset = (Screen.height - height) / 2;
-
+        if (!integerScaling)
             return new Rect(
-                (screenRectRelative.x * Screen.width) +
-                (screenRectRelative.width * xOffset),
-                (screenRectRelative.y * Screen.height) +
-                (screenRectRelative.height * yOffset),
-                screenRectRelative.width * width,
-                screenRectRelative.height * height
+                screenRectRelative.x * Screen.width,
+                screenRectRelative.y * Screen.height,
+                screenRectRelative.width * Screen.width,
+                screenRectRelative.height * Screen.height
             );
-        }
+        var ratio = (
+            (screenRectRelative.width * Screen.width) /
+            (screenRectRelative.height * Screen.height)
+        );
+        var intScaleFac = (int)((screenRectRelative.height * Screen.height) / camera.targetTexture.height);
+
+        var height = camera.targetTexture.height * intScaleFac;
+        var width = (int)(height * ratio);
+        var xOffset = (Screen.width - width) / 2;
+        var yOffset = (Screen.height - height) / 2;
 
         return new Rect(
-            screenRectRelative.x * Screen.width,
-            screenRectRelative.y * Screen.height,
-            screenRectRelative.width * Screen.width,
-            screenRectRelative.height * Screen.height
+            (screenRectRelative.x * Screen.width) +
+            (screenRectRelative.width * xOffset),
+            (screenRectRelative.y * Screen.height) +
+            (screenRectRelative.height * yOffset),
+            screenRectRelative.width * width,
+            screenRectRelative.height * height
         );
+
     }
 
     new Camera camera;
@@ -70,7 +69,7 @@ public class RenderTextureCamera : MonoBehaviour {
         );
         renderTextureWidthPev = camera.targetTexture.width;
 
-        Rect viewportRect = new Rect(
+        var viewportRect = new Rect(
             0,0,
             camera.targetTexture.width,
             camera.targetTexture.height
@@ -86,7 +85,7 @@ public class RenderTextureCamera : MonoBehaviour {
 
     void OnGUI() { }
     
-    static WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
+    static readonly WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
     IEnumerator OnPostRender() {
         yield return waitForEndOfFrame;
         if (clearScreen) {

@@ -94,24 +94,22 @@ public abstract class PlayerMotor : MonoBehaviour
 
     private void SimulatePhysics()
     {
-        if (simulate)
+        if (!simulate) return;
+        GetPhysicsState();
+
+        var frameTime = Time.deltaTime;
+
+        while (frameTime > 0f)
         {
-            GetPhysicsState();
+            var deltaTime = Mathf.Min(frameTime, maxTimeStep);
 
-            var frameTime = Time.deltaTime;
+            OnMotorFixedUpdate(deltaTime);
+            MotorFixedUpdate(deltaTime);
 
-            while (frameTime > 0f)
-            {
-                var deltaTime = Mathf.Min(frameTime, maxTimeStep);
-
-                OnMotorFixedUpdate(deltaTime);
-                MotorFixedUpdate(deltaTime);
-
-                frameTime -= deltaTime;
-            }
-
-            SetPhysicsState();
+            frameTime -= deltaTime;
         }
+
+        SetPhysicsState();
     }
 
     private void MotorFixedUpdate(float deltaTime)
@@ -132,8 +130,8 @@ public abstract class PlayerMotor : MonoBehaviour
     {
         if (!disableCollision)
         {
-            var horizontalTranslation = right * velocity.x * deltaTime;
-            var verticalTranslation = up * velocity.y * deltaTime;
+            var horizontalTranslation = right * (velocity.x * deltaTime);
+            var verticalTranslation = up * (velocity.y * deltaTime);
 
             HorizontalCollision(horizontalTranslation.normalized, horizontalTranslation.magnitude);
             VerticalCollision(verticalTranslation.normalized, verticalTranslation.magnitude);
@@ -314,24 +312,20 @@ public abstract class PlayerMotor : MonoBehaviour
 
     public void GroundEnter(Vector3 normal)
     {
-        if (!grounded)
-        {
-            OnGroundEnter();
-            up = normal;
-            velocity = AirToGround(velocity, up);
-            grounded = true;
-        }
+        if (grounded) return;
+        OnGroundEnter();
+        up = normal;
+        velocity = AirToGround(velocity, up);
+        grounded = true;
     }
 
     public void GroundExit()
     {
-        if (grounded)
-        {
-            transform.parent = null;
-            velocity = GroundToAir(velocity);
-            up = Vector3.up;
-            grounded = false;
-        }
+        if (!grounded) return;
+        transform.parent = null;
+        velocity = GroundToAir(velocity);
+        up = Vector3.up;
+        grounded = false;
     }
 
     private Vector2 AirToGround(Vector2 velocity, Vector2 normal)
@@ -347,20 +341,16 @@ public abstract class PlayerMotor : MonoBehaviour
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
-        if (!Application.isPlaying)
+        if (Application.isPlaying) return;
+        if (bounds.Length <= 0) return;
+        foreach (var b in bounds)
         {
-            if (bounds.Length > 0)
-            {
-                foreach (Bounds b in bounds)
-                {
-                    var offset = transform.position + b.center;
+            var offset = transform.position + b.center;
 
-                    Gizmos.color = new Color(0f, 0f, 1f, 0.7f);
-                    Gizmos.DrawWireCube(offset, b.size);
-                    Gizmos.color = new Color(0f, 0f, 1f, 0.35f);
-                    Gizmos.DrawCube(offset, b.size);
-                }
-            }
+            Gizmos.color = new Color(0f, 0f, 1f, 0.7f);
+            Gizmos.DrawWireCube(offset, b.size);
+            Gizmos.color = new Color(0f, 0f, 1f, 0.35f);
+            Gizmos.DrawCube(offset, b.size);
         }
     }
 #endif

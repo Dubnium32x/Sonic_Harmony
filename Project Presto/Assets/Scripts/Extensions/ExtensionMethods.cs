@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 static class ExtensionMethods {
@@ -39,17 +40,13 @@ static class ExtensionMethods {
         return RadianToVector2(degree * Mathf.Deg2Rad);
     }
 
-    public static bool In<T>(this T t,params T[] values){
-        foreach (T value in values) {
-            if (t.Equals(value)) {
-                return true;
-            }
-        }
-        return false;
+    public static bool In<T>(this T t,params T[] values)
+    {
+        return values.Contains(t);
     }
 
     public static bool IsMovingAwayFrom(this Rigidbody rigidbody, Vector3 point) {
-        bool distanceIncreasing = (
+        var distanceIncreasing = (
             Vector3.Distance(
                 rigidbody.position,
                 point

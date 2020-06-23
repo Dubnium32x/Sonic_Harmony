@@ -12,11 +12,11 @@ public class LayerZone : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        Character[] characters = other.gameObject.GetComponentsInParent<Character>();
+        var characters = other.gameObject.GetComponentsInParent<Character>();
         if (characters.Length == 0) return;
-        Character character = characters[0];
+        var character = characters[0];
 
-        Vector3 characterPos = character.position;
+        var characterPos = character.position;
 
         if (groundedOnly && !character.InStateGroup("ground"))
             return;
