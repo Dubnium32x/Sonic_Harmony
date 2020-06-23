@@ -28,7 +28,7 @@ public class JumpPanel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && other.TryGetComponent(out Player player))
+        if (other.CompareTag("Player") && other.TryGetComponent(out CharControlMotor player))
         {
             audio.PlayOneShot(panelClip, 0.5f);
             player.state.ChangeState<WalkPlayerState>();

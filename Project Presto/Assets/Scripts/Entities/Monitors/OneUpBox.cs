@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [AddComponentMenu("Freedom Engine/Objects/Item Box/OneUp")]
-public class OneUpBox : ItemBox
+public partial class OneUpBox : ItemBox
 {
 	protected override void OnCollect(CharControlMotor player)
 	{

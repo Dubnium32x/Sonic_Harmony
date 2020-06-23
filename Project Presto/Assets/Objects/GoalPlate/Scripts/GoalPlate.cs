@@ -31,7 +31,7 @@ public class GoalPlate : FreedomObject
             activated = true;
             animator.SetBool("Activated", true);
             audio.PlayOneShot(plateClip, 0.5f);
-            StageManager.Instance.FinishStage();
+            //StageManager.Instance.FinishStage();
         }
     }
 }

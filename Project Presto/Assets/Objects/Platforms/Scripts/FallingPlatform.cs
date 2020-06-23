@@ -30,10 +30,10 @@ public class FallingPlatform : FreedomObject
         {
             transform.position += Vector3.down * gravity * Time.deltaTime;
 
-            if (transform.position.y <= StageManager.Instance.bounds.yMin)
-            {
-                falling = false;
-            }
+            //if (transform.position.y <= StageManager.Instance.bounds.yMin)
+            //{
+            //    falling = false;
+            //}
         }
     }
 
