@@ -2,11 +2,28 @@
 
 public class ObjMotobug : MonoBehaviour {
     // ========================================================================
+
+    const float speed = 0.03125F;
+    Animator animator;
+
+    Vector3 positionPrev = Vector3.zero;
+    // ========================================================================
     // OBJECT AND COMPONENT REFERENCES
     // ========================================================================
 
     SpriteRenderer spriteRenderer;
-    Animator animator;
+    float turnTimer = 0;
+
+    // ========================================================================
+
+    public bool moveRight {
+        get { return spriteRenderer.flipX; }
+        set { spriteRenderer.flipX = value; }
+    }
+
+    // ========================================================================
+
+    int direction => moveRight ? 1 : -1;
 
     void InitReferences() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -17,23 +34,6 @@ public class ObjMotobug : MonoBehaviour {
         InitReferences();
         spriteRenderer.flipX = moveRight;
     }
-
-    // ========================================================================
-
-    const float speed = 0.03125F;
-
-    // ========================================================================
-
-    public bool moveRight {
-        get { return spriteRenderer.flipX; }
-        set { spriteRenderer.flipX = value; }
-    }
-    float turnTimer = 0;
-    Vector3 positionPrev = Vector3.zero;
-
-    // ========================================================================
-
-    int direction => moveRight ? 1 : -1;
 
     // ========================================================================
 

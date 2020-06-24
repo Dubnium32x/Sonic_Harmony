@@ -14,21 +14,6 @@ namespace UnityEngine.EventSystems
     /// </remarks>
     public class StandaloneInputModuleMulti : PointerInputModule
     {
-        private float m_PrevActionTime;
-        private Vector2 m_LastMoveVector;
-        private int m_ConsecutiveMoveCount = 0;
-
-        private Vector2 m_LastMousePosition;
-        private Vector2 m_MousePosition;
-
-        private GameObject m_CurrentFocusedGameObject;
-
-        private PointerEventData m_InputPointerEvent;
-
-        protected StandaloneInputModuleMulti()
-        {
-        }
-
         [Obsolete("Mode is no longer needed on input module as it handles both mouse and keyboard simultaneously.", false)]
         public enum InputMode
         {
@@ -36,20 +21,35 @@ namespace UnityEngine.EventSystems
             Buttons
         }
 
-        [Obsolete("Mode is no longer needed on input module as it handles both mouse and keyboard simultaneously.", false)]
-        public InputMode inputMode
-        {
-            get { return InputMode.Mouse; }
-        }
+        /// <summary>
+        /// Name of the submit button.
+        /// </summary>
+        [SerializeField]
+        private string[] m_CancelButtons = new string[] { "Cancel" };
+
+        private int m_ConsecutiveMoveCount = 0;
+
+        private GameObject m_CurrentFocusedGameObject;
+
+        [SerializeField]
+        [FormerlySerializedAs("m_AllowActivationOnMobileDevice")]
+        private bool m_ForceModuleActive;
 
         [SerializeField]
         private string m_HorizontalAxis = "Horizontal";
 
-        /// <summary>
-        /// Name of the vertical axis for movement (if axis events are used).
-        /// </summary>
         [SerializeField]
-        private string m_VerticalAxis = "Vertical";
+        private float m_InputActionsPerSecond = 10;
+
+        private PointerEventData m_InputPointerEvent;
+
+        private Vector2 m_LastMousePosition;
+        private Vector2 m_LastMoveVector;
+        private Vector2 m_MousePosition;
+        private float m_PrevActionTime;
+
+        [SerializeField]
+        private float m_RepeatDelay = 0.5f;
 
         /// <summary>
         /// Name of the submit button.
@@ -58,20 +58,20 @@ namespace UnityEngine.EventSystems
         private string[] m_SubmitButtons = new string[]{ "Submit" };
 
         /// <summary>
-        /// Name of the submit button.
+        /// Name of the vertical axis for movement (if axis events are used).
         /// </summary>
         [SerializeField]
-        private string[] m_CancelButtons = new string[] { "Cancel" };
+        private string m_VerticalAxis = "Vertical";
 
-        [SerializeField]
-        private float m_InputActionsPerSecond = 10;
+        protected StandaloneInputModuleMulti()
+        {
+        }
 
-        [SerializeField]
-        private float m_RepeatDelay = 0.5f;
-
-        [SerializeField]
-        [FormerlySerializedAs("m_AllowActivationOnMobileDevice")]
-        private bool m_ForceModuleActive;
+        [Obsolete("Mode is no longer needed on input module as it handles both mouse and keyboard simultaneously.", false)]
+        public InputMode inputMode
+        {
+            get { return InputMode.Mouse; }
+        }
 
         [Obsolete("allowActivationOnMobileDevice has been deprecated. Use forceModuleActive instead (UnityUpgradable) -> forceModuleActive")]
         public bool allowActivationOnMobileDevice

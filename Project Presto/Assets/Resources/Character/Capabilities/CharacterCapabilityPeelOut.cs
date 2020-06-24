@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 public class CharacterCapabilityPeelOut : CharacterCapability {
     string[] buttonsPeelOut = new string[] { "Secondary", "Tertiary" };
-
-    float peelOutTimer;
+    GameObject dust = null;
 
     // ========================================================================
 
     Transform dustLocation;
-    GameObject dust = null;
+
+    float peelOutTimer;
 
     // ========================================================================
 

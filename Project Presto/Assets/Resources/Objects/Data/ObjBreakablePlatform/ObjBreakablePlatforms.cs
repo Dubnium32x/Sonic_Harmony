@@ -3,10 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjBreakablePlatforms : MonoBehaviour {
-    SpriteRenderer spriteRenderer;
-    CharacterGroundedDetector groundedDetector;
     AudioSource audioSource;
+    List<GameObject> blocks = new List<GameObject>();
+    bool collapsing = false;
     Transform collisionTransform;
+
+    // Start is called before the first frame update
+    float destroyDelay = 2F;
+    CharacterGroundedDetector groundedDetector;
+    SpriteRenderer spriteRenderer;
+    float timer = 0;
+    float timerMax = 0.55F;
 
     void InitReferences() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -14,13 +21,6 @@ public class ObjBreakablePlatforms : MonoBehaviour {
         groundedDetector = collisionTransform.GetComponent<CharacterGroundedDetector>();
         audioSource = GetComponent<AudioSource>();
     }
-
-    // Start is called before the first frame update
-    float destroyDelay = 2F;
-    float timerMax = 0.55F;
-    float timer = 0;
-    List<GameObject> blocks = new List<GameObject>();
-    bool collapsing = false;
 
     void Start() {
         InitReferences();

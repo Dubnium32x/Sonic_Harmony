@@ -3,15 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjBreakableWall : MonoBehaviour {
-    new Collider collider;
-    SpriteRenderer spriteRenderer;
     AudioSource audioSource;
+    new Collider collider;
+    float destroyTimer = 3F;
+
+    bool hit = false;
+    SpriteRenderer spriteRenderer;
 
     void InitReferences() {
         collider = GetComponent<Collider>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         audioSource = GetComponentInParent<AudioSource>();
     }
+
     void Start() { InitReferences(); }
 
     // Update is called once per frame
@@ -20,9 +24,6 @@ public class ObjBreakableWall : MonoBehaviour {
         destroyTimer -= Utils.cappedDeltaTime;
         if (destroyTimer <= 0) Destroy(gameObject);
     }
-
-    bool hit = false;
-    float destroyTimer = 3F;
 
     void BeginBreak(int direction) {
         Sprite sprite = spriteRenderer.sprite;

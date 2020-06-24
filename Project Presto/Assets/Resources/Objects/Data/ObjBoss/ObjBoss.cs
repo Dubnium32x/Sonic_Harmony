@@ -1,22 +1,21 @@
 using UnityEngine;
 
 public class ObjBoss : GameBehaviour {
-    public int points = 8000;
-    public int health = 8;
-    public CameraZone cameraZonePre;
+    AudioSource audioSource;
     public CameraZone cameraZonePost;
+    public CameraZone cameraZonePre;
+    public int health = 8;
     public AudioClip introClip;
-    public AudioClip loopClip;
 
     float invulnTimer = 0;
+    public AudioClip loopClip;
+    public MusicManager.MusicStackEntry musicStackEntry;
+    public int points = 8000;
 
     bool isInvulnerable => (
         (invulnTimer > 0) ||
         (health <= 0)
     );
-
-    AudioSource audioSource;
-    public MusicManager.MusicStackEntry musicStackEntry;
 
     public override void Awake() {
         base.Awake();

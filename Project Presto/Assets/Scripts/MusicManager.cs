@@ -5,42 +5,25 @@ using UnityEngine.Audio;
 
 public class MusicManager : MonoBehaviour {
     static MusicManager _current;
+
+    AudioSource audioSourceIntro;
+    AudioSource audioSourceLoop;
+    float fadeSpeed = 0.333F;
+    float fadeVolume = 1F;
+    AudioMixer mixer;
+    AudioMixerGroup mixerGroup;
+    List<MusicStackEntry> musicStack = new List<MusicStackEntry>();
+
+    MusicStackEntry musicStackEntryPrev;
+
+    public float tempo = 1F;
+
     public static MusicManager current { get {
         if (_current == null)
             _current = GameObject.FindObjectOfType<MusicManager>();
         return _current;
     }}
 
-    public class MusicStackEntry {
-        public string introPath;
-        public string loopPath;
-        public int priority = 0;
-        public bool disableSfx = false;
-        public bool resumeAfter = false;
-        public bool fadeInAfter = false;
-        public bool ignoreClear = false;
-        // public string mixerGroup = "Music";
-
-        // public float timeCurrent;
-        public AudioClip introClip;
-        public AudioClip loopClip;
-
-        bool _initDone = false;
-        public void Init() {
-            if (_initDone) return;
-            
-            if ((introClip == null) && (introPath != null))
-                introClip = Resources.Load<AudioClip>(introPath);
-
-            if ((loopClip == null) && (loopPath != null))
-                loopClip = Resources.Load<AudioClip>(loopPath);
-            
-            _initDone = true;
-        }
-    }
-    List<MusicStackEntry> musicStack = new List<MusicStackEntry>();
-
-    MusicStackEntry musicStackEntryPrev;
     public MusicStackEntry musicStackEntryCurrent { get {
         MusicStackEntry musicStackEntryMax = null;
         int priorityMax = int.MinValue;
@@ -52,15 +35,6 @@ public class MusicManager : MonoBehaviour {
         }
         return musicStackEntryMax;
     }}
-
-    public float tempo = 1F;
-    float fadeVolume = 1F;
-    float fadeSpeed = 0.333F;
-
-    AudioSource audioSourceIntro;
-    AudioSource audioSourceLoop;
-    AudioMixer mixer;
-    AudioMixerGroup mixerGroup;
 
     public void FadeIn() {
         fadeVolume = -40;
@@ -168,6 +142,35 @@ public class MusicManager : MonoBehaviour {
         for (var i = musicStack.Count - 1; i >= 0; i--) {
             if (musicStack[i].ignoreClear) continue;
             musicStack.RemoveAt(i);
+        }
+    }
+
+    public class MusicStackEntry {
+        bool _initDone = false;
+        public bool disableSfx = false;
+        public bool fadeInAfter = false;
+
+        public bool ignoreClear = false;
+        // public string mixerGroup = "Music";
+
+        // public float timeCurrent;
+        public AudioClip introClip;
+        public string introPath;
+        public AudioClip loopClip;
+        public string loopPath;
+        public int priority = 0;
+        public bool resumeAfter = false;
+
+        public void Init() {
+            if (_initDone) return;
+            
+            if ((introClip == null) && (introPath != null))
+                introClip = Resources.Load<AudioClip>(introPath);
+
+            if ((loopClip == null) && (loopPath != null))
+                loopClip = Resources.Load<AudioClip>(loopPath);
+            
+            _initDone = true;
         }
     }
 }

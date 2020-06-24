@@ -9,9 +9,6 @@ using UnityEngine.Events;
 using Object = UnityEngine.Object;
 
 public static class Utils {
-    public static float deltaTimeScale => 60F * Utils.cappedDeltaTime;
-    public const float physicsScale = 1.875F; // 60 (framerate) / 32 (pixels per unit)
-
     // ========================================================================
 
     public enum AxisType {
@@ -27,6 +24,64 @@ public static class Utils {
         Character, // ... player position
         Closest // ... whichever is closest
     }
+
+    public const float physicsScale = 1.875F; // 60 (framerate) / 32 (pixels per unit)
+
+    // Start hack because fuck unity; "SceneManager.sceneLoaded -=" DOESN'T. FUCKING. WORK.
+    // I'm not even kidding. try it yourself. fuck this shitty engine.
+    static bool _LoadLevelAsyncEverUsed = false;
+    static Level _LoadLevelAsyncLevel;
+
+    public static LayerMask? _IgnoreRaycastMask = null;
+
+    // ========================================================================
+
+    // Store all case variants since str.ToLower() causes GC
+    static readonly HashSet<string> stringsPositive = new HashSet<string> {
+        "true", "True", "TRUE",
+        "on",   "On",   "ON",
+        "yes",  "Yes",  "YES",
+        "y",    "Y",
+        "t",    "T",
+        "ok",   "Ok",   "OK"
+    };
+
+    // ========================================================================
+
+    static readonly Dictionary<int, string> intStrCache = new Dictionary<int, string>();
+    public static float deltaTimeScale => 60F * Utils.cappedDeltaTime;
+
+    public static LayerMask IgnoreRaycastMask {
+        get {
+            if (_IgnoreRaycastMask != null) return (LayerMask)_IgnoreRaycastMask;
+            _IgnoreRaycastMask = LayerMask.GetMask(
+                "Ignore Raycast",
+                "Player - Ignore Top Solid and Raycast",
+                "Player - Ignore Top Solid",
+                "Player - Rolling",
+                "Player - Rolling and Ignore Top Solid",
+                "Object - Ignore Other Objects",
+                "Object - Top Solid Only and Ignore Other Objects",
+                "Object - Monitor Solidity",
+                "Object - Monitor Trigger"
+            );
+            return (LayerMask)_IgnoreRaycastMask;
+        }
+    }
+
+    public static float cappedUnscaledDeltaTime { get {
+        var deltaTime = Time.unscaledDeltaTime;
+        if (deltaTime > Time.maximumDeltaTime)
+            return 1F / Application.targetFrameRate;
+        return deltaTime;
+    }}
+
+    public static float cappedDeltaTime { get {
+        var deltaTime = Time.deltaTime;
+        if (Time.deltaTime > Time.maximumDeltaTime)
+            return 1F / Application.targetFrameRate;
+        return deltaTime;
+    }}
 
     // ========================================================================
     public static Character CheckIfCharacterInRange(
@@ -83,10 +138,6 @@ public static class Utils {
         return null;
     }
 
-    // Start hack because fuck unity; "SceneManager.sceneLoaded -=" DOESN'T. FUCKING. WORK.
-    // I'm not even kidding. try it yourself. fuck this shitty engine.
-    static bool _LoadLevelAsyncEverUsed = false;
-    static Level _LoadLevelAsyncLevel;
     static void _LoadLevelAsyncOnSceneLoaded(Scene scene, LoadSceneMode loadSceneMode) {
         foreach (var level in Object.FindObjectsOfType<Level>()) {
             if (level.gameObject.scene != scene) continue;
@@ -125,44 +176,11 @@ public static class Utils {
         }
     }
 
-    public static LayerMask? _IgnoreRaycastMask = null;
-    public static LayerMask IgnoreRaycastMask {
-        get {
-            if (_IgnoreRaycastMask != null) return (LayerMask)_IgnoreRaycastMask;
-            _IgnoreRaycastMask = LayerMask.GetMask(
-                "Ignore Raycast",
-                "Player - Ignore Top Solid and Raycast",
-                "Player - Ignore Top Solid",
-                "Player - Rolling",
-                "Player - Rolling and Ignore Top Solid",
-                "Object - Ignore Other Objects",
-                "Object - Top Solid Only and Ignore Other Objects",
-                "Object - Monitor Solidity",
-                "Object - Monitor Trigger"
-            );
-            return (LayerMask)_IgnoreRaycastMask;
-        }
-    }
-
     public static void SetFramerate() {
         Application.targetFrameRate = Screen.currentResolution.refreshRate;
         Time.fixedDeltaTime = 1F / Application.targetFrameRate;
         Time.maximumDeltaTime = 1F / 10F;
     }
-
-    public static float cappedUnscaledDeltaTime { get {
-        var deltaTime = Time.unscaledDeltaTime;
-        if (deltaTime > Time.maximumDeltaTime)
-            return 1F / Application.targetFrameRate;
-        return deltaTime;
-    }}
-
-    public static float cappedDeltaTime { get {
-        var deltaTime = Time.deltaTime;
-        if (Time.deltaTime > Time.maximumDeltaTime)
-            return 1F / Application.targetFrameRate;
-        return deltaTime;
-    }}
 
     public static Tuple<int, int> CalculateFauxTransparencyFrameCount(float alpha) {
         // Tuple format is (off frames, on frames)
@@ -178,27 +196,14 @@ public static class Utils {
         );
     }
 
-    // ========================================================================
-
-    // Store all case variants since str.ToLower() causes GC
-    static readonly HashSet<string> stringsPositive = new HashSet<string> {
-        "true", "True", "TRUE",
-        "on",   "On",   "ON",
-        "yes",  "Yes",  "YES",
-        "y",    "Y",
-        "t",    "T",
-        "ok",   "Ok",   "OK"
-    };
     public static bool StringBool(string str) => stringsPositive.Contains(str);
 
-    // ========================================================================
-
-    static readonly Dictionary<int, string> intStrCache = new Dictionary<int, string>();
     public static string IntToStrCached(int val) {
         if (!intStrCache.ContainsKey(val))
             intStrCache[val] = val.ToString();
         return intStrCache[val];
     }
+
     public static string IntToStrCached(float val) => IntToStrCached((int)val);
 
     // ========================================================================

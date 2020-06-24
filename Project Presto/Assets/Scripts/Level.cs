@@ -5,18 +5,17 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour {
+    public int act = 0;
+    public CameraZone cameraZoneStart;
     public AudioClip musicIntro;
     public AudioClip musicLoop;
-    public CameraZone cameraZoneStart;
+    public string zone = "Unknown";
 
     public Vector3 spawnPosition { get {
         var spawnLocation = transform.Find("Spawn Position");
         if (spawnLocation == null) return Vector3.zero;
         return spawnLocation.position;
     }}
-
-    public int act = 0;
-    public string zone = "Unknown";
 
     void Awake() {
         var levelScene = SceneManager.GetSceneByName("Level");

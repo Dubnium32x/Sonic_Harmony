@@ -3,46 +3,52 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjFloatingPlatform : MonoBehaviour {
-    Transform moveDestinationLocation;
-    Transform platformTransform;
-    CharacterGroundedDetector groundedDetector;
-
-    void Awake() {
-        groundedDetector = platformColliderObj.GetComponent<CharacterGroundedDetector>();
-        moveDestinationLocation = transform.Find("Move Destination");
-        platformTransform = transform.Find("Platform");
-    }
-
     public enum PlatformType {
         stationary,
         falling,
         moving,
         trigger
     }
-    public PlatformType type = PlatformType.falling;
-    public GameObject platformColliderObj;
-
-    public float fallWaitTime = 0.5F; 
-    float fallTimer;
-    bool touched => groundedDetector.characters.Count > 0;
-    bool touchedEver = false;
 
     bool falling = false;
     float fallSpeed = 0;
+    float fallTimer;
+
+    public float fallWaitTime = 0.5F;
     public float gravity = -0.007292F;
+    CharacterGroundedDetector groundedDetector;
+    Transform moveDestinationLocation;
+
+    float moveTime = 0F;
+    public float moveTimeMax = 5F;
+
+    float nudgeDistance = -3F/32F;
+    float nudgeTime = 0F;
+    float nudgeTimeMax = 0.5F;
+    Vector3 offsetMove;
 
     // ======================================
 
     Vector3 offsetNudge;
     Vector3 offsetOriginal;
-    Vector3 offsetMove;
+    public GameObject platformColliderObj;
+    Transform platformTransform;
+    bool touchedEver = false;
+    public PlatformType type = PlatformType.falling;
+    bool touched => groundedDetector.characters.Count > 0;
 
     // Vector3 positionPrev;
     Vector3 position => offsetNudge + offsetOriginal + offsetMove;
 
-    float nudgeDistance = -3F/32F;
-    float nudgeTime = 0F;
-    float nudgeTimeMax = 0.5F;
+    Vector3 moveDestination { get {
+        return moveDestinationLocation.position;
+    } }
+
+    void Awake() {
+        groundedDetector = platformColliderObj.GetComponent<CharacterGroundedDetector>();
+        moveDestinationLocation = transform.Find("Move Destination");
+        platformTransform = transform.Find("Platform");
+    }
 
     void Start() {
         offsetOriginal = platformTransform.position;
@@ -63,12 +69,6 @@ public class ObjFloatingPlatform : MonoBehaviour {
             nudgeTime / nudgeTimeMax
         );
     }
-
-    float moveTime = 0F;
-    public float moveTimeMax = 5F;
-    Vector3 moveDestination { get {
-        return moveDestinationLocation.position;
-    } }
 
     void UpdateType() {
         switch(type) {

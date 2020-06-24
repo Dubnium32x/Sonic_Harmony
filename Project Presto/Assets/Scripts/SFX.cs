@@ -6,14 +6,14 @@ using UnityEngine.Audio;
 public static class SFX {
     static Dictionary<string, AudioClip> audioClipCache = new Dictionary<string, AudioClip>();
 
+    static AudioMixer _mixer;
+
     public static AudioClip Get(string path) {
         if (!audioClipCache.ContainsKey(path))
             audioClipCache[path] = Resources.Load<AudioClip>(path);
 
         return audioClipCache[path];
     }
-
-    static AudioMixer _mixer;
 
     public static void PlayOneShot(AudioSource audioSource, string constantName, float volume = 1F) {
         if (string.IsNullOrEmpty(constantName)) return;

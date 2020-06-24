@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjRollingBall : MonoBehaviour {
-    new Rigidbody rigidbody;
     CharacterGroundedDetector groundedDetector;
+    new Rigidbody rigidbody;
 
     void Awake() {
         rigidbody = GetComponent<Rigidbody>();

@@ -2,12 +2,14 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class CharacterCapabilityLightDash : CharacterCapability {
+    CharacterEffect afterImageEffect;
     float failsafeTimer;
 
-    public CharacterCapabilityLightDash(Character character) : base(character) { }
+    Vector3 positionPrev;
 
     ObjRing target;
-    CharacterEffect afterImageEffect;
+
+    public CharacterCapabilityLightDash(Character character) : base(character) { }
 
     public override void Init() {
         name = "lightDash";
@@ -35,8 +37,6 @@ public class CharacterCapabilityLightDash : CharacterCapability {
         if (afterImageEffect != null)
             afterImageEffect.DestroyBase();
     }
-
-    Vector3 positionPrev;
 
     public override void Update(float deltaTime) {
         if (character.stateCurrent != "lightDash") {
@@ -91,7 +91,10 @@ public class CharacterCapabilityLightDash : CharacterCapability {
                 character.position.AngleTowards(potentialTarget.transform.position),
                 character.forwardAngle
             ));
-            if ((angleDiff > 45) && (angleDiff < 135)) continue;
+            if ((angleDiff > 45) && (angleDiff < 135))
+            {
+                continue;
+            }
             else if (inital) {
                 if ((angleDiff > 45) && character.facingRight) continue;
                 else if ((angleDiff < 135) && !character.facingRight) continue;
@@ -99,10 +102,9 @@ public class CharacterCapabilityLightDash : CharacterCapability {
 
             Vector3 directionToTarget = potentialTarget.transform.position - character.position;
             float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if(dSqrToTarget < closestDistanceSqr) {
-                closestDistanceSqr = dSqrToTarget;
-                bestTarget = potentialTarget;
-            }
+            if (!(dSqrToTarget < closestDistanceSqr)) continue;
+            closestDistanceSqr = dSqrToTarget;
+            bestTarget = potentialTarget;
         }
 
         if (closestDistanceSqr > distanceLimit) return null;

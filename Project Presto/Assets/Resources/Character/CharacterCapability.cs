@@ -1,8 +1,8 @@
 using UnityEngine;
 
 public class CharacterCapability {
-    public string name;
     public Character character;
+    public string name;
     public Transform transform;
 
     public CharacterCapability(Character character) {

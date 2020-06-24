@@ -12,27 +12,58 @@ public class ObjectCuller : MonoBehaviour
         NeverAggressive, // Same as Never but immediately destroys object if not on screen
         Ignore // Do nothing, object always active
     }
-    public EnableType enableType;
 
     public enum PositionType {
         Current, // calculate distance from current position
         Initial // ... from initial position
     }
-    public PositionType positionType;
+
+    bool _destroyedSelf = false;
+
+    // ========================================================================
+
+    // Prevent iterating through all children multiple times by just keeping track of whether everything's disabled
+    bool _selfEnabled = true;
 
     // ========================================================================
 
     public Utils.AxisType axisType;
-    public Utils.DistanceType distanceType;
-
-    // ========================================================================
-
-    public float triggerDistance = 8F;
-    public bool runEveryOtherFrame = false;
 
     // ========================================================================
 
     Dictionary<Behaviour, bool> behaviourEnabledInitial = new Dictionary<Behaviour, bool>(); // Stores whether each component should be reenabled on visible
+
+    // ========================================================================
+
+    Dictionary<GameObject, bool> childrenActiveInitial = new Dictionary<GameObject, bool>(); // Stores whether each component should be reenabled on visible
+
+    // ========================================================================
+
+    GameObject clone = null;
+
+    // ========================================================================
+
+    Dictionary<Collider, bool> colliderEnabledInitial = new Dictionary<Collider, bool>(); // Stores whether each component should be reenabled on visible
+    public Utils.DistanceType distanceType;
+    public EnableType enableType;
+    public bool enableWait = false;
+    bool everyOtherFrameCheck;
+    Vector3 initialPosition;
+
+    // Update is called once per frame
+    bool inRangePrev;
+    public PositionType positionType;
+    bool readyForDestroy = false;
+
+    // ========================================================================
+
+    Dictionary<Renderer, bool> rendererEnabledInitial = new Dictionary<Renderer, bool>(); // Stores whether each component should be reenabled on visible
+    Dictionary<Rigidbody, RigidbodyState> rigidbodyStatesInitial = new Dictionary<Rigidbody, RigidbodyState>();
+    public bool runEveryOtherFrame = false;
+
+    // ========================================================================
+
+    public float triggerDistance = 8F;
 
     void DisableBehaviours(bool force = false) {
         foreach(var behaviour in GetComponents<Behaviour>()) {
@@ -51,10 +82,6 @@ public class ObjectCuller : MonoBehaviour
             behaviourEnabledInitial.Remove(behaviour);
         }
     }
-
-    // ========================================================================
-
-    Dictionary<GameObject, bool> childrenActiveInitial = new Dictionary<GameObject, bool>(); // Stores whether each component should be reenabled on visible
 
     void DisableChildren(bool force = false) {
         foreach(Transform child in transform) {
@@ -75,10 +102,6 @@ public class ObjectCuller : MonoBehaviour
         }
     }
 
-    // ========================================================================
-
-    Dictionary<Renderer, bool> rendererEnabledInitial = new Dictionary<Renderer, bool>(); // Stores whether each component should be reenabled on visible
-
     void DisableRenderers() {
         foreach(var renderer in GetComponents<Renderer>()) {
             if (rendererEnabledInitial.ContainsKey(renderer)) continue;
@@ -95,10 +118,6 @@ public class ObjectCuller : MonoBehaviour
         }
     }
 
-    // ========================================================================
-
-    Dictionary<Collider, bool> colliderEnabledInitial = new Dictionary<Collider, bool>(); // Stores whether each component should be reenabled on visible
-
     void DisableColliders() {
         foreach(var collider in GetComponents<Collider>()) {
             if (colliderEnabledInitial.ContainsKey(collider)) continue;
@@ -114,15 +133,6 @@ public class ObjectCuller : MonoBehaviour
             colliderEnabledInitial.Remove(collider);
         }
     }
-
-    // ========================================================================
-
-    struct RigidbodyState {
-        public bool isKinematic;
-        public bool detectCollisions;
-        public Vector3 velocity;
-    }
-    Dictionary<Rigidbody, RigidbodyState> rigidbodyStatesInitial = new Dictionary<Rigidbody, RigidbodyState>();
 
     void DisableRigidbodies() {
         foreach(var rigidbody in GetComponents<Rigidbody>()) {
@@ -151,11 +161,6 @@ public class ObjectCuller : MonoBehaviour
         }
     }
 
-    // ========================================================================
-
-    // Prevent iterating through all children multiple times by just keeping track of whether everything's disabled
-    bool _selfEnabled = true;
-
     void DisableSelf(bool force = false) {
         if (!_selfEnabled) return;
         DisableRigidbodies();
@@ -175,12 +180,6 @@ public class ObjectCuller : MonoBehaviour
         EnableChildren();
         _selfEnabled = true;
     }
-
-    // ========================================================================
-
-    GameObject clone = null;
-    bool everyOtherFrameCheck;
-    Vector3 initialPosition;
 
     void Start() {
         initialPosition = transform.position;
@@ -220,11 +219,6 @@ public class ObjectCuller : MonoBehaviour
             LevelManager.current.characters
         ) != null;
     }
-
-    // Update is called once per frame
-    bool inRangePrev;
-    public bool enableWait = false;
-    bool readyForDestroy = false;
 
     void Update() {
         if (runEveryOtherFrame) {
@@ -280,7 +274,6 @@ public class ObjectCuller : MonoBehaviour
         inRangePrev = inRange;
     }
 
-    bool _destroyedSelf = false;
     void DestroySelf() {
         _destroyedSelf = true;
         Destroy(gameObject);
@@ -293,5 +286,13 @@ public class ObjectCuller : MonoBehaviour
 
     public void DestroyAll() {
         Destroy(gameObject);
+    }
+
+    // ========================================================================
+
+    struct RigidbodyState {
+        public bool isKinematic;
+        public bool detectCollisions;
+        public Vector3 velocity;
     }
 }

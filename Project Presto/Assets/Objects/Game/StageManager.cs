@@ -8,33 +8,19 @@ public class StageManager : MonoBehaviour
 {
     private static StageManager instance;
 
-    public static StageManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<StageManager>();
-                instance.StartSingleton();
-            }
-
-            return instance;
-        }
-    }
-
-    [Header("UI Elements")]
-    [SerializeField] private GameObject titleCard = null;
-    [SerializeField] private Image fader = null;
+    private new AudioSource audio;
+    public Rect bounds;
     [SerializeField] private float fadeDelay = 0;
+    [SerializeField] private Image fader = null;
     [SerializeField] private float fadeTime = 0;
-    
+    [SerializeField] private string nextStage = "";
+
     [Header("Stage Settings")]
     [SerializeField] private CharControlMotor player = null;
-    [SerializeField] private string nextStage = "";
-    public Rect bounds;
 
     [Header("Stage Music")]
     [SerializeField] private AudioClip song = null;
+
     [Range(0f, 1f)]
     [SerializeField] private float songVolume = 1f;
 
@@ -42,7 +28,20 @@ public class StageManager : MonoBehaviour
     private Quaternion startRotation;
     private float startTime;
 
-    private new AudioSource audio;
+    [Header("UI Elements")]
+    [SerializeField] private GameObject titleCard = null;
+
+    public static StageManager Instance
+    {
+        get
+        {
+            if (instance != null) return instance;
+            instance = FindObjectOfType<StageManager>();
+            instance.StartSingleton();
+
+            return instance;
+        }
+    }
 
     private void StartSingleton()
     {
@@ -143,7 +142,7 @@ public class StageManager : MonoBehaviour
         ScoreManager.Instance.Rings = 0;
         StartStage();
     }
-    
+
     private IEnumerator EndStage()
     {
         ScoreManager.Instance.stopTimer = true;

@@ -6,6 +6,8 @@ using UnityEngine.Events;
 public class ObjSignpost : MonoBehaviour {
     Animator animator;
     AudioSource audioSource;
+
+    HashSet<Character> charactersTouched = new HashSet<Character>();
     public SceneReference nextLevelRef;
     public UnityEvent onNextLevel;
 
@@ -17,8 +19,6 @@ public class ObjSignpost : MonoBehaviour {
     void Start() {
         InitReferences();
     }
-
-    HashSet<Character> charactersTouched = new HashSet<Character>();
 
     void Touch(Character character) {
         if (charactersTouched.Contains(character)) return;

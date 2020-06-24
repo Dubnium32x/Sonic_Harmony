@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjMonitorContents : MonoBehaviour {
-    [HideInInspector]
-    public Character recipient;
-
     public enum ContentsType {
         Ring,
         Invincibility,
@@ -31,9 +28,12 @@ public class ObjMonitorContents : MonoBehaviour {
         "Hurt"
     };
 
-    public AudioSource audioSource => GetComponent<AudioSource>();
+    [HideInInspector]
+    public Character recipient;
 
     public ContentsType type = ContentsType.Ring;
+
+    public AudioSource audioSource => GetComponent<AudioSource>();
 
     Animator animator => GetComponent<Animator>();
 

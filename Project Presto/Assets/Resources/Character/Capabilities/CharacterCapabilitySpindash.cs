@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 public class CharacterCapabilitySpindash : CharacterCapability {
     string[] buttonsSpindash = new string[] { "Secondary", "Tertiary" };
+    GameObject dust = null;
 
 
     // ========================================================================
 
     Transform dustLocation;
-    GameObject dust = null;
     float spindashPower;
 
     // ========================================================================

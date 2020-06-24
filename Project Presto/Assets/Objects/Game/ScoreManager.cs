@@ -9,6 +9,28 @@ public class ScoreManager : MonoBehaviour
 {
 	private static ScoreManager instance;
 
+	private static readonly string[] digits = new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", "." };
+	private static readonly StringBuilder timer = new StringBuilder(8);
+	[SerializeField] private Image fader = null;
+
+	[Header("Game Over UI")]
+	[SerializeField] private float gameOverFadeTime = 1f;
+
+	[SerializeField] private AudioClip gameOverJingle = null;
+	[SerializeField] private string gameOverScene = "";
+	[SerializeField] private GameObject gameOverUI = null;
+	[SerializeField] private Text lifeCounter = null;
+	private int lifes;
+	private int minutes;
+	[SerializeField] private Text ringCounter = null;
+
+	private int rings;
+
+	private int seconds;
+
+	[Header("Score UI")]
+	[SerializeField] private Text timeCounter = null;
+
 	public static ScoreManager Instance
 	{
 		get
@@ -21,29 +43,8 @@ public class ScoreManager : MonoBehaviour
 		}
 	}
 
-	[Header("Score UI")]
-	[SerializeField] private Text timeCounter = null;
-	[SerializeField] private Text ringCounter = null;
-	[SerializeField] private Text lifeCounter = null;
-	[SerializeField] private Image fader = null;
-
-	[Header("Game Over UI")]
-	[SerializeField] private float gameOverFadeTime = 1f;
-	[SerializeField] private GameObject gameOverUI = null;
-	[SerializeField] private AudioClip gameOverJingle = null;
-	[SerializeField] private string gameOverScene = "";
-	
-	private int seconds;
-	private int minutes;
-
-	private int rings;
-	private int lifes;
-
 	public float time { get; set; }
 	public bool stopTimer { get; set; }
-
-	private static readonly string[] digits = new string[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", "." };
-	private static readonly StringBuilder timer = new StringBuilder(8);
 
 	public int Rings
 	{

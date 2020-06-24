@@ -3,11 +3,34 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjSpring : MonoBehaviour {
+    public enum SpringType {
+        Yellow,
+        Red
+    }
+
     CharacterGroundedDetector characterGroundedDetector;
+
+    public bool keepGrounded = false;
+
+    public SpringType type = SpringType.Yellow;
     // ========================================================================
 
     GameObject topPositionObj => transform.Find("Top Position").gameObject;
     float topAngle => transform.eulerAngles.z;
+
+    // ========================================================================
+
+    Animator animator => transform.Find("Object").GetComponent<Animator>();
+
+    public AudioSource audioSource => GetComponent<AudioSource>();
+
+    float springPower { get{
+        switch(type) {
+            case SpringType.Red:
+                return 16F;
+        }
+        return 10F; // Yellow is default, switch case exists in case more types are added
+    }}
 
     // ========================================================================
 
@@ -33,6 +56,7 @@ public class ObjSpring : MonoBehaviour {
 
         TryAction(character, collisionAngle);
     }
+
     public void OnCollisionStay(Collision collision) {
         OnCollisionEnter(collision);
     }
@@ -49,21 +73,6 @@ public class ObjSpring : MonoBehaviour {
     public void OnTriggerEnter(Collider other) {}
     public void OnTriggerExit(Collider other) {}
 
-    // ========================================================================
-
-    Animator animator => transform.Find("Object").GetComponent<Animator>();
-
-    public AudioSource audioSource => GetComponent<AudioSource>();
-
-    public enum SpringType {
-        Yellow,
-        Red
-    }
-
-    public bool keepGrounded = false;
-
-    public SpringType type = SpringType.Yellow;
-
     // Start is called before the first frame update
     void Start() {
         characterGroundedDetector = transform.Find("Object").GetComponent<CharacterGroundedDetector>();
@@ -77,14 +86,6 @@ public class ObjSpring : MonoBehaviour {
                 break;
         }
     }
-
-    float springPower { get{
-        switch(type) {
-            case SpringType.Red:
-                return 16F;
-        }
-        return 10F; // Yellow is default, switch case exists in case more types are added
-    }}
 
     public void DoAction(ObjSpringable obj) {
         Rigidbody rigidbody = obj.GetComponent<Rigidbody>();

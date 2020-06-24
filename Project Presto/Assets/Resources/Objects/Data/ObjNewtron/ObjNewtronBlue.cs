@@ -3,10 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjNewtronBlue : MonoBehaviour {
-    ObjEnemy enemyBehaviour;
-    new Rigidbody rigidbody;
+    const float triggerDistance = 4F;
+
+    bool activated = false;
     Animator animator;
-    
+    ObjEnemy enemyBehaviour;
+    bool hitGround = false;
+
+    float raycastDistance = 0.5F;
+    new Rigidbody rigidbody;
+
     void InitReferences() {
         enemyBehaviour = GetComponent<ObjEnemy>();
         rigidbody = GetComponent<Rigidbody>();
@@ -16,12 +22,6 @@ public class ObjNewtronBlue : MonoBehaviour {
     void Start() {
         InitReferences();
     }
-
-    float raycastDistance = 0.5F;
-    const float triggerDistance = 4F;
-
-    bool activated = false;
-    bool hitGround = false;
 
     void Update() {
         if (!activated || !hitGround) {

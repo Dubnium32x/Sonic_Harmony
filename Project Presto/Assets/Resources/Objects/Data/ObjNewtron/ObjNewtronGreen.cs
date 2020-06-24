@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjNewtronGreen : MonoBehaviour {
-    Transform bulletPosition;
-    new Collider collider;
-    Animator animator;
-    SpriteRenderer spriteRenderer;
+    const float triggerDistance = 4F;
+    const float bulletSpeed = 3.75F;
 
     bool _initReferencesDone = false;
+    Animator animator;
+    Transform bulletPosition;
+    new Collider collider;
+
+    bool firing = false;
+    SpriteRenderer spriteRenderer;
+
     void InitReferences() {
         if (_initReferencesDone) return;
         bulletPosition = transform.Find("Bullet Position");
@@ -18,15 +23,10 @@ public class ObjNewtronGreen : MonoBehaviour {
         _initReferencesDone = true;
     }
 
-    const float triggerDistance = 4F;
-    const float bulletSpeed = 3.75F;
-
     // Start is called before the first frame update
     void Start() {
         InitReferences();
     }
-
-    bool firing = false;
 
     void OnEnable() {
         InitReferences();

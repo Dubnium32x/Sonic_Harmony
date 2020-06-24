@@ -3,6 +3,67 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjRing : MonoBehaviour {
+    // ========================================================================
+
+    const float gravity = -0.09375F;
+    static Sprite[] sprites;
+
+    static int[] spriteIdSpin = {
+        5, 6, 7, 8
+    };
+
+    static float spinFrameTime = 8F / 60F;
+
+    // ========================================================================
+
+    static bool _staticInitDone = false;
+    static int layerIDStatic;
+    static int layerIDMoving;
+
+    // ========================================================================
+
+    static int panStereo = 1;
+
+    static bool _staticUpdateDone;
+
+    static Sprite _staticSpinSprite;
+    bool _falling = false;
+
+    bool _initReferencesDone = false;
+    Animator animator;
+    AudioSource audioSource;
+    public bool collected = false;
+    float fallingTimer = 4.27F;
+    float fallingTimerMax = 4.27F;
+
+    public Vector3 initialVelocity = Vector3.zero;
+
+
+    // ========================================================================
+    // OBJECT AND COMPONENT REFERENCES
+    // ========================================================================
+    // Animator animator;
+    new Rigidbody rigidbody;
+    SpriteRenderer spriteRenderer;
+
+    public bool falling {
+        get { return _falling; }
+        set {
+            _falling = value;
+
+            rigidbody.isKinematic = !_falling;
+            if (_falling) {
+                gameObject.layer = layerIDMoving;
+                animator.enabled = true;
+                animator.Play("Spin");
+            } else {
+                gameObject.layer = layerIDStatic;
+                // Make all rings spin at the same speed/frame
+                animator.enabled = false;
+            }
+        }
+    }
+
     // Shamelessly taken line-for-line from https://info.sonicretro.org/SPG:Ring_Loss
     public static void ExplodeRings(Vector2 origin, int count) {
         count = Mathf.Min(count, 256);
@@ -55,17 +116,6 @@ public class ObjRing : MonoBehaviour {
         }
     }
 
-
-    // ========================================================================
-    // OBJECT AND COMPONENT REFERENCES
-    // ========================================================================
-    // Animator animator;
-    new Rigidbody rigidbody;
-    AudioSource audioSource;
-    Animator animator;
-    SpriteRenderer spriteRenderer;
-
-    bool _initReferencesDone = false;
     void InitReferences() {
         if (_initReferencesDone) return;
 
@@ -77,27 +127,11 @@ public class ObjRing : MonoBehaviour {
         _initReferencesDone = true;
     }
 
-    public Vector3 initialVelocity = Vector3.zero;
-
     void Awake() {
         StaticInit();
         InitReferences();
     }
 
-    // ========================================================================
-
-    const float gravity = -0.09375F;
-    static Sprite[] sprites;
-    static int[] spriteIdSpin = {
-        5, 6, 7, 8
-    };
-    static float spinFrameTime = 8F / 60F;
-
-    // ========================================================================
-
-    static bool _staticInitDone = false;
-    static int layerIDStatic;
-    static int layerIDMoving;
     void StaticInit() {
         if (_staticInitDone) return;
         sprites = Resources.LoadAll<Sprite>("Objects/Data/ObjRing/Rings");
@@ -105,31 +139,6 @@ public class ObjRing : MonoBehaviour {
         layerIDMoving = LayerMask.NameToLayer("Ignore Raycast");
         _staticInitDone = true;
     }
-
-    // ========================================================================
-
-    static int panStereo = 1;
-    bool _falling = false;
-    public bool falling {
-        get { return _falling; }
-        set {
-            _falling = value;
-
-            rigidbody.isKinematic = !_falling;
-            if (_falling) {
-                gameObject.layer = layerIDMoving;
-                animator.enabled = true;
-                animator.Play("Spin");
-            } else {
-                gameObject.layer = layerIDStatic;
-                // Make all rings spin at the same speed/frame
-                animator.enabled = false;
-            }
-        }
-    }
-    float fallingTimerMax = 4.27F;
-    float fallingTimer = 4.27F;
-    public bool collected = false;
 
     void OnTriggerStay(Collider other) {
         if (collected) return;
@@ -169,12 +178,9 @@ public class ObjRing : MonoBehaviour {
         }
     }
 
-    static bool _staticUpdateDone;
     void Update() {
         _staticUpdateDone = false;
     }
-    
-    static Sprite _staticSpinSprite;
 
     void StaticUpdate() {
         if (_staticUpdateDone) return;

@@ -5,9 +5,25 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class ScreenFade : MonoBehaviour {
-    new Image renderer;
-    Material material;
+    public float blueOffset = 0;
+    public float brightness = 0F;
     public Canvas canvas;
+    public float destroyDelay = 10F / 60F;
+    public bool destroyWhenDone = false;
+
+    public float fadeDelay = 5F;
+    public float fadeSpeed = 0F; // percent per second
+    public float greenOffset = -0.125F;
+
+    bool isComplete = false;
+    Material material;
+    public Action onComplete;
+
+    public float redOffset = -0.125F;
+    new Image renderer;
+    public bool stopTime = false;
+    public float brightnessMin => Mathf.Max(redOffset, blueOffset, greenOffset);
+    public float brightnessMax => 1 - Mathf.Min(redOffset, blueOffset, greenOffset);
 
     void Awake() {
         renderer = transform.Find("Image").GetComponent<Image>();
@@ -19,21 +35,6 @@ public class ScreenFade : MonoBehaviour {
     // Start is called before the first frame update
     void Start() { Update(); }
 
-    public float fadeDelay = 5F;
-    public float fadeSpeed = 0F; // percent per second
-    public float destroyDelay = 10F / 60F;
-    public bool destroyWhenDone = false;
-    public Action onComplete;
-
-    public float redOffset = -0.125F;
-    public float blueOffset = 0;
-    public float greenOffset = -0.125F;
-    public float brightness = 0F;
-    public bool stopTime = false;
-    public float brightnessMin => Mathf.Max(redOffset, blueOffset, greenOffset);
-    public float brightnessMax => 1 - Mathf.Min(redOffset, blueOffset, greenOffset);
-
-    bool isComplete = false;
     void Complete() {
         if (isComplete) return;
         if (onComplete != null) {

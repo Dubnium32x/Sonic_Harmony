@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class CamFollow : MonoBehaviour
 {
-    Transform thisTrans;
-    CharControlMotor charCtrl;
-
-    public Transform followTarget;
-    public float smoothTime = 0.25f, maxSpeed = Mathf.Infinity, vertHoldtime = 0.5f;
     public bool affectedByPause = true, followZ = false;
-
-    public Vector2 vertDistance;
-    public float sideDistance, vertHeld;
+    CharControlMotor charCtrl;
+    Vector2 currentOffset;
 
     Vector2 followSmooth;
-    Vector2 currentOffset;
+
+    public Transform followTarget;
+    public float sideDistance, vertHeld;
+    public float smoothTime = 0.25f, maxSpeed = Mathf.Infinity, vertHoldtime = 0.5f;
+    Transform thisTrans;
+
+    public Vector2 vertDistance;
 
     // Use this for initialization
     void Awake()

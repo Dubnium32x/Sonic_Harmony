@@ -11,19 +11,24 @@ public class LevelManager : GameMode {
     // However, that shouldn't ever need to happen. I hope.
 
     static LevelManager _current;
+
+    // ========================================================================
+
+    public HashSet<Character> characters = new HashSet<Character>();
+
+    // ========================================================================
+    // Inspector options
+    public bool debugMutliplayer = true; // Allows P1 to spawn multiple players
+
+    // Allows players to press Start to join the game.
+    public int maxPlayers = 4;
+    public SceneReference sceneDefault; // Default scene to load when no levels are loaded
+
     public static LevelManager current { get {
         if (_current == null)
             _current = GameObject.FindObjectOfType<LevelManager>();
         return _current;
     }}
-    // ========================================================================
-    // Inspector options
-    public bool debugMutliplayer = true; // Allows P1 to spawn multiple players
-    public SceneReference sceneDefault; // Default scene to load when no levels are loaded
-
-    // ========================================================================
-
-    public HashSet<Character> characters = new HashSet<Character>();
 
     void InitCharacter() {
         if (characters.Count == 0) {
@@ -78,8 +83,6 @@ public class LevelManager : GameMode {
         return id + 1;
     }
 
-    // Allows players to press Start to join the game.
-    public int maxPlayers = 4;
     public void UpdateStartJoin() {
         for(var controllerId = 1; controllerId <= maxPlayers; controllerId++)
         {

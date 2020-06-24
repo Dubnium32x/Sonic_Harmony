@@ -6,6 +6,8 @@ public class ObjectsManager : MonoBehaviour
 {
 	private static ObjectsManager instance;
 
+	private readonly List<FreedomObject> objects = new List<FreedomObject>();
+
 	public static ObjectsManager Instance
 	{
 		get
@@ -19,8 +21,6 @@ public class ObjectsManager : MonoBehaviour
 			return instance;
 		}
 	}
-
-	private readonly List<FreedomObject> objects = new List<FreedomObject>();
 
 	private void StartSingleton()
 	{

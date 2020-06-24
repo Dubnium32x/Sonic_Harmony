@@ -75,7 +75,7 @@ public class CharacterCapabilityAir : CharacterCapability {
             accelerationMagnitude,
             0,
             0
-        ) * deltaTime * 60F;
+        ) * (deltaTime * 60F);
         velocityTemp += acceleration;
 
         // Air Drag
@@ -99,7 +99,7 @@ public class CharacterCapabilityAir : CharacterCapability {
     
     // 3D-Ready: Yes
     void UpdateAirGravity(float deltaTime) {
-        character.velocity += Vector3.up * character.stats.Get("gravityNormal") * deltaTime * 60F;
+        character.velocity += Vector3.up * (character.stats.Get("gravityNormal") * deltaTime * 60F);
     }
 
     // Handle air collisions
@@ -132,9 +132,9 @@ public class CharacterCapabilityAir : CharacterCapability {
         Vector3 hitEuler = Quaternion.FromToRotation(Vector3.up, hit.normal).eulerAngles;
         // Round this or any tiiiny deviation in angle can allow the character
         // to jump at walls and stick to them
-        float hitAngle = Mathf.Round(hitEuler.z); // TODO: 3D
+        var hitAngle = Mathf.Round(hitEuler.z); // TODO: 3D
 
-        CharacterCollisionModifier collisionModifier = collision.transform.GetComponentInParent<CharacterCollisionModifier>();
+        var collisionModifier = collision.transform.GetComponentInParent<CharacterCollisionModifier>();
         if (collisionModifier != null) {
             switch (collisionModifier.type) {
                 case CharacterCollisionModifier.CollisionModifierType.NoGrounding:
@@ -189,7 +189,10 @@ public class CharacterCapabilityAir : CharacterCapability {
                     character.groundSpeed = character.velocityPrev.x;
                 else
                     character.groundSpeed = character.velocityPrev.y * Mathf.Sign(Mathf.Sin(Mathf.Deg2Rad * hitAngle));
-            } else return;
+            } else
+            {
+                return;
+            }
         } else {
             if ((hitAngle <= 225F) && (hitAngle >= 135F)) {
                 return;

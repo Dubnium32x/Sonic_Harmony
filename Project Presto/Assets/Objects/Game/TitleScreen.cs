@@ -57,29 +57,23 @@ public class TitleScreen : MonoBehaviour
 
     private void Update()
     {
-        if (!started)
+        if (started) return;
+        if (locked)
         {
-            if (locked)
-            {
-                startTimer += Time.deltaTime;
+            startTimer += Time.deltaTime;
 
-                if (startTimer >= startUnlockTime)
-                {
-                    locked = false;
-                    startTimer = 0;
-                    startButton.SetActive(true);
-                }
-            }
-            else
-            {
-                if (Input.GetButtonDown("Start"))
-                {
-                    started = true;
-                    startButton.SetActive(false);
-                    StartCoroutine(StartGame());
-                    audio.PlayOneShot(startClip);
-                }
-            }
+            if (!(startTimer >= startUnlockTime)) return;
+            locked = false;
+            startTimer = 0;
+            startButton.SetActive(true);
+        }
+        else
+        {
+            if (!Input.GetButtonDown("Action")) return;
+            started = true;
+            startButton.SetActive(false);
+            StartCoroutine(StartGame());
+            audio.PlayOneShot(startClip);
         }
     }
 

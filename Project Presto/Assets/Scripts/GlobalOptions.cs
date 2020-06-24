@@ -24,6 +24,9 @@ public class GlobalOptions : MonoBehaviour {
     };
 
     static Dictionary<string, string> playerPrefsCache = new Dictionary<string, string>();
+    public Dropdown dropdown;
+
+    public string key;
 
     public static string Get(string key) {
         if (!playerPrefsCache.ContainsKey(key))
@@ -53,8 +56,6 @@ public class GlobalOptions : MonoBehaviour {
         dropdown.GetComponent<AudioSource>().Stop();
     }
 
-    public string key;
-    public Dropdown dropdown;
     public void Set()
     {
         if (dropdown == null) return;

@@ -2,25 +2,6 @@
 using UnityEngine.UI;
 
 public class ObjEnemy : MonoBehaviour {
-    public ObjAnimal.AnimalType[] animalTypes;
-    bool _destroyed = false;
-
-    void OnTriggerStay(Collider other) {
-        OnTriggerEnter(other);
-    }
-
-    void OnTriggerEnter(Collider other) {
-        if (_destroyed) return; // Prevents trigger from being fired multiple times
-        if (!enabled) return;
-
-        Character[] characters = other.gameObject.GetComponentsInParent<Character>();
-        if (characters.Length == 0) return;
-        Character character = characters[0];
-
-        if (character.isHarmful) Explode(character);
-        else character.Hurt(character.position.x <= transform.position.x);
-    }
-
     static int[] pointsTable = new int[] {
         100,
         200,
@@ -39,6 +20,25 @@ public class ObjEnemy : MonoBehaviour {
         1000,
         10000
     };
+
+    bool _destroyed = false;
+    public ObjAnimal.AnimalType[] animalTypes;
+
+    void OnTriggerStay(Collider other) {
+        OnTriggerEnter(other);
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if (_destroyed) return; // Prevents trigger from being fired multiple times
+        if (!enabled) return;
+
+        Character[] characters = other.gameObject.GetComponentsInParent<Character>();
+        if (characters.Length == 0) return;
+        Character character = characters[0];
+
+        if (character.isHarmful) Explode(character);
+        else character.Hurt(character.position.x <= transform.position.x);
+    }
 
     void CharacterBounce(Character character) {
         if (character.InStateGroup("ground")) return;

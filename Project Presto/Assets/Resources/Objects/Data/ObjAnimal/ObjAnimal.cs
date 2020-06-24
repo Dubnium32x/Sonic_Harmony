@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjAnimal : MonoBehaviour {
+    // ========================================================================
+
+    public enum AnimalAnimationType {
+        Fly,
+        Jump
+    }
+
     public enum AnimalType {
         Flicky,
         Seal,
@@ -11,23 +18,6 @@ public class ObjAnimal : MonoBehaviour {
         Penguin,
         Squirrel,
         Pig
-    }
-
-    // ========================================================================
-
-    public enum AnimalAnimationType {
-        Fly,
-        Jump
-    }
-    
-    struct AnimalParams {
-        public AnimalAnimationType animalAnimationType;
-        public string animInitial;
-        public string animJump;
-        public string animFall; // Unused depending on animation type
-        public float jumpGravity; // Gravity after first jump
-        public float jumpStrength;
-        public float moveSpeed;
     }
 
     static Dictionary<AnimalType, AnimalParams> AnimalData = new Dictionary<AnimalType, AnimalParams>() {
@@ -97,38 +87,45 @@ public class ObjAnimal : MonoBehaviour {
 
     // ========================================================================
 
+    public AnimalType animalType;
+    float gravity;
+    bool hitGround = false;
+
+    // ========================================================================
+
+    float initialGravity = -0.21875F;
+    float initialJumpStrength = 4;
+    bool moveRight;
+    public bool stayInPlace = false;
+
+    // ========================================================================
+
     new Rigidbody rigidbody => GetComponent<Rigidbody>();
     Animator animator => GetComponent<Animator>();
     SpriteRenderer spriteRenderer => GetComponent<SpriteRenderer>();
 
     // ========================================================================
 
-    float initialGravity = -0.21875F;
-    float initialJumpStrength = 4;
-    float gravity;
-
-    // ========================================================================
-
     AnimalAnimationType animalAnimationType { get { 
         return AnimalData[animalType].animalAnimationType;
     }}
-    
+
     string animInitial { get { 
         return AnimalData[animalType].animInitial;
     }}
-    
+
     string animJump { get { 
         return AnimalData[animalType].animJump;
     }}
-    
+
     string animFall { get { 
         return AnimalData[animalType].animFall;
     }}
-    
+
     float jumpGravity { get { 
         return AnimalData[animalType].jumpGravity;
     }}
-    
+
     float jumpStrength { get { 
         return AnimalData[animalType].jumpStrength;
     }}
@@ -136,13 +133,6 @@ public class ObjAnimal : MonoBehaviour {
     float moveSpeed { get { 
         return AnimalData[animalType].moveSpeed;
     }}
-
-    // ========================================================================
-
-    public AnimalType animalType;
-    public bool stayInPlace = false;
-    bool moveRight;
-    bool hitGround = false;
 
 
     // Start is called before the first frame update
@@ -175,5 +165,15 @@ public class ObjAnimal : MonoBehaviour {
             jumpStrength * Utils.physicsScale,
             0
         );
+    }
+
+    struct AnimalParams {
+        public AnimalAnimationType animalAnimationType;
+        public string animInitial;
+        public string animJump;
+        public string animFall; // Unused depending on animation type
+        public float jumpGravity; // Gravity after first jump
+        public float jumpStrength;
+        public float moveSpeed;
     }
 }

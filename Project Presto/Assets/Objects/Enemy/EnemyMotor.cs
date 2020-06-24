@@ -5,16 +5,17 @@ public abstract class EnemyMotor : FreedomObject
 {
     [Header("Base Settings")]
     public bool active = true;
+
+    private new AudioSource audio;
+    private new Camera camera;
+
+    private new Collider collider;
+    public AudioClip explosionClip;
+    public ParticleSystem explosionParticle;
     public bool hurtPlayer = true;
 
     [Header("Base Components")]
     public GameObject model;
-    public AudioClip explosionClip;
-    public ParticleSystem explosionParticle;
-
-    private new Collider collider;
-    private new AudioSource audio;
-    private new Camera camera;
 
     public Vector3 startPosition { get; private set; }
     public Quaternion startRotation { get; private set; }

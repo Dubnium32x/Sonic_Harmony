@@ -4,13 +4,13 @@
 [RequireComponent(typeof(Collider))]
 public class Checkpoint : MonoBehaviour
 {
-    public Transform startPoint;
     public AudioClip activateClip;
     public Animator animator;
 
-    private bool triggered;
-
     private new AudioSource audio;
+    public Transform startPoint;
+
+    private bool triggered;
 
     private void Start()
     {

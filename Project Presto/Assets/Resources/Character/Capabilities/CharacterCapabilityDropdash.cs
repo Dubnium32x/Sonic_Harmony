@@ -1,10 +1,12 @@
 using UnityEngine;
 
 public class CharacterCapabilityDropdash : CharacterCapability {
-    public CharacterCapabilityDropdash(Character character) : base(character) { }
     string[] buttonsDropDash = new string[] { "Secondary", "Tertiary" };
 
+    float dropDashTimer;
+
     Transform dustLocation;
+    public CharacterCapabilityDropdash(Character character) : base(character) { }
 
     public override void Init() {
         name = "dropdash";
@@ -24,8 +26,6 @@ public class CharacterCapabilityDropdash : CharacterCapability {
             character.input.GetButtons(buttonsDropDash)
         ) DropDashRelease();
     }
-
-    float dropDashTimer;
 
     public override void Update(float deltaTime) {
         if (character.stateCurrent != "jump") return;
@@ -85,7 +85,10 @@ public class CharacterCapabilityDropdash : CharacterCapability {
             } else if (Mathf.Floor(transform.rotation.z) > 0) {
                 character.groundSpeed = dashSpeed + (character.groundSpeed / 2F);
                 character.groundSpeedPrev = character.groundSpeed; // Hack for breakable walls
-            } else character.groundSpeed = dashSpeed;
+            } else
+            {
+                character.groundSpeed = dashSpeed;
+            }
         }
  
         character.groundSpeedPrev = character.groundSpeed; // Hack for breakable walls

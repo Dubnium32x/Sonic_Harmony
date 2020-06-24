@@ -2,10 +2,17 @@ using UnityEngine;
 using System.Collections;
 
 public class RenderTextureCamera : MonoBehaviour {
+    static bool clearScreen = true;
+
+    static readonly WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
+
+    new Camera camera;
+    bool integerScaling;
+
+    int renderTextureWidthPev; // Hack
+    Rect screenRect;
     public Rect screenRectRelative = new Rect(0,0,1,1);
     Rect screenRectRelativePrev;
-    Rect screenRect;
-    bool integerScaling;
 
     public Rect GetScreenRect() {
         if (!integerScaling)
@@ -37,7 +44,6 @@ public class RenderTextureCamera : MonoBehaviour {
 
     }
 
-    new Camera camera;
     void Awake() {
         camera = GetComponent<Camera>();
     }
@@ -48,8 +54,6 @@ public class RenderTextureCamera : MonoBehaviour {
         if (LevelManager.current != null)
             integerScaling &= LevelManager.current.characters.Count <= 1;
     }
-
-    int renderTextureWidthPev; // Hack
 
     public void ResizeRenderTexture() {
         if (camera.targetTexture == null) return;
@@ -77,15 +81,13 @@ public class RenderTextureCamera : MonoBehaviour {
         camera.rect = viewportRect;
     }
 
-    static bool clearScreen = true;
     void OnPreRender() {
         ResizeRenderTexture();
         clearScreen = true;
     }
 
     void OnGUI() { }
-    
-    static readonly WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
+
     IEnumerator OnPostRender() {
         yield return waitForEndOfFrame;
         if (clearScreen) {

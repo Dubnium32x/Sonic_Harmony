@@ -6,6 +6,7 @@ public class ObjCirno : MonoBehaviour {
     static GameObject bulletGameObject;
 
     static bool _initStaticDone = false;
+
     static void _InitStatic() {
         if (_initStaticDone) return;
 

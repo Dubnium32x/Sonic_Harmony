@@ -2,31 +2,12 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class ObjBossGHZ : ObjBoss {
-    Transform eggmanTransform;
     Animator eggmanAnimator;
-
-    float timer = 0;
+    Transform eggmanTransform;
+    GHZBossState state = GHZBossState.Descending;
     float stateTimer = 0;
 
-    enum GHZBossState {
-        Descending,
-        Centering,
-        LoweringPendulum,
-        Starting,
-        WaitRight,
-        MovingRight,
-        WaitLeft,
-        MovingLeft,
-        Exploding,
-        Falling,
-        Recovering,
-        Escaping
-    }
-    GHZBossState state = GHZBossState.Descending;
-    struct GHZBossTransition {
-        public float stateTimerMax;
-        public GHZBossState stateNext;
-    }
+    float timer = 0;
 
     Dictionary <GHZBossState, GHZBossTransition> transitions = new Dictionary<GHZBossState, GHZBossTransition> {
         [GHZBossState.Descending] = new GHZBossTransition {
@@ -78,6 +59,8 @@ public class ObjBossGHZ : ObjBoss {
             stateNext = GHZBossState.Escaping
         }
     };
+
+    Vector3 velocity = Vector3.zero;
 
     GHZBossTransition transitionCurrent => transitions[state];
 
@@ -161,8 +144,6 @@ public class ObjBossGHZ : ObjBoss {
         StateInit();
     }
 
-    Vector3 velocity = Vector3.zero;
-
     public override void UpdateDelta(float modDeltaTime) {
         base.UpdateDelta(modDeltaTime);
         Vector3 position = transform.position;
@@ -210,5 +191,25 @@ public class ObjBossGHZ : ObjBoss {
 
     public override void Laugh() {
         eggmanAnimator.Play("Laugh");
+    }
+
+    enum GHZBossState {
+        Descending,
+        Centering,
+        LoweringPendulum,
+        Starting,
+        WaitRight,
+        MovingRight,
+        WaitLeft,
+        MovingLeft,
+        Exploding,
+        Falling,
+        Recovering,
+        Escaping
+    }
+
+    struct GHZBossTransition {
+        public float stateTimerMax;
+        public GHZBossState stateNext;
     }
 }

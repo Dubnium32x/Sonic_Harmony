@@ -13,6 +13,19 @@ public class InputCustom {
 
     static Dictionary<int, Dictionary<string, string>> _TransformButtonCache = new Dictionary<int, Dictionary<string, string>>();
 
+    // ========================================================================
+    // ========================================================================
+    // Non-Static
+    // ========================================================================
+    // ========================================================================
+
+    public int controllerId;
+    public bool enabled;
+
+    public InputCustom(int controllerId = 1) {
+        this.controllerId = controllerId;
+    }
+
     static string _TransformButton(string button, int controllerId = 1) {
         if (!_TransformButtonCache.ContainsKey(controllerId))
             _TransformButtonCache.Add(controllerId, new Dictionary<string, string>());
@@ -94,19 +107,6 @@ public class InputCustom {
     public static bool GetAxisNegative(int controllerId, string axis) {
         axis = _TransformButton(axis, controllerId);
         return Input.GetAxis(axis) < 0;
-    }
-
-    // ========================================================================
-    // ========================================================================
-    // Non-Static
-    // ========================================================================
-    // ========================================================================
-
-    public int controllerId;
-    public bool enabled;
-    
-    public InputCustom(int controllerId = 1) {
-        this.controllerId = controllerId;
     }
 
     // ========================================================================

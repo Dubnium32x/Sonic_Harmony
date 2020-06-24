@@ -3,23 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Background : MonoBehaviour {
-    public uint rows = 1;
-    public Texture2D[] textures;
-    public float[] textureOrder;
+    public Vector2 autoscrollSpeed;
+    public Vector2 baseOffset;
+    public FilterMode filterMode;
+    public float[] lineDeformationsCamera;
     public float[] lineDeformationsHeight;
     public float[] lineDeformationsTime;
-    public float[] lineDeformationsCamera;
-    public float verticalDeformationCamera;
-    public Vector2 baseOffset;
-    public Vector2 autoscrollSpeed;
-    public Vector2 positionMax;
-    public Vector2 positionMin;
-    [HideInInspector]
-    public Texture2DArray texture2DArray;
-    public FilterMode filterMode;
-    public TextureWrapMode wrapMode;
 
     Material material;
+    public Vector2 positionMax;
+    public Vector2 positionMin;
+    public uint rows = 1;
+
+    [HideInInspector]
+    public Texture2DArray texture2DArray;
+
+    public float[] textureOrder;
+    public Texture2D[] textures;
+    public float verticalDeformationCamera;
+    public TextureWrapMode wrapMode;
 
     // Start is called before the first frame update
     void Awake() {

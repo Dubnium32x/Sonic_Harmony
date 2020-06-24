@@ -5,15 +5,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HUD : MonoBehaviour {
-    public Character character;
     Canvas canvas;
+    public Character character;
+    Text livesText;
+    Text ringsText;
+    Text ringsTitleText;
+    StringBuilder sb = new StringBuilder("", 50);
 
     Text scoreText;
     Text timeText;
     Text timeTitleText;
-    Text ringsText;
-    Text ringsTitleText;
-    Text livesText;
 
     void Awake() {
         canvas = GetComponent<Canvas>();
@@ -24,7 +25,6 @@ public class HUD : MonoBehaviour {
         ringsTitleText = transform.Find("Rings Title").GetComponent<Text>();
         livesText = transform.Find("Lives Content").GetComponent<Text>();
     }
-    StringBuilder sb = new StringBuilder("", 50);
 
     public void Update() {
         canvas.worldCamera = character.characterCamera.camera;

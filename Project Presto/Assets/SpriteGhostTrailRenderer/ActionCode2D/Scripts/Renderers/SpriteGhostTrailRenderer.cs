@@ -6,20 +6,20 @@ namespace ActionCode2D.Renderers
     [RequireComponent(typeof(SpriteRenderer))]
 	public sealed class SpriteGhostTrailRenderer : MonoBehaviour 
 	{
+        private float _currentTime = 0f;
+        private Transform _ghostContainer;
+        private int _ghostIndex = 0;
+        private SpriteRenderer[] _ghostRenderers;
+
+        [SerializeField] private SpriteRenderer _spriteRenderer;
         public Color colorClosest = Color.white * 0.5f;
         public Color colorFarthest = Color.white * 0.5f;
         public bool enableOnAwake = true;
-        public bool singleColorShader = true;
-        public bool shareSprite = true;
         public bool fauxTransparency = true;
-        [Range(0.016f, 1f)] public float updateInterval = 0.1f;
         [Range(1, 10)] public int ghosts = 4;
-
-        [SerializeField] private SpriteRenderer _spriteRenderer;
-        private SpriteRenderer[] _ghostRenderers;
-        private Transform _ghostContainer;
-        private float _currentTime = 0f;
-        private int _ghostIndex = 0;
+        public bool shareSprite = true;
+        public bool singleColorShader = true;
+        [Range(0.016f, 1f)] public float updateInterval = 0.1f;
 
         private void Reset()
         {
@@ -31,6 +31,7 @@ namespace ActionCode2D.Renderers
             InitializeGhosts();
             enabled = enableOnAwake;
         }
+
         private void Update() {
             _currentTime += Utils.cappedDeltaTime;
             if (!(_currentTime > updateInterval)) return;
@@ -71,6 +72,7 @@ namespace ActionCode2D.Renderers
                 ghost.gameObject.SetActive(true);
             }
         }
+
         private void OnDisable() {
             if (!gameObject.activeInHierarchy) return;
 
@@ -124,6 +126,7 @@ namespace ActionCode2D.Renderers
                 _ghostRenderers[i] = ghost.GetComponent<SpriteRenderer>();
             }
         }
+
         private void PlaceGhost(SpriteRenderer ghost)
         {
             var transform1 = ghost.transform;
@@ -166,5 +169,5 @@ namespace ActionCode2D.Renderers
         //     else color.a = 0;
         //     ghost.color = color;
         // }
-	}
+    }
 }

@@ -2,14 +2,14 @@ using UnityEngine;
 using System.Collections.Generic;
 
 public class CharacterCapabilityHomingAttack : CharacterCapability {
+    CharacterEffect afterImageEffect;
     string[] buttonsHomingAttack = new string[] { "Secondary", "Tertiary" };
-    
+
     float failsafeTimer;
 
-    public CharacterCapabilityHomingAttack(Character character) : base(character) { }
-
     Transform target;
-    CharacterEffect afterImageEffect;
+
+    public CharacterCapabilityHomingAttack(Character character) : base(character) { }
 
     public override void Init() {
         name = "homingAttack";

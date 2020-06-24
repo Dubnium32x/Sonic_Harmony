@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjMonitor : MonoBehaviour {
-    new Collider collider;
-    GameObject solidityObj;
     Animator animator;
-    GameObject contentsObj;
-    Animator contentsAnimator;
+    new Collider collider;
     ObjMonitorContents contents;
+    Animator contentsAnimator;
+    GameObject contentsObj;
+
+    float kinematicTimer = 0;
     new Rigidbody rigidbody;
+    GameObject solidityObj;
 
     void Awake() {
         collider = GetComponent<Collider>();
@@ -86,8 +88,6 @@ public class ObjMonitor : MonoBehaviour {
 
         Destroy(GetComponent<HomingAttackTarget>());
     }
-
-    float kinematicTimer = 0;
 
     void Update() {
         if (Mathf.Abs(rigidbody.velocity.y) < 0.01) {

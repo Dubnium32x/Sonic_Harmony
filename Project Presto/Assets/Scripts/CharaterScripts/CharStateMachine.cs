@@ -9,6 +9,11 @@ public class CharStateMachine
 
     private Type currentState;
 
+    public CharStateMachine(CharControlMotor player)
+    {
+        this.player = player;
+    }
+
     public CharControlMotor.SonicState stateId
     {
         get
@@ -16,11 +21,6 @@ public class CharStateMachine
             var animationId = states[currentState].animationID;
             return animationId;
         }
-    }
-
-    public CharStateMachine(CharControlMotor player)
-    {
-        this.player = player;
     }
 
     public void AddState(PlayerState state)

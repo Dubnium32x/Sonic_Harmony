@@ -5,13 +5,25 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class ObjLevelClear : MonoBehaviour {
+    Text actTextComponent;
     Animator animator;
     AudioSource audioSource;
     Canvas canvas;
-    Text scoreTextComponent;
+
+    public Character character;
+    float endTimer = 3F;
+    public UnityEvent onNextLevel;
+    int ringBonus = 0;
     Text ringTextComponent;
+
+    public SceneReference sceneReference;
+    Text scoreTextComponent;
+    float showTimer = 2F;
+    float tallyFrameTimer = 0;
+    float tallyTimer = 4F;
+
+    int timeBonus = 0;
     Text timeTextComponent;
-    Text actTextComponent;
 
     void InitReferences() {
         animator = GetComponent<Animator>();
@@ -24,15 +36,6 @@ public class ObjLevelClear : MonoBehaviour {
     }
 
     void Start() { InitReferences(); }
-
-    public SceneReference sceneReference;
-    public UnityEvent onNextLevel;
-
-    public Character character;
-    float showTimer = 2F;
-    float tallyTimer = 4F;
-    float tallyFrameTimer = 0;
-    float endTimer = 3F;
     // Start is called before the first frame update
 
     int GetTimeBonus(float time) {
@@ -47,9 +50,6 @@ public class ObjLevelClear : MonoBehaviour {
         if (time > 24 * 60 * 60) return 1; // lol
         return 0;
     }
-
-    int timeBonus = 0;
-    int ringBonus = 0;
 
     void StartNextLevel(Level nextLevel) {
         character.currentLevel = nextLevel;

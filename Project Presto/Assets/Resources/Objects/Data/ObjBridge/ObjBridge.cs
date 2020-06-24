@@ -3,25 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjBridge : MonoBehaviour {
-
-    // ========================================================================
-    // OBJECT AND COMPONENT REFERENCES
-    // ========================================================================
-
-    Transform links;
-
-    void InitReferences() {
-        links = transform.Find("Links");
-    }
-
-    void Start() {
-        InitReferences();
-    }
-
     // ========================================================================
     // CONSTANTS
     // ========================================================================
-    
+
     const float maxDepression = -0.5F;
     const int depressSpeed = 2;
 
@@ -30,9 +15,15 @@ public class ObjBridge : MonoBehaviour {
     // ========================================================================
 
     float acrossBridgeAmtCurrent = 0;
+    public Character characterCurrent;
+
+    // ========================================================================
+    // OBJECT AND COMPONENT REFERENCES
+    // ========================================================================
+
+    Transform links;
 
     float timer = 0;
-    public Character characterCurrent;
 
     // ========================================================================
 
@@ -46,6 +37,7 @@ public class ObjBridge : MonoBehaviour {
         }
         return null;
     }}
+
     float? acrossBridgeAmt { get {
         if (characterCurrent == null) return null;
 
@@ -67,6 +59,14 @@ public class ObjBridge : MonoBehaviour {
         return amt;
     }}
 
+    void InitReferences() {
+        links = transform.Find("Links");
+    }
+
+    void Start() {
+        InitReferences();
+    }
+
     // ========================================================================
 
     void Update() {
@@ -75,7 +75,7 @@ public class ObjBridge : MonoBehaviour {
         if (characterCurrent != null) {
             timer += depressSpeed * Utils.deltaTimeScale;
             timer = Mathf.Min(90, timer);
-            float? acrossBridgeAmtTemp = acrossBridgeAmt;
+            var acrossBridgeAmtTemp = acrossBridgeAmt;
             if (acrossBridgeAmt != null)
                 acrossBridgeAmtCurrent = (float)acrossBridgeAmtTemp;
         } else if (timer > 0) {
@@ -103,5 +103,5 @@ public class ObjBridge : MonoBehaviour {
 
             child.position = childPosition;
         }
-    }    
+    }
 }

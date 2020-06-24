@@ -3,9 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjBuzzBomber : MonoBehaviour {
+    const float speed = 4F;
+    const float moveTimerMax = 2.122F;
+    const float pauseTimerTurnMax = 0.983F;
+    const float pauseTimerFireMax = 1.5F;
     Animator animator;
-    new Rigidbody rigidbody;
     Transform bulletLocationTransform;
+
+    bool hasFired = false;
+    float moveTimer = moveTimerMax;
+    float pauseTimer = 0;
+    new Rigidbody rigidbody;
 
     void InitReferences() {
         animator = GetComponent<Animator>();
@@ -16,15 +24,6 @@ public class ObjBuzzBomber : MonoBehaviour {
     void Start() {
         InitReferences();
     }
-
-    const float speed = 4F;
-    const float moveTimerMax = 2.122F;
-    const float pauseTimerTurnMax = 0.983F;
-    const float pauseTimerFireMax = 1.5F;
-
-    bool hasFired = false;
-    float pauseTimer = 0;
-    float moveTimer = moveTimerMax;
 
     public void FireBullet() {
         GameObject bullet = Instantiate(

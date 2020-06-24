@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjSpike : MonoBehaviour {
-
     // ========================================================================
     // OBJECT AND COMPONENT REFERENCES
     // ========================================================================
@@ -11,14 +10,14 @@ public class ObjSpike : MonoBehaviour {
     CharacterGroundedDetector characterGroundedDetector;
     GameObject topPositionObj;
 
+    // ========================================================================
+
+    float topAngle => transform.rotation.eulerAngles.z;
+
     void InitReferences() {
         characterGroundedDetector = GetComponent<CharacterGroundedDetector>();
         topPositionObj = transform.Find("Top Position").gameObject;
     }
-
-    // ========================================================================
-
-    float topAngle => transform.rotation.eulerAngles.z;
 
     // ========================================================================
 
@@ -43,6 +42,7 @@ public class ObjSpike : MonoBehaviour {
 
         TryAction(character, collisionAngle);
     }
+
     public void OnCollisionStay(Collision collision) {
         OnCollisionEnter(collision);
     }

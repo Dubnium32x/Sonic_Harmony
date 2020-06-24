@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LayerZone : MonoBehaviour {
+    public bool groundedOnly = false;
     public float zLeft = 0;
     public float zRight = 0;
-    public bool groundedOnly = false;
 
     void OnTriggerStay(Collider other) {
         OnTriggerEnter(other);

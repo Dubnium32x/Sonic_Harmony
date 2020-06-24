@@ -2,14 +2,32 @@
 
 public class ObjCrabmeat : MonoBehaviour {
     // ========================================================================
+
+    const float speed = 0.015625F;
+    const float triggerDistance = 4F;
+
+    Animator animator;
+    // ========================================================================
     // OBJECT AND COMPONENT REFERENCES
     // ========================================================================
 
     Transform bulletPositionL;
     Transform bulletPositionR;
+    bool hasFired = false;
+    bool hasTriedToFireEver = false;
+
+    // ========================================================================
+
+    public bool moveRight = false;
+    Vector3 positionPrev = Vector3.zero;
 
     SpriteRenderer spriteRenderer;
-    Animator animator;
+    float turnTimer = 0;
+    float walkTimer = 2.12F;
+
+    // ========================================================================
+
+    int direction => moveRight ? 1 : -1;
 
     void InitReferences() {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -20,24 +38,6 @@ public class ObjCrabmeat : MonoBehaviour {
     }
 
     void Awake() { InitReferences(); }
-
-    // ========================================================================
-
-    const float speed = 0.015625F;
-    const float triggerDistance = 4F;
-
-    // ========================================================================
-
-    public bool moveRight = false;
-    float turnTimer = 0;
-    float walkTimer = 2.12F;
-    bool hasFired = false;
-    bool hasTriedToFireEver = false;
-    Vector3 positionPrev = Vector3.zero;
-
-    // ========================================================================
-
-    int direction => moveRight ? 1 : -1;
 
     // ========================================================================
 

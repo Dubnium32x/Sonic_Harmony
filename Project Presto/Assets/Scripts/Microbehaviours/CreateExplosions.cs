@@ -1,10 +1,10 @@
 using UnityEngine;
 
 public class CreateExplosions : MonoBehaviour {
-    float timer = 0;
-    public float timePerExplosion = 0.5F;
     public Vector2 maxVariance;
-    
+    public float timePerExplosion = 0.5F;
+    float timer = 0;
+
     void Update() {
         timer -= Utils.cappedDeltaTime;
         if (!(timer <= 0)) return;

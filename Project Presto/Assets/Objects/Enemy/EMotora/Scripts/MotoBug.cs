@@ -4,20 +4,21 @@ using System.Collections;
 [AddComponentMenu("Freedom Engine/Objects/Enemy/MotoBug")]
 public class MotoBug : EnemyMotor
 {
-    [Header("MotoBug Settings")]
-    public float speed;
-    public float rotateTime;
-    public float groundDistance;
-    public float groundRayDistance;
-    public float wallRayDistance;
-    public LayerMask solidLayer;
-
     //[Header("MotoBug Wheel")]
     //public float wheelRotationAngle;
     //public Transform wheel;
 
     private float direction;
+    public float groundDistance;
+    public float groundRayDistance;
+    public float rotateTime;
+    public LayerMask solidLayer;
+
+    [Header("MotoBug Settings")]
+    public float speed;
+
     private bool turning;
+    public float wallRayDistance;
 
     protected override void OnMotorStart()
     {

@@ -5,19 +5,9 @@ using UnityEngine;
 public class MainMenuCode : MonoBehaviour
 {
     public enum MainMenu { Quit,StartGame,Options}
-    // Start is called before the first frame update
     public GameObject QuitOption;
     public GameObject StartGame;
     public GameObject Options;
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void ExecuteMenuOption(MainMenu myarg)
     {
