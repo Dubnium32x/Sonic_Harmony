@@ -273,7 +273,7 @@ public class Character : GameBehaviour {
                 Quaternion.FromToRotation(Vector3.up, hit.normal).eulerAngles.z
             );
 
-            Vector3 newPos = hit.point + (transform.up * 0.5F * sizeScale);
+            Vector3 newPos = hit.point + (transform.up * (0.5F * sizeScale));
             newPos.z = position.z; // Comment this for 3D movement
             position = newPos;
             groundedDetectorCurrent = hit.transform.GetComponentInChildren<CharacterGroundedDetector>();
@@ -286,7 +286,7 @@ public class Character : GameBehaviour {
         for (var dir = -1; dir <= 1; dir += 2) {
             RaycastHit hitLedge;
             Physics.Raycast(
-                position + (dir * transform.right * 0.375F * sizeScale * sizeScale), // origin
+                position + (transform.right * (dir * 0.375F * sizeScale * sizeScale)), // origin
                 -transform.up, // direction
                 out hitLedge,
                 0.8F * sizeScale, // max distance
@@ -298,8 +298,8 @@ public class Character : GameBehaviour {
 
                 var newPos = (
                     hitLedge.point -
-                    (dir * transform.right * 0.375F * sizeScale) +
-                    (transform.up * 0.5F * sizeScale)
+                    (transform.right * (dir * 0.375F * sizeScale)) +
+                    (transform.up * (0.5F * sizeScale))
                 );
                 newPos.x = position.x;
                 newPos.z = position.z;
