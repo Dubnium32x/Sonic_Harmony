@@ -134,7 +134,7 @@ namespace litefeel.BFImporter.Editor
         
         private static void UpdateKernings(SerializedObject so, Kerning[] kernings)
         {
-            int len = kernings != null ? kernings.Length : 0;
+            int len = kernings?.Length ?? 0;
             SerializedProperty kerningsProp = so.FindProperty("m_KerningValues");
 
             if (len == 0)
@@ -191,19 +191,19 @@ namespace litefeel.BFImporter.Editor
             AssetDatabase.DeleteAsset(fontPath);
             
             var startTime = DateTime.Now;
-            EditorApplication.CallbackFunction func = null;
-            func = () =>
+
+            void Func()
             {
-                TimeSpan dalt = DateTime.Now - startTime;
+                var dalt = DateTime.Now - startTime;
                 if (dalt.TotalSeconds >= 0.1)
                 {
-                    EditorApplication.update -= func;
+                    EditorApplication.update -= Func;
                     AssetDatabase.ImportPackage(tmpPath, false);
                     File.Delete(tmpPath);
                 }
-            };
+            }
 
-            EditorApplication.update += func;
+            EditorApplication.update += Func;
         }
     }
 
