@@ -77,7 +77,7 @@ public class SpringCode : MonoBehaviour
 
 		if (snapPositionX)
 		{
-			playerPosition.x = transform.position.x;
+			playerPosition.x += transform.position.x;
 		}
 
 		if (snapPositionY)

@@ -15,12 +15,12 @@ public class CharControlMotor : PlayerMotor
     public bool CanIdle = true;
     //new variables :
 
-    private float minSpeed = 0.05f;
+    public float minSpeed = 0.05f;
     private float spinSpeed = 0;
     private float time;
-    [HideInInspector] public float deceleration = 40;
-    [HideInInspector] public float acceleration = 5;
-    [HideInInspector] public float turnAroundSpeed = 50;
+    public float deceleration = 40;
+    public float acceleration = 5;
+    public float turnAroundSpeed = 50;
     //other conditions
     private bool lifeCheck = true;
     private Animator anim;

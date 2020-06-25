@@ -174,4 +174,35 @@ public class StageManager : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(bounds.center, bounds.size);
     }
+
+    //  H A R M O N Y    C O D E 
+
+    public void StopMusic()
+    {
+        audio.Pause();
+    }
+
+    public void ContinueMusic()
+    {
+        audio.UnPause();
+    }
+
+
+    //debug code
+    public bool Debug;
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P) && Debug == true)
+        {
+            StopMusic();
+        }
+        if (Input.GetKeyDown(KeyCode.O) && Debug == true)
+        {
+            ContinueMusic();
+        }
+
+    }
+
+    
 }
