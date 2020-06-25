@@ -117,7 +117,10 @@ public class ObjSpring : MonoBehaviour {
                 character.stateCurrent = "air";
                 character.AnimatorPlay("Spring");
                 character.spriteAnimatorSpeed = 1;
-            } else character.GroundSpeedSync();
+            } else
+            {
+                character.GroundSpeedSync();
+            }
         }
     }
 }

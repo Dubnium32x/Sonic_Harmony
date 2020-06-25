@@ -20,7 +20,12 @@ public class CharacterCapabilityVictory : CharacterCapability {
                 character.groundSpeed = 0;
                 character.GroundSnap();
                 return;
-            } else if (!character.InStateGroup("ground")) return;
+            }
+
+            if (!character.InStateGroup("ground"))
+            {
+                return;
+            }
 
             character.modeGroupCurrent = null;
             character.facingRight = true;

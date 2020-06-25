@@ -48,9 +48,12 @@ public class CharacterCapabilityLightDash : CharacterCapability {
 
         if ((target == null) || (target.collected)) {            
             target = FindClosestTarget();
-            if (target != null) character.stateCurrent = "lightDash";
+            if (target != null)
+            {
+                character.stateCurrent = "lightDash";
+            }
             else {
-                character.velocity = (character.position - positionPrev) * 60F * 0.75F;
+                character.velocity = (character.position - positionPrev) * (60F * 0.75F);
                 if (character.velocity.magnitude > character.stats.Get("terminalSpeed"))
                     character.velocity = character.stats.Get("terminalSpeed") * character.velocity.normalized;
                     

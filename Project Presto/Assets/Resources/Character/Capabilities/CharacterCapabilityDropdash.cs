@@ -74,7 +74,10 @@ public class CharacterCapabilityDropdash : CharacterCapability {
             } else if (Mathf.Floor(transform.rotation.z) > 0) {
                 character.groundSpeed = (character.groundSpeed / 2F) - dashSpeed;
                 character.groundSpeedPrev = character.groundSpeed; // Hack for breakable walls
-            } else character.groundSpeed = -dashSpeed;
+            } else
+            {
+                character.groundSpeed = -dashSpeed;
+            }
         } else {
             if (character.velocity.x >= 0) {
                 character.groundSpeed = Mathf.Min(

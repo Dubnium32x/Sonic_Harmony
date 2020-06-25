@@ -93,6 +93,9 @@ public class ObjMonitor : MonoBehaviour {
         if (Mathf.Abs(rigidbody.velocity.y) < 0.01) {
             kinematicTimer += Utils.cappedUnscaledDeltaTime;
             if (kinematicTimer > 0.5F) rigidbody.isKinematic = true;
-        } else kinematicTimer = 0;
+        } else
+        {
+            kinematicTimer = 0;
+        }
     }
 }

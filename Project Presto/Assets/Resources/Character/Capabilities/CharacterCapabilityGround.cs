@@ -64,7 +64,10 @@ public class CharacterCapabilityGround : CharacterCapability {
             // ORDER MATTERS!
             if (character.input.GetAxisPositive("Horizontal")) inputDir = 1;
             if (character.input.GetAxisNegative("Horizontal")) inputDir = -1;
-        } else character.horizontalInputLockTimer -= deltaTime;
+        } else
+        {
+            character.horizontalInputLockTimer -= deltaTime;
+        }
 
         if (inputDir == 1) {
             if (character.groundSpeed < 0) {
@@ -148,9 +151,13 @@ public class CharacterCapabilityGround : CharacterCapability {
             // ======================
             if (character.groundSpeed == 0) {
                 if (character.input.GetAxisNegative("Vertical"))
+                {
                     character.AnimatorPlay("Look Down");
+                }
                 else if (character.input.GetAxisPositive("Vertical"))
+                {
                     character.AnimatorPlay("Look Up");
+                }
                 else if (character.balanceState != Character.BalanceState.None) {
                     ignoreFlipX = true;
                     character.flipX = character.balanceState == Character.BalanceState.Right;

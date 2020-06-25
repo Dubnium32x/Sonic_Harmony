@@ -49,7 +49,12 @@ public class CharacterCapabilityPeelOut : CharacterCapability {
             if (character.groundSpeed != 0) return;
             character.stateCurrent = name;
             return;
-        } else if (character.stateCurrent != name) return;
+        }
+
+        if (character.stateCurrent != name)
+        {
+            return;
+        }
 
         character.GroundSnap();
         character.groundSpeed = 0;
@@ -91,7 +96,12 @@ public class CharacterCapabilityPeelOut : CharacterCapability {
             character.AnimatorPlay("Walk");
             character.spriteAnimatorSpeed = 1 + (runSpeed / character.stats.Get("topSpeedNormal"));
         } else if (runSpeed >= 12F)
+        {
             character.AnimatorPlay("Fast");
-        else character.AnimatorPlay("Run");
+        }
+        else
+        {
+            character.AnimatorPlay("Run");
+        }
     }
 }

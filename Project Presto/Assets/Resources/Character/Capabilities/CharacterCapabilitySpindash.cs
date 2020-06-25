@@ -66,7 +66,12 @@ public class CharacterCapabilitySpindash : CharacterCapability {
             if (character.groundSpeed != 0) return;
             character.stateCurrent = name;
             return;
-        } else if (character.stateCurrent != name) return;
+        }
+
+        if (character.stateCurrent != name)
+        {
+            return;
+        }
 
         character.GroundSnap();
         character.groundSpeed = 0;
