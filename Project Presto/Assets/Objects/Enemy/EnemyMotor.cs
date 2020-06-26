@@ -13,7 +13,7 @@ public abstract class EnemyMotor : FreedomObject
     public AudioClip explosionClip;
     public ParticleSystem explosionParticle;
     public bool hurtPlayer = true;
-
+    public int health;
     [Header("Base Components")]
     public GameObject model;
 
@@ -129,7 +129,14 @@ public abstract class EnemyMotor : FreedomObject
                 player.velocity.y *= -1;
             }
 
-            Explode();
+            if (health > 0)
+            {
+                health--;
+            }
+            else
+            {
+                Explode();
+            }
         }
     }
 
