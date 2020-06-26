@@ -25,25 +25,25 @@ public class ObjCirno : MonoBehaviour {
     public void ExplodeBullets() {
         _InitStatic();
         Vector2 origin = transform.position;
-        int count = 16;
+        var count = 16;
 
         count = Mathf.Min(count, 256);
         float angle = 0; // assuming 0=right, 90=up, 180=left, 270=down
-        bool flipHSpeed = false;
-        float speed = 1F;
+        var flipHSpeed = false;
+        const float speed = 1F;
         
-        for (int t = 0; t < count; t++) {
+        for (var t = 0; t < count; t++) {
             if (t % 16 == 0) {
                 angle = 101.25F + 90F + (Time.time * 100); // and reset the angle
             }
 
             // create a bullet
-            GameObject bullet = Instantiate(
+            var bullet = Instantiate(
                 bulletGameObject,
                 origin,
                 Quaternion.identity
             );
-            Rigidbody rigidbody = bullet.GetComponent<Rigidbody>();
+            var rigidbody = bullet.GetComponent<Rigidbody>();
 
             // set the ring's vertical speed to sine(angle)*speed
             // set the ring's horizontal speed to -cosine(angle)*speed

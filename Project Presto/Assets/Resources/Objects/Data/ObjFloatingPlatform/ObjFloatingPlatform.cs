@@ -22,9 +22,9 @@ public class ObjFloatingPlatform : MonoBehaviour {
     float moveTime = 0F;
     public float moveTimeMax = 5F;
 
-    float nudgeDistance = -3F/32F;
+    private const float nudgeDistance = -3F / 32F;
     float nudgeTime = 0F;
-    float nudgeTimeMax = 0.5F;
+    private const float nudgeTimeMax = 0.5F;
     Vector3 offsetMove;
 
     // ======================================
@@ -89,7 +89,7 @@ public class ObjFloatingPlatform : MonoBehaviour {
             case PlatformType.moving:
                 moveTime += Utils.cappedDeltaTime;
                 moveTime %= moveTimeMax;
-                float movePercentage = 1 - Mathf.Abs(((moveTime / moveTimeMax) - 0.5F) * 2);
+                var movePercentage = 1 - Mathf.Abs(((moveTime / moveTimeMax) - 0.5F) * 2);
                 
                 offsetMove.x = EasingFunction.EaseInOutSine(
                     0,

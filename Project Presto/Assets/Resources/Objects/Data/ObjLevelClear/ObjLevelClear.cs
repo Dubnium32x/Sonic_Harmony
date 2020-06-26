@@ -69,7 +69,7 @@ public class ObjLevelClear : MonoBehaviour {
             if (character.characterCamera != null)
                 character.characterCamera.maxPosition = Mathf.Infinity * Vector2.one;
 
-            ObjTitleCard titleCard = ObjTitleCard.Make(character, false);
+            var titleCard = ObjTitleCard.Make(character, false);
         } else {
             character.currentLevel.ReloadFadeOut(character);
         }
@@ -106,25 +106,24 @@ public class ObjLevelClear : MonoBehaviour {
 
         if (showTimer > 0) {
             showTimer -= Utils.cappedDeltaTime;
-            if (showTimer <= 0) {
-                // animator.Play("Items Enter");
-                timeBonus = GetTimeBonus(character.timer);
-                ringBonus = character.rings * 100;
+            if (!(showTimer <= 0)) return;
+            // animator.Play("Items Enter");
+            timeBonus = GetTimeBonus(character.timer);
+            ringBonus = character.rings * 100;
 
-                if (character.characterCamera != null)
-                    canvas.worldCamera = character.characterCamera.camera; // i hate this name too, trust me
+            if (character.characterCamera != null)
+                canvas.worldCamera = character.characterCamera.camera; // i hate this name too, trust me
                     
-                actTextComponent.text = character.currentLevel.act.ToString();
+            actTextComponent.text = character.currentLevel.act.ToString();
 
-                character.TryGetCapability("victory", (CharacterCapability capability) => {
-                    ((CharacterCapabilityVictory)capability).victoryLock = true;
-                });
-                character.effects.Clear();
+            character.TryGetCapability("victory", (CharacterCapability capability) => {
+                ((CharacterCapabilityVictory)capability).victoryLock = true;
+            });
+            character.effects.Clear();
 
-                MusicManager.current.Play(new MusicManager.MusicStackEntry{
-                    introPath = "Music/Level Clear"
-                });
-            }
+            MusicManager.current.Play(new MusicManager.MusicStackEntry{
+                introPath = "Music/Level Clear"
+            });
             return;
         }
 
@@ -141,10 +140,10 @@ public class ObjLevelClear : MonoBehaviour {
                 else return;
             }
 
-            int transferAmtTime = Mathf.Min(100, timeBonus);
-            int transferAmtRing = Mathf.Min(100, ringBonus);
+            var transferAmtTime = Mathf.Min(100, timeBonus);
+            var transferAmtRing = Mathf.Min(100, ringBonus);
 
-            if (Input.GetButtonDown("Pause")) {
+            if (Input.GetButtonDown("Action")) {
                 transferAmtTime = timeBonus;
                 transferAmtRing = ringBonus;
             }
@@ -156,17 +155,15 @@ public class ObjLevelClear : MonoBehaviour {
             character.score += transferAmtRing;
             SFX.Play(audioSource, "sfxTallyBeep");
 
-            if ((timeBonus <= 0) && (ringBonus <= 0)) {
-                SFX.Play(audioSource, "sfxTallyChaChing");
-                if (GlobalOptions.Get("levelTransitions") != "OFF")
-                    animator.Play("Items Exit");
-            }
+            if ((timeBonus > 0) || (ringBonus > 0)) return;
+            SFX.Play(audioSource, "sfxTallyChaChing");
+            if (GlobalOptions.Get("levelTransitions") != "OFF")
+                animator.Play("Items Exit");
             return;
         }
 
-        if (endTimer > 0) {
-            endTimer -= Utils.cappedDeltaTime;
-            if (endTimer <= 0) LoadNextLevel();
-        }
+        if (!(endTimer > 0)) return;
+        endTimer -= Utils.cappedDeltaTime;
+        if (endTimer <= 0) LoadNextLevel();
     }
 }

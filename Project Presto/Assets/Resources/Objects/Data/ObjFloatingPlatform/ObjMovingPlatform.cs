@@ -11,8 +11,10 @@ public class ObjMovingPlatform : MonoBehaviour {
     }
 
     void Update() {
-        foreach (Character character in groundedDetector.characters)
-            character.position = character.position + (transform.position - positionPrev);
+        foreach (var character in groundedDetector.characters)
+        {
+            character.position += (transform.position - positionPrev);
+        }
 
         positionPrev = transform.position;
     }

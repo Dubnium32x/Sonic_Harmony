@@ -26,7 +26,7 @@ public class ObjBuzzBomber : MonoBehaviour {
     }
 
     public void FireBullet() {
-        GameObject bullet = Instantiate(
+        var bullet = Instantiate(
             (GameObject)Resources.Load("Objects/Data/ObjBuzzBomber/Bullet"),
             bulletLocationTransform.position,
             Quaternion.identity
@@ -53,10 +53,10 @@ public class ObjBuzzBomber : MonoBehaviour {
         if (moveTimer > 0) {
             moveTimer -= Utils.cappedDeltaTime;
 
-            if (!hasFired) {
+            if (!hasFired)
+            {
                 // Check if character is near
-                Character characterInRange;
-                characterInRange = Utils.CheckIfCharacterInRange(
+                var characterInRange = Utils.CheckIfCharacterInRange(
                     transform.position,
                     3,
                     Utils.AxisType.X,
@@ -81,7 +81,7 @@ public class ObjBuzzBomber : MonoBehaviour {
 
         hasFired = false;
         moveTimer = 0;
-        Vector3 scaleTemp = transform.localScale;
+        var scaleTemp = transform.localScale;
         scaleTemp.x *= -1;
         transform.localScale = scaleTemp;
         pauseTimer = pauseTimerTurnMax;

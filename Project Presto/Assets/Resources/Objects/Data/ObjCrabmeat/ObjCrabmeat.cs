@@ -81,25 +81,23 @@ public class ObjCrabmeat : MonoBehaviour {
             return;
         }
 
-        RaycastHit hitLeft;
         Physics.Raycast(
             transform.position + (Vector3.left * 0.5F), // origin
             Vector3.down, // direction,
-            out hitLeft,
+            out var hitLeft,
             transform.localScale.y, // max distance
             ~Utils.IgnoreRaycastMask
         );
 
-        RaycastHit hitRight;
         Physics.Raycast(
             transform.position + (Vector3.right * 0.5F), // origin
             Vector3.down, // direction,
-            out hitRight,
+            out var hitRight,
             transform.localScale.y, // max distance
             ~Utils.IgnoreRaycastMask
         );
         
-        Vector3 newPos = transform.position;
+        var newPos = transform.position;
 
         walkTimer -= Utils.cappedDeltaTime;
 

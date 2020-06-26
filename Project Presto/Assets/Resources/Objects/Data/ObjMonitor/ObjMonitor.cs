@@ -52,13 +52,13 @@ public class ObjMonitor : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision collision) {
-        Character[] characters = collision.gameObject.GetComponentsInParent<Character>();
+        var characters = collision.gameObject.GetComponentsInParent<Character>();
         if (characters.Length == 0) return;
-        Character character = characters[0];
+        var character = characters[0];
 
         if (DidCharacterHitFromBottom(character)) {
             if (!(character.InStateGroup("rolling") && character.InStateGroup("airCollision"))) return;
-            Vector3 velocityTemp = character.velocityPrev;
+            var velocityTemp = character.velocityPrev;
             velocityTemp.y = -Mathf.Abs(velocityTemp.y);
             character.velocity = velocityTemp;
 
