@@ -103,7 +103,7 @@ public class CharacterCapabilityGround : CharacterCapability {
 
         character.groundSpeed += accelerationMagnitude * deltaTime * 60F;
     }
-
+    //balence state reappears here
     // Updates the character's animation while they're on the ground
     // 3D-Ready: NO
     void UpdateGroundAnim(float deltaTime) {
@@ -128,7 +128,7 @@ public class CharacterCapabilityGround : CharacterCapability {
 
             // Skidding
             // ======================
-            bool skidding = (
+            var skidding = (
                 (character.pressingRight && character.groundSpeed < 0) ||
                 (character.pressingLeft && character.groundSpeed > 0)
             );
@@ -136,7 +136,7 @@ public class CharacterCapabilityGround : CharacterCapability {
             // You can only trigger a skid state if:
             // - Your angle (a) is <= 45d or >= 270d and your absolute speed is above the threshhold
             // - OR you're already skidding
-            bool canSkid = (
+            var canSkid = (
                 (
                     (
                         (character.forwardAngle <= 45F) ||
@@ -158,6 +158,7 @@ public class CharacterCapabilityGround : CharacterCapability {
                 {
                     character.AnimatorPlay("Look Up");
                 }
+                //seen specificly here (weirdly enough it looks somewhat like our own code just with less transations)
                 else if (character.balanceState != Character.BalanceState.None) {
                     ignoreFlipX = true;
                     character.flipX = character.balanceState == Character.BalanceState.Right;

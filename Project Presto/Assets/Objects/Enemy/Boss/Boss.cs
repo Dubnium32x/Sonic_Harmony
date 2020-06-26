@@ -15,7 +15,6 @@ public class Boss : EnemyMotor
     public float speed;
     private bool turning;
     public float wallRayDistance;
-    public int health = 8;
     protected override void OnMotorStart()
     {
         InitializeBoss();
@@ -59,6 +58,7 @@ public class Boss : EnemyMotor
     {
         turning = false;
         direction = -1;
+        health = 8;
     }
 
     private IEnumerator Turn()

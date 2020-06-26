@@ -6,6 +6,7 @@ using System.Linq;
 
 public class Character : GameBehaviour
 {
+    //This is where the balence part starts
     public enum BalanceState
     {
         None,
@@ -493,6 +494,7 @@ public class Character : GameBehaviour
         return angleDiff < 67.5F;
     }
 
+    //this is where that enum gets used
     // Keeps character locked to ground while in ground state
     // 3D-Ready: No, but pretty close, actually.
     public bool GroundSnap()
