@@ -30,7 +30,7 @@ public class CameraZone : MonoBehaviour {
         if (charactersHit.Count < LevelManager.current.characters.Count) return;
         if (!unloadUnpopulatedLevels) return;
         
-        foreach (Level level in FindObjectsOfType<Level>())
+        foreach (var level in FindObjectsOfType<Level>())
             level.Unload();
     }
 

@@ -66,9 +66,9 @@ public class RenderTextureCamera : MonoBehaviour {
 
         camera.targetTexture.Release();
         camera.targetTexture.width = (int)Mathf.Round(
-            (float)camera.targetTexture.height * (
-                ((float)screenRect.width) /
-                ((float)screenRect.height)
+            camera.targetTexture.height * (
+                screenRect.width /
+                screenRect.height
             )
         );
         renderTextureWidthPev = camera.targetTexture.width;

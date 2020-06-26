@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -26,10 +27,9 @@ public class MusicManager : MonoBehaviour {
 
     public MusicStackEntry musicStackEntryCurrent { get {
         MusicStackEntry musicStackEntryMax = null;
-        int priorityMax = int.MinValue;
-        foreach(MusicStackEntry entry in musicStack) {
-            if (entry.priority < priorityMax) continue;
-
+        var priorityMax = int.MinValue;
+        foreach (var entry in musicStack.Where(entry => entry.priority >= priorityMax))
+        {
             priorityMax = entry.priority;
             musicStackEntryMax = entry;
         }

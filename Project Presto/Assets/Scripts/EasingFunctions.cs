@@ -55,6 +55,7 @@
  * float derivativeValue = derivativeFunc(0, 10, 0.67f);
  */
 
+using System;
 using UnityEngine;
 
 public static class EasingFunction
@@ -341,7 +342,7 @@ public static class EasingFunction
         float s;
         float a = 0;
 
-        if (value == 0) return start;
+        if (Mathf.Abs(value) < Mathf.Epsilon) return start;
 
         if ((value /= d) == 1) return start + end;
 
@@ -618,21 +619,20 @@ public static class EasingFunction
         {
             return 2f * end * 7.5625f * value;
         }
-        else if (value < (2 / 2.75f))
+
+        if (value < (2 / 2.75f))
         {
             value -= (1.5f / 2.75f);
             return 2f * end * 7.5625f * value;
         }
-        else if (value < (2.5 / 2.75))
+        if (value < (2.5 / 2.75))
         {
             value -= (2.25f / 2.75f);
             return 2f * end * 7.5625f * value;
         }
-        else
-        {
-            value -= (2.625f / 2.75f);
-            return 2f * end * 7.5625f * value;
-        }
+
+        value -= (2.625f / 2.75f);
+        return 2f * end * 7.5625f * value;
     }
 
     public static float EaseInOutBounceD(float start, float end, float value)
@@ -644,10 +644,8 @@ public static class EasingFunction
         {
             return EaseInBounceD(0, end, value * 2) * 0.5f;
         }
-        else
-        {
-            return EaseOutBounceD(0, end, value * 2 - d) * 0.5f;
-        }
+
+        return EaseOutBounceD(0, end, value * 2 - d) * 0.5f;
     }
 
     public static float EaseInBackD(float start, float end, float value)

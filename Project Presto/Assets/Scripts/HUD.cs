@@ -45,7 +45,7 @@ public class HUD : MonoBehaviour {
 
         if (GlobalOptions.Get("timerType") != "NORMAL") {
             sb.Append(":");
-            int preciseTime = 0;
+            var preciseTime = 0;
             
             if (GlobalOptions.Get("timerType") == "CENTISECOND")
                 preciseTime = (int)((character.timer % 1) * 100F);

@@ -35,20 +35,19 @@ public class ObjMonitor : MonoBehaviour {
     }
 
     void OnTriggerEnter(Collider other) {
-        Character[] characters = other.gameObject.GetComponentsInParent<Character>();
+        var characters = other.gameObject.GetComponentsInParent<Character>();
         if (characters.Length == 0) return;
-        Character character = characters[0];
+        var character = characters[0];
 
-        if (!DidCharacterHitFromBottom(character)) {
-            if (!character.InStateGroup("rolling")) return;
+        if (DidCharacterHitFromBottom(character)) return;
+        if (!character.InStateGroup("rolling")) return;
 
-            Explode(character);
+        Explode(character);
 
-            if (!character.InStateGroup("airCollision")) return;
-            Vector3 velocityTemp = character.velocity;
-            velocityTemp.y = Mathf.Abs(character.velocity.y);
-            character.velocity = velocityTemp;
-        }
+        if (!character.InStateGroup("airCollision")) return;
+        var velocityTemp = character.velocity;
+        velocityTemp.y = Mathf.Abs(character.velocity.y);
+        character.velocity = velocityTemp;
     }
 
     void OnCollisionEnter(Collision collision) {
@@ -56,18 +55,17 @@ public class ObjMonitor : MonoBehaviour {
         if (characters.Length == 0) return;
         var character = characters[0];
 
-        if (DidCharacterHitFromBottom(character)) {
-            if (!(character.InStateGroup("rolling") && character.InStateGroup("airCollision"))) return;
-            var velocityTemp = character.velocityPrev;
-            velocityTemp.y = -Mathf.Abs(velocityTemp.y);
-            character.velocity = velocityTemp;
+        if (!DidCharacterHitFromBottom(character)) return;
+        if (!(character.InStateGroup("rolling") && character.InStateGroup("airCollision"))) return;
+        var velocityTemp = character.velocityPrev;
+        velocityTemp.y = -Mathf.Abs(velocityTemp.y);
+        character.velocity = velocityTemp;
 
-            rigidbody.isKinematic = false;
-            rigidbody.velocity = new Vector2(
-                0,
-                1.5F
-            ) * Utils.physicsScale;
-        }
+        rigidbody.isKinematic = false;
+        rigidbody.velocity = new Vector2(
+            0,
+            1.5F
+        ) * Utils.physicsScale;
     }
 
     void Explode(Character sourceCharacter) {
