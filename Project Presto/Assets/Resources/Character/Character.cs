@@ -522,11 +522,11 @@ public class Character : GameBehaviour
         // the character to be sure.
         for (var dir = -1; dir <= 1; dir += 2)
         {
-            RaycastHit hitLedge;
+            var RayOrigin = position + (transform.right * (dir * 0.375F * sizeScale * sizeScale));
             Physics.Raycast(
-                position + (transform.right * (dir * 0.375F * sizeScale * sizeScale)), // origin
+                RayOrigin, // origin
                 -transform.up, // direction
-                out hitLedge,
+                out var hitLedge,
                 0.8F * sizeScale, // max distance
                 ~solidRaycastMask // layer mask
             );
@@ -577,7 +577,14 @@ public class Character : GameBehaviour
         }
         else
         {
-            targetAngle = currentRotation.z > 180 ? new Vector3(0, 0, 360) : Vector3.zero;
+            if (currentRotation.z > 180)
+            {
+                targetAngle = new Vector3(0, 0, 360);
+            }
+            else
+            {
+                targetAngle = Vector3.zero;
+            }
         }
 
         return Vector3.RotateTowards(
@@ -686,7 +693,7 @@ public class Character : GameBehaviour
         rollingAirModeGroup.gameObject.SetActive(false);
         airModeGroup.gameObject.SetActive(false);
 
-        foreach (CharacterCapability capability in capabilities)
+        foreach (var capability in capabilities)
             capability.StateInit(stateCurrent, "");
 
         if (isLocalPlayer)
@@ -695,7 +702,7 @@ public class Character : GameBehaviour
             characterCamera.character = this;
             characterCamera.UpdateDelta(0);
 
-            ObjTitleCard titleCard = ObjTitleCard.Make(this);
+            var titleCard = ObjTitleCard.Make(this);
 
             hud = Instantiate(hudPrefab).GetComponent<HUD>();
             hud.character = this;
