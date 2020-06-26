@@ -836,21 +836,23 @@ public class Character : GameBehaviour
     {
         base.Awake();
 
+        string Func()
+        {
+            if (HasEffect("speedUp"))
+            {
+                return "topSpeedSpeedUp";
+            }
+            else
+            {
+                return "topSpeedNormal";
+            }
+        }
+
         stats.Add(new Dictionary<string, object>()
         {
             ["topSpeedNormal"] = 6F,
             ["topSpeedSpeedUp"] = 12F,
-            ["topSpeed"] = (Func<string>) (() =>
-            {
-                if (HasEffect("speedUp"))
-                {
-                    return "topSpeedSpeedUp";
-                }
-                else
-                {
-                    return "topSpeedNormal";
-                }
-            }),
+            ["topSpeed"] = (Func<string>) (Func),
             ["terminalSpeed"] = 16.5F
         });
 
