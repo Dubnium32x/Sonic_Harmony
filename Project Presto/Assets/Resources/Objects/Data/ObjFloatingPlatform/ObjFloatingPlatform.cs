@@ -63,11 +63,11 @@ public class ObjFloatingPlatform : MonoBehaviour {
             nudgeTime += Utils.cappedDeltaTime;
 
         nudgeTime = Mathf.Max(0, Mathf.Min(nudgeTimeMax, nudgeTime));
-        offsetNudge.y = EasingFunction.EaseOutSine(
-            0,
-            nudgeDistance,
-            nudgeTime / nudgeTimeMax
-        );
+        // offsetNudge.y = EasingFunction.EaseOutSine(
+        //     0,
+        //     nudgeDistance,
+        //     nudgeTime / nudgeTimeMax
+        // );
     }
 
     void UpdateType() {
@@ -86,27 +86,27 @@ public class ObjFloatingPlatform : MonoBehaviour {
                     fallTimer = fallWaitTime;
                 }
                 break;
-            case PlatformType.moving:
-                moveTime += Utils.cappedDeltaTime;
-                moveTime %= moveTimeMax;
-                var movePercentage = 1 - Mathf.Abs(((moveTime / moveTimeMax) - 0.5F) * 2);
-                
-                offsetMove.x = EasingFunction.EaseInOutSine(
-                    0,
-                    moveDestination.x - offsetOriginal.x,
-                    movePercentage
-                );
-                offsetMove.y = EasingFunction.EaseInOutSine(
-                    0,
-                    moveDestination.y - offsetOriginal.y,
-                    movePercentage
-                );
-                offsetMove.z = EasingFunction.EaseInOutSine(
-                    0,
-                    moveDestination.z - offsetOriginal.z,
-                    movePercentage
-                );
-                break;
+            // case PlatformType.moving:
+            //     moveTime += Utils.cappedDeltaTime;
+            //     moveTime %= moveTimeMax;
+            //     var movePercentage = 1 - Mathf.Abs(((moveTime / moveTimeMax) - 0.5F) * 2);
+            //     
+            //     offsetMove.x = EasingFunction.EaseInOutSine(
+            //         0,
+            //         moveDestination.x - offsetOriginal.x,
+            //         movePercentage
+            //     );
+            //     offsetMove.y = EasingFunction.EaseInOutSine(
+            //         0,
+            //         moveDestination.y - offsetOriginal.y,
+            //         movePercentage
+            //     );
+            //     offsetMove.z = EasingFunction.EaseInOutSine(
+            //         0,
+            //         moveDestination.z - offsetOriginal.z,
+            //         movePercentage
+            //     );
+            //     break;
         }
     }
 
