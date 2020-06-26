@@ -57,9 +57,9 @@ public class CharacterCapabilityGround : CharacterCapability {
 
     // 3D-Ready: Sorta
     void UpdateGroundMove(float deltaTime) {
-        float accelerationMagnitude = 0F;
+        var accelerationMagnitude = 0F;
 
-        int inputDir = 0;
+        var inputDir = 0;
         if (character.horizontalInputLockTimer <= 0) {
             // ORDER MATTERS!
             if (character.input.GetAxisPositive("Horizontal")) inputDir = 1;
@@ -90,7 +90,7 @@ public class CharacterCapabilityGround : CharacterCapability {
             }
         }
 
-        float slopeFactorAcc = (
+        var slopeFactorAcc = (
             character.stats.Get("slopeFactorGround") *
             Mathf.Sin(
                 character.forwardAngle *

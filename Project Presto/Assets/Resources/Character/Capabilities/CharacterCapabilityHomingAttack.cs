@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class CharacterCapabilityHomingAttack : CharacterCapability {
     CharacterEffect afterImageEffect;
-    string[] buttonsHomingAttack = new string[] { "Secondary", "Tertiary" };
+    readonly string[] buttonsHomingAttack = { "Secondary", "Tertiary" };
 
     float failsafeTimer;
 
@@ -32,13 +32,8 @@ public class CharacterCapabilityHomingAttack : CharacterCapability {
         target = FindClosestTarget();
 
         if (target == null) {
-            character.velocity = new Vector2(
-                (
-                    character.stats.Get("homingAttackSpeed") *
-                    (character.facingRight ? 1 : -1)
-                ),
-                0
-            );
+            var XvalueOfVeloc = character.stats.Get("homingAttackSpeed") * (character.facingRight ? 1 : -1);
+            character.velocity = new Vector2(XvalueOfVeloc, 0);
             character.stateCurrent = "rollingAir";
             character.effects.Add(new CharacterEffect(character, "afterImage", 0.25F));
         } else {
@@ -51,8 +46,7 @@ public class CharacterCapabilityHomingAttack : CharacterCapability {
 
     public override void StateDeinit(string stateName, string nextStateName) {
         if (character.stateCurrent != "homingAttack") return;
-        if (afterImageEffect != null)
-            afterImageEffect.DestroyBase();
+        afterImageEffect?.DestroyBase();
     }
 
     public override void Update(float deltaTime) {
@@ -99,9 +93,9 @@ public class CharacterCapabilityHomingAttack : CharacterCapability {
     // https://forum.unity.com/threads/clean-est-way-to-find-nearest-object-of-many-c.44315/
     Transform FindClosestTarget(float distanceLimit = 24F) {
         Transform bestTarget = null;
-        float closestDistanceSqr = Mathf.Infinity;
-        foreach(HomingAttackTarget target in GameObject.FindObjectsOfType<HomingAttackTarget>()) {
-            Transform potentialTarget = target.transform;
+        var closestDistanceSqr = Mathf.Infinity;
+        foreach(var target in Object.FindObjectsOfType<HomingAttackTarget>()) {
+            var potentialTarget = target.transform;
             if (!potentialTarget.gameObject.activeSelf) continue;
             if (
                 (potentialTarget.position.x <= character.position.x) &&
@@ -113,12 +107,11 @@ public class CharacterCapabilityHomingAttack : CharacterCapability {
             ) continue;
             if (!target.enabled) continue;
 
-            Vector3 directionToTarget = potentialTarget.position - character.position;
-            float dSqrToTarget = directionToTarget.sqrMagnitude;
-            if(dSqrToTarget < closestDistanceSqr) {
-                closestDistanceSqr = dSqrToTarget;
-                bestTarget = potentialTarget;
-            }
+            var directionToTarget = potentialTarget.position - character.position;
+            var dSqrToTarget = directionToTarget.sqrMagnitude;
+            if (!(dSqrToTarget < closestDistanceSqr)) continue;
+            closestDistanceSqr = dSqrToTarget;
+            bestTarget = potentialTarget;
         }
 
         if (closestDistanceSqr > distanceLimit) return null;

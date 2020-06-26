@@ -89,7 +89,7 @@ public class CharacterCapabilityPeelOut : CharacterCapability {
         character.spriteContainer.transform.eulerAngles = character.GetSpriteRotation(deltaTime);
         character.flipX = !character.facingRight;
 
-        float runSpeed = (1F - (peelOutTimer / 0.5F)) * 12F;
+        var runSpeed = (1F - (peelOutTimer / 0.5F)) * 12F;
         character.spriteAnimatorSpeed = runSpeed / character.stats.Get("topSpeedNormal");
 
         if (runSpeed < 6F) {
