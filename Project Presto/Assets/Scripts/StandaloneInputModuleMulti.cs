@@ -14,12 +14,6 @@ namespace UnityEngine.EventSystems
     /// </remarks>
     public class StandaloneInputModuleMulti : PointerInputModule
     {
-        [Obsolete("Mode is no longer needed on input module as it handles both mouse and keyboard simultaneously.", false)]
-        public enum InputMode
-        {
-            Mouse,
-            Buttons
-        }
 
         /// <summary>
         /// Name of the submit button.
@@ -459,12 +453,6 @@ namespace UnityEngine.EventSystems
         protected void ProcessMouseEvent()
         {
             ProcessMouseEvent(0);
-        }
-
-        [Obsolete("This method is no longer checked, overriding it with return true does nothing!")]
-        protected virtual bool ForceAutoSelect()
-        {
-            return false;
         }
 
         /// <summary>

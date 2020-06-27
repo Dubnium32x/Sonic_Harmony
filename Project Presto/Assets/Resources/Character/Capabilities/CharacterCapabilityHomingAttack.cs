@@ -17,7 +17,8 @@ public class CharacterCapabilityHomingAttack : CharacterCapability {
         character.AddStateGroup("airCollision", "homingAttack");
         character.AddStateGroup("harmful", "homingAttack");
 
-        character.stats.Add(new Dictionary<string, object>() {
+        character.stats.Add(new Dictionary<string, object>
+        {
             ["homingAttackSpeed"] = 9F,
             ["homingAttackBounceSpeed"] = 6.5F
         });
