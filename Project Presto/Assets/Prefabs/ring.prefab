@@ -56,8 +56,8 @@ MonoBehaviour:
   bounceFactor: 0.85
   lifeTime: 8
   uncollectibleTime: 1
+  collectDelay: 0.5
   collectSound: {fileID: 8300000, guid: 519b363f266ffc7479a5c683e02c958b, type: 3}
-  collectParticle: {fileID: 0}
   velocity: {x: 0, y: 0, z: 0}
 --- !u!212 &3434012358516134536
 SpriteRenderer:

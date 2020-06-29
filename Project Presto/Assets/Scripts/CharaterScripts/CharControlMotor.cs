@@ -20,6 +20,7 @@ public class CharControlMotor : PlayerMotor
     private float time;
     public float deceleration = 40;
     public float acceleration = 5;
+    public float airAccelModifier = 0.9f;
     public float turnAroundSpeed = 50;
     //other conditions
     private bool lifeCheck = true;
@@ -284,12 +285,18 @@ public class CharControlMotor : PlayerMotor
 
         if (input.right && (velocity.x < realtopspeed))
         {
-            velocity.x += acceleration * deltaTime;
+            if(grounded)
+                velocity.x += acceleration * deltaTime;
+            else
+                velocity.x += acceleration * airAccelModifier * deltaTime;
             velocity.x = Mathf.Min(velocity.x, realtopspeed);
         }
         else if (input.left && (velocity.x > -realtopspeed))
         {
-            velocity.x -= acceleration * deltaTime;
+            if (grounded)
+                velocity.x -= acceleration * deltaTime;
+            else
+                velocity.x -= acceleration * airAccelModifier * deltaTime;
             velocity.x = Mathf.Max(velocity.x, -realtopspeed);
         }
     }
