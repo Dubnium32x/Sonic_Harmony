@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Experimental.LowLevel;
 
 public class PeelPlayerState : PlayerState
 {
@@ -58,7 +59,7 @@ public class PeelPlayerState : PlayerState
             }
             else
             {
-                player.state.ChangeState<RollPlayerState>();
+                player.state.ChangeState<WalkPlayerState>();
             }
         }
     }

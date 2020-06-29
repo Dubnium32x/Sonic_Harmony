@@ -20,7 +20,7 @@ public class LookUpPlayerState : PlayerState
             {
                 player.state.ChangeState<WalkPlayerState>();
             }
-            if (player.input.actionDown && player.input.up)
+            else if (player.input.actionDown)
             {
                 player.state.ChangeState<PeelPlayerState>();
             }

@@ -11,7 +11,8 @@ public class JumpPlayerState : PlayerState
         player.ChangeBounds(1);
 
         dashTimer = 0.0f;
-        active = true;
+        active = false;
+        charging = false;
     }
 
 
@@ -35,41 +36,38 @@ public class JumpPlayerState : PlayerState
                 dashTimer = maxDashAmount;
             }
 
-            if (Input.GetKeyDown(KeyCode.L))
+            if(active)
             {
-                isCharging = true;
-            }
+                if (Input.GetKeyDown(KeyCode.Space))
+                    charging = true;
 
-
-            if (isCharging == true)
-            {
-                dashTimer += Time.deltaTime * chargeSpeed;
-                dashSpeed.x = dashTimer;
-            }
-
-
-            if (Input.GetKeyUp(KeyCode.L) && active == true)
-            {
-                codedDashSpeed = dashSpeed;
-
-                
-
-                if (player.input.left)
+                if (charging)
                 {
-                    codedDashSpeed = codedDashSpeed - codedDashSpeed * 2;
-                    player.velocity = dashTarget.position - transform.position + codedDashSpeed;
-                    active = false;
-                }
-                else if (player.input.right)
-                {
-                    codedDashSpeed = dashSpeed;
-                    player.velocity = dashTarget.position - transform.position + codedDashSpeed;
-                    active = false;
-                }
+                    dashTimer += Time.deltaTime * chargeSpeed;
+                    dashSpeed.x = dashTimer;
 
-                
+                    if (Input.GetKeyUp(KeyCode.Space))
+                    {
+                        codedDashSpeed = dashSpeed;
+
+                        if (player.input.left)
+                            codedDashSpeed = codedDashSpeed - codedDashSpeed * 2;
+                        else if (player.input.right)
+                            codedDashSpeed = dashSpeed;
+                        else
+                        {
+                            if (player.velocity.x < 0)
+                                codedDashSpeed = codedDashSpeed - codedDashSpeed * 2;
+                            else if (player.velocity.x > 0)
+                                codedDashSpeed = dashSpeed;
+                        }
+                        active = false;
+                        player.velocity = dashTarget.position - transform.position + codedDashSpeed;
+                    }
+                }
             }
-
+            else if(Input.GetKeyUp(KeyCode.Space) && !charging)
+                active = true;
         }
         else
         {
@@ -92,7 +90,7 @@ public class JumpPlayerState : PlayerState
     public float maxDashAmount;
     public Vector3 codedDashSpeed;
     public bool active;
-    public bool isCharging = false;
+    public bool charging = false;
 
     
 }
