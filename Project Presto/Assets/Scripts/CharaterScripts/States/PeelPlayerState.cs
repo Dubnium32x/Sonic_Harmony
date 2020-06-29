@@ -68,7 +68,9 @@ public class PeelPlayerState : PlayerState
         //player.skin.ActiveBall(false);
         player.velocity.x = (player.stats.PeelminReleasePower + (Mathf.Floor(power) / 2)) * player.direction;
         player.PlayAudio(player.audios.peel_launch, 0.5f);
-        player.sonicState = CharControlMotor.SonicState.Peel;
+        player.sonicState = CharControlMotor.SonicState.Peel;      
         player.particles.spindashSmoke.Stop();
+
+        player.disableSkinRotation = false;
     }
 }

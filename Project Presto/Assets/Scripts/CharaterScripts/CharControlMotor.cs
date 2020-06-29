@@ -86,7 +86,7 @@ public class CharControlMotor : PlayerMotor
     public new CamFollow camera;
     public PlayerSkin skin;
 
-    private PlayerShields shield;
+    public PlayerShields shield;
     public CharStateMachine state;
 
     public bool attacking { get; set; }

@@ -7,6 +7,7 @@ public class FallingPlatform : FreedomObject
 {
     public float fallDelay;
     public float gravity;
+    public bool dontFall;
 
     private bool falling;
     private Vector3 startPoint;
@@ -41,8 +42,11 @@ public class FallingPlatform : FreedomObject
     {
         yield return new WaitForSeconds(fallDelay);
 
-        falling = true;
-        collider.enabled = false;
+        if(dontFall == false)
+        {
+            falling = true;
+            collider.enabled = false;
+        }
     }
 
     public override void OnRespawn()
