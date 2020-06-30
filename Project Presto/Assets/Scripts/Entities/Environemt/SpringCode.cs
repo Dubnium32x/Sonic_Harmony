@@ -113,8 +113,8 @@ public class SpringCode : MonoBehaviour
 		//check if player is landing on spring
 		var direction = (player.transform.position - transform.position).normalized;
 		if (!(Vector3.Dot(transform.up, direction) > 0.7f) ) return;
-			
-		player.velocity.y = force;
+		Vector2 upDir = transform.up.normalized;
+		player.velocity = player.velocity * new Vector2(1 - Mathf.Abs(upDir.x), 1 - Mathf.Abs(upDir.y)) + upDir * force;
 		player.UpdateDirection(player.velocity.x);
 
 		if (lockControl)
