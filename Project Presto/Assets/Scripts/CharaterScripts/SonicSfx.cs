@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +55,8 @@ public class SonicSfx : MonoBehaviour
         chosenSounds.Add(spindash);
         chosenSounds.Add(brake);
     }
+
+
     // Update is called once per frame
     void Update2()
     {

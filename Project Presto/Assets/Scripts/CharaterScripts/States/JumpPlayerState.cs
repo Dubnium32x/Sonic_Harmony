@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class JumpPlayerState : PlayerState
 {
@@ -22,7 +23,6 @@ public class JumpPlayerState : PlayerState
         player.HandleAcceleration(deltaTime);
         player.HandleGravity(deltaTime);
 
-        
 
         if (!player.grounded && player.attacking)
         {
@@ -39,7 +39,12 @@ public class JumpPlayerState : PlayerState
             if(active)
             {
                 if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    player.PlayAudio(player.audios.spindash_charge, 0.5f);
+
                     charging = true;
+                }
+                    
 
                 if (charging)
                 {
@@ -49,6 +54,7 @@ public class JumpPlayerState : PlayerState
                     if (Input.GetKeyUp(KeyCode.Space))
                     {
                         codedDashSpeed = dashSpeed;
+                        player.PlayAudio(player.audios.peel_launch, 0.5f);
 
                         if (player.input.left)
                             codedDashSpeed = codedDashSpeed - codedDashSpeed * 2;

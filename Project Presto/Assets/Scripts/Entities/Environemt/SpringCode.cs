@@ -114,7 +114,7 @@ public class SpringCode : MonoBehaviour
 		var direction = (player.transform.position - transform.position).normalized;
 		if (!(Vector3.Dot(transform.up, direction) > 0.7f) ) return;
 			
-		player.velocity = transform.up.normalized * force;
+		player.velocity.y = force;
 		player.UpdateDirection(player.velocity.x);
 
 		if (lockControl)
