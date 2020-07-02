@@ -13844,7 +13844,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.709524, y: 4.9118567, z: -20}
+  m_LocalPosition: {x: 9.709524, y: 4, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 345990481}
@@ -13867,6 +13867,7 @@ MonoBehaviour:
   affectedByPause: 1
   followZ: 0
   followTarget: {fileID: 567022460}
+  constantOffset: {x: 0, y: 4}
   sideDistance: 2
   vertHeld: 0
   smoothTime: 0.35
@@ -34439,6 +34440,7 @@ MonoBehaviour:
   fader: {fileID: 868144478}
   fadeTime: 2
   nextStage: TitleScreen
+  pauseWhenUnfocused: 0
   player: {fileID: 1141063353}
   song: {fileID: 8300000, guid: 4663daf477ecc9c419f3c957cd5d1787, type: 3}
   songVolume: 0.25

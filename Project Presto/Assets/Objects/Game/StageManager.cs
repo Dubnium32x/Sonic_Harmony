@@ -14,6 +14,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] private Image fader = null;
     [SerializeField] private float fadeTime = 0;
     [SerializeField] private string nextStage = "";
+    [SerializeField] private bool pauseWhenUnfocused = false;
 
     [Header("Stage Settings")]
     [SerializeField] private CharControlMotor player = null;
@@ -49,7 +50,7 @@ public class StageManager : MonoBehaviour
         {
             audio = gameObject.AddComponent<AudioSource>();
         }
-
+        Application.runInBackground = !pauseWhenUnfocused;
         startPoint = player.transform.position;
         startRotation = player.transform.rotation;
         StartStage();

@@ -11,6 +11,7 @@ public class CamFollow : MonoBehaviour
     Vector2 followSmooth;
 
     public Transform followTarget;
+    public Vector2 constantOffset;
     public float sideDistance, vertHeld;
     public float smoothTime = 0.25f, maxSpeed = Mathf.Infinity, vertHoldtime = 0.5f;
     Transform thisTrans;
@@ -42,7 +43,7 @@ public class CamFollow : MonoBehaviour
             // Reset the offset so it's focused back on Sonic
             currentOffset = Vector2.zero;
             // Fix the camera on Sonic's position
-            thisTrans.position = new Vector3(followTarget.position.x, followTarget.position.y, thisTrans.position.z);
+            thisTrans.position = new Vector3(followTarget.position.x + constantOffset.x, followTarget.position.y + constantOffset.y, thisTrans.position.z);
             return;
         }
 
@@ -78,6 +79,8 @@ public class CamFollow : MonoBehaviour
             newPos.z = followTarget.position.z;
         else
             newPos.z = thisTrans.position.z;
+
+        newPos += (Vector3)constantOffset;
 
         thisTrans.position = newPos;
     }
