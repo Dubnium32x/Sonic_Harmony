@@ -40890,12 +40890,12 @@ PrefabInstance:
     - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: chargeSpeed
-      value: 1.75
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: maxDashAmount
-      value: 20
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
