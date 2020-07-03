@@ -5,6 +5,8 @@ using System.Collections.Generic;
 public class JumpPlayerState : PlayerState
 {
 
+    public float jumpSlowDownAmount;
+
     public override void Enter(CharControlMotor player)
     {
         player.attacking = true;
@@ -14,6 +16,20 @@ public class JumpPlayerState : PlayerState
         dashTimer = 0.0f;
         active = false;
         charging = false;
+
+        jumpSlowDownAmount = player.velocity.x / 8;
+
+        if (player.velocity.x != 0)
+        {
+            if (player.velocity.x < 0)
+            {
+                player.velocity.x = player.velocity.x - jumpSlowDownAmount;
+            }
+            else if (player.velocity.x > 0)
+            {
+                player.velocity.x = player.velocity.x - jumpSlowDownAmount;
+            }
+        }
     }
 
 
