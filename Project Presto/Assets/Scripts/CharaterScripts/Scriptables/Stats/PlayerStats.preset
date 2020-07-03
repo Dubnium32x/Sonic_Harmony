@@ -59,7 +59,7 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: topSpeed
-    value: 13
+    value: 20
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: maxSpeed
@@ -107,11 +107,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: minJumpHeight
-    value: 8
+    value: 10
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: maxJumpHeight
-    value: 13
+    value: 15
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: minSpeedToRoll
@@ -138,18 +138,38 @@ Preset:
     value: 37.5
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: chargePower
-    value: 4
+    propertyPath: AutoActivateRollSpeed
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: maxChargePower
-    value: 16
+    propertyPath: SpinchargePower
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: minReleasePower
-    value: 16
+    propertyPath: SpinmaxChargePower
+    value: 0
     objectReference: {fileID: 0}
   - target: {fileID: 0}
-    propertyPath: powerLoss
-    value: 15
+    propertyPath: SpinminReleasePower
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: SpinpowerLoss
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: PeelchargePower
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: PeelmaxChargePower
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: PeelminReleasePower
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: PeelpowerLoss
+    value: 0
     objectReference: {fileID: 0}

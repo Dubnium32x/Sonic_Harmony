@@ -73,9 +73,13 @@ public class JumpPlayerState : PlayerState
                         player.PlayAudio(player.audios.peel_launch, 0.5f);
 
                         if (player.input.left)
-                            codedDashSpeed = codedDashSpeed - codedDashSpeed * 2;
+                        {
+                            codedDashSpeed -= codedDashSpeed * 2;
+                        }
                         else if (player.input.right)
+                        {
                             codedDashSpeed = dashSpeed;
+                        }
                         else
                         {
                             if (player.velocity.x < 0)
@@ -89,7 +93,9 @@ public class JumpPlayerState : PlayerState
                 }
             }
             else if(Input.GetKeyUp(KeyCode.Space) && !charging)
+            {
                 active = true;
+            }
         }
         else
         {

@@ -20,20 +20,20 @@ MonoBehaviour:
   diePushUp: 13
   invincibleTime: 5
   controlLockTime: 0.5
-  topSpeed: 13
-  maxSpeed: 45
+  topSpeed: 18
+  maxSpeed: 60
   maxLostRingCount: 32
   ringScatterForce: 15
-  acceleration: 7
+  acceleration: 10
   deceleration: 60
   friction: 5.625
   slope: 15
   minSpeedToBrake: 10
   turnSpeed: 1
-  airAcceleration: 14
-  gravity: 26.25
-  minJumpHeight: 11
-  maxJumpHeight: 17
+  airAcceleration: 12
+  gravity: 40
+  minJumpHeight: 12
+  maxJumpHeight: 22
   minSpeedToRoll: 2
   minSpeedToUnroll: 1
   rollDeceleration: 15
@@ -46,6 +46,6 @@ MonoBehaviour:
   SpinminReleasePower: 16
   SpinpowerLoss: 15
   PeelchargePower: 4
-  PeelmaxChargePower: 16
-  PeelminReleasePower: 30
+  PeelmaxChargePower: 0
+  PeelminReleasePower: 45
   PeelpowerLoss: 15
