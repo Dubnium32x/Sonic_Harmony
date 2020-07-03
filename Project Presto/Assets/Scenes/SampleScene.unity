@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee34aee425ce14780a42806c5eac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 35
+  force: 60
   mesh: {fileID: 21759675}
   springSound: {fileID: 8300000, guid: 8c15fc49538f861418e5308362fbce16, type: 3}
   snapPositionX: 0
@@ -1803,7 +1803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee34aee425ce14780a42806c5eac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
+  force: 40
   mesh: {fileID: 119266163}
   springSound: {fileID: 8300000, guid: 8c15fc49538f861418e5308362fbce16, type: 3}
   snapPositionX: 0
@@ -3070,7 +3070,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee34aee425ce14780a42806c5eac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
+  force: 40
   mesh: {fileID: 233017217}
   springSound: {fileID: 8300000, guid: 8c15fc49538f861418e5308362fbce16, type: 3}
   snapPositionX: 0
@@ -5598,7 +5598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee34aee425ce14780a42806c5eac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
+  force: 40
   mesh: {fileID: 421853432}
   springSound: {fileID: 8300000, guid: 8c15fc49538f861418e5308362fbce16, type: 3}
   snapPositionX: 0
@@ -5778,14 +5778,14 @@ RectTransform:
   m_GameObject: {fileID: 429555494}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 3.5, y: 3.5, z: 1}
   m_Children: []
   m_Father: {fileID: 345990481}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 300, y: 100}
+  m_AnchoredPosition: {x: 250, y: 75}
   m_SizeDelta: {x: 106, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &429555496
@@ -6240,7 +6240,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee34aee425ce14780a42806c5eac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 35
+  force: 60
   mesh: {fileID: 445876244}
   springSound: {fileID: 8300000, guid: 8c15fc49538f861418e5308362fbce16, type: 3}
   snapPositionX: 0
@@ -7059,7 +7059,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 225, y: 145}
+  m_AnchoredPosition: {x: 215, y: 125}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &515574402
@@ -7234,7 +7234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee34aee425ce14780a42806c5eac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 18
+  force: 40
   mesh: {fileID: 522225399}
   springSound: {fileID: 8300000, guid: 8c15fc49538f861418e5308362fbce16, type: 3}
   snapPositionX: 0
@@ -10602,7 +10602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee34aee425ce14780a42806c5eac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 35
+  force: 60
   mesh: {fileID: 679981034}
   springSound: {fileID: 8300000, guid: 8c15fc49538f861418e5308362fbce16, type: 3}
   snapPositionX: 0
@@ -12210,7 +12210,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 375, y: -70}
+  m_AnchoredPosition: {x: 350, y: -40}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &767276522
@@ -12238,7 +12238,7 @@ MonoBehaviour:
     m_FontSize: 128
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 1
+    m_MinSize: 0
     m_MaxSize: 128
     m_Alignment: 6
     m_AlignByGeometry: 0
@@ -12273,7 +12273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee34aee425ce14780a42806c5eac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
+  force: 40
   mesh: {fileID: 690856665}
   springSound: {fileID: 8300000, guid: 8c15fc49538f861418e5308362fbce16, type: 3}
   snapPositionX: 0
@@ -12708,14 +12708,14 @@ RectTransform:
   m_GameObject: {fileID: 868144476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 345990481}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 400, y: -200}
+  m_AnchoredPosition: {x: 325, y: -150}
   m_SizeDelta: {x: 146, y: 46}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &868144478
@@ -13818,7 +13818,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 45
+  field of view: 50
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -13844,7 +13844,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.709524, y: 4, z: -20}
+  m_LocalPosition: {x: 9.709524, y: 0, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 345990481}
@@ -13867,7 +13867,6 @@ MonoBehaviour:
   affectedByPause: 1
   followZ: 0
   followTarget: {fileID: 567022460}
-  constantOffset: {x: 0, y: 4}
   sideDistance: 2
   vertHeld: 0
   smoothTime: 0.35
@@ -14284,7 +14283,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 375, y: -170}
+  m_AnchoredPosition: {x: 350, y: -103}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1009104132
@@ -14314,7 +14313,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 129
-    m_Alignment: 3
+    m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -15179,7 +15178,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee34aee425ce14780a42806c5eac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 18
+  force: 40
   mesh: {fileID: 1053508101}
   springSound: {fileID: 8300000, guid: 8c15fc49538f861418e5308362fbce16, type: 3}
   snapPositionX: 0
@@ -19329,7 +19328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee34aee425ce14780a42806c5eac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
+  force: 40
   mesh: {fileID: 1327301655}
   springSound: {fileID: 8300000, guid: 8c15fc49538f861418e5308362fbce16, type: 3}
   snapPositionX: 0
@@ -20166,7 +20165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee34aee425ce14780a42806c5eac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 35
+  force: 60
   mesh: {fileID: 1450282570}
   springSound: {fileID: 8300000, guid: 8c15fc49538f861418e5308362fbce16, type: 3}
   snapPositionX: 0
@@ -20637,7 +20636,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -170}
+  m_AnchoredPosition: {x: 400, y: -103}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1492247923
@@ -20668,7 +20667,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 128
-    m_Alignment: 5
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -24526,7 +24525,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 375, y: -250}
+  m_AnchoredPosition: {x: 350, y: -167}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1695722446
@@ -24556,7 +24555,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 128
-    m_Alignment: 3
+    m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -28388,7 +28387,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -250}
+  m_AnchoredPosition: {x: 400, y: -167}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1845623155
@@ -28419,13 +28418,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 128
-    m_Alignment: 5
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 000
 --- !u!222 &1845623156
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -28468,7 +28467,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 500, y: 102.8}
+  m_AnchoredPosition: {x: 375, y: 125}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1858485848
@@ -28499,7 +28498,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 2
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -29856,7 +29855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ee34aee425ce14780a42806c5eac77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 20
+  force: 40
   mesh: {fileID: 1891802201}
   springSound: {fileID: 8300000, guid: 8c15fc49538f861418e5308362fbce16, type: 3}
   snapPositionX: 0
@@ -30357,7 +30356,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 700, y: 102.8}
+  m_AnchoredPosition: {x: 600, y: 125}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1908603400
@@ -30388,7 +30387,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 300
-    m_Alignment: 0
+    m_Alignment: 6
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -32130,7 +32129,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 500, y: -90}
+  m_AnchoredPosition: {x: 400, y: -40}
   m_SizeDelta: {x: 500, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2013858055
@@ -32161,7 +32160,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 128
-    m_Alignment: 5
+    m_Alignment: 8
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -34440,7 +34439,6 @@ MonoBehaviour:
   fader: {fileID: 868144478}
   fadeTime: 2
   nextStage: TitleScreen
-  pauseWhenUnfocused: 0
   player: {fileID: 1141063353}
   song: {fileID: 8300000, guid: 4663daf477ecc9c419f3c957cd5d1787, type: 3}
   songVolume: 0.25
@@ -35344,6 +35342,41 @@ PrefabInstance:
       propertyPath: chargedash_charge
       value: 
       objectReference: {fileID: 8300000, guid: df316deda47fdb94c87c36e77f242d7f, type: 3}
+    - target: {fileID: 8799511116144499497, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799511116144499497, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799511116144499497, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799511116144499497, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799511118015812055, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: brake
+      value: 
+      objectReference: {fileID: 8300000, guid: 4825dc14c52acea4ca54a8920b41d318, type: 3}
+    - target: {fileID: 8799511118015812055, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: 8300000, guid: 616d9dcac0fd7934ab30f0dba2878894, type: 3}
+    - target: {fileID: 8799511118015812055, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: spindash
+      value: 
+      objectReference: {fileID: 8300000, guid: 8a1ffc8302e7af246899c5dd106d6dcc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3d26187051fc9747a4a40f48264f7e2, type: 3}
 --- !u!4 &8799511117175735420 stripped
