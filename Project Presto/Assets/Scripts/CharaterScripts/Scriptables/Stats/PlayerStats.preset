@@ -99,11 +99,11 @@ Preset:
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: airAcceleration
-    value: 14
+    value: 12
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: gravity
-    value: 26.25
+    value: 30
     objectReference: {fileID: 0}
   - target: {fileID: 0}
     propertyPath: minJumpHeight

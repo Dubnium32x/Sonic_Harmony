@@ -1665,13 +1665,13 @@ AnimatorStateMachine:
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions:
+  - first: {fileID: 7998737587179638214}
+    second: []
   - first: {fileID: -6769057917701841186}
     second: []
   - first: {fileID: -5748405314326551256}
     second: []
   - first: {fileID: 2284627398939653396}
-    second: []
-  - first: {fileID: 7998737587179638214}
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -30, y: 50, z: 0}
@@ -4808,7 +4808,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: Speed
-    m_EventTreshold: 15
+    m_EventTreshold: 16.9
   - m_ConditionMode: 1
     m_ConditionEvent: OnGround
     m_EventTreshold: 0
@@ -5266,7 +5266,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 4
     m_ConditionEvent: Speed
-    m_EventTreshold: 14.5
+    m_EventTreshold: 17
   - m_ConditionMode: 1
     m_ConditionEvent: OnGround
     m_EventTreshold: 0
