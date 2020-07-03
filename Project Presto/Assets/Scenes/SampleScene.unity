@@ -15795,13 +15795,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectedByPause: 1
   followZ: 0
+  constOffset: {x: 0, y: 2}
   followTarget: {fileID: 567022460}
   sideDistance: 2
   vertHeld: 0
-  smoothTime: 0.35
+  vertLooksmoothTime: 0.2
   maxSpeed: Infinity
   vertHoldtime: 2
   vertDistance: {x: 4, y: 4}
+  maxZoomOffset: {x: 4, y: 4}
+  zoomSmoothTime: 1
+  zMin: -20
+  zMaxIncrease: -5
+  zoomSpeedMin: 10
+  zoomSpeedMax: 30
 --- !u!1 &967309304
 GameObject:
   m_ObjectHideFlags: 0
