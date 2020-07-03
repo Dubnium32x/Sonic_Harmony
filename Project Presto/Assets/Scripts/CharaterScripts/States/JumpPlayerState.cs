@@ -107,6 +107,7 @@ public class JumpPlayerState : PlayerState
         else
         {
             player.state.ChangeState<WalkPlayerState>();
+            player.skin.animator.SetInteger("Charge", 0);
         }
     }
 
