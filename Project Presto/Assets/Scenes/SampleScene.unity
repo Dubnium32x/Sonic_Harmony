@@ -13864,15 +13864,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e594eac4867624408977e595cb46c75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  affectedByPause: 1
-  followZ: 0
   followTarget: {fileID: 567022460}
-  sideDistance: 2
-  vertHeld: 0
   smoothTime: 0.35
   maxSpeed: Infinity
   vertHoldtime: 2
+  affectedByPause: 1
+  followZ: 0
   vertDistance: {x: 4, y: 4}
+  sideDistance: 2
+  vertHeld: 0
 --- !u!1 &967309304
 GameObject:
   m_ObjectHideFlags: 0
