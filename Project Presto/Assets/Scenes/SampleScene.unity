@@ -40925,12 +40925,12 @@ PrefabInstance:
     - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: chargeTime
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: minChargeTime
-      value: 0.3333333
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
