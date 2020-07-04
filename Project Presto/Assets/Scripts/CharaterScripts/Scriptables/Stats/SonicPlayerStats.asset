@@ -20,7 +20,7 @@ MonoBehaviour:
   diePushUp: 13
   invincibleTime: 5
   controlLockTime: 0.5
-  topSpeed: 22
+  topSpeed: 28
   maxSpeed: 60
   maxLostRingCount: 32
   ringScatterForce: 15
@@ -42,7 +42,7 @@ MonoBehaviour:
   slopeRollDown: 37.5
   AutoActivateRollSpeed: 13
   SpinchargePower: 7
-  SpinmaxChargePower: 30
+  SpinmaxChargePower: 35
   SpinminReleasePower: 16
   SpinpowerLoss: 10
   PeelchargePower: 4
