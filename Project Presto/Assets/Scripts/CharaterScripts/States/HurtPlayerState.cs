@@ -1,5 +1,6 @@
 public class HurtPlayerState : PlayerState
 {
+    public float upwardForceAmount;
 
     public override void Enter(CharControlMotor player)
     {
@@ -9,6 +10,7 @@ public class HurtPlayerState : PlayerState
         player.halfGravity = true;
         player.attacking = false;
         player.GotHurtCheck = true;
+        player.velocity.y = upwardForceAmount;
     }
     public override void Step(CharControlMotor player, float deltaTime)
     {

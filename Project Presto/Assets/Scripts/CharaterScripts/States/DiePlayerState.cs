@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class DiePlayerState : PlayerState
 {
+    public float deathUpwardForceAmount;
+
     public override void Enter(CharControlMotor player)
     {
         player.GroundExit();
@@ -11,7 +13,7 @@ public class DiePlayerState : PlayerState
         player.disableSkinRotation = true;
         player.disableCameraFollow = true;
         player.velocity = Vector3.zero;
-        player.velocity.y = player.stats.diePushUp;
+        player.velocity.y = deathUpwardForceAmount;
         player.PlayAudio(player.audios.death);
     }
     public override void Step(CharControlMotor player, float deltaTime)
