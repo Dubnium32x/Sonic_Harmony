@@ -5,11 +5,14 @@ using UnityEngine.Experimental.LowLevel;
 
 public class PeelPlayerState : PlayerState
 {
-    private float power;
-
+    public float power;
+    public float chargeAmount;
+    public float chargeSpeed;
+    public float chargeNeededToShootOff;
 
     public override void Enter(CharControlMotor player)
     {
+        chargeAmount = 0.0f;
         power = 0;
         player.attacking = true;
         //player.skin.ActiveBall(true);
@@ -29,6 +32,8 @@ public class PeelPlayerState : PlayerState
     {
         player.HandleGravity(deltaTime);
         player.HandleFall();
+
+        chargeAmount += Time.deltaTime * chargeSpeed;
 
         power -= ((power / player.stats.PeelpowerLoss) / 256f) * deltaTime;
 
@@ -67,11 +72,14 @@ public class PeelPlayerState : PlayerState
     public override void Exit(CharControlMotor player)
     {
         //player.skin.ActiveBall(false);
-        player.velocity.x = (player.stats.PeelminReleasePower + (Mathf.Floor(power) / 2)) * player.direction;
-        player.PlayAudio(player.audios.peel_launch, 0.5f);
-        player.sonicState = CharControlMotor.SonicState.Peel;      
-        player.particles.spindashSmoke.Stop();
+        if (chargeAmount >= chargeNeededToShootOff)
+        {
+            player.velocity.x = (player.stats.PeelminReleasePower + (Mathf.Floor(power) / 2)) * player.direction;
+            player.PlayAudio(player.audios.peel_launch, 0.5f);
+            player.sonicState = CharControlMotor.SonicState.Peel;
+        }
 
+        player.particles.spindashSmoke.Stop();
         player.disableSkinRotation = false;
     }
 }
