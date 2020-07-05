@@ -47,14 +47,14 @@ public class JumpPlayerState : PlayerState
                 player.velocity.y = player.stats.minJumpHeight;
             }
 
-            if (dashTimer > maxDashSpeed)
+            if (dashTimer > maxDashAmount)
             {
-                dashTimer = maxDashSpeed;
+                dashTimer = maxDashAmount;
             }
 
             if(active)
             {
-                if (Input.GetButtonDown("Jump"))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     player.PlayAudio(player.audios.spindash_charge, 0.5f);
 
@@ -64,42 +64,35 @@ public class JumpPlayerState : PlayerState
 
                 if (charging)
                 {
-                    dashTimer += Time.deltaTime * Time.timeScale;
-                    player.HandleGravity(-deltaTime * 0.25f);
-                    player.skin.animator.SetInteger("Charge", Mathf.FloorToInt((dashTimer / chargeTime) * 100));
+                    dashTimer += Time.deltaTime * chargeSpeed;
+                    dashSpeed.x = dashTimer;
 
-                    if (Input.GetButtonUp("Jump"))
+                    if (Input.GetKeyUp(KeyCode.Space))
                     {
-                        if(dashTimer < minChargeTime)
+                        codedDashSpeed = dashSpeed;
+                        player.PlayAudio(player.audios.peel_launch, 0.5f);
+
+                        if (player.input.left)
                         {
-                            charging = false;
+                            codedDashSpeed -= codedDashSpeed * 2;
+                        }
+                        else if (player.input.right)
+                        {
+                            codedDashSpeed = dashSpeed;
                         }
                         else
                         {
-                            player.PlayAudio(player.audios.peel_launch, 0.5f);
-                            float dashSpeed = Mathf.Lerp(0, maxDashSpeed, dashTimer / chargeTime);
-
-                            if (player.input.left || (!player.input.right && player.velocity.x < 0) || (player.velocity.x.CompareTo(0) == 0 && player.direction < 0))
-                                dashSpeed *= -1;
-
-                            active = false;
-                            if (Mathf.Abs(player.velocity.x) < player.stats.topSpeed)
-                            {
-                                player.velocity.x = Mathf.Clamp(player.velocity.x + dashSpeed, -player.stats.topSpeed, player.stats.topSpeed);
-                                player.velocity.y = Mathf.Abs(dashSpeed) * dashVertAmount;
-                            }
-                            else
-                            {
-                                player.velocity.y = Mathf.Abs(dashSpeed) * maxSpeedDashVertAmount;
-                            }
+                            if (player.velocity.x < 0)
+                                codedDashSpeed = codedDashSpeed - codedDashSpeed * 2;
+                            else if (player.velocity.x > 0)
+                                codedDashSpeed = dashSpeed;
                         }
-
-                        dashTimer = 0;
-                        player.skin.animator.SetInteger("Charge", 0);
+                        active = false;
+                        player.velocity = dashTarget.position - transform.position + codedDashSpeed;
                     }
                 }
             }
-            else if(Input.GetButtonUp("Jump") && !charging)
+            else if(Input.GetKeyUp(KeyCode.Space) && !charging)
             {
                 active = true;
             }
@@ -119,13 +112,14 @@ public class JumpPlayerState : PlayerState
     [Header("L is the Debug key for the Slingshot/ChargeDash/CloudBurst")]
     public float dashTimer = 0.0f;
     public float dashTimerStartTime;
+    public Transform dashTarget;
     [Tooltip("Use the X-Axis only. (Changes Strenth of Dash)")]
-    public float chargeTime;
-    public float minChargeTime;
-    public float maxDashSpeed;
-    public float dashVertAmount;
-    public float maxSpeedDashVertAmount;
+    public Vector3 dashSpeed;
+    public float chargeSpeed;
+    public float maxDashAmount;
+    public Vector3 codedDashSpeed;
     public bool active;
     public bool charging = false;
+
     
 }

@@ -40917,36 +40917,6 @@ PrefabInstance:
       propertyPath: chargedash_charge
       value: 
       objectReference: {fileID: 8300000, guid: df316deda47fdb94c87c36e77f242d7f, type: 3}
-    - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: airControl
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: chargeTime
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: minChargeTime
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: maxDashSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: dashVertAmount
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: maxSpeedDashVertAmount
-      value: 1.5
-      objectReference: {fileID: 0}
     - target: {fileID: 8799511116144499497, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: m_LocalScale.x
