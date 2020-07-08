@@ -330,6 +330,7 @@ public class CharControlMotor : PlayerMotor
     {
         if (!grounded) return (false, false, false);
         if (Mathf.Abs(velocity.x) >= 1.0f) return (false, false, false);
+        if (Mathf.Abs(gameObject.transform.rotation.z) > 0) return (false, false, false);
         var thecollider = skin.skin.GetComponent<BoxCollider>();
         var pt1 =  thecollider.bounds.center;
         var pt2 =  thecollider.bounds.center;
