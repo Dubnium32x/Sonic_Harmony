@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SonicPlayerStats
   m_EditorClassIdentifier: 
   minAngleToRotate: 12
-  minSpeedToSlide: 0
-  minAngleToSlide: 10
+  minSpeedToSlide: 5.6
+  minAngleToSlide: 45
   minAngleToFall: 90
   pushBack: 6
   diePushUp: 13
