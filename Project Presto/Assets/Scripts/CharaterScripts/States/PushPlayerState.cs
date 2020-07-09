@@ -19,7 +19,7 @@ public class PushPlayerState : PlayerState
                 player.HandleJump();
             }
             //apply push to physical object
-            if (player.input.horizontal != 0 && PushResult.gameObject.CompareTag("PhysicalObject"))
+            if (player.input.horizontal != 0)
             {
                 var rigidbody = PushResult.gameObject.GetComponent<Rigidbody>();
                 rigidbody.AddForce(player.skin.transform.right.normalized * player.input.horizontal);
