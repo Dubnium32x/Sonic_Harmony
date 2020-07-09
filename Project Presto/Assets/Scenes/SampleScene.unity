@@ -121,6 +121,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!198 &6245486 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 120710815119150686, guid: c3d26187051fc9747a4a40f48264f7e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8799511117175735419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &21759672 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 31162821ecd29e341a2677b6e1cbfb02,
@@ -5093,6 +5099,7 @@ RectTransform:
   - {fileID: 515574401}
   - {fileID: 1908603399}
   - {fileID: 1858485847}
+  - {fileID: 1093670417}
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -18213,6 +18220,81 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1093670416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1093670417}
+  - component: {fileID: 1093670419}
+  - component: {fileID: 1093670418}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1093670417
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093670416}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 20, y: 12, z: 1}
+  m_Children: []
+  m_Father: {fileID: 345990481}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1093670418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093670416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 9802cabda17f0f04fa45887324d2ddc0, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1093670419
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093670416}
+  m_CullTransparentMesh: 0
 --- !u!1 &1096636489
 GameObject:
   m_ObjectHideFlags: 0
@@ -40071,12 +40153,12 @@ MonoBehaviour:
     width: 434
     height: 40
   fadeDelay: 1
-  fader: {fileID: 868144478}
+  fader: {fileID: 1093670418}
   fadeTime: 2
   nextStage: TitleScreen
   player: {fileID: 1141063353}
   song: {fileID: 8300000, guid: 4663daf477ecc9c419f3c957cd5d1787, type: 3}
-  songVolume: 0.25
+  songVolume: 0.4
   titleCard: {fileID: 1641014900}
   Debug: 1
 --- !u!4 &2590988545972956733
@@ -40178,7 +40260,7 @@ PrefabInstance:
     - target: {fileID: 387721550862696738, guid: d57f9fc0419735b408e1ee0f900cbd17,
         type: 3}
       propertyPath: collectSoundVolume
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 387721550862696738, guid: d57f9fc0419735b408e1ee0f900cbd17,
         type: 3}
@@ -40188,7 +40270,7 @@ PrefabInstance:
     - target: {fileID: 387721550862696738, guid: d57f9fc0419735b408e1ee0f900cbd17,
         type: 3}
       propertyPath: TimeUntilMusicStartsAgain
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 387721550862696738, guid: d57f9fc0419735b408e1ee0f900cbd17,
         type: 3}
@@ -40416,18 +40498,23 @@ PrefabInstance:
     - target: {fileID: 5121319675129712386, guid: 03b8c7a6bb0213443a71ebca6eef8945,
         type: 3}
       propertyPath: collectSoundVolume
-      value: 1
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5121319675129712386, guid: 03b8c7a6bb0213443a71ebca6eef8945,
         type: 3}
       propertyPath: collectSound
       value: 
-      objectReference: {fileID: 8300000, guid: 94b8c3d751a2ac0428febb64223a8e8a, type: 3}
+      objectReference: {fileID: 8300000, guid: cccfee0dcc5be884d896cef574b38c04, type: 3}
     - target: {fileID: 5121319675129712386, guid: 03b8c7a6bb0213443a71ebca6eef8945,
         type: 3}
       propertyPath: TimeUntilMusicStartsAgain
-      value: 16
+      value: 17
       objectReference: {fileID: 0}
+    - target: {fileID: 5121319675129712386, guid: 03b8c7a6bb0213443a71ebca6eef8945,
+        type: 3}
+      propertyPath: explosionParticle
+      value: 
+      objectReference: {fileID: 6245486}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03b8c7a6bb0213443a71ebca6eef8945, type: 3}
 --- !u!1001 &8799511117175735419
@@ -40705,7 +40792,12 @@ PrefabInstance:
     - target: {fileID: 8799511117732796165, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799511117732796165, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
@@ -41017,6 +41109,12 @@ PrefabInstance:
       propertyPath: chargeNeededToShootOff
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 8799511118015812053, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -8577423528246303672, guid: f3a88af8da04ec44a8f0ba8b40f38d1c,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3d26187051fc9747a4a40f48264f7e2, type: 3}
 --- !u!4 &8799511117175735420 stripped
