@@ -352,6 +352,7 @@ public class CharControlMotor : PlayerMotor
     {
         if (Mathf.Abs(velocity.x) >= 2.0f) return (false,null);
         if (!Physics.Raycast(position, skin.skin.transform.right, out var myhit, 1.0f)) return (false,null);
+        if(!myhit.transform.gameObject.CompareTag("PhysicalObject")) return (false, null);
         
         var myangle = Vector3.Angle(myhit.normal, skin.skin.transform.right);
 
