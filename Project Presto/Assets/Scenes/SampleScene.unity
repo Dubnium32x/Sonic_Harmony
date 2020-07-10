@@ -40886,6 +40886,21 @@ PrefabInstance:
       propertyPath: camera
       value: 
       objectReference: {fileID: 963194229}
+    - target: {fileID: 5761383573282986781, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761383573282986781, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5761383573282986781, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.size
@@ -40924,17 +40939,17 @@ PrefabInstance:
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: lengthInSec
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: InitialModule.startLifetime.scalar
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: EmissionModule.rateOverTime.scalar
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
@@ -41269,7 +41284,7 @@ PrefabInstance:
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: simulationSpeed
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
@@ -41390,21 +41405,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761383573282986781, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761383573282986781, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5761383573282986781, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8799511118015812054, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
