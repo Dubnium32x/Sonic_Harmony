@@ -239,6 +239,7 @@ public class CharControlMotor : PlayerMotor
 
     public void ApplyDeath()
     {
+        if(Death == true) return;
         var scoreManager = ScoreManager.Instance;
 
         if (scoreManager)
@@ -248,6 +249,7 @@ public class CharControlMotor : PlayerMotor
 
         SetShield(PlayerShields.None);
         state.ChangeState<DiePlayerState>();
+        Death = true;
     }
     public void SetShield(PlayerShields shield)
     {
@@ -428,6 +430,7 @@ public class CharControlMotor : PlayerMotor
     }
     public void Respawn(Vector3 position, Quaternion rotation)
     {
+        Death = false;
         direction = 1;
         EnableCollision(true);
         velocity = Vector3.zero;
