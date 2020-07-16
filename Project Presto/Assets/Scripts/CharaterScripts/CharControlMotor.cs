@@ -415,6 +415,7 @@ public class CharControlMotor : PlayerMotor
         if (!(invincibleTimer <= 0)) return;
         invincible = false;
         invincibleTimer = 0;
+        SetShield(PlayerShields.None);
     }
     public void UpdateSpeedShoe(float deltaTime)
     {
