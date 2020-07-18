@@ -110,6 +110,7 @@ public class StageManager : MonoBehaviour
         ScoreManager.Instance.stopTimer = false;
         ScoreManager.Instance.time = startTime;
         player.disableInput = false;
+        player.simulate = true;
         titleCard.SetActive(false);
     }
 
@@ -137,6 +138,7 @@ public class StageManager : MonoBehaviour
             ScoreManager.Instance.Lifes--;
         }
 
+        player.simulate = false;
         fader.color = new Color(0, 0, 0, 0);
         ScoreManager.Instance.ResetTimer();
         ScoreManager.Instance.Rings = 0;
