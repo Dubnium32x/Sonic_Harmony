@@ -437,7 +437,6 @@ public class CharControlMotor : PlayerMotor
         disableSkinRotation = disableCameraFollow = false;
         transform.SetPositionAndRotation(position, rotation);
         state.ChangeState<WalkPlayerState>();
-        simulate = true;
     }
 
     private void OnTriggerEnter(Collider other)
