@@ -6,7 +6,7 @@ public class Checkpoint : MonoBehaviour
 {
     public AudioClip activateClip;
     public Animator animator;
-
+    public bool SwitchZ = false;
     private new AudioSource audio;
     public Transform startPoint;
 
@@ -26,7 +26,16 @@ public class Checkpoint : MonoBehaviour
         triggered = true;
         animator.SetBool("Activated", true);
         audio.PlayOneShot(activateClip, 0.5f);
+        if (SwitchZ)
+        {
+            StageManager.Instance.SetStartState(startPoint.position, Quaternion.identity, ScoreManager.Instance.time);
+        }
+        else
+        {
+            var fixedpoint = startPoint.position;
+            fixedpoint.z = other.transform.position.z;
+            StageManager.Instance.SetStartState(startPoint.position, Quaternion.identity, ScoreManager.Instance.time);
+        }
         //LevelSettings.Instance.SetRespawnPoint(startPoint.position,other.transform.rotation);
-        StageManager.Instance.SetStartState(startPoint.position, Quaternion.identity, ScoreManager.Instance.time);
     }
 }

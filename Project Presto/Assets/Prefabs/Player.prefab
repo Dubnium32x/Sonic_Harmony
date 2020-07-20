@@ -5122,6 +5122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationID: 2
+  deathUpwardForceAmount: 0
 --- !u!114 &8799511117732796414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5135,6 +5136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationID: 3
+  upwardForceAmount: 0
 --- !u!114 &8799511117732796415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5148,6 +5150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationID: 4
+  jumpSlowDownAmount: 0
   dashTimer: 0
   dashTimerStartTime: 0
   dashTarget: {fileID: 0}
@@ -5235,6 +5238,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationID: 11
+  power: 0
+  chargeAmount: 0
+  chargeSpeed: 0
+  chargeNeededToShootOff: 0
 --- !u!114 &3326410860254563045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5614,6 +5621,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7119340784201326969}
     m_Modifications:
+    - target: {fileID: 194850705762970065, guid: 7dd1def7e13d2874893af3bbeb66151b,
+        type: 3}
+      propertyPath: m_Name
+      value: Invincibility
+      objectReference: {fileID: 0}
     - target: {fileID: 194850705762970066, guid: 7dd1def7e13d2874893af3bbeb66151b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5668,11 +5680,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 194850705762970065, guid: 7dd1def7e13d2874893af3bbeb66151b,
-        type: 3}
-      propertyPath: m_Name
-      value: Invincibility
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dd1def7e13d2874893af3bbeb66151b, type: 3}
@@ -5857,6 +5864,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7119340784201326969}
     m_Modifications:
+    - target: {fileID: 6149089300575401734, guid: c36c869836226b24ead05c857b216bd0,
+        type: 3}
+      propertyPath: m_Name
+      value: LandSmoke
+      objectReference: {fileID: 0}
     - target: {fileID: 4265148179339034262, guid: c36c869836226b24ead05c857b216bd0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5912,11 +5924,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6149089300575401734, guid: c36c869836226b24ead05c857b216bd0,
-        type: 3}
-      propertyPath: m_Name
-      value: LandSmoke
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c36c869836226b24ead05c857b216bd0, type: 3}
 --- !u!4 &981305671731130812 stripped
@@ -5938,6 +5945,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7119340784201326969}
     m_Modifications:
+    - target: {fileID: 1045610019655682758, guid: 894e2a80a34589c4a81930f9f358da05,
+        type: 3}
+      propertyPath: m_Name
+      value: DirtSmoke
+      objectReference: {fileID: 0}
     - target: {fileID: 7248775254052229389, guid: 894e2a80a34589c4a81930f9f358da05,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5993,22 +6005,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1045610019655682758, guid: 894e2a80a34589c4a81930f9f358da05,
-        type: 3}
-      propertyPath: m_Name
-      value: DirtSmoke
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 894e2a80a34589c4a81930f9f358da05, type: 3}
---- !u!4 &3015512140049648241 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7248775254052229389, guid: 894e2a80a34589c4a81930f9f358da05,
-    type: 3}
-  m_PrefabInstance: {fileID: 5566892107758918524}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &5706391189848994595 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 175849761729636447, guid: 894e2a80a34589c4a81930f9f358da05,
+    type: 3}
+  m_PrefabInstance: {fileID: 5566892107758918524}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3015512140049648241 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7248775254052229389, guid: 894e2a80a34589c4a81930f9f358da05,
     type: 3}
   m_PrefabInstance: {fileID: 5566892107758918524}
   m_PrefabAsset: {fileID: 0}
