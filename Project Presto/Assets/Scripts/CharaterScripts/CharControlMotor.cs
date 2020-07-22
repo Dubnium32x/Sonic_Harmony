@@ -283,7 +283,16 @@ public class CharControlMotor : PlayerMotor
     public void HandleAcceleration(float deltaTime)
     {
         var realtopspeed = SpeedShoe ? stats.topSpeed * 2 : stats.topSpeed;
-        var acceleration = grounded ? stats.acceleration : stats.airAcceleration;
+        float acceleration;
+        if (!grounded)
+        {
+            acceleration = stats.airAcceleration;
+        }
+        else
+        {
+            acceleration = stats.acceleration;
+            if (SpeedShoe) acceleration *= 2;
+        }
 
         if (input.right && (velocity.x < realtopspeed))
         {
@@ -417,7 +426,7 @@ public class CharControlMotor : PlayerMotor
         if (!(invincibleTimer <= 0)) return;
         invincible = false;
         invincibleTimer = 0;
-        SetShield(PlayerShields.None);
+        particles.Invinciblity.Stop();
     }
     public void UpdateSpeedShoe(float deltaTime)
     {
