@@ -283,7 +283,16 @@ public class CharControlMotor : PlayerMotor
     public void HandleAcceleration(float deltaTime)
     {
         var realtopspeed = SpeedShoe ? stats.topSpeed * 2 : stats.topSpeed;
-        var acceleration = grounded ? stats.acceleration : stats.airAcceleration;
+        float acceleration;
+        if (!grounded)
+        {
+            acceleration = stats.airAcceleration;
+        }
+        else
+        {
+            acceleration = stats.acceleration;
+            if (SpeedShoe) acceleration *= 2;
+        }
 
         if (input.right && (velocity.x < realtopspeed))
         {
