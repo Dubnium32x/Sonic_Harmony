@@ -35,7 +35,6 @@ public class LedgeGrabStateFront : PlayerState
 
     public override void Enter(CharControlMotor player)
     {
-        player.velocity.x = 0;
     }
     public override void Exit(CharControlMotor player)
     {
