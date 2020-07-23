@@ -30,7 +30,7 @@ MonoBehaviour:
   slope: 15
   minSpeedToBrake: 6
   turnSpeed: 0.5
-  airAcceleration: 8
+  airAcceleration: 35
   gravity: 45
   minJumpHeight: 15
   maxJumpHeight: 25

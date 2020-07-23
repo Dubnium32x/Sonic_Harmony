@@ -120,6 +120,7 @@ public abstract class PlayerMotor : MonoBehaviour
 
     private void UpdateGroundState()
     {
+		
         if (grounded && velocity.y > 0)
         {
             GroundExit();
@@ -311,7 +312,7 @@ public abstract class PlayerMotor : MonoBehaviour
     }
 
     public void GroundEnter(Vector3 normal)
-    {
+    {		
         if (grounded) return;
         OnGroundEnter();
         up = normal;

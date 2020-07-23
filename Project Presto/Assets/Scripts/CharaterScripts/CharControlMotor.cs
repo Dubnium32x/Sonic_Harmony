@@ -86,6 +86,7 @@ public class CharControlMotor : PlayerMotor
     public GameObject lostRing;
     public new CamFollow camera;
     public PlayerSkin skin;
+	 
 
     public PlayerShields shield;
     public CharStateMachine state;
@@ -104,6 +105,7 @@ public class CharControlMotor : PlayerMotor
     public bool disableSkinRotation;
     public bool disableCameraFollow;
 
+	
     protected override void OnMotorUpdate()
     {
         // To whoever put this in the update method:
@@ -116,6 +118,7 @@ public class CharControlMotor : PlayerMotor
 
         //for some reason this endlessly spawns rings
         //InitializeLostRingPool();
+		
     }
     protected override void OnMotorFixedUpdate(float deltaTime)
     {
@@ -289,7 +292,7 @@ public class CharControlMotor : PlayerMotor
             acceleration = stats.airAcceleration;
         }
         else
-        {
+        {			
             acceleration = stats.acceleration;
             if (SpeedShoe) acceleration *= 2;
         }
@@ -299,15 +302,16 @@ public class CharControlMotor : PlayerMotor
             if(grounded)
                 velocity.x += acceleration * deltaTime;
             else
-                velocity.x += acceleration * airAccelModifier * deltaTime;
+                velocity.x += stats.airAcceleration * airAccelModifier * deltaTime;
             velocity.x = Mathf.Min(velocity.x, realtopspeed);
+				
         }
         else if (input.left && (velocity.x > -realtopspeed))
         {
             if (grounded)
                 velocity.x -= acceleration * deltaTime;
-            else
-                velocity.x -= acceleration * airAccelModifier * deltaTime;
+            else				
+                velocity.x -= stats.airAcceleration * airAccelModifier * deltaTime;
             velocity.x = Mathf.Max(velocity.x, -realtopspeed);
         }
     }
@@ -353,8 +357,8 @@ public class CharControlMotor : PlayerMotor
              pt1 = pt2;
              pt2 = tmp;
          }
-        var LandFoundFront = Physics.Raycast(pt1, -skin.transform.up, thecollider.bounds.extents.y);
-        var LandFoundBack = Physics.Raycast(pt2, -skin.transform.up, thecollider.bounds.extents.y);
+        var LandFoundFront = Physics.Raycast(pt1, -skin.transform.up, thecollider.bounds.extents.y + 0.1f);
+        var LandFoundBack = Physics.Raycast(pt2, -skin.transform.up, thecollider.bounds.extents.y + 0.1f);
 
         return (!LandFoundFront,!LandFoundBack,!LandFoundFront||!LandFoundBack);
     }
