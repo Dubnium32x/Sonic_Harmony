@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using UnityEngine.Audio;
 
 [AddComponentMenu("Freedom Engine/Game/Stage Manager")]
 public class StageManager : MonoBehaviour
@@ -49,7 +50,7 @@ public class StageManager : MonoBehaviour
         {
             audio = gameObject.AddComponent<AudioSource>();
         }
-
+        audio.outputAudioMixerGroup = Resources.Load<AudioMixer>("Main").FindMatchingGroups("Music")[0];
         startPoint = player.transform.position;
         startRotation = player.transform.rotation;
         StartStage();

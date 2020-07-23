@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 [AddComponentMenu("Freedom Engine/Objects/Goal Plate")]
 public class GoalPlate : FreedomObject
@@ -16,6 +17,7 @@ public class GoalPlate : FreedomObject
         {
             audio = gameObject.AddComponent<AudioSource>();
         }
+        audio.outputAudioMixerGroup = Resources.Load<AudioMixer>("Main").FindMatchingGroups("SFX")[0];
     }
 
     public override void OnRespawn()

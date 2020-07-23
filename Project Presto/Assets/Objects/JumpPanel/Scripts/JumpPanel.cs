@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 [AddComponentMenu("Freedom Engine/Objects/Jump Panel")]
 [RequireComponent(typeof(Collider))]
@@ -17,7 +18,7 @@ public class JumpPanel : MonoBehaviour
         {
             audio = gameObject.AddComponent<AudioSource>();
         }
-
+        audio.outputAudioMixerGroup = Resources.Load<AudioMixer>("Main").FindMatchingGroups("SFX")[0];
         if (!TryGetComponent(out collider))
         {
             collider = gameObject.AddComponent<BoxCollider>();

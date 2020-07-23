@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Audio;
 
 [RequireComponent(typeof(Collider))]
 public abstract class EnemyMotor : FreedomObject
@@ -71,6 +72,8 @@ public abstract class EnemyMotor : FreedomObject
         {
             audio = gameObject.AddComponent<AudioSource>();
         }
+
+        audio.outputAudioMixerGroup = Resources.Load<AudioMixer>("Main").FindMatchingGroups("SFX")[0];
     }
 
     private void InitializeCamera()
