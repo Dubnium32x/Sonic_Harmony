@@ -34,7 +34,7 @@ public class Checkpoint : MonoBehaviour
         {
             var fixedpoint = startPoint.position;
             fixedpoint.z = other.transform.position.z;
-            StageManager.Instance.SetStartState(startPoint.position, Quaternion.identity, ScoreManager.Instance.time);
+            StageManager.Instance.SetStartState(fixedpoint, Quaternion.identity, ScoreManager.Instance.time);
         }
         //LevelSettings.Instance.SetRespawnPoint(startPoint.position,other.transform.rotation);
     }
