@@ -38,9 +38,9 @@ public class SonicSfx : MonoBehaviour
 
         death = mysounds.First(Result => Result.name.ToLower().Contains("death"));
         
-        peel = mysounds.First(Result => Result.name.ToLower().Contains("peelout_charge_remake"));
+        peel = mysounds.First(Result => Result.name.ToLower().Contains("peelout_charge"));
 
-        peel_launch = mysounds.First(Result => Result.name.ToLower().Contains("peelout_launch_remake"));
+        peel_launch = mysounds.First(Result => Result.name.ToLower().Contains("peelout_launch"));
 
         spindash_charge = mysounds.First(Result => Result.name.ToLower().Contains("spindash"));
 
