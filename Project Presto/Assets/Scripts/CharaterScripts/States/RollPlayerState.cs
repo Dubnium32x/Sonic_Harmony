@@ -1,19 +1,16 @@
 using UnityEngine;
 
 public class RollPlayerState : PlayerState
-{	
-	public GameObject LePlayer;
+{
+	public GameObject playermotor;
     public override void Enter(CharControlMotor player)
     {
-        player.attacking = true;		
+        player.attacking = true;
         player.particles.brakeSmoke.Play();
         player.disableSkinRotation = true;
         player.PlayAudio(player.audios.spindash, 0.5f);
-		
-		LePlayer.GetComponent<PlayerMotor>().height = 2;
-		LePlayer.GetComponent<PlayerMotor>().ChangeBounds(1);
     }
-
+	
     public override void Step(CharControlMotor player, float deltaTime)
     {
         player.HandleSlopeFactor(deltaTime);
@@ -21,11 +18,25 @@ public class RollPlayerState : PlayerState
         player.HandleDeceleration(deltaTime);
         player.HandleGravity(deltaTime);
         player.HandleFall();
-
+		
+		//Needs a math check ~Birb64
+		/*
+		
+		if (playermotor.transform.eulerAngles.z > 1 && playermotor.transform.eulerAngles.z < 181)
+		{
+		playermotor.GetComponent<PlayerMotor>().height = playermotor.transform.eulerAngles.z;
+		}
+		
+		if (playermotor.transform.eulerAngles.z < 360 && playermotor.transform.eulerAngles.z > 179)
+		{
+		playermotor.GetComponent<PlayerMotor>().height = playermotor.transform.eulerAngles.z;
+		}
+		
+		*/
         if (player.grounded)
         {
             if (player.input.actionDown)
-            {                
+            {
                 player.HandleJump();
             }
             else if (Mathf.Abs(player.velocity.x) < player.stats.minSpeedToUnroll)
@@ -43,6 +54,6 @@ public class RollPlayerState : PlayerState
     {
         player.particles.brakeSmoke.Stop();
         player.disableSkinRotation = false;
-		LePlayer.GetComponent<PlayerMotor>().height = 1;
+		playermotor.GetComponent<PlayerMotor>().height = 1;
     }
 }
