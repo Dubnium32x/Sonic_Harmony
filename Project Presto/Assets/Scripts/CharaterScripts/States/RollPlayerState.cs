@@ -20,19 +20,19 @@ public class RollPlayerState : PlayerState
         player.HandleFall();
 		
 		//Needs a math check ~Birb64
-		/*
 		
-		if (player.PlayerObject.transform.eulerAngles.z > 1 && player.PlayerObject.transform.eulerAngles.z < 181)
+		
+		if(player.PlayerObject.transform.eulerAngles.z > 110 && player.PlayerObject.transform.eulerAngles.z < 200)
 		{
-		player.PlayerObject.GetComponent<PlayerMotor>().height = player.PlayerObject.transform.eulerAngles.z;
+		player.PlayerObject.GetComponent<PlayerMotor>().height = 0.01f * player.PlayerObject.transform.eulerAngles.z;
+		}
+		if(player.PlayerObject.transform.eulerAngles.z < 250 && player.PlayerObject.transform.eulerAngles.z > 200)
+		{
+			player.PlayerObject.GetComponent<PlayerMotor>().height = 0.007f * player.PlayerObject.transform.eulerAngles.z;
 		}
 		
-		if (player.PlayerObject.transform.eulerAngles.z < 360 && player.PlayerObject.transform.eulerAngles.z > 179)
-		{
-		player.PlayerObject.GetComponent<PlayerMotor>().height = player.PlayerObject.transform.eulerAngles.z;
-		}
 		
-		*/
+		
         if (player.grounded)
         {
             if (player.input.actionDown)
