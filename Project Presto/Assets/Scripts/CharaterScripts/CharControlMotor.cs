@@ -86,6 +86,7 @@ public class CharControlMotor : PlayerMotor
     public GameObject lostRing;
     public new CamFollow camera;
     public PlayerSkin skin;
+	public GameObject PlayerObject;
 	 
 
     public PlayerShields shield;
@@ -156,6 +157,7 @@ public class CharControlMotor : PlayerMotor
         audioSources = transform.Find("Audio");
         anim.SetBool("Gothurt", GotHurtCheck);
         anim.SetBool("Death", Death);
+		
 
         Debug.Log(acceleration + "," + deceleration + "," + turnAroundSpeed);
         Debug.Log(acceleration * Time.deltaTime + "," + deceleration * Time.deltaTime + "," + turnAroundSpeed * Time.deltaTime);

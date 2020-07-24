@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class RollPlayerState : PlayerState
 {
-	public GameObject playermotor;
+	
     public override void Enter(CharControlMotor player)
     {
         player.attacking = true;
@@ -22,14 +22,14 @@ public class RollPlayerState : PlayerState
 		//Needs a math check ~Birb64
 		/*
 		
-		if (playermotor.transform.eulerAngles.z > 1 && playermotor.transform.eulerAngles.z < 181)
+		if (player.PlayerObject.transform.eulerAngles.z > 1 && player.PlayerObject.transform.eulerAngles.z < 181)
 		{
-		playermotor.GetComponent<PlayerMotor>().height = playermotor.transform.eulerAngles.z;
+		player.PlayerObject.GetComponent<PlayerMotor>().height = player.PlayerObject.transform.eulerAngles.z;
 		}
 		
-		if (playermotor.transform.eulerAngles.z < 360 && playermotor.transform.eulerAngles.z > 179)
+		if (player.PlayerObject.transform.eulerAngles.z < 360 && player.PlayerObject.transform.eulerAngles.z > 179)
 		{
-		playermotor.GetComponent<PlayerMotor>().height = playermotor.transform.eulerAngles.z;
+		player.PlayerObject.GetComponent<PlayerMotor>().height = player.PlayerObject.transform.eulerAngles.z;
 		}
 		
 		*/
@@ -54,6 +54,6 @@ public class RollPlayerState : PlayerState
     {
         player.particles.brakeSmoke.Stop();
         player.disableSkinRotation = false;
-		playermotor.GetComponent<PlayerMotor>().height = 1;
+		player.PlayerObject.GetComponent<PlayerMotor>().height = 1;
     }
 }
