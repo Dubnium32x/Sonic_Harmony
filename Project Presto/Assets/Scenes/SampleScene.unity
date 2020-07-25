@@ -27553,6 +27553,16 @@ PrefabInstance:
       propertyPath: ShapeModule.radiusThickness
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2864206382070399073, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864206382070399073, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.25
+      objectReference: {fileID: 0}
     - target: {fileID: 8799511117732796167, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27656,7 +27666,7 @@ PrefabInstance:
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 2.5
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
@@ -27671,17 +27681,17 @@ PrefabInstance:
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inSlope
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
-      value: 0
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
@@ -27766,7 +27776,7 @@ PrefabInstance:
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].time
-      value: 1
+      value: 0.9738159
       objectReference: {fileID: 0}
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
@@ -27781,7 +27791,7 @@ PrefabInstance:
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
@@ -28076,7 +28086,7 @@ PrefabInstance:
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: InitialModule.rotation3D
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
@@ -28112,6 +28122,16 @@ PrefabInstance:
         type: 3}
       propertyPath: LightsModule.rangeCurve.scalar
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: InitialModule.startRotationY.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: InitialModule.startRotation.scalar
+      value: 0.7853981
       objectReference: {fileID: 0}
     - target: {fileID: 6437150160602135271, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
@@ -28343,7 +28363,8 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+      objectReference: {fileID: -5495902117074765545, guid: 69e23eb1ece52cb40bde0db2bfc9d2b6,
+        type: 3}
     - target: {fileID: 3043873861676264881, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: m_Flip.x
@@ -28394,16 +28415,6 @@ PrefabInstance:
       propertyPath: playermotor
       value: 
       objectReference: {fileID: 1263843471}
-    - target: {fileID: 2864206382070399073, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2864206382070399073, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.25
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3d26187051fc9747a4a40f48264f7e2, type: 3}
 --- !u!4 &8799511117175735420 stripped
