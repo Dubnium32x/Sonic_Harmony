@@ -28177,10 +28177,15 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: b18965d7493b21443958b71c39b084a8, type: 2}
     - target: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8799511118015812054, guid: c3d26187051fc9747a4a40f48264f7e2,
