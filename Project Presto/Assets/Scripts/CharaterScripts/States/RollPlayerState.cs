@@ -29,11 +29,11 @@ public class RollPlayerState : PlayerState
 		
 		// This is the line of code that uses that "backwards rotation thing" that hasen't been implemented yet, please find out how to make this work ~ Birb64
 		
-		/*if(player.PlayerObject.transform.eulerAngles.z < 230 && player.PlayerObject.transform.eulerAngles.z > 180)
+		 if(player.PlayerObject.transform.eulerAngles.z < 230 && player.PlayerObject.transform.eulerAngles.z > 180)
 		{
-			player.PlayerObject.GetComponent<PlayerMotor>().height = 0.01f * (player.PlayerObject.transform.eulerAngles.z );
+			player.PlayerObject.GetComponent<PlayerMotor>().height = 0.01f * (180 - Mathf.Abs(player.PlayerObject.transform.eulerAngles.z - 180));
 		}
-		*/
+		
 		
 		
         if (player.grounded)
