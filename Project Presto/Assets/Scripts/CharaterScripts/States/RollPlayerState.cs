@@ -9,6 +9,7 @@ public class RollPlayerState : PlayerState
         player.particles.brakeSmoke.Play();
         player.disableSkinRotation = true;
         player.PlayAudio(player.audios.spindash, 0.5f);
+		player.PlayerObject.GetComponent<PlayerMotor>().ChangeBounds(1);
     }
 	
     public override void Step(CharControlMotor player, float deltaTime)
@@ -19,22 +20,31 @@ public class RollPlayerState : PlayerState
         player.HandleGravity(deltaTime);
         player.HandleFall();
 		
-		//Needs a math check ~Birb64
 		
+		///* Controls the height of the playerspin ~Birb64 *///
 		
-		if(player.PlayerObject.transform.eulerAngles.z > 130 && player.PlayerObject.transform.eulerAngles.z < 180)
+		if(player.PlayerObject.transform.eulerAngles.z > 100 && player.PlayerObject.transform.eulerAngles.z < 180)
 		{
-		player.PlayerObject.GetComponent<PlayerMotor>().height = 0.01f * player.PlayerObject.transform.eulerAngles.z;
+		player.PlayerObject.GetComponent<PlayerMotor>().height = 0.012f * player.PlayerObject.transform.eulerAngles.z;
+		}
+		if(player.PlayerObject.transform.eulerAngles.z < 260 && player.PlayerObject.transform.eulerAngles.z > 180)
+		{
+			player.PlayerObject.GetComponent<PlayerMotor>().height = 0.012f * (180 - Mathf.Abs(player.PlayerObject.transform.eulerAngles.z - 180));
 		}
 		
-		// This is the line of code that uses that "backwards rotation thing" that hasen't been implemented yet, please find out how to make this work ~ Birb64
-		
-		 if(player.PlayerObject.transform.eulerAngles.z < 230 && player.PlayerObject.transform.eulerAngles.z > 180)
+		///* Controls the width of the playerspin ~Birb64 *///
+		if(player.PlayerObject.transform.eulerAngles.z > 30 && player.PlayerObject.transform.eulerAngles.z < 180)
 		{
-			player.PlayerObject.GetComponent<PlayerMotor>().height = 0.01f * (180 - Mathf.Abs(player.PlayerObject.transform.eulerAngles.z - 180));
+		player.PlayerObject.GetComponent<PlayerMotor>().wallExtents = 0.01f * player.PlayerObject.transform.eulerAngles.z;
 		}
-		
-		
+		if(player.PlayerObject.transform.eulerAngles.z < 330 && player.PlayerObject.transform.eulerAngles.z > 180)
+		{
+			player.PlayerObject.GetComponent<PlayerMotor>().wallExtents = 0.01f * (180 - Mathf.Abs(player.PlayerObject.transform.eulerAngles.z - 180));
+		}
+		else if (player.PlayerObject.transform.eulerAngles.z < 180 || player.PlayerObject.transform.eulerAngles.z > 260)
+		{
+			player.PlayerObject.GetComponent<PlayerMotor>().wallExtents = 0.02f;
+		}
 		
         if (player.grounded)
         {
@@ -58,5 +68,6 @@ public class RollPlayerState : PlayerState
         player.particles.brakeSmoke.Stop();
         player.disableSkinRotation = false;
 		player.PlayerObject.GetComponent<PlayerMotor>().height = 1;
+		player.PlayerObject.GetComponent<PlayerMotor>().ChangeBounds(0);
     }
 }
