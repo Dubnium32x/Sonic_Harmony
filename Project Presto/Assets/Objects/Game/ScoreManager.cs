@@ -87,6 +87,18 @@ public class ScoreManager : MonoBehaviour
 		timer.Append(digits[seconds / 10]);
 		timer.Append(digits[seconds % 10]);
 		timeCounter.text = timer.ToString();
+		if (minutes <= 10)
+		{
+			if (timeCounter.color == Color.white)
+			{
+				timeCounter.color = Color.red;
+			}
+
+			if (timeCounter.color == Color.red)
+			{
+				timeCounter.color = Color.white;
+			}
+		}
 	}
 
 	public void ResetTimer()
