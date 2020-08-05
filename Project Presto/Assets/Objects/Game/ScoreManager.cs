@@ -63,6 +63,14 @@ public class ScoreManager : MonoBehaviour
 		{
 			lifes = value;
 			lifeCounter.text = lifes.ToString("D2");
+			if (lifes <= 1)
+			{
+				lifeCounter.color = Color.red;
+			}
+			else
+			{
+				lifeCounter.color = Color.white;
+			}
 		}
 	}
 
