@@ -63,14 +63,6 @@ public class ScoreManager : MonoBehaviour
 		{
 			lifes = value;
 			lifeCounter.text = lifes.ToString("D2");
-			if (lifes <= 1)
-			{
-				lifeCounter.color = Color.red;
-			}
-			else
-			{
-				lifeCounter.color = Color.white;
-			}
 		}
 	}
 
@@ -95,7 +87,7 @@ public class ScoreManager : MonoBehaviour
 		timer.Append(digits[seconds / 10]);
 		timer.Append(digits[seconds % 10]);
 		timeCounter.text = timer.ToString();
-		if (minutes <= 10)
+		if (minutes <= 10 && seconds > 30)
 		{
 			if (timeCounter.color == Color.white)
 			{
