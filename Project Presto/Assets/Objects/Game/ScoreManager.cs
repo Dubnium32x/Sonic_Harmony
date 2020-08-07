@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using System.Linq;
 using System.Text;
 
 [AddComponentMenu("Freedom Engine/Game/Score Manager")]
@@ -70,6 +71,8 @@ public class ScoreManager : MonoBehaviour
 	{
 		Lifes = 3;
 		time = 0;
+		StartCoroutine(nameof(BlinkRings));
+		StartCoroutine(nameof(BlinkTimer));
 	}
 
 	private void Update()
@@ -87,17 +90,49 @@ public class ScoreManager : MonoBehaviour
 		timer.Append(digits[seconds / 10]);
 		timer.Append(digits[seconds % 10]);
 		timeCounter.text = timer.ToString();
-		if (minutes <= 10 && seconds > 30)
+	}
+	IEnumerator BlinkTimer()
+	{
+		while (true)
 		{
-			if (timeCounter.color == Color.white)
+			if (int.Parse(timeCounter.text.Split(':')[0]) > 9)
 			{
-				timeCounter.color = Color.red;
+				if (timeCounter.color == Color.red)
+				{
+					timeCounter.color = Color.white;
+					//Play sound
+					yield return new WaitForSeconds(0.5f);
+				}
+				else if (timeCounter.color == Color.white)
+				{
+					timeCounter.color = Color.red;
+					//Play sound
+					yield return new WaitForSeconds(0.5f);
+				}
 			}
-
-			if (timeCounter.color == Color.red)
+			yield return new WaitForSeconds(0.5f);
+		}
+	}
+	IEnumerator BlinkRings()
+	{
+		while (true)
+		{
+			if (rings == 0 && int.Parse(ringCounter.text) == 0)
 			{
-				timeCounter.color = Color.white;
+				if (ringCounter.color == Color.red)
+				{
+					ringCounter.color = Color.white;
+					//Play sound
+					yield return new WaitForSeconds(0.5f);
+				}
+				else if (ringCounter.color == Color.white)
+				{
+					ringCounter.color = Color.red;
+					//Play sound
+					yield return new WaitForSeconds(0.5f);
+				}
 			}
+			yield return new WaitForSeconds(0.5f);
 		}
 	}
 
