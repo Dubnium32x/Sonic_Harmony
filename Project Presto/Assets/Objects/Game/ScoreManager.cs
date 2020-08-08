@@ -97,19 +97,14 @@ public class ScoreManager : MonoBehaviour
 		{
 			if (int.Parse(timeCounter.text.Split(':')[0]) > 9)
 			{
-				if (timeCounter.color == Color.red)
-				{
-					timeCounter.color = Color.white;
-					//Play sound
-					yield return new WaitForSeconds(0.5f);
-				}
-				else if (timeCounter.color == Color.white)
+				if (timeCounter.color == Color.white)
 				{
 					timeCounter.color = Color.red;
 					//Play sound
 					yield return new WaitForSeconds(0.5f);
 				}
 			}
+			timeCounter.color = Color.white;
 			yield return new WaitForSeconds(0.5f);
 		}
 	}
@@ -117,21 +112,16 @@ public class ScoreManager : MonoBehaviour
 	{
 		while (true)
 		{
-			if (rings == 0 && int.Parse(ringCounter.text) == 0)
+			if (rings == 0 || int.Parse(ringCounter.text) == 0)
 			{
-				if (ringCounter.color == Color.red)
-				{
-					ringCounter.color = Color.white;
-					//Play sound
-					yield return new WaitForSeconds(0.5f);
-				}
-				else if (ringCounter.color == Color.white)
+				if (ringCounter.color == Color.white)
 				{
 					ringCounter.color = Color.red;
 					//Play sound
 					yield return new WaitForSeconds(0.5f);
 				}
 			}
+			ringCounter.color = Color.white;
 			yield return new WaitForSeconds(0.5f);
 		}
 	}
