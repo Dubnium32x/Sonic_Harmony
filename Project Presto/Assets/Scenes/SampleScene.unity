@@ -23537,6 +23537,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1927055311}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &1953921244 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8799511117175735419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1966390149
 Mesh:
   m_ObjectHideFlags: 0
@@ -27856,6 +27862,16 @@ PrefabInstance:
       propertyPath: PlayerObject
       value: 
       objectReference: {fileID: 1263843471}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 1953921244}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: spriteSkin
+      value: 
+      objectReference: {fileID: 8799511117175735420}
     - target: {fileID: 5761383573282986781, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -27870,6 +27886,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b18965d7493b21443958b71c39b084a8, type: 2}
+    - target: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2330280113997202832, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
@@ -28376,31 +28417,6 @@ PrefabInstance:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: b18965d7493b21443958b71c39b084a8, type: 2}
-    - target: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: m_SpriteSortPoint
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8799511116144499496, guid: c3d26187051fc9747a4a40f48264f7e2,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8799511118015812054, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: m_Volume
@@ -28648,6 +28664,106 @@ PrefabInstance:
       propertyPath: brake
       value: 
       objectReference: {fileID: 8300000, guid: c735f300cd5e05d44bbf6b9a7143d6b8, type: 3}
+    - target: {fileID: 8799511118015812055, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: peel
+      value: 
+      objectReference: {fileID: 8300000, guid: ebe8c5697f2d9e14098e24496818e0b2, type: 3}
+    - target: {fileID: 8799511118015812055, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: spindash_charge
+      value: 
+      objectReference: {fileID: 8300000, guid: 2a7c0206f62ba1042b6d72b9d97d269e, type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: YellowSpring
+      value: 
+      objectReference: {fileID: 7108303117945459946, guid: 693eeebaebd4cee4a8dfcf1be6c036b4,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: RedSpring
+      value: 
+      objectReference: {fileID: 9127893798833684546, guid: d1a7b3258c2ffb44ca293f551e08dd3f,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: InvinciMonitor
+      value: 
+      objectReference: {fileID: 7346762943305287882, guid: 03b8c7a6bb0213443a71ebca6eef8945,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: RingMonitor
+      value: 
+      objectReference: {fileID: 234293720356410458, guid: ff9cd2edf9bf8a848aa8d929064fec3a,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: ShieldMonitor
+      value: 
+      objectReference: {fileID: 1396385429413608877, guid: 08852117f38d3874a81524df09429a17,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: SpeedMonitor
+      value: 
+      objectReference: {fileID: 3601990258337878354, guid: d57f9fc0419735b408e1ee0f900cbd17,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: Checkpoint
+      value: 
+      objectReference: {fileID: 7235758662932757817, guid: a174a9cd4f21b6f4a8a911c479cd3782,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: Ring
+      value: 
+      objectReference: {fileID: 3434012358516134540, guid: 3c618d4ab073e214080e432c74339cf3,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: FunSonic
+      value: 
+      objectReference: {fileID: 8799511117732796162, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: MovingPlatform
+      value: 
+      objectReference: {fileID: 3517971790004939334, guid: f7cc865fbd518cc419f13d6f98783242,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: FallingPlatform
+      value: 
+      objectReference: {fileID: 3219455330484017725, guid: 6e10bf87d0de9b946aa3d99ea2e05f2f,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: MotoBug
+      value: 
+      objectReference: {fileID: 6953173085287345868, guid: dc195bab46ec9c842a26575137321300,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: Spikes
+      value: 
+      objectReference: {fileID: 2696778834688530774, guid: f38dfd473303639498fdf8fe0fe672e3,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: OneUp
+      value: 
+      objectReference: {fileID: 8599643739715303563, guid: aff0481dbff77a847b05ca7729b3e8da,
+        type: 3}
+    - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: FunRing
+      value: 
+      objectReference: {fileID: 7118938233733720358, guid: b9b3b4cce9cae62478217bfa82677cf2,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3d26187051fc9747a4a40f48264f7e2, type: 3}
 --- !u!4 &8799511117175735420 stripped

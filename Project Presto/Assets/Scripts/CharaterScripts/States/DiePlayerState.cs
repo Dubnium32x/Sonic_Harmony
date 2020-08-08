@@ -13,7 +13,7 @@ public class DiePlayerState : PlayerState
         player.disableSkinRotation = true;
         player.disableCameraFollow = true;
         player.velocity = Vector3.zero;
-        player.velocity.y = deathUpwardForceAmount;
+		player.velocity.y = deathUpwardForceAmount;
         player.PlayAudio(player.audios.death);
     }
     public override void Step(CharControlMotor player, float deltaTime)

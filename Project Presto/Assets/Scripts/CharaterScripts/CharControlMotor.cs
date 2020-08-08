@@ -87,7 +87,7 @@ public class CharControlMotor : PlayerMotor
     public new CamFollow camera;
     public PlayerSkin skin;
 	public GameObject PlayerObject;
-	 
+	public Transform spriteSkin;
 
     public PlayerShields shield;
     public CharStateMachine state;
@@ -137,6 +137,15 @@ public class CharControlMotor : PlayerMotor
         state.UpdateState(deltaTime);
         ClampVelocity();
         ClampToStageBounds();
+		
+		if (Input.GetKey(KeyCode.Keypad1))
+		{
+			state.ChangeState<DebugState>();
+		}
+		if (Input.GetKey(KeyCode.Keypad0))
+		{
+			state.ChangeState<WalkPlayerState>();
+		}
     }
 
     protected override void OnMotorLateUpdate()
@@ -256,6 +265,7 @@ public class CharControlMotor : PlayerMotor
         state.ChangeState<DiePlayerState>();
         Death = true;
     }
+	
     public void SetShield(PlayerShields shield)
     {
         this.shield = shield;

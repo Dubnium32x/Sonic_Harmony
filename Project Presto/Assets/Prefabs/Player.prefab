@@ -4894,6 +4894,7 @@ GameObject:
   - component: {fileID: 3326410860254563045}
   - component: {fileID: 4090815344985719149}
   - component: {fileID: 4818233268113537086}
+  - component: {fileID: 7585795263523788880}
   - component: {fileID: 7484859397679364067}
   m_Layer: 0
   m_Name: Player
@@ -5079,6 +5080,8 @@ MonoBehaviour:
     type: 3}
   camera: {fileID: 0}
   skin: {fileID: 7484859397679364067}
+  PlayerObject: {fileID: 0}
+  spriteSkin: {fileID: 0}
   shield: 0
   disableInput: 1
   disableSkinRotation: 0
@@ -5281,6 +5284,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationID: 16
+--- !u!114 &7585795263523788880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799511117732796162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8682e6bd030a7bf46ba6706708d4b1d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationID: 6
+  Mover: {fileID: 8799511117732796167}
 --- !u!114 &7484859397679364067
 MonoBehaviour:
   m_ObjectHideFlags: 0
