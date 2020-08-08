@@ -14786,6 +14786,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 150.2044, y: 134.1404, z: 150.2044}
   m_Center: {x: 0, y: 60, z: 0}
+--- !u!1 &1243280592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3517971790004939334, guid: f7cc865fbd518cc419f13d6f98783242,
+    type: 3}
+  m_PrefabInstance: {fileID: 853789553}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1253035105
 Mesh:
   m_ObjectHideFlags: 0
@@ -18873,6 +18879,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1674869937 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7235758662932757817, guid: a174a9cd4f21b6f4a8a911c479cd3782,
+    type: 3}
+  m_PrefabInstance: {fileID: 1744190280}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1682759917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27872,6 +27884,88 @@ PrefabInstance:
       propertyPath: spriteSkin
       value: 
       objectReference: {fileID: 8799511117175735420}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: RedSpring
+      value: 
+      objectReference: {fileID: 9127893798833684546, guid: d1a7b3258c2ffb44ca293f551e08dd3f,
+        type: 3}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: YellowSpring
+      value: 
+      objectReference: {fileID: 7108303117945459946, guid: 693eeebaebd4cee4a8dfcf1be6c036b4,
+        type: 3}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: Ring
+      value: 
+      objectReference: {fileID: 3434012358516134540, guid: 3c618d4ab073e214080e432c74339cf3,
+        type: 3}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: Spikes
+      value: 
+      objectReference: {fileID: 2696778834688530774, guid: f38dfd473303639498fdf8fe0fe672e3,
+        type: 3}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: InvinciMonitor
+      value: 
+      objectReference: {fileID: 7346762943305287882, guid: 03b8c7a6bb0213443a71ebca6eef8945,
+        type: 3}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: SpeedMonitor
+      value: 
+      objectReference: {fileID: 3601990258337878354, guid: d57f9fc0419735b408e1ee0f900cbd17,
+        type: 3}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: ShieldMonitor
+      value: 
+      objectReference: {fileID: 1396385429413608877, guid: 08852117f38d3874a81524df09429a17,
+        type: 3}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: RingMonitor
+      value: 
+      objectReference: {fileID: 234293720356410458, guid: ff9cd2edf9bf8a848aa8d929064fec3a,
+        type: 3}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: Checkpoint
+      value: 
+      objectReference: {fileID: 1674869937}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: MovingPlatform
+      value: 
+      objectReference: {fileID: 1243280592}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: FallingPlatform
+      value: 
+      objectReference: {fileID: 3219455330484017725, guid: 6e10bf87d0de9b946aa3d99ea2e05f2f,
+        type: 3}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: MotoBug
+      value: 
+      objectReference: {fileID: 6953173085287345868, guid: dc195bab46ec9c842a26575137321300,
+        type: 3}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: FunRing
+      value: 
+      objectReference: {fileID: 7118938233733720358, guid: b9b3b4cce9cae62478217bfa82677cf2,
+        type: 3}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: OneUp
+      value: 
+      objectReference: {fileID: 8599643739715303563, guid: aff0481dbff77a847b05ca7729b3e8da,
+        type: 3}
     - target: {fileID: 5761383573282986781, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: m_LocalPosition.y

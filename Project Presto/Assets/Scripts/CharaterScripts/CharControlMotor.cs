@@ -643,7 +643,7 @@ public class CharControlMotor : PlayerMotor
  {
 	 if (DebugOn)
 	 {
-     GUI.Label(new Rect(500, 0, 100, 1000), "Simpe Dimple Debug System v1.4");
+     GUI.Label(new Rect(500, 0, 100, 1000), "Simpe Dimple Debug System v1.5");
      GUI.Label(new Rect(500, 100, 100, 1000), "Object Value: " + ObjectId.ToString());
 	 
 	 GUI.Label(new Rect(500, 150, 100, 1000), "Controls");
