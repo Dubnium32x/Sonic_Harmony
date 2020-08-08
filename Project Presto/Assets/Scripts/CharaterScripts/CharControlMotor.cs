@@ -138,11 +138,11 @@ public class CharControlMotor : PlayerMotor
         ClampVelocity();
         ClampToStageBounds();
 		
-		if (Input.GetKey(KeyCode.Keypad1))
+		if (Input.GetKey(KeyCode.Keypad0))
 		{
 			state.ChangeState<DebugState>();
 		}
-		if (Input.GetKey(KeyCode.Keypad0))
+		if (Input.GetKey(KeyCode.Keypad2))
 		{
 			state.ChangeState<WalkPlayerState>();
 		}
