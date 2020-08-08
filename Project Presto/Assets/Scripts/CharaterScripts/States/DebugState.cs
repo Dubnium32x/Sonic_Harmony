@@ -134,13 +134,13 @@ public class DebugState : PlayerState
  {
 	 if (DebugOn)
 	 {
-     GUI.Label(new Rect(1800, 100, 100, 1000), "Object Value: " + ObjectId.ToString());
+     GUI.Label(new Rect(500, 100, 100, 1000), "Object Value: " + ObjectId.ToString());
 	 
-	 GUI.Label(new Rect(1800, 150, 100, 1000), "Controls");
-	 GUI.Label(new Rect(1800, 200, 100, 1000), "Keypad2: Leave Debug Mode");
-	 GUI.Label(new Rect(1800, 250, 100, 1000), "Keypad4: scroll through Object Id negative");
-	 GUI.Label(new Rect(1800, 300, 100, 1000), "Keypad6: scroll through Object Id positive");
-	 GUI.Label(new Rect(1800, 350, 100, 1000), "Keypad5: Place Object");
+	 GUI.Label(new Rect(500, 150, 100, 1000), "Controls");
+	 GUI.Label(new Rect(500, 200, 100, 1000), "Keypad2: Leave Debug Mode");
+	 GUI.Label(new Rect(500, 250, 100, 1000), "Keypad4: scroll through Object Id negative");
+	 GUI.Label(new Rect(500, 300, 100, 1000), "Keypad6: scroll through Object Id positive");
+	 GUI.Label(new Rect(500, 350, 100, 1000), "Keypad5: Place Object");
 	 }
 	
  }
