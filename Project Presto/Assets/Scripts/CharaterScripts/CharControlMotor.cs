@@ -15,6 +15,7 @@ public class CharControlMotor : PlayerMotor
     public bool CanIdle = true;
     //new variables :
 
+	
     public float minSpeed = 0.05f;
     private float spinSpeed = 0;
     private float time;
@@ -23,6 +24,7 @@ public class CharControlMotor : PlayerMotor
     public float airAccelModifier = 0.9f;
     public float turnAroundSpeed = 50;
     //other conditions
+	private bool DebugOn;
     private bool lifeCheck = true;
     private Animator anim;
     private bool flipX;
@@ -44,7 +46,7 @@ public class CharControlMotor : PlayerMotor
     private Vector3 ScaleValue = new Vector3(10, 10, 0);
 
     private AudioSource musicSource;
-
+	public int ObjectId;
     private bool MusicEnabled = false;
 
     public bool GotHurtCheck;
@@ -88,7 +90,24 @@ public class CharControlMotor : PlayerMotor
     public PlayerSkin skin;
 	public GameObject PlayerObject;
 	public Transform spriteSkin;
-
+	
+	[Header("Objects Needing testing")]
+	public List<GameObject> InteractableObjects = new List<GameObject>();
+	public GameObject RedSpring;
+	public GameObject YellowSpring;
+	public GameObject Spikes;
+	public GameObject Ring;
+	public GameObject RingMonitor;
+	public GameObject ShieldMonitor;
+	public GameObject SpeedMonitor;
+	public GameObject InvinciMonitor;
+	public GameObject Checkpoint;
+	public GameObject MovingPlatform;
+	public GameObject FallingPlatform;
+	public GameObject MotoBug;
+	public GameObject FunRing;
+	public GameObject OneUp;
+	
     public PlayerShields shield;
     public CharStateMachine state;
 
@@ -141,11 +160,14 @@ public class CharControlMotor : PlayerMotor
 		if (Input.GetKey(KeyCode.Keypad0))
 		{
 			state.ChangeState<DebugState>();
+			DebugOn = true;
 		}
 		if (Input.GetKey(KeyCode.Keypad2))
 		{
 			state.ChangeState<WalkPlayerState>();
+			DebugOn = false;
 		}
+		
     }
 
     protected override void OnMotorLateUpdate()
@@ -174,8 +196,38 @@ public class CharControlMotor : PlayerMotor
         InitializeStateMachine();
         InitializeSkin();
         InitializeLostRingPool();
+		
+		InteractableObjects.Add(RedSpring);
+		InteractableObjects.Add(YellowSpring);
+		InteractableObjects.Add(Spikes);
+		InteractableObjects.Add(Ring);
+		InteractableObjects.Add(RingMonitor);
+		InteractableObjects.Add(ShieldMonitor);
+		InteractableObjects.Add(SpeedMonitor);
+		InteractableObjects.Add(InvinciMonitor);
+		InteractableObjects.Add(Checkpoint);
+		InteractableObjects.Add(MovingPlatform);
+		InteractableObjects.Add(FallingPlatform);
+		InteractableObjects.Add(MotoBug);
+		InteractableObjects.Add(FunRing);
+		InteractableObjects.Add(OneUp);
     }
-
+	public void HandleDebug()
+	{
+		
+		if (Input.GetKeyDown(KeyCode.Keypad6))
+			{
+				ObjectId = ObjectId + 1;
+			}
+			if (Input.GetKeyDown(KeyCode.Keypad4))
+			{
+				ObjectId = Mathf.Abs(ObjectId - 1);
+			}
+			if (Input.GetKeyDown(KeyCode.Keypad5))
+			{				
+				 Instantiate(InteractableObjects[ObjectId], PlayerObject.transform.position, Quaternion.identity);
+			}
+	}
     private void InitializeLostRingPool()
     {
         for (var i = 0; i < stats.maxLostRingCount; i++)
@@ -587,4 +639,19 @@ public class CharControlMotor : PlayerMotor
 
         position = nextPosition;
     }
+	  void OnGUI() 
+ {
+	 if (DebugOn)
+	 {
+     GUI.Label(new Rect(500, 0, 100, 1000), "Simpe Dimple Debug System v1.4");
+     GUI.Label(new Rect(500, 100, 100, 1000), "Object Value: " + ObjectId.ToString());
+	 
+	 GUI.Label(new Rect(500, 150, 100, 1000), "Controls");
+	 GUI.Label(new Rect(500, 200, 100, 1000), "Keypad2: Leave Debug Mode");
+	 GUI.Label(new Rect(500, 250, 100, 1000), "Keypad4: scroll through Object Id negative");
+	 GUI.Label(new Rect(500, 300, 100, 1000), "Keypad6: scroll through Object Id positive");
+	 GUI.Label(new Rect(500, 350, 100, 1000), "Keypad5: Place Object");
+	 }
+	
+ }
 }
