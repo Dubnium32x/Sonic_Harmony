@@ -28522,6 +28522,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -8577423528246303672, guid: f3a88af8da04ec44a8f0ba8b40f38d1c,
         type: 2}
+    - target: {fileID: 8799511118015812054, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 80c8d292e641d4843b2fb823997831ca, type: 3}
     - target: {fileID: 120710815119150689, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -28774,6 +28779,11 @@ PrefabInstance:
       propertyPath: spindash_charge
       value: 
       objectReference: {fileID: 8300000, guid: 2a7c0206f62ba1042b6d72b9d97d269e, type: 3}
+    - target: {fileID: 8799511118015812055, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: jump
+      value: 
+      objectReference: {fileID: 8300000, guid: 80c8d292e641d4843b2fb823997831ca, type: 3}
     - target: {fileID: 7585795263523788880, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: YellowSpring
