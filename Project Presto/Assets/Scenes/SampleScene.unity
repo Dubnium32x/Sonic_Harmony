@@ -1152,6 +1152,12 @@ Transform:
   m_Father: {fileID: 844118539}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &119559323 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3219455330484017725, guid: 6e10bf87d0de9b946aa3d99ea2e05f2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1526148210}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &158449009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18879,12 +18885,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1674869937 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7235758662932757817, guid: a174a9cd4f21b6f4a8a911c479cd3782,
-    type: 3}
-  m_PrefabInstance: {fileID: 1744190280}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1682759917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27936,7 +27936,8 @@ PrefabInstance:
         type: 3}
       propertyPath: Checkpoint
       value: 
-      objectReference: {fileID: 1674869937}
+      objectReference: {fileID: 7235758662932757817, guid: a174a9cd4f21b6f4a8a911c479cd3782,
+        type: 3}
     - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: MovingPlatform
@@ -27946,8 +27947,7 @@ PrefabInstance:
         type: 3}
       propertyPath: FallingPlatform
       value: 
-      objectReference: {fileID: 3219455330484017725, guid: 6e10bf87d0de9b946aa3d99ea2e05f2f,
-        type: 3}
+      objectReference: {fileID: 119559323}
     - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: MotoBug
