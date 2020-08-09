@@ -75,6 +75,10 @@ public class WalkPlayerState : PlayerState
             {
                 player.state.ChangeState<PushPlayerState>();
             }
+            //else if(player.HandleIdle())
+            //{
+           //     player.state.ChangeState<ImpatientState>();
+            //}
         }
     }
 }

@@ -16,10 +16,10 @@ public class ButtonCode : MonoBehaviour
     {
         
     }
-
-    void OnMouseUp()
+    
+    public void RunButton()
     {
-        System.Enum.TryParse<MainMenuCode.MainMenu>(this.name, true, out var myEnum);
+        System.Enum.TryParse<MainMenuCode.MainMenu>(gameObject.name, true, out var myEnum);
         mainMenu.ExecuteMenuOption(myEnum);
     }
 }

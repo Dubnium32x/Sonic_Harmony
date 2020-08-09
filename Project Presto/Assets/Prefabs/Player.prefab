@@ -4896,6 +4896,7 @@ GameObject:
   - component: {fileID: 4818233268113537086}
   - component: {fileID: 7585795263523788880}
   - component: {fileID: 7484859397679364067}
+  - component: {fileID: 5514914855381842634}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5057,6 +5058,7 @@ MonoBehaviour:
   turnAroundSpeed: 50
   jumped: 0
   jumpSource: {fileID: 8799511118015812054}
+  Impatient: 0
   lookingUp: 0
   lookingDown: 0
   speedvar: 0
@@ -5297,7 +5299,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animationID: 6
-  Mover: {fileID: 8799511117732796167}
+  RedSpring: {fileID: 0}
+  YellowSpring: {fileID: 0}
+  Spikes: {fileID: 0}
+  Ring: {fileID: 0}
+  RingMonitor: {fileID: 0}
+  ShieldMonitor: {fileID: 0}
+  SpeedMonitor: {fileID: 0}
+  InvinciMonitor: {fileID: 0}
+  Checkpoint: {fileID: 0}
+  MovingPlatform: {fileID: 0}
+  FallingPlatform: {fileID: 0}
+  MotoBug: {fileID: 0}
+  FunSonic: {fileID: 0}
+  FunRing: {fileID: 0}
+  OneUp: {fileID: 0}
 --- !u!114 &7484859397679364067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5314,6 +5330,19 @@ MonoBehaviour:
   root: {fileID: 2563537967400802839}
   skin: {fileID: 8799511116144499498}
   skinRenederer: {fileID: 8799511116144499496}
+--- !u!114 &5514914855381842634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799511117732796162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee4f5c08bb89468d89c44b3f316010df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationID: 17
 --- !u!1 &8799511118015812049
 GameObject:
   m_ObjectHideFlags: 0

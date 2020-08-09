@@ -33,7 +33,7 @@ public class CharControlMotor : PlayerMotor
     public AudioSource jumpSource;
     private float jumpFrames = 0.25f;
     private float jumpFramesPassed;
-
+    public bool Impatient;
     public bool lookingUp = false;
 
     public bool lookingDown = false;
@@ -53,6 +53,10 @@ public class CharControlMotor : PlayerMotor
     private bool turnAround;
     public bool Death;
     public bool RingGotB;
+    //idle time
+    private float waitTime = 2.0f;
+    private float timer = 0.0f;
+    
     public enum SonicState
     {
         Normal = 0,
@@ -71,7 +75,8 @@ public class CharControlMotor : PlayerMotor
         ChargingSpin = 13,
         LedgeGrabFront = 14,
         LedgeGrabBack = 15,
-        Push = 16
+        Push = 16,
+        Impatient = 17
     };
     //public enum SonicState { ChargingSpin, Damaged, Dead, Brake, Jump, Rolling, LookUp, Crouch, Spring, Walk };
 
@@ -470,6 +475,25 @@ public class CharControlMotor : PlayerMotor
 
         input.LockHorizontalControl(stats.controlLockTime);
     }
+
+    public bool HandleIdle()
+    {
+        if(!this.grounded) return false;
+        if(this.velocity.x > 0) return false;
+        if(this.velocity.y > 0) return false;
+        timer += Time.deltaTime;
+
+        // Check if we have reached beyond 2 seconds.
+        // Subtracting two is more accurate over time than resetting to zero.
+        if (timer > waitTime)
+        {
+            timer -= waitTime;
+            return true;
+            // Remove the recorded 2 seconds.
+        }
+
+        return false;
+    }
     public void PlayAudio(AudioClip clip, float volume = 1f)
     {
         jumpSource.Stop();
@@ -557,7 +581,7 @@ public class CharControlMotor : PlayerMotor
         skin.animator.SetFloat("Speed", Mathf.Abs(velocity.x));
         skin.animator.SetBool("OnGround", grounded);
         skin.animator.SetBool("Jump", jumped);
-        //anim.SetBool("Impatient", Impatient); - State not set up yet
+        anim.SetBool("Impatient", Impatient); // - State not set up yet
         skin.animator.SetBool("Gothurt", GotHurtCheck);
         skin.animator.SetBool("Death", Death);
         skin.animator.SetBool("LookUp", lookingUp);
@@ -572,6 +596,8 @@ public class CharControlMotor : PlayerMotor
 
         skin.animator.SetFloat("AnimSpeedMultiplier", animSpeed);
     }
+
+    
 
     private void UpdateSkinTransform()
     {
