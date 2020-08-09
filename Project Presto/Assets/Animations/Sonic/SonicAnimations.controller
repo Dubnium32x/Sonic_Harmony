@@ -479,6 +479,31 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!1101 &-7196225878440393565
+AnimatorStateTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 6
+    m_ConditionEvent: SonicState
+    m_EventTreshold: 4
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 5166194264723344482}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 3
+  m_TransitionDuration: 0
+  m_TransitionOffset: 0
+  m_ExitTime: 0.75409836
+  m_HasExitTime: 0
+  m_HasFixedDuration: 0
+  m_InterruptionSource: 0
+  m_OrderedInterruption: 1
+  m_CanTransitionToSelf: 1
 --- !u!1101 &-7189301675283316743
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
@@ -1205,6 +1230,7 @@ AnimatorState:
   - {fileID: -1489900765707760101}
   - {fileID: -8082608851403940955}
   - {fileID: 6427396420051885001}
+  - {fileID: -7196225878440393565}
   m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
@@ -1575,12 +1601,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Jump
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: OnGround
-    m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: SonicState
     m_EventTreshold: 4
@@ -1750,12 +1770,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: OnGround
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: LookDown
-    m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: SonicState
     m_EventTreshold: 1
@@ -2844,12 +2858,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Impatient
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: OnGround
-    m_EventTreshold: 0
+  - m_ConditionMode: 6
+    m_ConditionEvent: SonicState
+    m_EventTreshold: 17
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4266077108665210269}
   m_Solo: 0
@@ -3573,9 +3584,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Death
-    m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: SonicState
     m_EventTreshold: 2
@@ -4848,12 +4856,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: OnGround
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: LookUp
-    m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: SonicState
     m_EventTreshold: 5
@@ -4879,11 +4881,8 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Jump
-    m_EventTreshold: 0
-  - m_ConditionMode: 2
-    m_ConditionEvent: OnGround
+  - m_ConditionMode: 6
+    m_ConditionEvent: SonicState
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7544699488788950243}
@@ -5267,9 +5266,6 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 1
-    m_ConditionEvent: Gothurt
-    m_EventTreshold: 0
   - m_ConditionMode: 6
     m_ConditionEvent: SonicState
     m_EventTreshold: 3
@@ -5322,7 +5318,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: SonicState
-    m_EventTreshold: 0
+    m_EventTreshold: 17
   - m_ConditionMode: 1
     m_ConditionEvent: Impatient
     m_EventTreshold: 0
