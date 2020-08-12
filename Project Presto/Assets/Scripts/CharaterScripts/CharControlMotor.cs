@@ -47,6 +47,7 @@ public class CharControlMotor : PlayerMotor
 
     private AudioSource musicSource;
 	public int ObjectId;
+	public float ObjectScale;
     private bool MusicEnabled = false;
 
     public bool GotHurtCheck;
@@ -98,20 +99,7 @@ public class CharControlMotor : PlayerMotor
 	
 	[Header("Objects Needing testing")]
 	public List<GameObject> InteractableObjects = new List<GameObject>();
-	public GameObject RedSpring;
-	public GameObject YellowSpring;
-	public GameObject Spikes;
-	public GameObject Ring;
-	public GameObject RingMonitor;
-	public GameObject ShieldMonitor;
-	public GameObject SpeedMonitor;
-	public GameObject InvinciMonitor;
-	public GameObject Checkpoint;
-	public GameObject MovingPlatform;
-	public GameObject FallingPlatform;
-	public GameObject MotoBug;
-	public GameObject FunRing;
-	public GameObject OneUp;
+
 	
     public PlayerShields shield;
     public CharStateMachine state;
@@ -143,7 +131,20 @@ public class CharControlMotor : PlayerMotor
 
         //for some reason this endlessly spawns rings
         //InitializeLostRingPool();
-		
+				if (Input.GetKey(KeyCode.Keypad0))
+		{
+			state.ChangeState<DebugState>();
+			DebugOn = true;
+		}
+		if (Input.GetKey(KeyCode.KeypadPeriod))
+		{
+			state.ChangeState<WalkPlayerState>();
+			DebugOn = false;
+		}
+		if (DebugOn == true)
+		{
+			HandleDebug();
+		}
     }
     protected override void OnMotorFixedUpdate(float deltaTime)
     {
@@ -162,17 +163,7 @@ public class CharControlMotor : PlayerMotor
         ClampVelocity();
         ClampToStageBounds();
 		
-		if (Input.GetKey(KeyCode.Keypad0))
-		{
-			state.ChangeState<DebugState>();
-			DebugOn = true;
-		}
-		if (Input.GetKey(KeyCode.Keypad2))
-		{
-			state.ChangeState<WalkPlayerState>();
-			DebugOn = false;
-		}
-		
+
     }
 
     protected override void OnMotorLateUpdate()
@@ -202,20 +193,7 @@ public class CharControlMotor : PlayerMotor
         InitializeSkin();
         InitializeLostRingPool();
 		
-		InteractableObjects.Add(RedSpring);
-		InteractableObjects.Add(YellowSpring);
-		InteractableObjects.Add(Spikes);
-		InteractableObjects.Add(Ring);
-		InteractableObjects.Add(RingMonitor);
-		InteractableObjects.Add(ShieldMonitor);
-		InteractableObjects.Add(SpeedMonitor);
-		InteractableObjects.Add(InvinciMonitor);
-		InteractableObjects.Add(Checkpoint);
-		InteractableObjects.Add(MovingPlatform);
-		InteractableObjects.Add(FallingPlatform);
-		InteractableObjects.Add(MotoBug);
-		InteractableObjects.Add(FunRing);
-		InteractableObjects.Add(OneUp);
+		
     }
 	public void HandleDebug()
 	{
@@ -228,9 +206,30 @@ public class CharControlMotor : PlayerMotor
 			{
 				ObjectId = Mathf.Abs(ObjectId - 1);
 			}
+			if (Input.GetKey(KeyCode.Keypad1))
+			{
+				ObjectScale -= 0.1f;
+			}
+			if (Input.GetKey(KeyCode.Keypad3))
+			{
+				ObjectScale += 0.1f;
+			}
+			if (Input.GetKey(KeyCode.Keypad2))
+			{
+				ObjectScale = 0;
+			}
 			if (Input.GetKeyDown(KeyCode.Keypad5))
 			{				
-				 Instantiate(InteractableObjects[ObjectId], PlayerObject.transform.position, Quaternion.identity);
+				 GameObject LeObject = Instantiate(InteractableObjects[ObjectId], PlayerObject.transform.position, Quaternion.identity);
+				 LeObject.transform.localScale = new Vector3 (ObjectScale, ObjectScale, ObjectScale);
+			}
+			if (ObjectId > InteractableObjects.Count)
+			{
+				ObjectId = InteractableObjects.Count;
+			}
+			if (ObjectId < 0)
+			{
+				ObjectId = 0;
 			}
 	}
     private void InitializeLostRingPool()
@@ -669,14 +668,19 @@ public class CharControlMotor : PlayerMotor
  {
 	 if (DebugOn)
 	 {
-     GUI.Label(new Rect(500, 0, 100, 1000), "Simpe Dimple Debug System v1.5");
-     GUI.Label(new Rect(500, 100, 100, 1000), "Object Value: " + ObjectId.ToString());
+     GUI.Label(new Rect(500, 0, 1000, 1000), "Simpe Dimple Debug System v2");
+     GUI.Label(new Rect(500, 100, 1000, 1000), "Object Value: " + ObjectId.ToString());
+     GUI.Label(new Rect(500, 150, 1000, 1000), "Object Name: " + InteractableObjects[ObjectId].ToString());
+     GUI.Label(new Rect(500, 200, 1000, 1000), "Object Scale: " + ObjectScale.ToString());
 	 
-	 GUI.Label(new Rect(500, 150, 100, 1000), "Controls");
-	 GUI.Label(new Rect(500, 200, 100, 1000), "Keypad2: Leave Debug Mode");
-	 GUI.Label(new Rect(500, 250, 100, 1000), "Keypad4: scroll through Object Id negative");
-	 GUI.Label(new Rect(500, 300, 100, 1000), "Keypad6: scroll through Object Id positive");
-	 GUI.Label(new Rect(500, 350, 100, 1000), "Keypad5: Place Object");
+	 GUI.Label(new Rect(500, 250, 100, 1000), "Controls:");
+	 GUI.Label(new Rect(500, 300, 1000, 1000), "KeypadPeriod: Leave Debug Mode");
+	 GUI.Label(new Rect(500, 350, 1000, 1000), "Keypad4: scroll through Object Id negative");
+	 GUI.Label(new Rect(500, 400, 1000, 1000), "Keypad6: scroll through Object Id positive");
+	 GUI.Label(new Rect(500, 450, 1000, 1000), "Keypad1: Scale down");
+	 GUI.Label(new Rect(500, 500, 1000, 1000), "Keypad3: Scale up");
+	 GUI.Label(new Rect(500, 550, 1000, 1000), "Keypad5: Place Object");
+	 GUI.Label(new Rect(500, 600, 1000, 1000), "Keypad2: Reset Scale");
 	 }
 	
  }

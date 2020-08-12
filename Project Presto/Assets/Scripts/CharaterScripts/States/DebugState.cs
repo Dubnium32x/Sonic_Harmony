@@ -20,7 +20,7 @@ public class DebugState : PlayerState
 			
 
         player.HandleAcceleration(deltaTime);
-		player.HandleDebug();
+		
 			player.velocity = Vector3.zero;
 			
 			if(player.input.right)
