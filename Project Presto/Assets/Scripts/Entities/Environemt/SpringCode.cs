@@ -57,6 +57,7 @@ public class SpringCode : MonoBehaviour
 		if (!TryGetComponent(out audio))
 		{
 			audio = gameObject.AddComponent<AudioSource>();
+			
 		}
 	}
 

@@ -27285,6 +27285,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d016433ba4ec82246980e686d71018a2, type: 2}
+    - target: {fileID: 1262178945700004914, guid: 693eeebaebd4cee4a8dfcf1be6c036b4,
+        type: 3}
+      propertyPath: springSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 81c4c6d3a3d1cab48823b8203a6551a8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 693eeebaebd4cee4a8dfcf1be6c036b4, type: 3}
 --- !u!1001 &1396385428422627698
@@ -27358,11 +27363,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2337403985169689354, guid: 08852117f38d3874a81524df09429a17,
-        type: 3}
-      propertyPath: collectSound
-      value: 
-      objectReference: {fileID: 8300000, guid: ea1c90c2d40fcc54c8aecc3d052fa824, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08852117f38d3874a81524df09429a17, type: 3}
 --- !u!1 &2590988545972956675

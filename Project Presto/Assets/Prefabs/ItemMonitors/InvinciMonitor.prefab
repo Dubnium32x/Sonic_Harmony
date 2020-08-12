@@ -5153,7 +5153,7 @@ MonoBehaviour:
   BrokenBody: {fileID: 297428528150051506}
   item: {fileID: 6980832547820125065}
   explosionParticle: {fileID: 307102028579690453}
-  explosionSound: {fileID: 8300000, guid: 8116e8f9c8950164f85200c499a7fc65, type: 3}
+  explosionSound: {fileID: 8300000, guid: ec3a373fdc3e65a4d909bd87e9049252, type: 3}
   collectSound: {fileID: 8300000, guid: 4a67f0b4863b1b740990e04a0efd8c44, type: 3}
   collectSoundVolume: 0
   TimeUntilMusicStartsAgain: 0

@@ -175,7 +175,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   force: 50
   mesh: {fileID: 5257832531581989457}
-  springSound: {fileID: 8300000, guid: 8c15fc49538f861418e5308362fbce16, type: 3}
+  springSound: {fileID: 8300000, guid: 81c4c6d3a3d1cab48823b8203a6551a8, type: 3}
   snapPositionX: 0
   snapPositionY: 0
   lockControl: 0

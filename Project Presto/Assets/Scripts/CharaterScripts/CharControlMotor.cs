@@ -13,6 +13,8 @@ public class CharControlMotor : PlayerMotor
 
 
     public bool CanIdle = true;
+	//Styles
+	public GUIStyle DyersColors;
     //new variables :
 
 	
@@ -48,6 +50,7 @@ public class CharControlMotor : PlayerMotor
     private AudioSource musicSource;
 	public int ObjectId;
 	public float ObjectScale;
+	public float ObjectRotation;
     private bool MusicEnabled = false;
 
     public bool GotHurtCheck;
@@ -145,6 +148,7 @@ public class CharControlMotor : PlayerMotor
 		{
 			HandleDebug();
 		}
+		DyersColors.normal.textColor = Color.Lerp(Color.red, Color.green, Mathf.PingPong(Time.time, 1));
     }
     protected override void OnMotorFixedUpdate(float deltaTime)
     {
@@ -216,11 +220,24 @@ public class CharControlMotor : PlayerMotor
 			}
 			if (Input.GetKey(KeyCode.Keypad2))
 			{
-				ObjectScale = 0;
+				ObjectScale = 1;
+			}
+			
+			if (Input.GetKey(KeyCode.Keypad7))
+			{
+				ObjectRotation -= 1f;
+			}
+			if (Input.GetKey(KeyCode.Keypad9))
+			{
+				ObjectRotation += 1f;
+			}
+			if (Input.GetKey(KeyCode.Keypad8))
+			{
+				ObjectRotation = 0;
 			}
 			if (Input.GetKeyDown(KeyCode.Keypad5))
-			{				
-				 GameObject LeObject = Instantiate(InteractableObjects[ObjectId], PlayerObject.transform.position, Quaternion.identity);
+			{				Quaternion StandIn = InteractableObjects[ObjectId].transform.rotation;
+				 GameObject LeObject = Instantiate(InteractableObjects[ObjectId], PlayerObject.transform.position, Quaternion.Euler (StandIn.x, StandIn.y , ObjectRotation));
 				 LeObject.transform.localScale = new Vector3 (ObjectScale, ObjectScale, ObjectScale);
 			}
 			if (ObjectId > InteractableObjects.Count)
@@ -668,19 +685,24 @@ public class CharControlMotor : PlayerMotor
  {
 	 if (DebugOn)
 	 {
-     GUI.Label(new Rect(500, 0, 1000, 1000), "Simpe Dimple Debug System v2");
+		 
+     GUI.Label(new Rect(500, 0, 1000, 1000), "Simpe Dimple Debug System v2.5", DyersColors);
      GUI.Label(new Rect(500, 100, 1000, 1000), "Object Value: " + ObjectId.ToString());
-     GUI.Label(new Rect(500, 150, 1000, 1000), "Object Name: " + InteractableObjects[ObjectId].ToString());
-     GUI.Label(new Rect(500, 200, 1000, 1000), "Object Scale: " + ObjectScale.ToString());
+     GUI.Label(new Rect(500, 120, 1000, 1000), "Object Name: " + InteractableObjects[ObjectId].ToString());
+     GUI.Label(new Rect(500, 140, 1000, 1000), "Object Scale: " + ObjectScale.ToString());
+     GUI.Label(new Rect(500, 160, 1000, 1000), "Object Rotation: " + ObjectRotation.ToString());
 	 
-	 GUI.Label(new Rect(500, 250, 100, 1000), "Controls:");
-	 GUI.Label(new Rect(500, 300, 1000, 1000), "KeypadPeriod: Leave Debug Mode");
-	 GUI.Label(new Rect(500, 350, 1000, 1000), "Keypad4: scroll through Object Id negative");
-	 GUI.Label(new Rect(500, 400, 1000, 1000), "Keypad6: scroll through Object Id positive");
-	 GUI.Label(new Rect(500, 450, 1000, 1000), "Keypad1: Scale down");
-	 GUI.Label(new Rect(500, 500, 1000, 1000), "Keypad3: Scale up");
-	 GUI.Label(new Rect(500, 550, 1000, 1000), "Keypad5: Place Object");
-	 GUI.Label(new Rect(500, 600, 1000, 1000), "Keypad2: Reset Scale");
+	 GUI.Label(new Rect(500, 200, 100, 1000), "Controls:");
+	 GUI.Label(new Rect(500, 240, 1000, 1000), "KeypadPeriod: Leave Debug Mode");
+	 GUI.Label(new Rect(500, 260, 1000, 1000), "Keypad4: scroll through Object Id negative");
+	 GUI.Label(new Rect(500, 280, 1000, 1000), "Keypad6: scroll through Object Id positive");
+	 GUI.Label(new Rect(500, 320, 1000, 1000), "Keypad1: Scale down");
+	 GUI.Label(new Rect(500, 340, 1000, 1000), "Keypad3: Scale up");
+	 GUI.Label(new Rect(500, 360, 1000, 1000), "Keypad2: Reset Scale");
+	 GUI.Label(new Rect(500, 400, 1000, 1000), "Keypad7: Rotate Left");
+	 GUI.Label(new Rect(500, 420, 1000, 1000), "Keypad9: Rotate Right");
+	 GUI.Label(new Rect(500, 440, 1000, 1000), "Keypad8: Reset Rotation");
+	 GUI.Label(new Rect(500, 480, 1000, 1000), "Keypad5: Place Object");
 	 }
 	
  }
