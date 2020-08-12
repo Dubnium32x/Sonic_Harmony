@@ -27,6 +27,7 @@ public class CharControlMotor : PlayerMotor
     public float turnAroundSpeed = 50;
     //other conditions
 	private bool DebugOn;
+	private bool DebugFlyOn;
     private bool lifeCheck = true;
     private Animator anim;
     private bool flipX;
@@ -134,20 +135,46 @@ public class CharControlMotor : PlayerMotor
 
         //for some reason this endlessly spawns rings
         //InitializeLostRingPool();
-				if (Input.GetKey(KeyCode.Keypad0))
-		{
-			state.ChangeState<DebugState>();
+		
+		if (Input.GetKey(KeyCode.Keypad0)/* && CheatCodeActivated == true */)
+		{			
 			DebugOn = true;
 		}
-		if (Input.GetKey(KeyCode.KeypadPeriod))
+		
+		if (Input.GetKey(KeyCode.KeypadDivide) && DebugOn == true)
+		{
+			state.ChangeState<DebugState>();
+			DebugFlyOn = true;
+		}
+		//turns on walk mode
+		if (Input.GetKey(KeyCode.KeypadMultiply))
+		{
+			state.ChangeState<WalkPlayerState>();
+			DebugOn = true;
+			DebugFlyOn = false;
+		}
+		
+		//Turns off debug mode entirely
+		if (Input.GetKey(KeyCode.KeypadPeriod) && DebugOn == true)
 		{
 			state.ChangeState<WalkPlayerState>();
 			DebugOn = false;
+			DebugFlyOn = false;
 		}
+		
+		//activates on-ground debug mode
 		if (DebugOn == true)
 		{
-			HandleDebug();
+			DebugModeState();
 		}
+		
+		//activates in-air debug mode
+		if (DebugFlyOn == true)
+		{
+			DebugFly();
+		}
+		
+		//makes my text look cool
 		DyersColors.normal.textColor = Color.Lerp(Color.red, Color.green, Mathf.PingPong(Time.time, 1));
     }
     protected override void OnMotorFixedUpdate(float deltaTime)
@@ -199,7 +226,20 @@ public class CharControlMotor : PlayerMotor
 		
 		
     }
-	public void HandleDebug()
+	//Debug mode while on ground
+	public void DebugModeState()
+	{
+		if (Input.GetKey(KeyCode.KeypadPlus))
+			{
+				Time.timeScale += 0.005f;
+			}
+			if (Input.GetKey(KeyCode.KeypadMinus))
+			{	
+				Time.timeScale -= 0.005f;
+			}
+	}
+	//Debug mode while in air
+	public void DebugFly()
 	{
 		
 		if (Input.GetKeyDown(KeyCode.Keypad6))
@@ -235,6 +275,7 @@ public class CharControlMotor : PlayerMotor
 			{
 				ObjectRotation = 0;
 			}
+			
 			if (Input.GetKeyDown(KeyCode.Keypad5))
 			{				Quaternion StandIn = InteractableObjects[ObjectId].transform.rotation;
 				 GameObject LeObject = Instantiate(InteractableObjects[ObjectId], PlayerObject.transform.position, Quaternion.Euler (StandIn.x, StandIn.y , ObjectRotation));
@@ -683,10 +724,10 @@ public class CharControlMotor : PlayerMotor
     }
 	  void OnGUI() 
  {
-	 if (DebugOn)
+	 if (DebugFlyOn)
 	 {
 		 
-     GUI.Label(new Rect(500, 0, 1000, 1000), "Simpe Dimple Debug System v2.5", DyersColors);
+     GUI.Label(new Rect(500, 50, 1000, 1000), "Simpe Dimple Debug System v3", DyersColors);
      GUI.Label(new Rect(500, 100, 1000, 1000), "Object Value: " + ObjectId.ToString());
      GUI.Label(new Rect(500, 120, 1000, 1000), "Object Name: " + InteractableObjects[ObjectId].ToString());
      GUI.Label(new Rect(500, 140, 1000, 1000), "Object Scale: " + ObjectScale.ToString());
@@ -703,7 +744,14 @@ public class CharControlMotor : PlayerMotor
 	 GUI.Label(new Rect(500, 420, 1000, 1000), "Keypad9: Rotate Right");
 	 GUI.Label(new Rect(500, 440, 1000, 1000), "Keypad8: Reset Rotation");
 	 GUI.Label(new Rect(500, 480, 1000, 1000), "Keypad5: Place Object");
+	 GUI.Label(new Rect(500, 500, 1000, 1000), "TimeScale: " + Time.timeScale.ToString());
+
 	 }
+	if (DebugOn && !DebugFlyOn)
+	{
+	GUI.Label(new Rect(500, 50, 1000, 1000), "Simpe Dimple Debug System v3", DyersColors);
+	GUI.Label(new Rect(500, 100, 1000, 1000), "TimeScale: " + Time.timeScale.ToString());
 	
+	}
  }
 }
