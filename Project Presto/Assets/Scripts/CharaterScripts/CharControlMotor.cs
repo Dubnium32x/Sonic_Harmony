@@ -135,17 +135,17 @@ public class CharControlMotor : PlayerMotor
 
         //for some reason this endlessly spawns rings
         //InitializeLostRingPool();
-		
-		if (Input.GetKey(KeyCode.Keypad0)/* && CheatCodeActivated == true */)
-		{			
-			DebugOn = true;
-		}
-		
-		if (Input.GetKey(KeyCode.KeypadDivide) && DebugOn == true)
-		{
-			state.ChangeState<DebugState>();
-			DebugFlyOn = true;
-		}
+
+        if (Input.GetKey(KeyCode.Keypad0) /* && CheatCodeActivated == true */)
+        {
+	        DebugOn = true;
+        }
+
+        if (Input.GetKey(KeyCode.KeypadDivide) && DebugOn == true)
+        {
+	        state.ChangeState<DebugState>();
+	        DebugFlyOn = true;
+        }
 		//turns on walk mode
 		if (Input.GetKey(KeyCode.KeypadMultiply))
 		{
