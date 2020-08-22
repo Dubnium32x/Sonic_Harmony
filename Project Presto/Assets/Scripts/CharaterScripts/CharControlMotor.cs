@@ -28,6 +28,7 @@ public class CharControlMotor : PlayerMotor
     //other conditions
 	private bool DebugOn;
 	private bool DebugFlyOn;
+	bool IsOnSpring;
     private bool lifeCheck = true;
     private Animator anim;
     private bool flipX;
@@ -103,7 +104,7 @@ public class CharControlMotor : PlayerMotor
 	
 	[Header("Objects Needing testing")]
 	public List<GameObject> InteractableObjects = new List<GameObject>();
-
+	
 	
     public PlayerShields shield;
     public CharStateMachine state;
@@ -122,7 +123,7 @@ public class CharControlMotor : PlayerMotor
     public bool disableSkinRotation;
     public bool disableCameraFollow;
 
-	
+int i;
     protected override void OnMotorUpdate()
     {
         // To whoever put this in the update method:
@@ -136,6 +137,7 @@ public class CharControlMotor : PlayerMotor
         //for some reason this endlessly spawns rings
         //InitializeLostRingPool();
 
+		SpringCheck();
         if (Input.GetKey(KeyCode.Keypad0) /* && CheatCodeActivated == true */)
         {
 	        DebugOn = true;
@@ -176,6 +178,16 @@ public class CharControlMotor : PlayerMotor
 		
 		//makes my text look cool
 		DyersColors.normal.textColor = Color.Lerp(Color.red, Color.green, Mathf.PingPong(Time.time, 1));
+		
+		//Fixes debug, I'm truly sorry ☺ ~birb64
+		
+		
+		i++;
+		InteractableObjects.Add(InteractableObjects[i]);
+		
+		
+		
+			
     }
     protected override void OnMotorFixedUpdate(float deltaTime)
     {
@@ -205,6 +217,8 @@ public class CharControlMotor : PlayerMotor
 
     protected override void OnMotorStart()
     {
+		
+		
         musicSource = GetComponent<AudioSource>();
         characterController = GetComponent<CharControlMotor>();
         time = 0;
@@ -226,6 +240,15 @@ public class CharControlMotor : PlayerMotor
 		
 		
     }
+	public void SpringCheck()
+	{
+		RaycastHit hit;
+			Physics.Raycast(PlayerObject.transform.position, transform.TransformDirection(-Vector3.up), out hit, Mathf.Infinity);
+			
+			if(hit.collider.gameObject.tag == "Spring") {IsOnSpring = true;}
+			if(hit.collider.gameObject.tag != "Spring") {IsOnSpring = false;}		
+				
+	}
 	//Debug mode while on ground
 	public void DebugModeState()
 	{
@@ -239,6 +262,7 @@ public class CharControlMotor : PlayerMotor
 			}
 	}
 	//Debug mode while in air
+	
 	public void DebugFly()
 	{
 		
@@ -425,7 +449,7 @@ public class CharControlMotor : PlayerMotor
 
         if (input.right && (velocity.x < realtopspeed))
         {
-            if(grounded)
+            if(grounded && !IsOnSpring)
                 velocity.x += acceleration * deltaTime;
             else
                 velocity.x += stats.airAcceleration * airAccelModifier * deltaTime;
@@ -434,7 +458,7 @@ public class CharControlMotor : PlayerMotor
         }
         else if (input.left && (velocity.x > -realtopspeed))
         {
-            if (grounded)
+            if (grounded && !IsOnSpring)
                 velocity.x -= acceleration * deltaTime;
             else				
                 velocity.x -= stats.airAcceleration * airAccelModifier * deltaTime;
@@ -508,7 +532,7 @@ public class CharControlMotor : PlayerMotor
 
     public void HandleGravity(float deltaTime)
     {
-        if (grounded) return;
+        if (grounded && !IsOnSpring) return;
         var gravity = halfGravity ? (stats.gravity * 0.5f) : stats.gravity;
         velocity.y -= gravity * deltaTime;
     }
@@ -535,7 +559,7 @@ public class CharControlMotor : PlayerMotor
 
     public bool HandleIdle()
     {
-        if(!this.grounded) return false;
+        if(!this.grounded && !this.IsOnSpring) return false;
         if(this.velocity.x > 0) return false;
         if(this.velocity.y > 0) return false;
         timer += Time.deltaTime;
@@ -660,7 +684,7 @@ public class CharControlMotor : PlayerMotor
     {
         var yRotation = 90f - direction * 90f;
         float zRotation;
-        if (grounded && (angle > stats.minAngleToRotate))
+        if (grounded && (angle > stats.minAngleToRotate) && !IsOnSpring)
         {
             zRotation = transform.eulerAngles.z;
         }

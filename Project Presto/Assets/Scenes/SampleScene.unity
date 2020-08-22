@@ -20705,6 +20705,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewYellowSpring
       objectReference: {fileID: 0}
+    - target: {fileID: 2703236411362383320, guid: 6f3ee8ed81609ef46b437ef74721f328,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 1430045616980813771, guid: 6f3ee8ed81609ef46b437ef74721f328,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -27148,6 +27153,11 @@ PrefabInstance:
       propertyPath: springSound
       value: 
       objectReference: {fileID: 8300000, guid: 81c4c6d3a3d1cab48823b8203a6551a8, type: 3}
+    - target: {fileID: 5102875506017889442, guid: 693eeebaebd4cee4a8dfcf1be6c036b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 693eeebaebd4cee4a8dfcf1be6c036b4, type: 3}
 --- !u!1001 &1396385428422627698
@@ -28094,6 +28104,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
+      propertyPath: InteractableObjects.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
       propertyPath: mysettings
       value: 
       objectReference: {fileID: 0}
@@ -28208,6 +28223,12 @@ PrefabInstance:
       propertyPath: OneUp
       value: 
       objectReference: {fileID: 8599643739715303563, guid: aff0481dbff77a847b05ca7729b3e8da,
+        type: 3}
+    - target: {fileID: 8799511117732796161, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: InteractableObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 7235758662932757817, guid: a174a9cd4f21b6f4a8a911c479cd3782,
         type: 3}
     - target: {fileID: 5761383573282986781, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
@@ -28812,6 +28833,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
+      propertyPath: DifferentKeysForJump.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
       propertyPath: chargeSpeed
       value: 2
       objectReference: {fileID: 0}
@@ -28840,6 +28866,16 @@ PrefabInstance:
       propertyPath: chargedash_charge
       value: 
       objectReference: {fileID: 8300000, guid: df316deda47fdb94c87c36e77f242d7f, type: 3}
+    - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: DifferentKeysForJump.Array.data[0]
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8799511117732796415, guid: c3d26187051fc9747a4a40f48264f7e2,
+        type: 3}
+      propertyPath: DifferentKeysForJump.Array.data[1]
+      value: 278
+      objectReference: {fileID: 0}
     - target: {fileID: 8799511116144499497, guid: c3d26187051fc9747a4a40f48264f7e2,
         type: 3}
       propertyPath: m_LocalScale.x

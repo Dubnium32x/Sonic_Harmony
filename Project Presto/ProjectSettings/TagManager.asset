@@ -8,6 +8,7 @@ TagManager:
   - BackwardTrigger
   - MovingPlatform
   - PhysicalObject
+  - Spring
   layers:
   - Default
   - TransparentFX

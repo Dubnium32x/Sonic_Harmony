@@ -17,5 +17,14 @@ public class SpringState : PlayerState
         {
             player.state.ChangeState<WalkPlayerState>();
         }
+		if (player.velocity.x == 0 && !player.grounded)
+        {
+            player.state.ChangeState<SpringState>();
+        }
+		
+		if(player.grounded)
+		{
+			player.state.ChangeState<WalkPlayerState>();
+		}
     }
 }

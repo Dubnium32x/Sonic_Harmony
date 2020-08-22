@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 976478587860574563}
   m_Layer: 8
   m_Name: red spring
-  m_TagString: Untagged
+  m_TagString: Spring
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

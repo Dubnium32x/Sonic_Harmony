@@ -4,11 +4,23 @@ using System.Collections.Generic;
 
 public class JumpPlayerState : PlayerState
 {
-
     public float jumpSlowDownAmount;
-
+	int FixerUpper;
+	public void Update()
+	{
+		
+		if(FixerUpper < DifferentKeysForJump.Count)
+		{
+		FixerUpper++;
+		DifferentKeysForJump.Add(DifferentKeysForJump[FixerUpper]);
+		}
+		
+		
+	
+	}
     public override void Enter(CharControlMotor player)
     {
+		
         player.attacking = true;
         player.jumped = true;
         player.ChangeBounds(1);
@@ -54,7 +66,7 @@ public class JumpPlayerState : PlayerState
 
             if(active)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
+                if (Input.GetKeyDown(DifferentKeysForJump[0]) || Input.GetKeyDown(DifferentKeysForJump[1])) //Add more if needed
                 {
                     player.PlayAudio(player.audios.spindash_charge, 0.5f);
 
@@ -67,7 +79,7 @@ public class JumpPlayerState : PlayerState
                     dashTimer += Time.deltaTime * chargeSpeed;
                     dashSpeed.x = dashTimer;
 
-                    if (Input.GetKeyUp(KeyCode.Space))
+                    if (Input.GetKey(DifferentKeysForJump[0]) || Input.GetKey(DifferentKeysForJump[1]))
                     {
                         codedDashSpeed = dashSpeed;
                         player.PlayAudio(player.audios.peel_launch, 0.5f);
@@ -92,7 +104,7 @@ public class JumpPlayerState : PlayerState
                     }
                 }
             }
-            else if(Input.GetKeyUp(KeyCode.Space) && !charging)
+            else if((Input.GetKeyUp(DifferentKeysForJump[0]) || Input.GetKeyUp(DifferentKeysForJump[1])) && !charging)
             {
                 active = true;
             }
@@ -120,6 +132,8 @@ public class JumpPlayerState : PlayerState
     public Vector3 codedDashSpeed;
     public bool active;
     public bool charging = false;
+	[Header("Different Inputs For Jump DIFJ")]
+	public List<KeyCode> DifferentKeysForJump = new List<KeyCode>();
 
     
 }
